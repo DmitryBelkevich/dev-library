@@ -1,5 +1,7 @@
 package com.hard;
 
+import java.util.Objects;
+
 public class Main {
     public static void main(String[] args) {
         boolean result;
@@ -28,17 +30,20 @@ class Entity {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Entity) {
-            Entity entity = (Entity) obj;
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
 
-            String str2 = entity.getStr();
+        if (!(o instanceof Entity))
+            return false;
 
-            boolean result = str.equals(str2);
+        Entity entity = (Entity) o;
 
-            return result;
-        }
+        return Objects.equals(str, entity.str);
+    }
 
-        return false;
+    @Override
+    public int hashCode() {
+        return Objects.hash(str);
     }
 }
