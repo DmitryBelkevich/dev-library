@@ -14,6 +14,12 @@
 
     <name>${project.artifactId}</name>
 
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>equivalence</module>
+        <module>equals-diff-from-equals-equals</module>
+        <module>creation-objects-in-memory</module>
+    </modules>
 
 </project>

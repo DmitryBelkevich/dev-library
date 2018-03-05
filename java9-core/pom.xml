@@ -18,9 +18,6 @@
 
     <modules>
         <module>lambdas</module>
-        <module>equivalence</module>
-        <module>equals-diff-from-equals-equals</module>
-        <module>creation-objects-in-memory</module>
         <module>class-object</module>
     </modules>
 
