@@ -1,4 +1,4 @@
-package com.hard.ex2_map;
+package com.hard.ex3_map;
 
 import java.util.HashMap;
 import java.util.Map;
