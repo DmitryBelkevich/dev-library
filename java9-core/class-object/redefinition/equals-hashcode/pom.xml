@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>equals</artifactId>
+    <artifactId>equals-hashcode</artifactId>
 
     <name>${project.artifactId}</name>
 
