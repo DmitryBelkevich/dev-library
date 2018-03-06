@@ -1,16 +1,18 @@
-package com.hard;
+package com.hard.ex2_map;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
-        boolean result;
+        Map<Entity, Object> entities = new HashMap<>();
 
-        Entity entity1 = new Entity("Hello World");
-        Entity entity2 = new Entity("Hello World");
+        entities.put(new Entity("Hello World"), new Object());
 
-        result = entity1.equals(entity2);
-        System.out.println(result); // true - все поля объекта равны
+        Object object = entities.get(new Entity("Hello World"));
+
+        System.out.println(object);
     }
 }
 
