@@ -4,6 +4,8 @@ public class Main {
     public static void main(String[] args) {
         new EntityThread();
         new EntityThread();
+
+        System.out.println(Thread.currentThread().getName() + ": Hello World");
     }
 }
 

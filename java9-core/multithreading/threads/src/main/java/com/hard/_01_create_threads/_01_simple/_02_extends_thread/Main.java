@@ -7,6 +7,8 @@ public class Main {
 
         thread1.start();
         thread2.start();
+
+        System.out.println(Thread.currentThread().getName() + ": Hello World");
     }
 }
 

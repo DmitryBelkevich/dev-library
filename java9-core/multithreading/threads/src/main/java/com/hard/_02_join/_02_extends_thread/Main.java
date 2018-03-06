@@ -1,4 +1,4 @@
-package com.hard._01_create_threads._04_treads_array._01_collection._01_implements_runnable;
+package com.hard._02_join._02_extends_thread;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,8 +9,7 @@ public class Main {
 
         final int n = 2;
         for (int i = 0; i < n; i++) {
-            Runnable runnable = new EntityThread();
-            Thread thread = new Thread(runnable);
+            Thread thread = new EntityThread();
 
             threads.add(thread);
         }
@@ -18,11 +17,19 @@ public class Main {
         for (Thread thread : threads)
             thread.start();
 
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
         System.out.println(Thread.currentThread().getName() + ": Hello World");
     }
 }
 
-class EntityThread implements Runnable {
+class EntityThread extends Thread {
     @Override
     public void run() {
         System.out.println(Thread.currentThread().getName() + ": Hello World");

@@ -13,6 +13,8 @@ public class Main {
 
             threads[i].start();
         }
+
+        System.out.println(Thread.currentThread().getName() + ": Hello World");
     }
 }
 

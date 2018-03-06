@@ -15,5 +15,7 @@ public class Main {
                 System.out.println(Thread.currentThread().getName() + ": Hello World");
             }
         }.start();
+
+        System.out.println(Thread.currentThread().getName() + ": Hello World");
     }
 }

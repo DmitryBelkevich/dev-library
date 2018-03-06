@@ -19,5 +19,7 @@ public class Main {
                     }
                 }
         ).start();
+
+        System.out.println(Thread.currentThread().getName() + ": Hello World");
     }
 }

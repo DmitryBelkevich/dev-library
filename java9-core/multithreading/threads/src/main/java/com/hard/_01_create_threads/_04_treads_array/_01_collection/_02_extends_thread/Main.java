@@ -10,11 +10,14 @@ public class Main {
         final int n = 2;
         for (int i = 0; i < n; i++) {
             Thread thread = new EntityThread();
+
             threads.add(thread);
         }
 
         for (Thread thread : threads)
             thread.start();
+
+        System.out.println(Thread.currentThread().getName() + ": Hello World");
     }
 }
 
