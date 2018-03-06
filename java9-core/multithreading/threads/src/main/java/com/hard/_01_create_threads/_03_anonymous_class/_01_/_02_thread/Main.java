@@ -1,4 +1,4 @@
-package com.hard._01_create_threads._03_anonymous_class._02_thread;
+package com.hard._01_create_threads._03_anonymous_class._01_._02_thread;
 
 public class Main {
     public static void main(String[] args) {
