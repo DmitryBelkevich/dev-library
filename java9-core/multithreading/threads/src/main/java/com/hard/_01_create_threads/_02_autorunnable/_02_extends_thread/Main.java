@@ -2,13 +2,13 @@ package com.hard._01_create_threads._02_autorunnable._02_extends_thread;
 
 public class Main {
     public static void main(String[] args) {
-        new Entity();
-        new Entity();
+        new EntityThread();
+        new EntityThread();
     }
 }
 
-class Entity extends Thread {
-    public Entity() {
+class EntityThread extends Thread {
+    public EntityThread() {
         this.start();
     }
 
