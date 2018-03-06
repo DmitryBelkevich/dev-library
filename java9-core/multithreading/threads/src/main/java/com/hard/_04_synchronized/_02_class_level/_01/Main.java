@@ -1,17 +1,15 @@
-package com.hard._04_synchronized._01_object_level._01;
+package com.hard._04_synchronized._02_class_level._01;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class Main {
     public static void main(String[] args) {
-        Entity entity = new Entity();
-
         Collection<Thread> threads = new ArrayList<>();
 
         final int n = 10;
         for (int i = 0; i < n; i++) {
-            Runnable runnable = new EntityThread(entity);
+            Runnable runnable = new EntityThread();
             Thread thread = new Thread(runnable);
 
             threads.add(thread);
@@ -33,7 +31,7 @@ public class Main {
 }
 
 class Entity {
-    public synchronized void execute() {
+    public static synchronized void execute() {
         System.out.println(Thread.currentThread().getName() + ": Hello World");
 
         try {
@@ -45,14 +43,8 @@ class Entity {
 }
 
 class EntityThread implements Runnable {
-    private Entity entity;
-
-    public EntityThread(Entity entity) {
-        this.entity = entity;
-    }
-
     @Override
     public void run() {
-        entity.execute();
+        Entity.execute();
     }
 }

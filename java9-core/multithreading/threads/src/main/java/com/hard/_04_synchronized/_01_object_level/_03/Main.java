@@ -48,7 +48,7 @@ class Entity {
     private Entity2 entity2 = new Entity2();
 
     public void execute() {
-        synchronized (entity2) {	// Блокировка на уровне объекта (3)
+        synchronized (entity2) {
             entity2.execute();
         }
     }

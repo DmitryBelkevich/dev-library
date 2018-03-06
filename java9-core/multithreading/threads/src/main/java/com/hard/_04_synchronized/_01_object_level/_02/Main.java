@@ -34,7 +34,7 @@ public class Main {
 
 class Entity {
     public void execute() {
-        synchronized (this) {	// Блокировка на уровне объекта (2)
+        synchronized (this) {
             System.out.println(Thread.currentThread().getName() + ": Hello World");
 
             try {
