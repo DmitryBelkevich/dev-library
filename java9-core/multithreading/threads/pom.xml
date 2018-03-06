@@ -6,18 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java9-core</artifactId>
+        <artifactId>multithreading</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>multithreading</artifactId>
+    <artifactId>threads</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>threads</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
