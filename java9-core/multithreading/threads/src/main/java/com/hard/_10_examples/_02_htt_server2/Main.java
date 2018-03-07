@@ -3,27 +3,34 @@ package com.hard._10_examples._02_htt_server2;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Collection;
+import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) throws Throwable {
         int port = 8080;
         ServerSocket serverSocket = new ServerSocket(port);
 
+        Collection<ClientThread> clientThreads = new LinkedList<>();
+
         while (true) {
             Socket socket = serverSocket.accept();
             System.err.println("Client accepted");
 
-            new Thread(new SocketProcessor(socket)).start();
+            ClientThread clientThread = new ClientThread(socket);
+            clientThreads.add(clientThread);
+
+            clientThread.start();
         }
     }
 }
 
-class SocketProcessor implements Runnable {
+class ClientThread extends Thread {
     private Socket socket;
     private InputStream inputStream;
     private OutputStream outputStream;
 
-    public SocketProcessor(Socket socket) throws Throwable {
+    public ClientThread(Socket socket) throws Throwable {
         this.socket = socket;
         this.inputStream = socket.getInputStream();
         this.outputStream = socket.getOutputStream();
