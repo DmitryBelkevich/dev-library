@@ -40,7 +40,11 @@ class ClientThread extends Thread {
         try {
             readInputHeaders();
 
-            String responseBody = "<html><body><h1>Hello World</h1></body></html>";
+            String responseBody = "<html>" +
+                    "<body>" +
+                    "<h1>Hello World</h1>" +
+                    "</body>" +
+                    "</html>";
             String responseHeaders =
                     "HTTP/1.1 200 OK" + "\r\n"
                             + "Server: YarServer/2009-09-09" + "\r\n"
