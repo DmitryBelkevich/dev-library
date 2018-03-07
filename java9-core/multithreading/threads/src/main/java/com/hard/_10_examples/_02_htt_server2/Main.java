@@ -80,10 +80,12 @@ class ClientThread extends Thread {
     private void readInputHeaders() throws Throwable {
         BufferedReader bufferedReaderSocket = new BufferedReader(new InputStreamReader(inputStream));
 
+        String socketLine = null;
         while (true) {
-            String socketLine = bufferedReaderSocket.readLine();
+            socketLine = bufferedReaderSocket.readLine();
             if (socketLine == null || socketLine.trim().length() == 0)
                 break;
         }
+        System.out.println(socketLine);
     }
 }
