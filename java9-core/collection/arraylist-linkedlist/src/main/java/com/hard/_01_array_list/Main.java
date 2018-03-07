@@ -1,11 +1,10 @@
 package com.hard._01_array_list;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class Main {
     public static void main(String[] args) {
-        Collection<Integer> collection = new ArrayList<>();
+        ArrayList<Integer> collection = new ArrayList<>();
 
         // 1 реализация на основе массива
 
@@ -25,10 +24,10 @@ public class Main {
 
         /**
          * минусы:
-         * 1) вставка в середину списка линейно зависит от количества элементов после позиции вставки
+         * 1) вставка в начало, середину списка линейно зависит от количества элементов после позиции вставки
          * add(int index, E element) -> O(n)
          *
-         * 2) удаление из середины списка линейно зависит от количества элементов после позиции вставки
+         * 2) удаление из начала, середины списка линейно зависит от количества элементов после позиции вставки
          * remove(int index) -> O(n)
          */
 
@@ -44,5 +43,34 @@ public class Main {
          * использование:
          * ArrayList намного быстрее и использует меньше ресурсов
          */
+
+        final int n = 1 * 100 * 1000;
+
+        // получение
+        for (int i = 0; i < n; i++) // 1 ms
+            collection.get(i);
+
+        // вставка в конец
+        for (int i = 0; i < n; i++) // 9 ms
+            collection.add(i);
+
+        // вставка в начало, середину
+        for (int i = 0; i < n; i++) // 2 ms
+            collection.add(0);
+
+        // удаление из конца
+//        for (int i = n - 1; i >= 0; i--) // 1 ms
+//            collection.remove(i);
+
+        // удаление из начала, середины
+//        for (int i = 0; i < n; i++) // 1507 ms
+//            collection.remove(0);
+
+        long start = System.currentTimeMillis();
+
+
+        long finish = System.currentTimeMillis();
+        long timeConsumedMillis = finish - start;
+        System.out.println(timeConsumedMillis + " ms");
     }
 }
