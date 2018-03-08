@@ -1,4 +1,4 @@
-package com.hard._05_interruption._01;
+package com.hard._05_interruption.habr._01;
 
 public class Main {
     public static int mValue = 0;
@@ -57,7 +57,6 @@ class Incremenator extends Thread {
                 Thread.sleep(1000);        //Приостановка потока на 1 сек.
             } catch (InterruptedException e) {
             }
-        }
-        while (true);
+        } while (true);
     }
 }

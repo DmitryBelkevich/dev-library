@@ -1,4 +1,4 @@
-package com.hard._05_interruption._02_native;
+package com.hard._05_interruption.habr._02_native;
 
 public class Main {
     public static int mValue = 0;
@@ -53,7 +53,6 @@ class Incremenator extends Thread {
             } catch (InterruptedException e) {
                 return;    //Завершение потока после прерывания
             }
-        }
-        while (true);
+        } while (true);
     }
 }
