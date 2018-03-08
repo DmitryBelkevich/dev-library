@@ -1,4 +1,4 @@
-package com.hard._05_interruption.my;
+package com.hard._05_interruption.my._01;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,6 +37,7 @@ class Entity extends Thread {
                     e.printStackTrace();
                 }
             } else {
+                System.out.println("interrupting of " + Thread.currentThread().getName());
                 return;
             }
         }
