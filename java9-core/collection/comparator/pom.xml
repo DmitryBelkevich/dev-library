@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java9-core</artifactId>
+        <artifactId>collection</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>collection</artifactId>
+    <artifactId>comparator</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>arraylist-linkedlist</module>
-        <module>comparator</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
