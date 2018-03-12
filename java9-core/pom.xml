@@ -20,7 +20,7 @@
         <module>lambdas</module>
         <module>class-object</module>
         <module>multithreading</module>
-        <module>collection</module>
+        <module>collections-map</module>
     </modules>
 
 </project>
