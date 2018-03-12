@@ -1,20 +1,17 @@
-package com.hard._01_list;
+package com.hard._01_implements_comparator._02_set;
 
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Entity> entities = new ArrayList<>();
-//        List<Entity> entities = new LinkedList<>();   // sortable
-//        List<Entity> entities = new Vector<>();       // sortable
-//        List<Entity> entities = new Stack<>();        // sortable
+//        //Set<Entity> entities = new HashSet<>();			// not sortable
+//        //Set<Entity> entities = new LinkedHashSet<>();		// not sortable
+        Set<Entity> entities = new TreeSet<>(new EntityIdComparator());   // sortable
 
         entities.add(new Entity(3, "ccc"));
         entities.add(new Entity(2, "aaa"));
         entities.add(new Entity(4, "ddd"));
         entities.add(new Entity(1, "bbb"));
-
-        Collections.sort(entities, new EntityIdComparator());
 
         System.out.println(entities);
     }

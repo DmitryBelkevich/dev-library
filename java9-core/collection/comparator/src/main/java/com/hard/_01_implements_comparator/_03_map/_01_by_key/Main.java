@@ -1,17 +1,20 @@
-package com.hard._02_set;
+package com.hard._01_implements_comparator._03_map._01_by_key;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
-//        //Set<Entity> entities = new HashSet<>();			// not sortable
-//        //Set<Entity> entities = new LinkedHashSet<>();		// not sortable
-        Set<Entity> entities = new TreeSet<>(new EntityIdComparator());   // sortable
+//        Map<Entity, Integer> entities = new HashMap<>();			// not sortable
+//        Map<Entity, Integer> entities = new LinkedHashMap<>();	// not sortable
+//        Map<Entity, Integer> entities = new Hashtable<>();		// not sortable
+        Map<Entity, String> entities = new TreeMap<>(new EntityNameComparator());  // sortable
 
-        entities.add(new Entity(3, "ccc"));
-        entities.add(new Entity(2, "aaa"));
-        entities.add(new Entity(4, "ddd"));
-        entities.add(new Entity(1, "bbb"));
+        entities.put(new Entity(3, "ccc"), "bbbb");
+        entities.put(new Entity(2, "aaa"), "dddd");
+        entities.put(new Entity(4, "ddd"), "aaaa");
+        entities.put(new Entity(1, "bbb"), "cccc");
 
         System.out.println(entities);
     }
