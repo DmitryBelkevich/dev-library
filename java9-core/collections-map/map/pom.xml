@@ -6,20 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java9-core</artifactId>
+        <artifactId>collections-map</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>collections-map</artifactId>
+    <artifactId>map</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>comparator</module>
-        <module>collections</module>
-        <module>map</module>
     </modules>
 
 </project>
