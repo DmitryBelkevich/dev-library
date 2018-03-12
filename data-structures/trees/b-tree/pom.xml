@@ -6,20 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>data-structures</artifactId>
+        <artifactId>trees</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>trees</artifactId>
+    <artifactId>b-tree</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>tree</module>
-        <module>binary-tree</module>
-        <module>b-tree</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>

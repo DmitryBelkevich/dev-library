@@ -1,4 +1,4 @@
-package hard;
+package com.hard;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,10 +7,11 @@ public class Main {
 }
 
 class Tree<T> {
+    private int level;
     private Node<T> root;
 
     static class Node<T> {
-        private T data;
-        private Node<T>[] nodes;
+        private T[] data;           // n = level - 1
+        private Node<T>[] nodes;    // n = level
     }
 }
