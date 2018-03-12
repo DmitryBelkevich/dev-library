@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>collections-map</artifactId>
+        <artifactId>map</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>map</artifactId>
+    <artifactId>hashmap-treemap</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>hashmap</module>
-        <module>hashmap-treemap</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
