@@ -1,4 +1,4 @@
-package com.hard._05_interruption.habr._01;
+package com.hard._06_interruption.habr._01;
 
 public class Main {
     public static int mValue = 0;

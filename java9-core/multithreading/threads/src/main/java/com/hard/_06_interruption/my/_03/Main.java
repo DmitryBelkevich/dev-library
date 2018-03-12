@@ -1,4 +1,4 @@
-package com.hard._05_interruption.my._03;
+package com.hard._06_interruption.my._03;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ class Entity extends Thread {
     @Override
     public void run() {
         try {
-            for (int i = 0; i < 10*1000; i++) {
+            for (int i = 0; i < 10 * 1000; i++) {
                 if (!this.isInterrupted()) {
                     System.out.println(Thread.currentThread().getName() + ": i = " + i);
 

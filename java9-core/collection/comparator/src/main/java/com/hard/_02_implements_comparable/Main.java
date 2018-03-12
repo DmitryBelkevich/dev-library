@@ -45,7 +45,7 @@ class Entity implements Comparable<Entity> {
 
     @Override
     public int compareTo(Entity o) {
-        if (id > o.getId())	        // ascending
+        if (id > o.getId())            // ascending
             return 1;
         else if (id == o.getId())   // not sort
             return 0;

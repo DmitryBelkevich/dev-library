@@ -1,4 +1,4 @@
-package com.hard._06_wait_notify._01;
+package com.hard._05_wait_notify._01;
 
 public class Main {
     public static void main(String[] args) {
