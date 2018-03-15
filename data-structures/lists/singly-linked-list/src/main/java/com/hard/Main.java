@@ -22,30 +22,6 @@ interface List<T> {
     void print();
 }
 
-class ArrayList<T> implements List<T> {
-    private T[] objects;
-
-    @Override
-    public void add(T data) {
-
-    }
-
-    @Override
-    public void add(int index, T data) {
-
-    }
-
-    @Override
-    public void remove(T data) {
-
-    }
-
-    @Override
-    public void print() {
-
-    }
-}
-
 class LinkedList<T> implements List<T> {
     private class Node<T> {
         private T data;
