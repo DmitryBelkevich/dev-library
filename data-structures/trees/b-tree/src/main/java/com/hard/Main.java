@@ -7,11 +7,11 @@ public class Main {
 }
 
 class Tree<T> {
-    private int level;
-    private Node<T> root;
-
-    static class Node<T> {
+    private class Node<T> {
         private T[] data;           // n = level - 1
         private Node<T>[] nodes;    // n = level
     }
+
+    private int level;
+    private Node<T> root;
 }

@@ -7,11 +7,11 @@ public class Main {
 }
 
 class Tree<T> {
-    private Node<T> root;
-
-    static class Node<T> {
+    private class Node<T> {
         private T data;
         private Node<T> left;
         private Node<T> right;
     }
+
+    private Node<T> root;
 }
