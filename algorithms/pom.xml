@@ -18,6 +18,7 @@
 
     <modules>
         <module>arrays-sorting</module>
+        <module>matrix</module>
     </modules>
 
 </project>

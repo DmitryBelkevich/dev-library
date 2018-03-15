@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>arrays-sorting</artifactId>
+    <artifactId>matrix</artifactId>
 
     <name>${project.artifactId}</name>
 
