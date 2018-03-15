@@ -5,21 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
+        <artifactId>lists</artifactId>
         <groupId>com.hard</groupId>
-        <artifactId>data-structures</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>lists</artifactId>
+    <artifactId>vector</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>singly-linked-list</module>
-        <module>doubly-linked-list</module>
-        <module>vector</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
