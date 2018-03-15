@@ -17,9 +17,9 @@ interface List<T> {
 
     void addBegin(T data);
 
-    void print();
-
     void remove(T data);
+
+    void print();
 }
 
 class LinkedList<T> implements List<T> {
@@ -60,16 +60,6 @@ class LinkedList<T> implements List<T> {
     }
 
     @Override
-    public void print() {
-        Node<T> node = first;
-
-        while (node != null) {
-            System.out.println(node.data);
-            node = node.next;
-        }
-    }
-
-    @Override
     public void remove(T data) {
         if (first == null)
             return;
@@ -99,6 +89,16 @@ class LinkedList<T> implements List<T> {
                 return;
             }
 
+            node = node.next;
+        }
+    }
+
+    @Override
+    public void print() {
+        Node<T> node = first;
+
+        while (node != null) {
+            System.out.println(node.data);
             node = node.next;
         }
     }
