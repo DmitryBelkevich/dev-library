@@ -15,11 +15,35 @@ public class Main {
 interface List<T> {
     void add(T data);
 
-    void addBegin(T data);
+    void add(int index, T data);
 
     void remove(T data);
 
     void print();
+}
+
+class ArrayList<T> implements List<T> {
+    private T[] objects;
+
+    @Override
+    public void add(T data) {
+
+    }
+
+    @Override
+    public void add(int index, T data) {
+
+    }
+
+    @Override
+    public void remove(T data) {
+
+    }
+
+    @Override
+    public void print() {
+
+    }
 }
 
 class LinkedList<T> implements List<T> {
@@ -46,7 +70,8 @@ class LinkedList<T> implements List<T> {
     }
 
     @Override
-    public void addBegin(T data) {
+    public void add(int index, T data) {
+        // add to begin:
         Node<T> node = new Node<>();
         node.data = data;
 

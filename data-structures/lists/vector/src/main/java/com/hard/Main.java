@@ -17,7 +17,7 @@ interface List<T> {
 }
 
 class Vector<T> implements List<T> {
-    private Object[] objects;
+    private T[] objects;
 
     @Override
     public void add(T data) {
