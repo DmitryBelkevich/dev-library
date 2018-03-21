@@ -14,6 +14,15 @@ public class Main {
 
         Session session = sessionFactory.getCurrentSession();
 
+        session.beginTransaction();
+
+        Category category = new Category();
+        category.setTitle("category1");
+
+        session.save(category);
+
+        session.getTransaction().commit();
+
         session.close();
     }
 }
@@ -25,8 +34,7 @@ class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    public Category() {
-    }
+    private String title;
 
     public long getId() {
         return id;
@@ -34,5 +42,13 @@ class Category {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
