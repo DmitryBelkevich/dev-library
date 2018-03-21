@@ -6,18 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java9-core</artifactId>
+        <artifactId>keywords</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>keywords</artifactId>
+    <artifactId>final</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>final</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
