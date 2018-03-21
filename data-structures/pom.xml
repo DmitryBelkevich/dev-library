@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>project</artifactId>
+        <artifactId>dev-library</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

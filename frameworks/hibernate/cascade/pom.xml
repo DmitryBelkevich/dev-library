@@ -6,18 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library</artifactId>
+        <artifactId>hibernate</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>oop</artifactId>
+    <artifactId>cascade</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>encapsulation</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
