@@ -17,7 +17,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>cascade</module>
+        <module>init</module>
     </modules>
 
 </project>
