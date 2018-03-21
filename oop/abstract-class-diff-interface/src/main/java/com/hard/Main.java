@@ -8,7 +8,7 @@ public class Main {
 
 /**
  * 1) множественная реализация (C implements I1, I2, ...)
- * 2) может содержать только поля-константы: final int a = 1;
+ * 2) может содержать только public static final поля: int a = 1;
  * 3) может описывать методы: void f();
  * 4) может реализовывать только static и default методы: static void f() {}; default void f() {}
  *
@@ -26,7 +26,7 @@ interface IEntity {
 
 /**
  * 1) отсутствие множественного наследования (C extends A)
- * 2) может содержать поля: private int a;
+ * 2) может содержать поля
  * 3) может описывать методы: public abstract void f();
  * 4) может реализовывать методы: public void f() {}
  *
