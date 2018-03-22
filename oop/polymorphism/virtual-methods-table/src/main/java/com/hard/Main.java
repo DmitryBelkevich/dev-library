@@ -2,8 +2,16 @@ package com.hard;
 
 public class Main {
     public static void main(String[] args) {
-        Parent parent = new Child2();
-        parent.f();
+        High c;
+
+        c = new High();
+        c.f(); // 1
+
+        c = new Middle();
+        c.f(); // 2
+
+        c = new Low();
+        c.f(); // 2
     }
 }
 
@@ -21,8 +29,16 @@ interface Memory {
  */
 
 class VTable {
-    public String address;
     public String title;
+    public String address;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getAddress() {
         return address;
@@ -32,59 +48,60 @@ class VTable {
         this.address = address;
     }
 
-    public String getTitle() {
-        return title;
+    @Override
+    public String toString() {
+        return "VTable{" +
+                "title='" + title + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
+}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+abstract class VTableSupport {
+    VTable vTable;
 }
 
 /**
  * Classes
  */
 
-class Parent {
-    private VTable vTable;
-
-    public Parent() {
+class High extends VTableSupport {
+    public High() {
         VTable vTable = new VTable();
+
+        vTable.setTitle(High.class + "." + "f()");
         vTable.setAddress(Memory.cell1);
-        vTable.setTitle("Parent.f()");
 
         this.vTable = vTable;
     }
 
     public void f() {
-        System.out.println(vTable.address);
+        System.out.println(this.vTable);
     }
 }
 
-class Child extends Parent {
-    private VTable vTable;
-
-    public Child() {
+class Middle extends High {
+    public Middle() {
         VTable vTable = new VTable();
+
+        vTable.setTitle(Middle.class + "." + "f()");
         vTable.setAddress(Memory.cell2);
-        vTable.setTitle("Child.f()");
 
         this.vTable = vTable;
     }
 
     @Override
     public void f() {
-        System.out.println(vTable.address);
+        super.f();
     }
 }
 
-class Child2 extends Parent {
-    private VTable vTable;
-
-    public Child2() {
+class Low extends Middle {
+    public Low() {
         VTable vTable = new VTable();
+
+        vTable.setTitle(Middle.class + "." + "f()");
         vTable.setAddress(Memory.cell2);
-        vTable.setTitle("Child.f()");
 
         this.vTable = vTable;
     }
