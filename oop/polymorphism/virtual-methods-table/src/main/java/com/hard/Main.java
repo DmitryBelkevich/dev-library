@@ -1,5 +1,8 @@
 package com.hard;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
         High c;
@@ -10,8 +13,8 @@ public class Main {
         c = new Middle();
         c.f(); // 2
 
-        c = new Low();
-        c.f(); // 2
+        Low d = new Low();
+        d.f(); // 2
     }
 }
 
@@ -25,54 +28,14 @@ interface Memory {
 }
 
 /**
- * virtual table
- */
-
-class VTable {
-    public String title;
-    public String address;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "VTable{" +
-                "title='" + title + '\'' +
-                ", address='" + address + '\'' +
-                '}';
-    }
-}
-
-abstract class VTableSupport {
-    VTable vTable;
-}
-
-/**
  * Classes
  */
 
-class High extends VTableSupport {
+class High {
+    private Map<String, String> vTable = new HashMap<>();
+
     public High() {
-        VTable vTable = new VTable();
-
-        vTable.setTitle(High.class.getName() + "." + "f()");
-        vTable.setAddress(Memory.cell1);
-
-        this.vTable = vTable;
+        vTable.put(High.class.getName() + "." + "f()", Memory.cell1);
     }
 
     public void f() {
@@ -81,28 +44,22 @@ class High extends VTableSupport {
 }
 
 class Middle extends High {
+    private Map<String, String> vTable = new HashMap<>();
+
     public Middle() {
-        VTable vTable = new VTable();
-
-        vTable.setTitle(Middle.class.getName() + "." + "f()");
-        vTable.setAddress(Memory.cell2);
-
-        this.vTable = vTable;
+        vTable.put(Middle.class.getName() + "." + "f()", Memory.cell2);
     }
 
     @Override
     public void f() {
-        super.f();
+        System.out.println(this.vTable);
     }
 }
 
 class Low extends Middle {
+    private Map<String, String> vTable = new HashMap<>();
+
     public Low() {
-        VTable vTable = new VTable();
-
-        vTable.setTitle(Middle.class.getName() + "." + "f()");
-        vTable.setAddress(Memory.cell2);
-
-        this.vTable = vTable;
+        vTable.put(Middle.class.getName() + "." + "f()", Memory.cell2);
     }
 }
