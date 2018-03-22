@@ -6,20 +6,18 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library</artifactId>
+        <artifactId>oop</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>oop</artifactId>
+    <artifactId>polymorphism</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>encapsulation</module>
-        <module>abstract-class-diff-interface</module>
-        <module>polymorphism</module>
+        <module>virtual-methods-table</module>
     </modules>
 
 </project>
