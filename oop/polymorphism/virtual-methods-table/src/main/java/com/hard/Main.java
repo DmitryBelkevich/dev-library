@@ -13,8 +13,8 @@ public class Main {
         c = new Middle();
         c.f(); // 2
 
-        Low d = new Low();
-        d.f(); // 2
+        c = new Low();
+        c.f(); // 2
     }
 }
 
