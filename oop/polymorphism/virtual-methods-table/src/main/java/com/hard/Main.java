@@ -69,7 +69,7 @@ class High extends VTableSupport {
     public High() {
         VTable vTable = new VTable();
 
-        vTable.setTitle(High.class + "." + "f()");
+        vTable.setTitle(High.class.getName() + "." + "f()");
         vTable.setAddress(Memory.cell1);
 
         this.vTable = vTable;
@@ -84,7 +84,7 @@ class Middle extends High {
     public Middle() {
         VTable vTable = new VTable();
 
-        vTable.setTitle(Middle.class + "." + "f()");
+        vTable.setTitle(Middle.class.getName() + "." + "f()");
         vTable.setAddress(Memory.cell2);
 
         this.vTable = vTable;
@@ -100,7 +100,7 @@ class Low extends Middle {
     public Low() {
         VTable vTable = new VTable();
 
-        vTable.setTitle(Middle.class + "." + "f()");
+        vTable.setTitle(Middle.class.getName() + "." + "f()");
         vTable.setAddress(Memory.cell2);
 
         this.vTable = vTable;
