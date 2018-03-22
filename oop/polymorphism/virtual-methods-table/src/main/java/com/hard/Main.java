@@ -39,7 +39,11 @@ class High {
     }
 
     public void f() {
-        System.out.println(this.vTable);
+        System.out.println(this.vTable.get(High.class.getName() + "." + "f()"));
+    }
+
+    public String getVTable() {
+        return vTable.toString();
     }
 }
 
@@ -52,7 +56,11 @@ class Middle extends High {
 
     @Override
     public void f() {
-        System.out.println(this.vTable);
+        System.out.println(this.vTable.get(Middle.class.getName() + "." + "f()"));
+    }
+
+    public String getVTable() {
+        return vTable.toString();
     }
 }
 
@@ -61,5 +69,9 @@ class Low extends Middle {
 
     public Low() {
         vTable.put(Middle.class.getName() + "." + "f()", Memory.cell2);
+    }
+
+    public String getVTable() {
+        return vTable.toString();
     }
 }
