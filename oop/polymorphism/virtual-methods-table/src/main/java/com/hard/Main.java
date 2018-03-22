@@ -2,9 +2,18 @@ package com.hard;
 
 public class Main {
     public static void main(String[] args) {
-        Parent parent = new Child();
+        Parent parent = new Child2();
         parent.f();
     }
+}
+
+/**
+ * Constants
+ */
+
+interface Memory {
+    String cell1 = "ffa234";
+    String cell2 = "fad1a2";
 }
 
 /**
@@ -41,14 +50,14 @@ class Parent {
 
     public Parent() {
         VTable vTable = new VTable();
-        vTable.setAddress("ffa234");
+        vTable.setAddress(Memory.cell1);
         vTable.setTitle("Parent.f()");
 
         this.vTable = vTable;
     }
 
     public void f() {
-        System.out.println(1);
+        System.out.println(vTable.address);
     }
 }
 
@@ -57,7 +66,7 @@ class Child extends Parent {
 
     public Child() {
         VTable vTable = new VTable();
-        vTable.setAddress("fad1a2");
+        vTable.setAddress(Memory.cell2);
         vTable.setTitle("Child.f()");
 
         this.vTable = vTable;
@@ -65,6 +74,18 @@ class Child extends Parent {
 
     @Override
     public void f() {
-        System.out.println(2);
+        System.out.println(vTable.address);
+    }
+}
+
+class Child2 extends Parent {
+    private VTable vTable;
+
+    public Child2() {
+        VTable vTable = new VTable();
+        vTable.setAddress(Memory.cell2);
+        vTable.setTitle("Child.f()");
+
+        this.vTable = vTable;
     }
 }
