@@ -6,27 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library</artifactId>
+        <artifactId>java9-core</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java9-core</artifactId>
+    <artifactId>inner-classes</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>jre-jdk-jvm</module>
-        <module>keywords</module>
-        <module>types</module>
-        <module>class-object</module>
-        <module>collections-map</module>
-        <module>init-block</module>
-        <module>inner-classes</module>
-        <module>reflection</module>
-        <module>lambdas</module>
-        <module>multithreading</module>
     </modules>
 
 </project>
