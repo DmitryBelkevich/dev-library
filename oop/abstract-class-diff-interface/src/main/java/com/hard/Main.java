@@ -24,7 +24,8 @@ public class Main {
  *
  * Использование:
  * 1) могут быть реализованы классами которые не связаны друг с другом (class AndroidDevice implements Device; class IosDevice implements Device)
- * 2) расширение функциональности каждого класса-наследника ()
+ * 2) используется, если нужна какая-то реализация по умолчанию
+ * 3) расширение функциональности каждого класса-наследника ()
  *
  * default modifiers:
  * 1) все поля по-умолчанию public static final
@@ -51,7 +52,8 @@ interface IEntity {
  *
  * Использование:
  * 1) используются только тогда, когда есть тип отношений "is a" (class AndroidMobile extends AndroidDevice; class AndroidTablet extends AndroidDevice)
- * 2) теряется индивидуальность класса-наследника ()
+ * 2) используется, когда классу нао задать конкретное поведение
+ * 3) теряется индивидуальность класса-наследника ()
  *
  * default modifiers:
  * 1) все поля по-умолчанию default-package
