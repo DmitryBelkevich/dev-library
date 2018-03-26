@@ -7,17 +7,10 @@ public class Main {
 }
 
 abstract class Entity {
-    public static String str;
-
     /**
-     * статический блок инициализации служит для инициализации статических полей
-     * выполняется до выполнения конструктора
+     * статический блок инициализации
      */
-
-    static {
-        System.out.println("static");
-        str = "Hello World";
-    }
+    static {}
 
     public Entity() {
         System.out.println("Ctor");
