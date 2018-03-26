@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>init-block</artifactId>
+    <artifactId>init-blocks</artifactId>
 
     <name>${project.artifactId}</name>
 
