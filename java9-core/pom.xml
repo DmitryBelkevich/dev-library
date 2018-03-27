@@ -27,6 +27,7 @@
         <module>reflection</module>
         <module>lambdas</module>
         <module>multithreading</module>
+        <module>class-loader</module>
     </modules>
 
 </project>
