@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>exceptions</artifactId>
+        <artifactId>exception-statements</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>exception-statements</artifactId>
+    <artifactId>try-finally</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>try-catch-finally</module>
-        <module>try-finally</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
