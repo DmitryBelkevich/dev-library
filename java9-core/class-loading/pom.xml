@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>init-blocks</artifactId>
+    <artifactId>class-loading</artifactId>
 
     <name>${project.artifactId}</name>
 

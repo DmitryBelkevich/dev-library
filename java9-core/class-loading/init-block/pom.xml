@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>init-blocks</artifactId>
+        <artifactId>class-loading</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

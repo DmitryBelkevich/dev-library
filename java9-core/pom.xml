@@ -22,7 +22,7 @@
         <module>types</module>
         <module>class-object</module>
         <module>collections-map</module>
-        <module>init-blocks</module>
+        <module>class-loading</module>
         <module>inner-classes</module>
         <module>reflection</module>
         <module>lambdas</module>
