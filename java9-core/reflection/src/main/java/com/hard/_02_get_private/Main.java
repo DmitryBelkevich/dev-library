@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
-    public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
+    public static void main(String[] args) {
         Entity entity = new Entity();
         Class clazz = entity.getClass();
 
@@ -16,7 +16,11 @@ public class Main {
 
             System.out.println("field :" + field.getName());
             System.out.println("type: " + field.getType());
-            System.out.println("value: " + field.get(entity));
+            try {
+                System.out.println("value: " + field.get(entity));
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
 
         Method[] methods = clazz.getDeclaredMethods();
@@ -24,7 +28,13 @@ public class Main {
         for (Method method : methods) {
             method.setAccessible(true);
 
-            method.invoke(entity, "Hello World");
+            try {
+                method.invoke(entity, "Hello World");
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
