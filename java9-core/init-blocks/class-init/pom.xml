@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java9-core</artifactId>
+        <artifactId>init-blocks</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>init-blocks</artifactId>
+    <artifactId>class-init</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>init-block</module>
-        <module>class-init</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
