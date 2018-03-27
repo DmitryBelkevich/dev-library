@@ -28,6 +28,7 @@
         <module>lambdas</module>
         <module>multithreading</module>
         <module>class-loader</module>
+        <module>exceptions</module>
     </modules>
 
 </project>
