@@ -9,7 +9,7 @@ public class Main {
             // код обработки исключений
             System.out.println("catch");
         } finally {
-            // выполняется в любом случае
+            // выполняется в любом случае, даже если в блоке catch произошло исключение
             // блок finally не обязателен
             System.out.println("finally");
         }
