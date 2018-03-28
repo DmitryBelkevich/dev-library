@@ -8,9 +8,12 @@ public class Main {
 
         try {
             reader.read();
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+            throw new RuntimeException("exception in catch: NotFoundException");
         } catch (NotReadingException e) {
             e.printStackTrace();
-            throw new RuntimeException("exception in catch");
+            throw new RuntimeException("exception in catch: NotReadingException");
         } finally {
             try {
                 reader.close();
@@ -24,6 +27,15 @@ public class Main {
 /**
  * exceptions
  */
+
+class NotFoundException extends IOException {
+    public NotFoundException() {
+    }
+
+    public NotFoundException(String message) {
+        super(message);
+    }
+}
 
 class NotReadingException extends IOException {
     public NotReadingException() {
@@ -39,9 +51,15 @@ class NotReadingException extends IOException {
  */
 
 class Reader {
-    public void read() throws NotReadingException {
+    public void read() throws NotFoundException, NotReadingException {
         System.out.println("reading");
-        throw new NotReadingException("entity isn't reading");
+
+        switch (2) {
+            case 1:
+                throw new NotFoundException("entity isn't found");
+            case 2:
+                throw new NotReadingException("entity isn't reading");
+        }
     }
 
     public void close() throws IOException {
