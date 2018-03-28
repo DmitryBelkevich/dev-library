@@ -16,7 +16,9 @@ public class Main {
             throw new RuntimeException("exception in catch: NotReadingException");
         } finally {
             try {
-                reader.close();
+                if (reader != null) {
+                    reader.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
