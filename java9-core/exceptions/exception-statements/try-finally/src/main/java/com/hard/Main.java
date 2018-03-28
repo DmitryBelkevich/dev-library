@@ -7,5 +7,7 @@ public class Main {
         } finally {
             System.out.println("finally");
         }
+
+        // unreachable code
     }
 }
