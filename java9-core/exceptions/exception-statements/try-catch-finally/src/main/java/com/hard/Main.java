@@ -5,7 +5,7 @@ public class Main {
         try {
             // код, который потенциально может привести к ошибке
             System.out.println("try");
-        } catch (Exception e) { // класс конкретной ожидаемой ошибки
+        } catch (Throwable e) { // класс конкретной ожидаемой ошибки
             // код обработки исключений
             System.out.println("catch");
         } finally {
