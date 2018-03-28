@@ -54,14 +54,13 @@ class NotReadingException extends IOException {
 
 class Reader {
     public void read() throws NotFoundException, NotReadingException {
-        System.out.println("read()");
+        if (false)
+            throw new NotFoundException("entity isn't found");
 
-        switch (2) {
-            case 1:
-                throw new NotFoundException("entity isn't found");
-            case 2:
-                throw new NotReadingException("entity isn't reading");
-        }
+        System.out.println("entity has founded");
+
+        if (true)
+            throw new NotReadingException("entity isn't reading");
 
         System.out.println("entity has read");
     }
