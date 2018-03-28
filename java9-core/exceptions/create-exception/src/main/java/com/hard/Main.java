@@ -8,7 +8,7 @@ public class Main {
 
         try {
             result = arithmetic.div(10, 0);
-        } catch (DivideByZeroException e) {
+        } catch (DivisionByZeroException e) {
             e.printStackTrace();
         }
 
@@ -20,12 +20,12 @@ public class Main {
  * Exception
  */
 
-class DivideByZeroException extends Exception {
-    public DivideByZeroException() {
+class DivisionByZeroException extends Exception {
+    public DivisionByZeroException() {
         super();
     }
 
-    public DivideByZeroException(String message) {
+    public DivisionByZeroException(String message) {
         super(message);
     }
 }
@@ -35,9 +35,9 @@ class DivideByZeroException extends Exception {
  */
 
 class Arithmetic {
-    public double div(double num1, double num2) throws DivideByZeroException {
+    public double div(double num1, double num2) throws DivisionByZeroException {
         if (num2 == 0)
-            throw new DivideByZeroException("second parameter was specified as zero. One can't divide by zero");
+            throw new DivisionByZeroException("second parameter was specified as zero. One can't divide by zero");
 
         return num1 / num2;
     }
