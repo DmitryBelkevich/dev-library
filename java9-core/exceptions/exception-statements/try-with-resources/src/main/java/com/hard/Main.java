@@ -1,101 +1,66 @@
 package com.hard;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.Closeable;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        FileReader fileReader = null;
-        try {
-            fileReader = new FileReader("c:/000.txt");
-        } catch (FileNotFoundException e) {
+    public static void main(String[] args) {
+        try (Reader reader = new Reader()) {
+            reader.read();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-        /**
-         * var 1
-         * Данное решение опасно, потому что если в коде сгенерируется исключение, то bufferedReader.close() не будет вызван.
-         * Произойдет утечка ресурса (не закроется соединение, не будет освобожден файловый дескриптор и т.д.)
-         */
+        System.out.println("after reader");
+    }
+}
 
-//        BufferedReader bufferedReader = new BufferedReader(fileReader);
-//
-//        if (true)
-//            throw new RuntimeException();
-//
-//        try {
-//            System.out.println("closing");
-//            bufferedReader.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+/**
+ * exceptions
+ */
 
-        /**
-         * var 2
-         * Метод close() может сгенерировать исключение.
-         * И если при этом основной код работы с ресурсом тоже выбросит исключение, то оно перезатрется исключением из close().
-         * Информация об исходной ошибке пропадёт: мы никогда не узнаем, что было причиной исходного исключения
-         */
+class NotFoundException extends IOException {
+    public NotFoundException() {
+    }
 
-//        BufferedReader bufferedReader = new BufferedReader(fileReader);
-//
-//        try {
-//            throw new RuntimeException("1");
-//        } finally {
-//            System.out.println("closing");
-//            try {
-//                if (true)
-//                    throw new RuntimeException("close()");
-//
-//                bufferedReader.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
+    public NotFoundException(String message) {
+        super(message);
+    }
+}
 
-        /**
-         * var 3
-         */
+class NotReadingException extends IOException {
+    public NotReadingException() {
+    }
 
-//        BufferedReader bufferedReader = new BufferedReader(fileReader);
-//
-//        try {
-//            throw new RuntimeException("1");
-//        } finally {
-//            System.out.println("closing");
-//            try {
-//                if (true)
-//                    throw new RuntimeException("close()");
-//
-//                bufferedReader.close();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
+    public NotReadingException(String message) {
+        super(message);
+    }
+}
 
-        /**
-         * var 5
-         */
+/**
+ * class
+ */
 
-        try (
-                BufferedReader bufferedReader = new BufferedReader(fileReader)
-        ) {
-            if (true)
-                throw new RuntimeException("1");
-            System.out.println(bufferedReader);
-        }
+class Reader implements Closeable {
+    public void read() throws NotFoundException, NotReadingException {
+        System.out.println("reader has opened");
 
-        /**
-         * after
-         */
-//        try (
-//                BufferedReader bufferedReader = new BufferedReader(new FileReader(""))
-//        ) {
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        if (true)
+            throw new NotFoundException("entity isn't found");
+
+        System.out.println("entity has founded");
+
+        if (true)
+            throw new NotReadingException("entity isn't reading");
+
+        System.out.println("entity has read");
+    }
+
+    @Override
+    public void close() throws IOException {
+        if (true)
+            throw new IOException("reader isn't closing");
+
+        System.out.println("reader has closed");
     }
 }

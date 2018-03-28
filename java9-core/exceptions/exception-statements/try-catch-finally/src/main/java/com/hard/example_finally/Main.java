@@ -54,7 +54,9 @@ class NotReadingException extends IOException {
 
 class Reader {
     public void read() throws NotFoundException, NotReadingException {
-        if (false)
+        System.out.println("reader has opened");
+
+        if (true)
             throw new NotFoundException("entity isn't found");
 
         System.out.println("entity has founded");
@@ -66,6 +68,6 @@ class Reader {
     }
 
     public void close() throws IOException {
-        System.out.println("entity has closed");
+        System.out.println("reader has closed");
     }
 }
