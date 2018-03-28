@@ -22,7 +22,7 @@ public class Main {
             }
         }
 
-        System.out.println("after");
+        System.out.println("after reader");
     }
 }
 
@@ -54,7 +54,7 @@ class NotReadingException extends IOException {
 
 class Reader {
     public void read() throws NotFoundException, NotReadingException {
-        System.out.println("reading");
+        System.out.println("read()");
 
         switch (2) {
             case 1:
@@ -62,9 +62,11 @@ class Reader {
             case 2:
                 throw new NotReadingException("entity isn't reading");
         }
+
+        System.out.println("entity has read");
     }
 
     public void close() throws IOException {
-        System.out.println("closing");
+        System.out.println("entity has closed");
     }
 }
