@@ -6,20 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java9-core</artifactId>
+        <artifactId>exceptions</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>exceptions</artifactId>
+    <artifactId>checked-unchecked-exceptions</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>create-exception</module>
-        <module>exception-statements</module>
-        <module>checked-unchecked-exceptions</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
