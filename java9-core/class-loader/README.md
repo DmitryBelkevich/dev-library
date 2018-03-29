@@ -5,11 +5,18 @@
 Java 8:
 
 Bootstrap
-базовый загрузчик
+базовый загрузчик классов
 реализован на уровне: JVM (т.е. не имеет обратной связи со средой исполнения (Object.class.getClassLoader() => null))
 загружает классы из директории: $JAVA_HOME/lib (charsets.jar, ..., rt.jar)
 управление загрузкой базовых классов:
     ключ: -Xbootclasspath, который позволяет переопределять наборы базовых классов.
+
+Extension Classloader (sun.misc.Launcher$ExtClassLoader)
+загрузчик классов расширений
+реализован на уровне: JRE
+загружает классы из директории: $JAVA_HOME/lib/ext (access-bridge-64.jar, ..., zipfs.jar)
+управление загрузкой расширений:
+    системная опциия: java.ext.dirs
 
 System Classloader (sun.misc.Launcher$AppClassLoader)
 системный загрузчик
@@ -18,13 +25,6 @@ System Classloader (sun.misc.Launcher$AppClassLoader)
 управление загрузкой системных классов:
     ключ: -classpath
     системная опция: java.class.path
-
-Extension Classloader (sun.misc.Launcher$ExtClassLoader)
-загрузчик расширений
-реализован на уровне: JRE
-загружает классы из директории: $JAVA_HOME/lib/ext
-управление загрузкой расширений:
-    системная опциия: java.ext.dirs
 
 ---
 
