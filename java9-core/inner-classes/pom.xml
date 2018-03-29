@@ -18,6 +18,7 @@
 
     <modules>
         <module>inner-class</module>
+        <module>nested-class</module>
     </modules>
 
 </project>
