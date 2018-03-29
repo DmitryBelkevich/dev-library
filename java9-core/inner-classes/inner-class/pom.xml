@@ -6,18 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java9-core</artifactId>
+        <artifactId>inner-classes</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>inner-classes</artifactId>
+    <artifactId>inner-class</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>inner-class</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
