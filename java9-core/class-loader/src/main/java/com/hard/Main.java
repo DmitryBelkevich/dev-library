@@ -2,13 +2,9 @@ package com.hard;
 
 public class Main {
     public static void main(String[] args) {
-        ClassLoader classLoader1 = Entity.class.getClassLoader();
-        System.out.println(classLoader1);    // Java-8-9: AppClassLoader
+        ClassLoader classLoader = Main.class.getClassLoader();
+        System.out.println(classLoader);    // sun.misc.Launcher$AppClassLoader
     }
-}
-
-class Entity {
-
 }
 
 /**
