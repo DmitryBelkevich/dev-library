@@ -1,24 +1,19 @@
-package com.hard._03_interface_abstract_class;
+package com.hard._03_parent_class;
 
 public class Main {
     public static void main(String[] args) {
-        I i = new C1() {
+        C1 c1 = new C1() {
             @Override
             public String getStr() {
                 return super.getStr() + " (override)";
             }
         };
 
-        i.getStr();
+        c1.getStr();
     }
 }
 
-interface I {
-    String getStr();
-}
-
-class C1 implements I {
-    @Override
+class C1 {
     public String getStr() {
         return "Hello World";
     }
