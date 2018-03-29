@@ -19,7 +19,7 @@ Extension Classloader (sun.misc.Launcher$ExtClassLoader)
     системная опциия: java.ext.dirs
 
 System Classloader (sun.misc.Launcher$AppClassLoader)
-системный загрузчик
+системный загрузчик классов
 реализован на уровне: JRE
 загружает классы из дериктории: пути указаны в переменной окружения CLASSPATH
 управление загрузкой системных классов:
