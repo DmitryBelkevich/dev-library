@@ -6,21 +6,21 @@
 
 **Java 8:**
 
-Bootstrap Classloader
+Bootstrap class loader
 базовый загрузчик классов
 реализован на уровне: JVM (т.е. не имеет обратной связи со средой исполнения (Object.class.getClassLoader() => null))
 загружает классы из директории: $JAVA_HOME/jre/lib/rt.jar
 управление загрузкой базовых классов:
     ключ: -Xbootclasspath, который позволяет переопределять наборы базовых классов.
 
-Extension Classloader (sun.misc.Launcher$ExtClassLoader)
+Extension class loader (sun.misc.Launcher$ExtClassLoader)
 загрузчик классов расширений
 реализован на уровне: JRE
 загружает классы из директории: $JAVA_HOME/jre/lib/ext/*.jar
 управление загрузкой расширений:
     системная опциия: java.ext.dirs
 
-System Classloader (sun.misc.Launcher$AppClassLoader)
+System class loader (sun.misc.Launcher$AppClassLoader)
 системный загрузчик классов
 реализован на уровне: JRE
 загружает классы из дериктории: пути указаны в переменной окружения $CLASSPATH
@@ -28,7 +28,10 @@ System Classloader (sun.misc.Launcher$AppClassLoader)
     ключ: -classpath
     системная опция: java.class.path
 
+Plugin class loader
 загрузчик классов подключаемых модулей
+реализован на уровне: JRE
+загружает указаные пользователем классы
 
 --
 
