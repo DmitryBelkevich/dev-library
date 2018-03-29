@@ -2,7 +2,9 @@
 
 реализация собственного загрузчика классов:
 
-Java 8:
+--
+
+**Java 8:**
 
 Bootstrap
 базовый загрузчик классов
@@ -26,7 +28,9 @@ System Classloader (sun.misc.Launcher$AppClassLoader)
     ключ: -classpath
     системная опция: java.class.path
 
----
+загрузчик классов подключаемых модулей
+
+--
 
 Current Classloader
 текущий загрузчик
@@ -45,5 +49,7 @@ Context Classloader
     Получить и установить данный загрузчик можно с помощью методов:
         Thread.getContextClassLoader()
         Thread.setContextClassLoader()
-        
-Java 9:
+
+--
+
+**Java 9:**
