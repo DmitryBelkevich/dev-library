@@ -1,4 +1,4 @@
-package com.hard._01_interface_abstract_class;
+package com.hard._03_interface_abstract_class;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +10,6 @@ public class Main {
         };
 
         i.getStr();
-        System.out.println(i.getStr());
     }
 }
 
