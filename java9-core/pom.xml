@@ -25,7 +25,6 @@
         <module>class-loading</module>
         <module>inner-classes</module>
         <module>reflection</module>
-        <module>lambdas</module>
         <module>multithreading</module>
         <module>class-loader</module>
         <module>exceptions</module>
