@@ -35,7 +35,7 @@ public class Main {
  *          extends class java.security.SecureClassLoader
  *              extends abstract class java.lang.ClassLoader
  *
- * Extension class loader:
+ * Platform class loader:
  * class jdk.internal.loader.ClassLoaders.PlatformClassLoader
  *      extends class jdk.internal.loader.BuiltinClassLoader
  *          extends class java.security.SecureClassLoader
