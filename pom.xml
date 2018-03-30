@@ -17,6 +17,7 @@
         <module>oop</module>
         <module>data-structures</module>
         <module>algorithms</module>
+        <module>design-patterns</module>
         <module>frameworks</module>
     </modules>
 
