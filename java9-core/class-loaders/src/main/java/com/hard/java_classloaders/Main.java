@@ -1,4 +1,4 @@
-package com.hard._01_classloaders;
+package com.hard.java_classloaders;
 
 public class Main {
     public static void main(String[] args) {
