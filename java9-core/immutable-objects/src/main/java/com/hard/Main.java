@@ -6,7 +6,11 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
+        String str = "Hello World";
+        Collection<Integer> collection = new ArrayList<>();
+        Date date = new Date();
 
+        Entity entity = new Entity(str, collection, date);
     }
 }
 
@@ -16,7 +20,7 @@ public class Main {
  * 1) все поля экземпляра класса отмечены как private final
  * 2) для полей не реализованы setters, только getters
  * 3) все поля экземпляра класса являются либо примитивами, либо immutable объектами
- * 4) для mutable объектов в getters делаем clone
+ * 4) для mutable объектов в getters делается clone, в конструкторе при инициализации делается clone
  * 5) класс должен быть final (чтобы subclasses не могли переопределить методы (getters))
  *
  * Immutable объекты не требуют синхронизации при многопоточном доступе
@@ -29,8 +33,8 @@ final class Entity {
 
     public Entity(String str, Collection<Integer> collection, Date date) {
         this.str = str;
-        this.collection = collection;
-        this.date = date;
+        this.collection = new ArrayList<>(collection);
+        this.date = new Date(date.getTime());
     }
 
     public String getStr() {
@@ -42,6 +46,6 @@ final class Entity {
     }
 
     public Date getDate() {
-        return (Date) date.clone();
+        return new Date(date.getTime());
     }
 }
