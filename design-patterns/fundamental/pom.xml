@@ -6,18 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library</artifactId>
+        <artifactId>design-patterns</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>design-patterns</artifactId>
+    <artifactId>fundamental</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>fundamental</module>
     </modules>
 
 </project>
