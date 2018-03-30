@@ -28,6 +28,7 @@
         <module>multithreading</module>
         <module>class-loaders</module>
         <module>exceptions</module>
+        <module>immutable-objects</module>
     </modules>
 
 </project>
