@@ -24,6 +24,7 @@
         <module>mediator</module>
         <module>memento</module>
         <module>observer,publisher-subscriber,listener</module>
+        <module>state</module>
         <module>visitor</module>
     </modules>
 
