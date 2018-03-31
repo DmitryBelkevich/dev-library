@@ -6,22 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>fundamental</artifactId>
+        <artifactId>behavioral</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <artifactId>behavioral</artifactId>
+    
+    <artifactId>iterator</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>chain-of-responsibility</module>
-        <module>command,action</module>
-        <module>interpreter</module>
-        <module>iterator</module>
-        <module>visitor</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
