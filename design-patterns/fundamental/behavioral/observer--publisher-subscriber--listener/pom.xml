@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>observer,publisher-subscriber,listener</artifactId>
+    <artifactId>observer--publisher-subscriber--listener</artifactId>
 
     <name>${project.artifactId}</name>
 

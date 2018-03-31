@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>command,action</artifactId>
+    <artifactId>command--action</artifactId>
 
     <name>${project.artifactId}</name>
 
