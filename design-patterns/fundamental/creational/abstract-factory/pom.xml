@@ -6,18 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>fundamental</artifactId>
+        <artifactId>creational</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <artifactId>creational</artifactId>
+    
+    <artifactId>abstract-factory</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>abstract-factory</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
