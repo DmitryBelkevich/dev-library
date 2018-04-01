@@ -17,7 +17,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>fundamental</module>
+        <module>fundamental-patterns</module>
         <module>private</module>
     </modules>
 

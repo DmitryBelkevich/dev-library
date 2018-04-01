@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>fundamental</artifactId>
+        <artifactId>fundamental-patterns</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
