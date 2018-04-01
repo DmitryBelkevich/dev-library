@@ -2,8 +2,8 @@ package com.hard;
 
 public class Main {
     public static void main(String[] args) {
-        Shape shape1 = new Circle(new RedCircle());
-        Shape shape2 = new Circle(new GreenCircle());
+        Shape shape1 = new Circle(1, 1, 1, new RedCircle());
+        Shape shape2 = new Circle(1, 1, 1, new GreenCircle());
 
         shape1.draw();
         shape2.draw();
@@ -15,7 +15,7 @@ public class Main {
  */
 
 interface Graphics {
-    void draw();    // operationImpl
+    void draw(int r, int x, int y);    // operationImpl
 }
 
 /**
@@ -24,15 +24,25 @@ interface Graphics {
 
 class RedCircle implements Graphics {
     @Override
-    public void draw() {
-        System.out.println("RedCircle");
+    public void draw(int r, int x, int y) {
+        System.out.println(
+                "RedCircle:"
+                        + "r=" + r
+                        + ",x=" + x
+                        + ",y=" + y
+        );
     }
 }
 
 class GreenCircle implements Graphics {
     @Override
-    public void draw() {
-        System.out.println("GreenCircle");
+    public void draw(int r, int x, int y) {
+        System.out.println(
+                "GreenCircle:"
+                        + "r=" + r
+                        + ",x=" + x
+                        + ",y=" + y
+        );
     }
 }
 
@@ -43,7 +53,7 @@ class GreenCircle implements Graphics {
 abstract class Shape {
     protected Graphics graphics;
 
-    public Shape(Graphics graphics) {
+    protected Shape(Graphics graphics) {
         this.graphics = graphics;
     }
 
@@ -55,25 +65,19 @@ abstract class Shape {
  */
 
 class Circle extends Shape {
-    public Circle(Graphics graphics) {
+    private int r;
+    private int x;
+    private int y;
+
+    public Circle(int r, int x, int y, Graphics graphics) {
         super(graphics);
+        this.r = r;
+        this.x = x;
+        this.y = y;
     }
 
     @Override
     public void draw() {
-        System.out.println("Circle");
-        graphics.draw();
-    }
-}
-
-class Rectangle extends Shape {
-    public Rectangle(Graphics graphics) {
-        super(graphics);
-    }
-
-    @Override
-    public void draw() {
-        System.out.println("Rectangle");
-        graphics.draw();
+        graphics.draw(r, x, y);
     }
 }
