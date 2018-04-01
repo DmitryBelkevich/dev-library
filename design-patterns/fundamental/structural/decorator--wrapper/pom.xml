@@ -6,21 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>fundamental</artifactId>
+        <artifactId>structural</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>structural</artifactId>
+    <artifactId>decorator--wrapper</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>adapter</module>
-        <module>bridge</module>
-        <module>composite</module>
-        <module>decorator--wrapper</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
