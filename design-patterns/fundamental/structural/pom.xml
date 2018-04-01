@@ -22,9 +22,9 @@
         <module>composite</module>
         <module>decorator--wrapper</module>
         <module>facade</module>
+        <module>filter--criteria</module>
         <module>flyweight</module>
         <module>proxy--surrogate</module>
-        <module>filter--criteria</module>
     </modules>
 
 </project>
