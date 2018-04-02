@@ -6,21 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>design-patterns</artifactId>
+        <artifactId>private-patterns</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>private-patterns</artifactId>
+    <artifactId>concurrency</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>concurrency</module>
-        <module>architectural</module>
-        <module>enterprise</module>
-        <module>other-patterns</module>
     </modules>
 
 </project>
