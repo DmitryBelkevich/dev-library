@@ -18,7 +18,7 @@
 
     <modules>
         <module>fundamental-patterns</module>
-        <module>private</module>
+        <module>private-patterns</module>
     </modules>
 
 </project>
