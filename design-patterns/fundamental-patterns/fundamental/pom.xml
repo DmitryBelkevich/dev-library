@@ -6,21 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>design-patterns</artifactId>
+        <artifactId>fundamental-patterns</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>fundamental-patterns</artifactId>
+    <artifactId>fundamental</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>fundamental</module>
-        <module>behavioral</module>
-        <module>creational</module>
-        <module>structural</module>
     </modules>
 
 </project>
