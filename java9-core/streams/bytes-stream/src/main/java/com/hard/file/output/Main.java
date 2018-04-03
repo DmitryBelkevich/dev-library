@@ -14,19 +14,8 @@ public class Main {
             e.printStackTrace();
         }
 
-        byte[] bytes = {
-                'H',
-                'e',
-                'l',
-                'l',
-                'o',
-                ' ',
-                'W',
-                'o',
-                'r',
-                'l',
-                'd',
-        };
+        String str = "Hello World";
+        byte[] bytes = str.getBytes();
 
         try {
             outputStream.write(bytes);
