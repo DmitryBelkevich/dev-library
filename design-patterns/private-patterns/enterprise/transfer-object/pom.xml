@@ -6,24 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>private-patterns</artifactId>
+        <artifactId>enterprise</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>enterprise</artifactId>
+    <artifactId>transfer-object</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>composite-entity</module>
-        <module>data-access-object--dao</module>
-        <module>front-controller</module>
-        <module>intercepting-filter</module>
-        <module>service-locator</module>
-        <module>session</module>
-        <module>transfer-object</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
