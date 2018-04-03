@@ -29,6 +29,7 @@
         <module>class-loaders</module>
         <module>exceptions</module>
         <module>immutable-objects</module>
+        <module>streams</module>
     </modules>
 
 </project>
