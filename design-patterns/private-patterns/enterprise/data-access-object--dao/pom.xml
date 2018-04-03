@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>private-patterns</artifactId>
+        <artifactId>enterprise</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>enterprise</artifactId>
+    <artifactId>data-access-object--dao</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>composite-entity</module>
-        <module>data-access-object--dao</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
