@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>class-loader</artifactId>
+    <artifactId>class-loaders</artifactId>
 
     <name>${project.artifactId}</name>
 
