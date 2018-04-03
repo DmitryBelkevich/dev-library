@@ -6,18 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>private-patterns</artifactId>
+        <artifactId>enterprise</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>enterprise</artifactId>
+    <artifactId>composite-entity</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>composite-entity</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
