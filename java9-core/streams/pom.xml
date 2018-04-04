@@ -17,7 +17,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>bytes-stream</module>
+        <module>bytes-streams</module>
     </modules>
 
 </project>

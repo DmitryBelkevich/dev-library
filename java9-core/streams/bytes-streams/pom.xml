@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bytes-stream</artifactId>
+    <artifactId>bytes-streams</artifactId>
 
     <name>${project.artifactId}</name>
 
