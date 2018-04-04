@@ -21,7 +21,7 @@ public class Main {
         String str = null;
         try {
             while ((str = bufferedReader.readLine()) != null) {
-                System.out.print(str + "\n");
+                System.out.println(str);
             }
         } catch (IOException e) {
             e.printStackTrace();
