@@ -18,7 +18,7 @@ public class Main {
                 if (str.equalsIgnoreCase(""))
                     break;
 
-                System.out.print(str + "\n");
+                System.out.println(str);
             }
         } catch (IOException e) {
             e.printStackTrace();
