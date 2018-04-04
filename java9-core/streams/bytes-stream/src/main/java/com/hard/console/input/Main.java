@@ -19,6 +19,14 @@ public class Main {
             e.printStackTrace();
         }
 
+        try {
+            inputStream.close();
+            inputStreamReader.close();
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         System.out.print(str);
     }
 }
