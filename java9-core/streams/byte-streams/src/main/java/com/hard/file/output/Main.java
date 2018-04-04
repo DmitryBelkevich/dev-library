@@ -14,7 +14,9 @@ public class Main {
             e.printStackTrace();
         }
 
-        String str = "Hello World";
+        String str = "Hello World" + "\n"
+                + "Hello World"
+                ;
         byte[] bytes = str.getBytes();
 
         try {
