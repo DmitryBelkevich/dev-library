@@ -149,7 +149,7 @@ class OrCriteria implements Criteria {
         Collection<Entity> filteredPersonsByCriteria2 = criteria2.meetCriteria(entities);
 
         for (Entity person : filteredPersonsByCriteria2)
-            if(!filteredPersonsByCriteria1.contains(person))
+            if (!filteredPersonsByCriteria1.contains(person))
                 filteredPersonsByCriteria1.add(person);
 
         return filteredPersonsByCriteria1;

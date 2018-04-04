@@ -38,19 +38,25 @@ public class Main {
  */
 
 class A {
-    static {}
+    static {
+    }
 
-    {}
+    {
+    }
 
-    public A() {}
+    public A() {
+    }
 }
 
 class B extends A {
-    static {}
+    static {
+    }
 
-    {}
+    {
+    }
 
-    public B() {}
+    public B() {
+    }
 }
 
 class C extends B {
@@ -69,7 +75,8 @@ class C extends B {
     public static String str1 = "Hello World";
 
     // 2) выполняются статические блоки инициализации данного класса
-    static {}
+    static {
+    }
 
     /**
      * 2)
@@ -90,8 +97,10 @@ class C extends B {
     private String str2 = "Hello World";
 
     // 2) выполняются анонимные блоки инициализации данного класса
-    {}
+    {
+    }
 
     // 3) выполняется конструктор данного класса
-    public C() {}
+    public C() {
+    }
 }

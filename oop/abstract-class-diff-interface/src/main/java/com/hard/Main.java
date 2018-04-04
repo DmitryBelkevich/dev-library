@@ -69,8 +69,6 @@ abstract class AbstractEntity {
  *
  * абстрактный класс насследник не обязан реализовать абстрактные методы
  * неабстрактный класс насследник обязан реализовать абстрактные методы
- *
- *
  */
 
 class Entity extends AbstractEntity implements IEntity {

@@ -1,6 +1,9 @@
 package com.hard.file.output;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 
 public class Main {
     public static void main(String[] args) {

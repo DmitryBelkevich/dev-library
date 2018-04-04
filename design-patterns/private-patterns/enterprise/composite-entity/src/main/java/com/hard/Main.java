@@ -56,7 +56,7 @@ class CoarseGrainedObject {
         dependentObject2.setData(data2);
     }
 
-    public Collection<String> getData(){
+    public Collection<String> getData() {
         Collection<String> data = new ArrayList<>();
 
         data.add(dependentObject1.getData());
@@ -77,7 +77,7 @@ class CompositeEntity {
         coarseGrainedObject.setData(data1, data2);
     }
 
-    public Collection<String> getData(){
+    public Collection<String> getData() {
         Collection<String> data = coarseGrainedObject.getData();
 
         return data;
@@ -95,7 +95,7 @@ class Client {
         compositeEntity.setData(data1, data2);
     }
 
-    public void printData(){
+    public void printData() {
         Collection<String> data = compositeEntity.getData();
 
         for (String d : data)

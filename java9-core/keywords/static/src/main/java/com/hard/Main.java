@@ -10,7 +10,8 @@ abstract class Entity {
     /**
      * статический блок инициализации
      */
-    static {}
+    static {
+    }
 
     public Entity() {
         System.out.println("Ctor");
