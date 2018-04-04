@@ -20,19 +20,24 @@ public class Main {
 
         String str = null;
         try {
-            str = bufferedReader.readLine();
+            while ((str = bufferedReader.readLine()) != null) {
+                System.out.print(str + "\n");
+            }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        } finally {
+            try {
+                if (bufferedReader != null)
+                    bufferedReader.close();
 
-        try {
-            inputStream.close();
-            inputStreamReader.close();
-            bufferedReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+                if (inputStreamReader != null)
+                    inputStreamReader.close();
 
-        System.out.print(str);
+                if (inputStream != null)
+                    inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
