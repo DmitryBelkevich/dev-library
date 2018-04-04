@@ -9,7 +9,7 @@
         <artifactId>creational</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    
+
     <artifactId>abstract-factory</artifactId>
 
     <name>${project.artifactId}</name>
