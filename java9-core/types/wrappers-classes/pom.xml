@@ -6,20 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java9-core</artifactId>
+        <artifactId>types</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>types</artifactId>
+    <artifactId>wrappers-classes</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>primitives-diff-wrappers</module>
-        <module>primitives</module>
-        <module>wrappers-classes</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>

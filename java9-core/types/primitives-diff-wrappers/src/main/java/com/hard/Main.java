@@ -2,15 +2,16 @@ package com.hard;
 
 public class Main {
     public static void main(String[] args) {
-        Byte aByte;
-        Short aShort;
-        Integer integer;
-        Long aLong;
+        byte b;
+        short i;
+        int i1;
+        long l;
 
-        Float aFloat;
-        Double aDouble;
+        float v;
+        double v1;
 
-        Character character;
-        Boolean aBoolean;
+        char c;
+
+        boolean b1;
     }
 }
