@@ -9,6 +9,7 @@ public class Main {
         int arr[] = Arrays.init(n, from, to);
 
         long start = System.currentTimeMillis();
+
         //Sorting.bubbleSort(arr);			// 12000 ms (12.0 s)
         Sorting.bubbleSort2(arr);            // 12200 ms (12.2 s)
         //Sorting.insertionSort(arr);		// 4500 ms (4.5 s)
@@ -16,6 +17,7 @@ public class Main {
         //Sorting.cocktailSort(arr);		// 11300 ms (11.3 s)
         //Sorting.shellSort(arr);			// 15 ms (0.015 s)
         //Sorting.quickSort(arr, 0, n - 1);	// 13 ms (0.13 s)
+
         long finish = System.currentTimeMillis();
         long timeConsumedMillis = finish - start;
         double timeConsumedSeconds = timeConsumedMillis * 0.001;
