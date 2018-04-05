@@ -14,7 +14,7 @@
 
     <modules>
         <module>java9-core</module>
-        <module>object-oriented-programming--oop</module>
+        <module>programming-paradigms</module>
         <module>data-structures</module>
         <module>algorithms</module>
         <module>design-patterns</module>

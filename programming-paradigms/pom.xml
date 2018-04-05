@@ -10,14 +10,14 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>object-oriented-programming--oop</artifactId>
+    <artifactId>programming-paradigms</artifactId>
+
+    <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>encapsulation</module>
-        <module>abstract-class-diff-interface</module>
-        <module>polymorphism</module>
+        <module>object-oriented-programming--oop</module>
     </modules>
 
 </project>
