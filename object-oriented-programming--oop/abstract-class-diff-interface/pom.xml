@@ -6,11 +6,11 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>oop</artifactId>
+        <artifactId>object-oriented-programming--oop</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>encapsulation</artifactId>
+    <artifactId>abstract-class-diff-interface</artifactId>
 
     <name>${project.artifactId}</name>
 
