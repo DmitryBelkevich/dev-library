@@ -30,6 +30,7 @@
         <module>exceptions</module>
         <module>immutable-objects</module>
         <module>streams</module>
+        <module>runtime</module>
     </modules>
 
 </project>
