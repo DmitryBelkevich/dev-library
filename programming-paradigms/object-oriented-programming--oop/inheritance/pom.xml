@@ -6,21 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>programming-paradigms</artifactId>
+        <artifactId>object-oriented-programming--oop</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>object-oriented-programming--oop</artifactId>
+    <artifactId>inheritance</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>encapsulation</module>
-        <module>inheritance</module>
-        <module>polymorphism</module>
-        <module>abstract-class-diff-interface</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
