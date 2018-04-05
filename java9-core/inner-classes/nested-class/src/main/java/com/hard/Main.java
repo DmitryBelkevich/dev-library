@@ -26,7 +26,7 @@ class C1 {
 
     public static class C2 {
         public String getStr() {
-            return str;
+            return C1.str;
         }
     }
 }

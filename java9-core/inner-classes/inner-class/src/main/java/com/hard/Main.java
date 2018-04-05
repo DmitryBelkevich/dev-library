@@ -28,7 +28,7 @@ class C1 {
 
     public class C2 {
         public String getStr() {
-            return str;
+            return C1.this.str;
         }
     }
 }
