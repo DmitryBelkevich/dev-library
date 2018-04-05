@@ -18,6 +18,7 @@
 
     <modules>
         <module>jre-jdk-jvm</module>
+        <module>runtime</module>
         <module>keywords</module>
         <module>types</module>
         <module>class-object</module>
@@ -30,7 +31,7 @@
         <module>exceptions</module>
         <module>immutable-objects</module>
         <module>streams</module>
-        <module>runtime</module>
+        <module>override</module>
     </modules>
 
 </project>
