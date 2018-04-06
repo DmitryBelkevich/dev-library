@@ -34,6 +34,7 @@
         <module>override</module>
         <module>cast</module>
         <module>autoboxing-unboxing</module>
+        <module>generics</module>
     </modules>
 
 </project>
