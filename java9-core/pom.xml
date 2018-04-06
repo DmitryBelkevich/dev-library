@@ -32,6 +32,7 @@
         <module>immutable-objects</module>
         <module>streams</module>
         <module>override</module>
+        <module>cast</module>
     </modules>
 
 </project>
