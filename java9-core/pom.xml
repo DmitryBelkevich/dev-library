@@ -33,6 +33,7 @@
         <module>streams</module>
         <module>override</module>
         <module>cast</module>
+        <module>autoboxing-unboxing</module>
     </modules>
 
 </project>
