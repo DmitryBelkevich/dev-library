@@ -8,7 +8,7 @@ public class Main {
          */
 
         /*
-         * Рефлексивность: для любого ненулевого x, x.equals(x) вернет true
+         * Рефлексивность (Reflexivity): для любого ненулевого x, x.equals(x) вернет true
          */
 
         String str1;
@@ -22,7 +22,12 @@ public class Main {
         System.out.println(result);  // true
 
         /*
-         * Транзитивность: для любого ненулевого x, y и z,
+         * Симметричность (Symmetry): для любого ненулевого x и y, x.equals(y) должно вернуть true,
+         * тогда и только тогда, когда y.equals(x) вернет true.
+         */
+
+        /*
+         * Транзитивность (Transitivity): для любого ненулевого x, y и z,
          * если x.equals(y) и y.equals(z) вернет true, тогда и x.equals(z) вернет true;
          */
 
@@ -31,10 +36,5 @@ public class Main {
 
         result = str1.equals(str3);
         System.out.println(result);  // true
-
-        /*
-         * Симметричность: для любого ненулевого x и y, x.equals(y) должно вернуть true,
-         * тогда и только тогда, когда y.equals(x) вернет true.
-         */
     }
 }
