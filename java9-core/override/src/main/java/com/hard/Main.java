@@ -7,7 +7,7 @@ public class Main {
 }
 
 /**
- * при переопределении методов возможно изменить модификатор доступа в сторону расширения (package -> protected -> public)
+ * 1) при переопределении методов можно изменить модификатор доступа в сторону расширения (package -> protected -> public)
  */
 
 class A {
@@ -27,5 +27,47 @@ class C extends B {
     @Override
     public void f1() {
         super.f1();
+    }
+}
+
+/**
+ * 2) при переопределении методов можно изменить возвращаемый тип,
+ * если выполняется downcasting (понижающее преобразование, преобразование вниз по иеархии)
+ */
+
+class D {
+    public Object f1() {
+        return null;
+    }
+}
+
+class E extends D {
+    @Override
+    public Number f1() {
+        return null;
+    }
+}
+
+class F extends E {
+    @Override
+    public Integer f1() {
+        return null;
+    }
+}
+
+/**
+ * 3) при переопределении методов можно изменить имена аргументов
+ */
+
+class G {
+    public void f1(Object object) {
+
+    }
+}
+
+class H extends G {
+    @Override
+    public void f1(Object entity) {
+
     }
 }
