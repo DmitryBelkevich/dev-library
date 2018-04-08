@@ -1,11 +1,11 @@
-package com.hard._01_externally;
+package com.hard._02_deep;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ExternallyCloneTest {
+public class DeepCloneTest {
     @Test
-    public void shouldCloneObjectAsExternally() {
+    public void shouldCloneObjectAsDeep() {
         Entity entity1 = new Entity(1, "Hello World");
         Entity entity2 = null;
 
@@ -18,6 +18,6 @@ public class ExternallyCloneTest {
         Assert.assertNotSame(entity1, entity2);
 
         Assert.assertEquals(entity1.getId(), entity2.getId());
-        Assert.assertSame(entity1.getStr(), entity2.getStr());
+        Assert.assertNotSame(entity1.getStr(), entity2.getStr());
     }
 }

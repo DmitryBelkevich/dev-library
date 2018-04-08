@@ -1,4 +1,4 @@
-package com.hard._01_externally;
+package com.hard._02_deep;
 
 public class Entity implements Cloneable {
     private int id;
@@ -27,6 +27,10 @@ public class Entity implements Cloneable {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+        Entity entity = (Entity) super.clone();
+
+        entity.str = new String(str);
+
+        return entity;
     }
 }
