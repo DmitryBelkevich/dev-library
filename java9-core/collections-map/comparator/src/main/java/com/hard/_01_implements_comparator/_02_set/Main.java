@@ -6,8 +6,8 @@ import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
-//        //Set<Entity> entities = new HashSet<>();			// not sortable
-//        //Set<Entity> entities = new LinkedHashSet<>();		// not sortable
+//        Set<Entity> entities = new HashSet<>();			// not sortable
+//        Set<Entity> entities = new LinkedHashSet<>();		// not sortable
         Set<Entity> entities = new TreeSet<>(new EntityIdComparator());   // sortable
 
         entities.add(new Entity(3, "ccc"));

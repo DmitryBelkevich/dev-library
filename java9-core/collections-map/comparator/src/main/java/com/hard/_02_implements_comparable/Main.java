@@ -1,8 +1,20 @@
 package com.hard._02_implements_comparable;
 
+import java.util.Set;
+import java.util.TreeSet;
+
 public class Main {
     public static void main(String[] args) {
+//        Set<Entity> entities = new HashSet<>();			// not sortable
+//        Set<Entity> entities = new LinkedHashSet<>();		// not sortable
+        Set<Entity> entities = new TreeSet<>();   // sortable
 
+        entities.add(new Entity(3, "ccc"));
+        entities.add(new Entity(2, "aaa"));
+        entities.add(new Entity(4, "ddd"));
+        entities.add(new Entity(1, "bbb"));
+
+        System.out.println(entities);
     }
 }
 
