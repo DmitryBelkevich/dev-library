@@ -6,21 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>class-object</artifactId>
+        <artifactId>redefinition</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>redefinition</artifactId>
+    <artifactId>clone</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>equals-hashcode</module>
-        <module>finalize</module>
-        <module>tostring</module>
-        <module>clone</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
