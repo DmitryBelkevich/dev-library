@@ -1,20 +1,8 @@
-package com.hard.ex1;
+package com.hard.ex1_objects_collection;
 
 import java.util.Objects;
 
-public class Main {
-    public static void main(String[] args) {
-        boolean result;
-
-        Entity entity1 = new Entity("Hello World");
-        Entity entity2 = new Entity("Hello World");
-
-        result = entity1.equals(entity2);
-        System.out.println(result); // true - все поля объекта равны
-    }
-}
-
-class Entity {
+public class Entity {
     private String str;
 
     public Entity(String str) {
@@ -40,10 +28,5 @@ class Entity {
         Entity entity = (Entity) o;
 
         return Objects.equals(str, entity.str);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(str);
     }
 }

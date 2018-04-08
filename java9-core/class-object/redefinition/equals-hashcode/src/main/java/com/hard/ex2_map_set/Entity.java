@@ -1,22 +1,8 @@
-package com.hard.ex3_map;
+package com.hard.ex2_map_set;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-public class Main {
-    public static void main(String[] args) {
-        Map<Entity, Object> entities = new HashMap<>();
-
-        entities.put(new Entity("Hello World"), new Object());
-
-        Object object = entities.get(new Entity("Hello World"));
-
-        System.out.println(object);
-    }
-}
-
-class Entity {
+public class Entity {
     private String str;
 
     public Entity(String str) {
