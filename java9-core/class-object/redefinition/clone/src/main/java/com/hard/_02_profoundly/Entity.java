@@ -26,7 +26,7 @@ public class Entity implements Cloneable {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Object clone() {
         Entity entity = new Entity(id, new String(str));
 
         return entity;
