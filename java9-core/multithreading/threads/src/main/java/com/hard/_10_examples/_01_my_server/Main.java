@@ -71,12 +71,12 @@ class ClientThread extends Thread {
 
     private void writeResponse(String responseBody) {
         String responseHeaders =
-                "HTTP/1.1 200 OK" + "\r\n"
-                        + "Server: YarServer/2009-09-09" + "\r\n"
-                        + "Content-Type: text/html" + "\r\n"
-                        + "Content-Length: " + responseBody.length() + "\r\n"
-                        + "Connection: close" + "\r\n"
-                        + "\r\n";
+                "HTTP/1.1 200 OK" + Constants.CRLF
+                        + "Server: YarServer/2009-09-09" + Constants.CRLF
+                        + "Content-Type: text/html" + Constants.CRLF
+                        + "Content-Length: " + responseBody.length() + Constants.CRLF
+                        + "Connection: close" + Constants.CRLF
+                        + Constants.CRLF;
 
         String response = responseHeaders + responseBody;
         byte[] byteResponse = response.getBytes();
@@ -119,4 +119,8 @@ class Server {
     public void addClient(ClientThread clientThread) {
         clientThreads.add(clientThread);
     }
+}
+
+class Constants {
+    public static final String CRLF = "\r\n";
 }
