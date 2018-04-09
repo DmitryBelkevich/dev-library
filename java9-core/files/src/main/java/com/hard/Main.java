@@ -1,4 +1,4 @@
-package com.hard.print_as_tree;
+package com.hard;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +19,6 @@ public class Main {
 
         fileManager.inspect(file, 0);
     }
-
-
 }
 
 class FileManager {

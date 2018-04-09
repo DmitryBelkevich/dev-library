@@ -30,6 +30,7 @@
         <module>class-loaders</module>
         <module>exceptions</module>
         <module>immutable-objects</module>
+        <module>files</module>
         <module>streams</module>
         <module>override</module>
         <module>cast</module>
