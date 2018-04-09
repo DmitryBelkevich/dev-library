@@ -4,9 +4,9 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
-        InputStream inputStream = null;
-
         File file = new File("c:/000.txt");
+
+        InputStream inputStream = null;
 
         try {
             inputStream = new FileInputStream(file);

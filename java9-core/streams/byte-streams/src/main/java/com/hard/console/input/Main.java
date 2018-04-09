@@ -7,9 +7,7 @@ import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) {
-        InputStream inputStream = null;
-
-        inputStream = System.in;
+        InputStream inputStream = System.in;
 
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 
