@@ -19,7 +19,6 @@
     <modules>
         <module>linear-data-structures</module>
         <module>graph</module>
-        <module>trees</module>
         <module>hashing--hash-function</module>
         <module>hashmap--hashtable</module>
     </modules>
