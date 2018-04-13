@@ -6,21 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library</artifactId>
+        <artifactId>data-structures</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>data-structures</artifactId>
+    <artifactId>hashing--hash-function</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>lists</module>
-        <module>trees</module>
-        <module>hashing--hash-function</module>
-        <module>hashmap--hashtable</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
