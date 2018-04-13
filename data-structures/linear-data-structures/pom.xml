@@ -6,22 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library</artifactId>
+        <artifactId>data-structures</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>data-structures</artifactId>
+    <artifactId>linear-data-structures</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>linear-data-structures</module>
-        <module>lists</module>
-        <module>trees</module>
-        <module>hashing--hash-function</module>
-        <module>hashmap--hashtable</module>
     </modules>
 
 </project>
