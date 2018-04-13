@@ -22,37 +22,47 @@ public class Main {
 }
 
 class FileManager {
-    public void inspect(File file, int offset) {
+    public void inspect(File file, int level) {
         if (file.isDirectory()) {
             File[] files = file.listFiles();
 
             for (File f : files) {
-                print(f, offset + 1);
+                print(f, level + 1);
             }
         }
     }
 
-    private void print(File file, int offset) {
-        String tab = getOffset(offset);
+    private void print(File file, int level) {
+        String branch = drawBranch(level);
 
         if (!file.isDirectory()) {
-            System.out.println(tab + file.getName());
+            System.out.println(branch + file.getName());
             return;
         }
 
-        System.out.println(tab + "[" + file.getName() + "]");
+        System.out.println(branch + "[" + file.getName() + "]");
 
-        inspect(file, offset);
+        inspect(file, level);
     }
 
-    private String getOffset(int offset) {
+    private String drawBranch(int level) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (int i = 1; i < offset; i++) {
-            stringBuilder.append("|   ");
+        int offset = 3;
+
+        // drawing other branches
+        for (int i = 1; i < level; i++) {
+            stringBuilder.append("|");
+
+            for (int j = 0; j < offset; j++)
+                stringBuilder.append(" ");
         }
 
-        stringBuilder.append("+--");
+        // drawing this branches
+        stringBuilder.append("+");
+
+        for (int i = 0; i < offset; i++)
+            stringBuilder.append("-");
 
         return stringBuilder.toString();
     }
