@@ -18,6 +18,8 @@
 
     <modules>
         <module>lists</module>
+        <module>hashing--hash-function</module>
+        <module>hashmap--hashtable</module>
     </modules>
 
 </project>
