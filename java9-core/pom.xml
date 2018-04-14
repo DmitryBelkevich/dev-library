@@ -36,6 +36,7 @@
         <module>cast</module>
         <module>autoboxing-unboxing</module>
         <module>generics</module>
+        <module>annotations</module>
     </modules>
 
 </project>
