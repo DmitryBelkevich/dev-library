@@ -1,4 +1,4 @@
-package com.hard;
+package com.hard._01_separate_chaining;
 
 public class Main {
     public static void main(String[] args) {
