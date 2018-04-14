@@ -78,29 +78,29 @@ class LinkedList<T> implements List<T> {
             return;
         }
 
-        Node<T> node = first;
+        Node<T> iterator = first;
 
-        while (node.next != null) {
-            if (node.next.data == data) {
-                if (last == node.next)
-                    last = node;
+        while (iterator.next != null) {
+            if (iterator.next.data == data) {
+                if (last == iterator.next)
+                    last = iterator;
 
-                node.next = node.next.next;
+                iterator.next = iterator.next.next;
 
                 return;
             }
 
-            node = node.next;
+            iterator = iterator.next;
         }
     }
 
     @Override
     public void print() {
-        Node<T> node = first;
+        Node<T> iterator = first;
 
-        while (node != null) {
-            System.out.println(node.data);
-            node = node.next;
+        while (iterator != null) {
+            System.out.println(iterator.data);
+            iterator = iterator.next;
         }
     }
 }
