@@ -18,7 +18,7 @@ public class HashingTest {
     }
 
     @Test
-    public void should_be_the_same_hashcode_from_the_same_data2() {
+    public void should_be_different_hashcode_from_shuffle_data() {
         Hashing hashing = new Hashing();
 
         int hashcode1 = hashing.hashcode("Hello World");
