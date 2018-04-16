@@ -12,9 +12,10 @@ public class Main {
 }
 
 class Hashing {
-    public int hashcode(int data) {
-        int size = 4;   // hash-table size
+    private int n = 8;
+    private int size = (int) Math.pow(2, n);   // hash-table size
 
+    public int hashcode(int data) {
         int hashcode = data % size;
 
         return hashcode;
@@ -30,9 +31,6 @@ class Hashing {
             int x = (int) Math.pow(p, i);
             sum += bytes[i] * x;
         }
-
-        int n = 8;
-        int size = (int) Math.pow(2, n);
 
         int hashcode = sum % size;
 
