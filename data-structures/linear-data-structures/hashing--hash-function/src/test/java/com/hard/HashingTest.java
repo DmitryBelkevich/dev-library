@@ -16,4 +16,14 @@ public class HashingTest {
             Assert.assertEquals(hashcode1, hashcode2);
         }
     }
+
+    @Test
+    public void should_be_the_same_hashcode_from_the_same_data2() {
+        Hashing hashing = new Hashing();
+
+        int hashcode1 = hashing.hashcode("Hello World");
+        int hashcode2 = hashing.hashcode(new StringBuilder("Hello World").reverse().toString());
+
+        Assert.assertNotEquals(hashcode1, hashcode2);
+    }
 }
