@@ -19,6 +19,7 @@
     <modules>
         <module>arrays-sorting</module>
         <module>matrix</module>
+        <module>hashing--hash-function</module>
     </modules>
 
 </project>

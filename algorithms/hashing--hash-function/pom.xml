@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>linear-data-structures</artifactId>
+        <artifactId>algorithms</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
