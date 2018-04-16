@@ -25,8 +25,8 @@ class Hashing {
         byte[] bytes = data.getBytes();
 
         int sum = 0;
+        int p = 10;
         for (int i = 0; i < bytes.length; i++) {
-            int p = 10;
             int x = (int) Math.pow(p, i);
             sum += bytes[i] * x;
         }
