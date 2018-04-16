@@ -26,11 +26,13 @@ class Hashing {
 
         int sum = 0;
         for (int i = 0; i < bytes.length; i++) {
-            int p = (int) Math.pow(2, i);
-            sum += bytes[i] * p;
+            int p = 10;
+            int x = (int) Math.pow(p, i);
+            sum += bytes[i] * x;
         }
 
-        int size = (int) Math.pow(2, 8);
+        int n = 8;
+        int size = (int) Math.pow(2, n);
 
         int hashcode = sum % size;
 
