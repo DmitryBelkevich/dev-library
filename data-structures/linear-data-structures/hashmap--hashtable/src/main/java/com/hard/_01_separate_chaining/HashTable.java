@@ -33,13 +33,12 @@ class HashTable<K, V> implements Map<K, V> {
 
         Node<K, V> iterator = table.get(hashcode);
 
-        if (iterator != null)
-            while (iterator != null) {
-                if (iterator.key == key)
-                    return iterator.value;
+        while (iterator != null) {
+            if (iterator.key == key)
+                return iterator.value;
 
-                iterator = iterator.next;
-            }
+            iterator = iterator.next;
+        }
 
         return null;
     }
