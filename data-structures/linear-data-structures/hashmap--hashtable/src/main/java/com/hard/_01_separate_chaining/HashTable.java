@@ -19,25 +19,6 @@ class HashTable<K, V> implements Map<K, V> {
 
         for (int i = 0; i < size; i++)
             table.add(null);
-
-        Node<K, V> node1 = new Node<>();
-        node1.key = (K) "a";
-        node1.value = (V) "aaa";
-
-        Node<K, V> node2 = new Node<>();
-        node2.key = (K) "b";
-        node2.value = (V) "bbb";
-
-        node1.next = node2;
-
-        table.set(0, node1);
-        table.set(1, node1);
-        table.set(2, node1);
-        table.set(3, node1);
-        table.set(4, node1);
-        table.set(5, node1);
-        table.set(6, node1);
-        table.set(7, node1);
     }
 
     private int hashcode(K key) {
@@ -54,7 +35,29 @@ class HashTable<K, V> implements Map<K, V> {
 
     @Override
     public void add(K key, V value) {
-        throw new RuntimeException();
+        Node<K, V> node = new Node<>();
+
+        node.key = key;
+        node.value = value;
+        node.next = null;
+
+        int hashcode = hashcode(key);
+
+        Node<K, V> iterator = table.get(hashcode);
+
+        if (iterator == null) {
+            table.set(hashcode, node);
+
+            return;
+        }
+
+        if (iterator != null) {
+            while (iterator.next != null) {
+                iterator = iterator.next;
+            }
+
+            iterator.next = node;
+        }
     }
 
     @Override
