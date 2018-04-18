@@ -29,8 +29,19 @@ class HashTable<K, V> implements Map<K, V> {
 
     @Override
     public V get(K key) {
-        throw new RuntimeException();
-//        return null;
+        int hashcode = hashcode(key);
+
+        Node<K, V> iterator = table.get(hashcode);
+
+        if (iterator != null)
+            while (iterator != null) {
+                if (iterator.key == key)
+                    return iterator.value;
+
+                iterator = iterator.next;
+            }
+
+        return null;
     }
 
     @Override
@@ -91,14 +102,4 @@ class HashTable<K, V> implements Map<K, V> {
     public void print() {
         throw new RuntimeException();
     }
-
-////    @Override
-//    public void add(int data) {
-//        int hashcode = this.hashcode(data);
-//
-//        Node node = new Node();
-////        node.hashcode = hashcode;
-//        node.data = data;
-//        node.next = null;
-//    }
 }
