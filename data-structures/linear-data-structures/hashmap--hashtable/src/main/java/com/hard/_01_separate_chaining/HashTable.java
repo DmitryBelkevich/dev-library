@@ -85,21 +85,27 @@ class HashTable<K, V> implements Map<K, V> {
     public int size() {
         int sum = 0;
 
-        for (int i = 0; i < table.size(); i++)
-            if (table.get(i) != null) {
-                Node<K, V> iterator = table.get(i);
+        for (int i = 0; i < table.size(); i++) {
+            Node<K, V> iterator = table.get(i);
 
-                while (iterator != null) {
-                    sum++;
-                    iterator = iterator.next;
-                }
+            while (iterator != null) {
+                sum++;
+                iterator = iterator.next;
             }
+        }
 
         return sum;
     }
 
     @Override
     public void print() {
-        throw new RuntimeException();
+        for (int i = 0; i < table.size(); i++) {
+            Node<K, V> iterator = table.get(i);
+
+            while (iterator != null) {
+                System.out.println(iterator.key + ":" + iterator.value);
+                iterator = iterator.next;
+            }
+        }
     }
 }
