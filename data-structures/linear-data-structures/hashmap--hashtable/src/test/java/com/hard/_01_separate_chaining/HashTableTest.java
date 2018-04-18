@@ -1,6 +1,7 @@
 package com.hard._01_separate_chaining;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class HashTableTest {
@@ -201,10 +202,70 @@ public class HashTableTest {
     }
 
     /**
+     * remove
+     */
+
+    @Test
+    public void should_not_remove_nothing_from_empty_map() {
+        Map<String, String> map = new HashTable<>();
+
+        map.remove("a");
+
+        Assert.assertEquals(0, map.size());
+    }
+
+    @Test
+    public void should_remove_nodes_without_collisions_by_key() {
+        Map<String, String> map = new HashTable<>();
+
+        map.add("a", "aaa");
+        map.add("b", "bbb");
+        map.add("c", "ccc");
+        map.add("d", "ddd");
+        map.add("e", "eee");
+        map.add("f", "fff");
+        map.add("g", "ggg");
+        map.add("h", "hhh");
+
+        map.add("i", "iii");
+        map.add("j", "jjj");
+        map.add("k", "kkk");
+        map.add("l", "lll");
+        map.add("m", "mmm");
+        map.add("n", "nnn");
+        map.add("o", "ooo");
+        map.add("p", "ppp");
+
+        map.add("q", "qqq");
+        map.add("r", "rrr");
+        map.add("s", "sss");
+        map.add("t", "ttt");
+        map.add("u", "uuu");
+        map.add("v", "vvv");
+        map.add("w", "www");
+        map.add("x", "xxx");
+
+        map.add("y", "yyy");
+        map.add("z", "zzz");
+
+        map.remove("a");
+        map.remove("b");
+        map.remove("c");
+        map.remove("d");
+        map.remove("e");
+        map.remove("f");
+        map.remove("g");
+        map.remove("h");
+
+        Assert.assertEquals(26 - 8, map.size());
+    }
+
+    /**
      * print
      */
 
     @Test
+    @Ignore
     public void should_print_all_nodes() {
         Map<String, String> map = new HashTable<>();
 

@@ -72,12 +72,15 @@ class HashTable<K, V> implements Map<K, V> {
 
     @Override
     public void remove(K key) {
-        throw new RuntimeException();
-    }
+        int hashcode = hashcode(key);
 
-    @Override
-    public void remove(K key, V value) {
-        throw new RuntimeException();
+        Node<K, V> iterator = table.get(hashcode);
+
+        if (iterator != null) {
+            if (iterator.key == key) {
+                table.set(hashcode, iterator.next);
+            }
+        }
     }
 
     @Override
