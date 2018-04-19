@@ -25,7 +25,7 @@
 - запрет key == null и value == null
 скорость:
 (-) медленнее чем HashMap
-		
+
 **TreeMap**
 
 реализация:
