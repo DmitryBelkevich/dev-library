@@ -20,7 +20,6 @@
         <module>tree</module>
         <module>binary-tree</module>
         <module>two-four-tree</module>
-        <module>red-black-tree</module>
         <module>heap</module>
     </modules>
 

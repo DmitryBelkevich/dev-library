@@ -18,6 +18,7 @@
 
     <modules>
         <module>b-tree</module>
+        <module>red-black-tree</module>
     </modules>
 
 </project>
