@@ -215,7 +215,7 @@ public class HashTableTest {
     }
 
     @Test
-    public void should_remove_nodes_without_collisions_by_key() {
+    public void should_remove_nodes_by_key_0_level() {
         Map<String, String> map = new HashTable<>();
 
         map.add("a", "aaa");
@@ -260,12 +260,143 @@ public class HashTableTest {
         Assert.assertEquals(26 - 8, map.size());
     }
 
+    @Test
+    public void should_remove_nodes_by_key_1_level() {
+        Map<String, String> map = new HashTable<>();
+
+        map.add("a", "aaa");
+        map.add("b", "bbb");
+        map.add("c", "ccc");
+        map.add("d", "ddd");
+        map.add("e", "eee");
+        map.add("f", "fff");
+        map.add("g", "ggg");
+        map.add("h", "hhh");
+
+        map.add("i", "iii");
+        map.add("j", "jjj");
+        map.add("k", "kkk");
+        map.add("l", "lll");
+        map.add("m", "mmm");
+        map.add("n", "nnn");
+        map.add("o", "ooo");
+        map.add("p", "ppp");
+
+        map.add("q", "qqq");
+        map.add("r", "rrr");
+        map.add("s", "sss");
+        map.add("t", "ttt");
+        map.add("u", "uuu");
+        map.add("v", "vvv");
+        map.add("w", "www");
+        map.add("x", "xxx");
+
+        map.add("y", "yyy");
+        map.add("z", "zzz");
+
+        map.remove("i");
+        map.remove("j");
+        map.remove("k");
+        map.remove("l");
+        map.remove("m");
+        map.remove("n");
+        map.remove("o");
+        map.remove("p");
+
+        Assert.assertEquals(26 - 8, map.size());
+    }
+
+    @Test
+    public void should_remove_nodes_by_key_2_level() {
+        Map<String, String> map = new HashTable<>();
+
+        map.add("a", "aaa");
+        map.add("b", "bbb");
+        map.add("c", "ccc");
+        map.add("d", "ddd");
+        map.add("e", "eee");
+        map.add("f", "fff");
+        map.add("g", "ggg");
+        map.add("h", "hhh");
+
+        map.add("i", "iii");
+        map.add("j", "jjj");
+        map.add("k", "kkk");
+        map.add("l", "lll");
+        map.add("m", "mmm");
+        map.add("n", "nnn");
+        map.add("o", "ooo");
+        map.add("p", "ppp");
+
+        map.add("q", "qqq");
+        map.add("r", "rrr");
+        map.add("s", "sss");
+        map.add("t", "ttt");
+        map.add("u", "uuu");
+        map.add("v", "vvv");
+        map.add("w", "www");
+        map.add("x", "xxx");
+
+        map.add("y", "yyy");
+        map.add("z", "zzz");
+
+        map.remove("q");
+        map.remove("r");
+        map.remove("s");
+        map.remove("t");
+        map.remove("u");
+        map.remove("v");
+        map.remove("w");
+        map.remove("x");
+
+        Assert.assertEquals(26 - 8, map.size());
+    }
+
+    @Test
+    public void should_remove_nodes_by_key_3_level() {
+        Map<String, String> map = new HashTable<>();
+
+        map.add("a", "aaa");
+        map.add("b", "bbb");
+        map.add("c", "ccc");
+        map.add("d", "ddd");
+        map.add("e", "eee");
+        map.add("f", "fff");
+        map.add("g", "ggg");
+        map.add("h", "hhh");
+
+        map.add("i", "iii");
+        map.add("j", "jjj");
+        map.add("k", "kkk");
+        map.add("l", "lll");
+        map.add("m", "mmm");
+        map.add("n", "nnn");
+        map.add("o", "ooo");
+        map.add("p", "ppp");
+
+        map.add("q", "qqq");
+        map.add("r", "rrr");
+        map.add("s", "sss");
+        map.add("t", "ttt");
+        map.add("u", "uuu");
+        map.add("v", "vvv");
+        map.add("w", "www");
+        map.add("x", "xxx");
+
+        map.add("y", "yyy");
+        map.add("z", "zzz");
+
+        map.remove("y");
+        map.remove("z");
+
+        Assert.assertEquals(26 - 2, map.size());
+    }
+
     /**
      * print
      */
 
     @Test
-    @Ignore
     public void should_print_all_nodes() {
         Map<String, String> map = new HashTable<>();
 

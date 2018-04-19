@@ -76,10 +76,24 @@ class HashTable<K, V> implements Map<K, V> {
 
         Node<K, V> iterator = table.get(hashcode);
 
-        if (iterator != null) {
+        while (iterator != null) {
             if (iterator.key == key) {
                 table.set(hashcode, iterator.next);
+
+                return;
             }
+
+            while (iterator.next != null) {
+                if (iterator.next.key == key) {
+                    iterator.next = iterator.next.next;
+
+                    return;
+                }
+
+                iterator = iterator.next;
+            }
+
+            return;
         }
     }
 
