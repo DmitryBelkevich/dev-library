@@ -6,17 +6,15 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>frameworks</artifactId>
+        <artifactId>springframework</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>springframework</artifactId>
+    <artifactId>springframework-project</artifactId>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>springframework-init</module>
-        <module>springframework-project</module>
     </modules>
 
 </project>
