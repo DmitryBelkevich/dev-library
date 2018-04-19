@@ -15,7 +15,14 @@ public class BinaryTree<T> implements Tree<T> {
 
     @Override
     public void add(T data) {
-        throw new RuntimeException();
+        Node<T> node = new Node<>();
+        node.data = data;
+        node.left = null;
+        node.right = null;
+
+        if (root == null) {
+            root = node;
+        }
     }
 
     @Override
@@ -25,7 +32,17 @@ public class BinaryTree<T> implements Tree<T> {
 
     @Override
     public int size() {
-        throw new RuntimeException();
+        int size = 0;
+
+        if (root != null) {
+//            Node<T> node = root;
+
+            size++;
+
+            return size;
+        }
+
+        return size;
     }
 
     @Override
