@@ -6,18 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>binary-tree</artifactId>
+        <artifactId>binary-search-tree</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>binary-search-tree</artifactId>
+    <artifactId>self-balancing-binary-search-tree</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>self-balancing-binary-search-tree</module>
     </modules>
 
 </project>
