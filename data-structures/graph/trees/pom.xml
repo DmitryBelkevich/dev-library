@@ -17,7 +17,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>tree</module>
         <module>binary-tree</module>
         <module>two-four-tree</module>
         <module>heap</module>
