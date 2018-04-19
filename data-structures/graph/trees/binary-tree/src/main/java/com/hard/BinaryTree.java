@@ -8,4 +8,28 @@ public class BinaryTree<T> implements Tree<T> {
     }
 
     private Node<T> root;
+
+    public BinaryTree() {
+
+    }
+
+    @Override
+    public void add(T data) {
+        throw new RuntimeException();
+    }
+
+    @Override
+    public void remove(T data) {
+        throw new RuntimeException();
+    }
+
+    @Override
+    public int size() {
+        throw new RuntimeException();
+    }
+
+    @Override
+    public void print() {
+        throw new RuntimeException();
+    }
 }
