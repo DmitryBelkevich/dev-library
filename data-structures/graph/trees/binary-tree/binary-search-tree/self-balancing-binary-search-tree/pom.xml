@@ -17,6 +17,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>b-tree</module>
     </modules>
 
 </project>
