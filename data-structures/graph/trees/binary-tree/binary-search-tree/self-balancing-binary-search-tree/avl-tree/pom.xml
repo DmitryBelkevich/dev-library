@@ -6,20 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>binary-search-tree</artifactId>
+        <artifactId>self-balancing-binary-search-tree</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>self-balancing-binary-search-tree</artifactId>
+    <artifactId>avl-tree</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>avl-tree</module>
-        <module>b-tree</module>
-        <module>red-black-tree</module>
     </modules>
 
 </project>
