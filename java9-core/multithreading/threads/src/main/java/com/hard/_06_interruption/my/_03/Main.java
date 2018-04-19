@@ -7,7 +7,7 @@ public class Main {
         entity.start();
 
         try {
-            Thread.sleep(1 * 100);
+            Thread.sleep(2 * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -22,11 +22,11 @@ class Entity extends Thread {
     @Override
     public void run() {
         try {
-            for (int i = 0; i < 10 * 1000; i++) {
+            for (int i = 0; i < 10; i++) {
                 if (!this.isInterrupted()) {
                     System.out.println(Thread.currentThread().getName() + ": i = " + i);
 
-//                    Thread.sleep(1000);
+                    Thread.sleep(1000);
                 } else
                     throw new InterruptedException();
             }
