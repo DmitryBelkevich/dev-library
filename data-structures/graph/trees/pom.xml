@@ -18,7 +18,6 @@
 
     <modules>
         <module>binary-tree</module>
-        <module>two-four-tree</module>
         <module>heap</module>
     </modules>
 
