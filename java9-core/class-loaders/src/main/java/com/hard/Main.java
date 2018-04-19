@@ -38,6 +38,10 @@ public class Main {
     }
 }
 
+/**
+ * Class
+ */
+
 interface IEntity {
     void execute();
 }
@@ -49,11 +53,12 @@ class Entity implements IEntity {
     }
 }
 
+/**
+ * ClassLoader
+ */
+
 class EntityClassLoader extends ClassLoader {
-    /**
-     * Путь до директории с модулями.
-     */
-    private String path;
+    private String path;    // путь до директории с модулями
 
     public EntityClassLoader(String path, ClassLoader parent) {
         super(parent);
@@ -63,12 +68,13 @@ class EntityClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         try {
-            /**
-             * Получем байт-код из файла и загружаем класс в рантайм
-             */
+            // получение байт-кода из файла
             byte[] bytes = fetchClassFromFS(path + name + ".class");
 
-            return defineClass(name, bytes, 0, bytes.length);
+            // загрузка класса в Runtime
+            Class<?> clazz = defineClass(name, bytes, 0, bytes.length);
+
+            return clazz;
         } catch (FileNotFoundException e) {
             return super.findClass(name);
         } catch (IOException e) {
