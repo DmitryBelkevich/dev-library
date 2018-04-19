@@ -6,23 +6,15 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>graph</artifactId>
+        <artifactId>trees</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>trees</artifactId>
-
-    <name>${project.artifactId}</name>
+    <artifactId>heap</artifactId>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>tree</module>
-        <module>binary-tree</module>
-        <module>b-tree</module>
-        <module>two-four-tree</module>
-        <module>red-black-tree</module>
-        <module>heap</module>
     </modules>
 
 </project>
