@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>self-balancing-binary-search-tree</artifactId>
+        <artifactId>b-tree</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>b-tree</artifactId>
+    <artifactId>2-3-4-tree</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>2-3-tree</module>
-        <module>2-3-4-tree</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
