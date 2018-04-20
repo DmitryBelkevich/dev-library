@@ -9,7 +9,7 @@ public class BinaryTreeTest {
      */
 
     @Test
-    public void should_return_0_from_empty_tree() {
+    public void should_return_empty_tree_size() {
         Tree<String> tree = new BinaryTree<>();
 
         Assert.assertEquals(0, tree.size());
@@ -25,7 +25,7 @@ public class BinaryTreeTest {
     }
 
     @Test
-    public void should_return_tree_size() {
+    public void should_add_nodes_and_return_tree_size() {
         Tree<String> tree = new BinaryTree<>();
 
         tree.add("3");

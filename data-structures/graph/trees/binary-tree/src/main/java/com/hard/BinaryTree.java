@@ -22,6 +22,34 @@ public class BinaryTree<T> implements Tree<T> {
 
         if (root == null) {
             root = node;
+
+            return;
+        }
+
+        addRecursive(root, node);
+    }
+
+    private void addRecursive(Node<T> root, Node<T> node) {
+        if (node.data.hashCode() < root.data.hashCode()) {
+            if (root.left != null) {
+                addRecursive(root.left, node);
+                return;
+            }
+
+            root.left = node;
+
+            return;
+        }
+
+        if (node.data.hashCode() >= root.data.hashCode()) {
+            if (root.right != null) {
+                addRecursive(root.right, node);
+                return;
+            }
+
+            root.right = node;
+
+            return;
         }
     }
 
@@ -35,9 +63,15 @@ public class BinaryTree<T> implements Tree<T> {
         int size = 0;
 
         if (root != null) {
-//            Node<T> node = root;
+            Node<T> node = root;
 
             size++;
+
+            if (root.left != null) {
+                Node<T> node2 = node.left;
+
+                size++;
+            }
 
             return size;
         }
