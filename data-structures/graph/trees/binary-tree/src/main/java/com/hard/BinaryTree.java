@@ -80,16 +80,14 @@ public class BinaryTree<T> implements Tree<T> {
     }
 
     public int sizeRecursive(Node<T> node, int size) {
-        if (node != null) {
-            if (node.left != null) {
-                size++;
-                size = sizeRecursive(node.left, size);
-            }
+        if (node.left != null) {
+            size++;
+            size = sizeRecursive(node.left, size);
+        }
 
-            if (node.right != null) {
-                size++;
-                size = sizeRecursive(node.right, size);
-            }
+        if (node.right != null) {
+            size++;
+            size = sizeRecursive(node.right, size);
         }
 
         return size;
