@@ -9,10 +9,6 @@ public class BinaryTree<T> implements Tree<T> {
 
     private Node<T> root;
 
-    public BinaryTree() {
-
-    }
-
     @Override
     public void add(T data) {
         Node<T> node = new Node<>();
