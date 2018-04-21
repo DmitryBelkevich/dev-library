@@ -16,13 +16,12 @@ public class BinaryTree<T> implements Tree<T> {
         node.left = null;
         node.right = null;
 
-        if (root == null) {
-            root = node;
-
+        if (root != null) {
+            addRecursive(root, node);
             return;
         }
 
-        addRecursive(root, node);
+        root = node;
     }
 
     private void addRecursive(Node<T> node, Node<T> node2) {
@@ -58,13 +57,12 @@ public class BinaryTree<T> implements Tree<T> {
     public int size() {
         int size = 0;
 
-        if (root == null)
-            return size;
+        if (root != null) {
+            size++;
 
-        size++;
-
-        size += sizeRecursive(root.left);
-        size += sizeRecursive(root.right);
+            size += sizeRecursive(root.left);
+            size += sizeRecursive(root.right);
+        }
 
         return size;
     }
@@ -72,13 +70,12 @@ public class BinaryTree<T> implements Tree<T> {
     public int sizeRecursive(Node<T> node) {
         int size = 0;
 
-        if (node == null)
-            return size;
+        if (node != null) {
+            size++;
 
-        size++;
-
-        size += sizeRecursive(node.left);
-        size += sizeRecursive(node.right);
+            size += sizeRecursive(node.left);
+            size += sizeRecursive(node.right);
+        }
 
         return size;
     }
