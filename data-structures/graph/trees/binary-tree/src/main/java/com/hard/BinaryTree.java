@@ -63,17 +63,33 @@ public class BinaryTree<T> implements Tree<T> {
         int size = 0;
 
         if (root != null) {
-            Node<T> node = root;
-
             size++;
 
             if (root.left != null) {
-                Node<T> node2 = node.left;
-
                 size++;
+                size = sizeRecursive(root.left, size);
             }
 
-            return size;
+            if (root.right != null) {
+                size++;
+                size = sizeRecursive(root.right, size);
+            }
+        }
+
+        return size;
+    }
+
+    public int sizeRecursive(Node<T> node, int size) {
+        if (node != null) {
+            if (node.left != null) {
+                size++;
+                size = sizeRecursive(node.left, size);
+            }
+
+            if (node.right != null) {
+                size++;
+                size = sizeRecursive(node.right, size);
+            }
         }
 
         return size;
