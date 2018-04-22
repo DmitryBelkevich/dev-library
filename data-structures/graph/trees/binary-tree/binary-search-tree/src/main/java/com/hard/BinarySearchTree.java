@@ -86,7 +86,7 @@ public class BinarySearchTree<T> implements Tree<T> {
         }
     }
 
-    public void removeRecursive(Node<T> node, T data) {
+    private void removeRecursive(Node<T> node, T data) {
         if (data.hashCode() < node.data.hashCode()) {
             if (node.left != null) {
                 if (data.hashCode() == node.left.data.hashCode()) {
@@ -130,7 +130,7 @@ public class BinarySearchTree<T> implements Tree<T> {
         return size;
     }
 
-    public int sizeRecursive(Node<T> node) {
+    private int sizeRecursive(Node<T> node) {
         int size = 0;
 
         if (node != null) {
