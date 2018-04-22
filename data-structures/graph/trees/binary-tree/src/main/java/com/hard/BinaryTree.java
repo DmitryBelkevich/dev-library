@@ -50,16 +50,14 @@ public class BinaryTree<T> implements Tree<T> {
 
     @Override
     public void remove(T data) {
-        Node<T> parent = null;
-        Node<T> child = root;
-
-        if (child != null) {
-            if (data.hashCode() == child.data.hashCode()) {
+        if (root != null) {
+            if (data.hashCode() == root.data.hashCode()) {
                 root = null;
                 return;
             }
 
-            parent = child;
+            Node<T> child = root;
+            Node<T> parent = child;
 
             if (data.hashCode() < parent.data.hashCode()) {
                 child = parent.left;
@@ -70,7 +68,7 @@ public class BinaryTree<T> implements Tree<T> {
                         return;
                     }
 
-                    removeRecursive(parent, child, data);
+                    removeRecursive(child, data);
                     return;
                 }
 
@@ -86,7 +84,7 @@ public class BinaryTree<T> implements Tree<T> {
                         return;
                     }
 
-                    removeRecursive(parent, child, data);
+                    removeRecursive(child, data);
                     return;
                 }
 
@@ -95,8 +93,8 @@ public class BinaryTree<T> implements Tree<T> {
         }
     }
 
-    public void removeRecursive(Node<T> parent, Node<T> child, T data) {
-        parent = child;
+    public void removeRecursive(Node<T> child, T data) {
+        Node<T> parent = child;
 
         if (data.hashCode() < parent.data.hashCode()) {
             child = parent.left;
@@ -107,7 +105,7 @@ public class BinaryTree<T> implements Tree<T> {
                     return;
                 }
 
-                removeRecursive(parent, child, data);
+                removeRecursive(child, data);
                 return;
             }
 
@@ -123,7 +121,7 @@ public class BinaryTree<T> implements Tree<T> {
                     return;
                 }
 
-                removeRecursive(parent, child, data);
+                removeRecursive(child, data);
                 return;
             }
 
