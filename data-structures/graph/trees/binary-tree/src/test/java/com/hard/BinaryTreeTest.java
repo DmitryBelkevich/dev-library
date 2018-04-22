@@ -112,6 +112,24 @@ public class BinaryTreeTest {
          */
 
         @Test
+        public void should_remove_nodes_and_return_tree_size_level_3_left() {
+            Tree<String> tree = new BinaryTree<>();
+
+            tree.add("3");
+            tree.add("2");
+            tree.add("1");
+            tree.add("5");
+            tree.add("4");
+            tree.add("3");
+            tree.add("6");
+            tree.add("7");
+
+            tree.remove("1");
+
+            Assert.assertEquals(8 - 1, tree.size());
+        }
+
+        @Test
         public void should_remove_nodes_and_return_tree_size_level_3_right() {
             Tree<String> tree = new BinaryTree<>();
 

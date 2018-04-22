@@ -69,6 +69,9 @@ public class BinaryTree<T> implements Tree<T> {
                         parent.left = null;
                         return;
                     }
+
+                    removeRecursive(parent, child1, data);
+                    return;
                 }
 
                 return;
@@ -82,6 +85,9 @@ public class BinaryTree<T> implements Tree<T> {
                         parent.right = null;
                         return;
                     }
+
+                    removeRecursive(parent, child2, data);
+                    return;
                 }
 
                 return;
@@ -90,7 +96,39 @@ public class BinaryTree<T> implements Tree<T> {
     }
 
     public void removeRecursive(Node<T> parent, Node<T> child, T data) {
+        parent = child;
 
+        if (data.hashCode() < parent.data.hashCode()) {
+            Node<T> child1 = parent.left;
+
+            if (child1 != null) {
+                if (data.hashCode() == child1.data.hashCode()) {
+                    parent.left = null;
+                    return;
+                }
+
+                removeRecursive(parent, child1, data);
+                return;
+            }
+
+            return;
+        }
+
+        if (data.hashCode() >= parent.data.hashCode()) {
+            Node<T> child2 = parent.right;
+
+            if (child2 != null) {
+                if (data.hashCode() == child2.data.hashCode()) {
+                    parent.right = null;
+                    return;
+                }
+
+                removeRecursive(parent, child2, data);
+                return;
+            }
+
+            return;
+        }
     }
 
     @Override
