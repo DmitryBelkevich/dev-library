@@ -56,35 +56,28 @@ public class BinaryTree<T> implements Tree<T> {
                 return;
             }
 
-            Node<T> child = root;
-            Node<T> parent = child;
-
-            if (data.hashCode() < parent.data.hashCode()) {
-                child = parent.left;
-
-                if (child != null) {
-                    if (data.hashCode() == child.data.hashCode()) {
-                        parent.left = null;
+            if (data.hashCode() < root.data.hashCode()) {
+                if (root.left != null) {
+                    if (data.hashCode() == root.left.data.hashCode()) {
+                        root.left = null;
                         return;
                     }
 
-                    removeRecursive(child, data);
+                    removeRecursive(root.left, data);
                     return;
                 }
 
                 return;
             }
 
-            if (data.hashCode() >= parent.data.hashCode()) {
-                child = parent.right;
-
-                if (child != null) {
-                    if (data.hashCode() == child.data.hashCode()) {
-                        parent.right = null;
+            if (data.hashCode() >= root.data.hashCode()) {
+                if (root.right != null) {
+                    if (data.hashCode() == root.right.data.hashCode()) {
+                        root.right = null;
                         return;
                     }
 
-                    removeRecursive(child, data);
+                    removeRecursive(root.right, data);
                     return;
                 }
 
@@ -93,35 +86,29 @@ public class BinaryTree<T> implements Tree<T> {
         }
     }
 
-    public void removeRecursive(Node<T> child, T data) {
-        Node<T> parent = child;
-
-        if (data.hashCode() < parent.data.hashCode()) {
-            child = parent.left;
-
-            if (child != null) {
-                if (data.hashCode() == child.data.hashCode()) {
-                    parent.left = null;
+    public void removeRecursive(Node<T> node, T data) {
+        if (data.hashCode() < node.data.hashCode()) {
+            if (node.left != null) {
+                if (data.hashCode() == node.left.data.hashCode()) {
+                    node.left = null;
                     return;
                 }
 
-                removeRecursive(child, data);
+                removeRecursive(node.left, data);
                 return;
             }
 
             return;
         }
 
-        if (data.hashCode() >= parent.data.hashCode()) {
-            child = parent.right;
-
-            if (child != null) {
-                if (data.hashCode() == child.data.hashCode()) {
-                    parent.right = null;
+        if (data.hashCode() >= node.data.hashCode()) {
+            if (node.right != null) {
+                if (data.hashCode() == node.right.data.hashCode()) {
+                    node.right = null;
                     return;
                 }
 
-                removeRecursive(child, data);
+                removeRecursive(node.right, data);
                 return;
             }
 
