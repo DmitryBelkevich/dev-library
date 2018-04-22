@@ -3,18 +3,18 @@ package com.hard;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class BinaryTreeTest {
+public class BinarySearchTreeTest {
     public static class Add {
         @Test
         public void should_return_empty_tree_size() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             Assert.assertEquals(0, tree.size());
         }
 
         @Test
         public void should_add_one_node_and_return_tree_size() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("1");
 
@@ -23,7 +23,7 @@ public class BinaryTreeTest {
 
         @Test
         public void should_add_nodes_and_return_tree_size() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("3");
             tree.add("2");
@@ -45,7 +45,7 @@ public class BinaryTreeTest {
 
         @Test
         public void should_not_remove_nodes_from_empty_tree() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             tree.remove("1");
 
@@ -58,7 +58,7 @@ public class BinaryTreeTest {
 
         @Test
         public void should_remove_root_node_and_return_tree_size_level_1() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("1");
 
@@ -73,7 +73,7 @@ public class BinaryTreeTest {
 
         @Test
         public void should_remove_nodes_and_return_tree_size_level_2_left() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("3");
             tree.add("2");
@@ -91,7 +91,7 @@ public class BinaryTreeTest {
 
         @Test
         public void should_remove_nodes_and_return_tree_size_level_2_right() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("3");
             tree.add("2");
@@ -113,7 +113,7 @@ public class BinaryTreeTest {
 
         @Test
         public void should_remove_nodes_and_return_tree_size_level_3_left() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("3");
             tree.add("2");
@@ -131,7 +131,7 @@ public class BinaryTreeTest {
 
         @Test
         public void should_remove_nodes_and_return_tree_size_level_3_right() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("3");
             tree.add("2");
@@ -153,7 +153,7 @@ public class BinaryTreeTest {
 
         @Test
         public void should_remove_nodes_and_return_tree_size_level_4_right() {
-            Tree<String> tree = new BinaryTree<>();
+            Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("3");
             tree.add("2");

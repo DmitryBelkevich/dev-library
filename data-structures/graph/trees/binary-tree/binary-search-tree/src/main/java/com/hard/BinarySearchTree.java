@@ -1,6 +1,6 @@
 package com.hard;
 
-public class BinaryTree<T> implements Tree<T> {
+public class BinarySearchTree<T> implements Tree<T> {
     private class Node<T> {
         private T data;
         private Node<T> left;
