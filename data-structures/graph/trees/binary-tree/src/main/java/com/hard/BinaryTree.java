@@ -62,15 +62,15 @@ public class BinaryTree<T> implements Tree<T> {
             parent = child;
 
             if (data.hashCode() < parent.data.hashCode()) {
-                Node<T> child1 = parent.left;
+                child = parent.left;
 
-                if (child1 != null) {
-                    if (data.hashCode() == child1.data.hashCode()) {
+                if (child != null) {
+                    if (data.hashCode() == child.data.hashCode()) {
                         parent.left = null;
                         return;
                     }
 
-                    removeRecursive(parent, child1, data);
+                    removeRecursive(parent, child, data);
                     return;
                 }
 
@@ -78,15 +78,15 @@ public class BinaryTree<T> implements Tree<T> {
             }
 
             if (data.hashCode() >= parent.data.hashCode()) {
-                Node<T> child2 = parent.right;
+                child = parent.right;
 
-                if (child2 != null) {
-                    if (data.hashCode() == child2.data.hashCode()) {
+                if (child != null) {
+                    if (data.hashCode() == child.data.hashCode()) {
                         parent.right = null;
                         return;
                     }
 
-                    removeRecursive(parent, child2, data);
+                    removeRecursive(parent, child, data);
                     return;
                 }
 
@@ -99,15 +99,15 @@ public class BinaryTree<T> implements Tree<T> {
         parent = child;
 
         if (data.hashCode() < parent.data.hashCode()) {
-            Node<T> child1 = parent.left;
+            child = parent.left;
 
-            if (child1 != null) {
-                if (data.hashCode() == child1.data.hashCode()) {
+            if (child != null) {
+                if (data.hashCode() == child.data.hashCode()) {
                     parent.left = null;
                     return;
                 }
 
-                removeRecursive(parent, child1, data);
+                removeRecursive(parent, child, data);
                 return;
             }
 
@@ -115,15 +115,15 @@ public class BinaryTree<T> implements Tree<T> {
         }
 
         if (data.hashCode() >= parent.data.hashCode()) {
-            Node<T> child2 = parent.right;
+            child = parent.right;
 
-            if (child2 != null) {
-                if (data.hashCode() == child2.data.hashCode()) {
+            if (child != null) {
+                if (data.hashCode() == child.data.hashCode()) {
                     parent.right = null;
                     return;
                 }
 
-                removeRecursive(parent, child2, data);
+                removeRecursive(parent, child, data);
                 return;
             }
 
