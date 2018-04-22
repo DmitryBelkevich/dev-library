@@ -50,7 +50,47 @@ public class BinaryTree<T> implements Tree<T> {
 
     @Override
     public void remove(T data) {
-        throw new RuntimeException();
+        Node<T> parent = null;
+        Node<T> child = root;
+
+        if (child != null) {
+            if (data.hashCode() == child.data.hashCode()) {
+                root = null;
+                return;
+            }
+
+            parent = child;
+
+            if (data.hashCode() < parent.data.hashCode()) {
+                Node<T> child1 = parent.left;
+
+                if (child1 != null) {
+                    if (data.hashCode() == child1.data.hashCode()) {
+                        parent.left = null;
+                        return;
+                    }
+                }
+
+                return;
+            }
+
+            if (data.hashCode() >= parent.data.hashCode()) {
+                Node<T> child2 = parent.right;
+
+                if (child2 != null) {
+                    if (data.hashCode() == child2.data.hashCode()) {
+                        parent.right = null;
+                        return;
+                    }
+                }
+
+                return;
+            }
+        }
+    }
+
+    public void removeRecursive(Node<T> parent, Node<T> child, T data) {
+
     }
 
     @Override
