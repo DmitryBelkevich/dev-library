@@ -214,11 +214,23 @@ public class BinarySearchTree<T> implements Tree<T> {
 
     @Override
     public void rotateToLeft() {
+        Node<T> node1 = root;
+        Node<T> node2 = node1.right;
 
+        node1.right = node2.left;
+
+        node2.left = node1;
+        root = node2;
     }
 
     @Override
     public void rotateToRight() {
+        Node<T> node1 = root;
+        Node<T> node2 = node1.left;
 
+        node1.left = node2.right;
+
+        node2.right = node1;
+        root = node2;
     }
 }

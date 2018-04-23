@@ -1,6 +1,7 @@
 package com.hard;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class BinarySearchTreeTest {
@@ -256,6 +257,54 @@ public class BinarySearchTreeTest {
     }
 
     public static class Rotation {
+        @Test
+        @Ignore
+        public void rotate_empty_tree() {
+            Assert.fail();
+        }
 
+        @Test
+        @Ignore
+        public void rotate_tree_with_one_node() {
+            Assert.fail();
+        }
+
+        @Test
+        public void rotate_tree_to_left_with() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("2");
+            tree.add("1");
+            tree.add("4");
+            tree.add("3");
+            tree.add("5");
+            tree.add("6");
+
+            Assert.assertFalse(tree.isBalanced());
+
+            tree.rotateToLeft();
+
+            Assert.assertEquals(6, tree.size());
+            Assert.assertTrue(tree.isBalanced());
+        }
+
+        @Test
+        public void rotate_tree_to_left_right() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("5");
+            tree.add("3");
+            tree.add("2");
+            tree.add("1");
+            tree.add("4");
+            tree.add("6");
+
+            Assert.assertFalse(tree.isBalanced());
+
+            tree.rotateToRight();
+
+            Assert.assertEquals(6, tree.size());
+            Assert.assertTrue(tree.isBalanced());
+        }
     }
 }
