@@ -211,5 +211,14 @@ public class BinarySearchTreeTest {
 
             Assert.assertTrue(tree.isBalanced());
         }
+
+        @Test
+        public void should_add_one_node_and_should_be_balanced_tree() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("1");
+
+            Assert.assertTrue(tree.isBalanced());
+        }
     }
 }
