@@ -170,8 +170,8 @@ public class BinarySearchTree<T> implements Tree<T> {
         if (node != null) {
             depth++;
 
-            int leftDepth = depthRecursive(root.left);
-            int rightDepth = depthRecursive(root.right);
+            int leftDepth = depthRecursive(node.left);
+            int rightDepth = depthRecursive(node.right);
 
             depth += Math.max(leftDepth, rightDepth);
         }
