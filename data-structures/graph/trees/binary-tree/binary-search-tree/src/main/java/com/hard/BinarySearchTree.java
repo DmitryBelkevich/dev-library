@@ -147,4 +147,35 @@ public class BinarySearchTree<T> implements Tree<T> {
     public void print() {
         throw new RuntimeException();
     }
+
+    @Override
+    public int depth() {
+        int depth = 0;
+
+        if (root != null) {
+            depth++;
+
+            int leftDepth = depthRecursive(root.right);
+            int rightDepth = depthRecursive(root.right);
+
+            depth += Math.max(leftDepth, rightDepth);
+        }
+
+        return depth;
+    }
+
+    public int depthRecursive(Node<T> node) {
+        int depth = 0;
+
+        if (node != null) {
+            depth++;
+
+            int leftDepth = depthRecursive(root.right);
+            int rightDepth = depthRecursive(root.right);
+
+            depth += Math.max(leftDepth, rightDepth);
+        }
+
+        return depth;
+    }
 }
