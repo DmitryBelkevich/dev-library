@@ -228,10 +228,30 @@ public class BinarySearchTreeTest {
             tree.add("3");
             tree.add("2");
             tree.add("1");
-            tree.add("4");
             tree.add("5");
+            tree.add("4");
+            tree.add("6");
+            tree.add("7");
 
             Assert.assertTrue(tree.isBalanced());
+        }
+
+        @Test
+        public void should_add_nodes_and_should_be_not_balanced_tree() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("3");
+            tree.add("2");
+            tree.add("1");
+            tree.add("5");
+            tree.add("4");
+            tree.add("6");
+            tree.add("7");
+            tree.add("8");
+            tree.add("9");
+            tree.add("10");
+
+            Assert.assertFalse(tree.isBalanced());
         }
     }
 }

@@ -184,9 +184,14 @@ public class BinarySearchTree<T> implements Tree<T> {
         if (root == null)
             return true;
 
-        if (root != null)
-            if (isBalancedRecursive(root.left) && isBalancedRecursive(root.right))
+        if (root != null) {
+            int leftDepth = depthRecursive(root.left);
+            int rightDepth = depthRecursive(root.right);
+            int difference = Math.abs(leftDepth - rightDepth);
+
+            if (difference <= 1 && isBalancedRecursive(root.left) && isBalancedRecursive(root.right))
                 return true;
+        }
 
         return false;
     }
@@ -195,9 +200,14 @@ public class BinarySearchTree<T> implements Tree<T> {
         if (node == null)
             return true;
 
-        if (node != null)
-            if (isBalancedRecursive(node.left) && isBalancedRecursive(node.right))
+        if (node != null) {
+            int leftDepth = depthRecursive(node.left);
+            int rightDepth = depthRecursive(node.right);
+            int difference = Math.abs(leftDepth - rightDepth);
+
+            if (difference <= 1 && isBalancedRecursive(node.left) && isBalancedRecursive(node.right))
                 return true;
+        }
 
         return false;
     }
