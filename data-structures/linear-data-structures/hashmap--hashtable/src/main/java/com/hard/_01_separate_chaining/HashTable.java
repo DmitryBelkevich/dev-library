@@ -3,7 +3,7 @@ package com.hard._01_separate_chaining;
 import java.util.ArrayList;
 import java.util.List;
 
-class HashTable<K, V> implements Map<K, V> {
+public class HashTable<K, V> implements Map<K, V> {
     private int size = (int) Math.pow(2, 3);
     private List<Node<K, V>> table;
 
