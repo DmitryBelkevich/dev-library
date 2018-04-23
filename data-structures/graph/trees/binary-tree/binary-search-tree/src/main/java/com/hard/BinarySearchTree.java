@@ -144,11 +144,6 @@ public class BinarySearchTree<T> implements Tree<T> {
     }
 
     @Override
-    public void print() {
-        throw new RuntimeException();
-    }
-
-    @Override
     public int depth() {
         int depth = 0;
 
@@ -214,23 +209,33 @@ public class BinarySearchTree<T> implements Tree<T> {
 
     @Override
     public void rotateToLeft() {
-        Node<T> node1 = root;
-        Node<T> node2 = node1.right;
+        if (root != null) {
+            if (root.right == null)
+                return;
 
-        node1.right = node2.left;
+            Node<T> node1 = root;
+            Node<T> node2 = node1.right;
 
-        node2.left = node1;
-        root = node2;
+            node1.right = node2.left;
+
+            node2.left = node1;
+            root = node2;
+        }
     }
 
     @Override
     public void rotateToRight() {
-        Node<T> node1 = root;
-        Node<T> node2 = node1.left;
+        if (root != null) {
+            if (root.left == null)
+                return;
 
-        node1.left = node2.right;
+            Node<T> node1 = root;
+            Node<T> node2 = node1.left;
 
-        node2.right = node1;
-        root = node2;
+            node1.left = node2.right;
+
+            node2.right = node1;
+            root = node2;
+        }
     }
 }

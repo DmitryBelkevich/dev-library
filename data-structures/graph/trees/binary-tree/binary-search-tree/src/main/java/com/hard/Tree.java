@@ -6,6 +6,4 @@ public interface Tree<T> extends Balanced, Rotatable {
     void remove(T data);
 
     int size();
-
-    void print();
 }
