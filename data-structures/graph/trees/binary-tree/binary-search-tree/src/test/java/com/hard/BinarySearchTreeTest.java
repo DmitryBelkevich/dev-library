@@ -220,5 +220,18 @@ public class BinarySearchTreeTest {
 
             Assert.assertTrue(tree.isBalanced());
         }
+
+        @Test
+        public void should_add_nodes_and_should_be_balanced_tree() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("3");
+            tree.add("2");
+            tree.add("1");
+            tree.add("4");
+            tree.add("5");
+
+            Assert.assertTrue(tree.isBalanced());
+        }
     }
 }

@@ -199,6 +199,14 @@ public class BinarySearchTree<T> implements Tree<T> {
         if (node == null)
             return true;
 
+        if (node != null) {
+            boolean leftIsBalanced = isBalancedRecursive(node.left);
+            boolean rightIsBalanced = isBalancedRecursive(node.right);
+
+            if (leftIsBalanced && rightIsBalanced)
+                return true;
+        }
+
         return false;
     }
 }
