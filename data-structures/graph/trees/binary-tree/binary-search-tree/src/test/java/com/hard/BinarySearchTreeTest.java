@@ -203,4 +203,8 @@ public class BinarySearchTreeTest {
             Assert.assertEquals(4, tree.depth());
         }
     }
+
+    public static class IsBalanced {
+
+    }
 }

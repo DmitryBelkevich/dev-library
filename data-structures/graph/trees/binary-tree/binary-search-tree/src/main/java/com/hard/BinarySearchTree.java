@@ -1,6 +1,6 @@
 package com.hard;
 
-public class BinarySearchTree<T> implements Tree<T> {
+public class BinarySearchTree<T> implements Tree<T>, Balanced {
     private class Node<T> {
         private T data;
         private Node<T> left;
@@ -177,5 +177,17 @@ public class BinarySearchTree<T> implements Tree<T> {
         }
 
         return depth;
+    }
+
+    @Override
+    public boolean isBalanced() {
+        if (isBalancedRecursive(root.left) && isBalancedRecursive(root.right))
+            return true;
+
+        return false;
+    }
+
+    private boolean isBalancedRecursive(Node<T> node) {
+        return false;
     }
 }

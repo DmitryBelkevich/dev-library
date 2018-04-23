@@ -8,6 +8,4 @@ interface Tree<T> {
     int size();
 
     void print();
-
-    int depth();
 }
