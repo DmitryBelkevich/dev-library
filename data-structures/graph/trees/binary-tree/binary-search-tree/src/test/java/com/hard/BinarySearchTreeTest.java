@@ -258,19 +258,103 @@ public class BinarySearchTreeTest {
 
     public static class Rotation {
         @Test
-        @Ignore
-        public void rotate_empty_tree() {
-            Assert.fail();
+        public void rotate_empty_tree_to_left() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.rotateToLeft();
+
+            Assert.assertEquals(0, tree.size());
+            Assert.assertTrue(tree.isBalanced());
         }
 
         @Test
-        @Ignore
-        public void rotate_tree_with_one_node() {
-            Assert.fail();
+        public void rotate_empty_tree_to_right() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.rotateToRight();
+
+            Assert.assertEquals(0, tree.size());
+            Assert.assertTrue(tree.isBalanced());
         }
 
         @Test
-        public void rotate_tree_to_left_with() {
+        public void rotate_tree_with_one_node_to_left() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("1");
+
+            tree.rotateToLeft();
+
+            Assert.assertEquals(1, tree.size());
+            Assert.assertTrue(tree.isBalanced());
+        }
+
+        @Test
+        public void rotate_tree_with_one_node_to_right() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("1");
+
+            tree.rotateToRight();
+
+            Assert.assertEquals(1, tree.size());
+            Assert.assertTrue(tree.isBalanced());
+        }
+
+        @Test
+        public void rotate_tree_with_two_nodes_to_left() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("1");
+            tree.add("2");
+
+            tree.rotateToLeft();
+
+            Assert.assertEquals(2, tree.size());
+            Assert.assertTrue(tree.isBalanced());
+        }
+
+        @Test
+        public void rotate_tree_with_two_nodes_to_right() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("2");
+            tree.add("1");
+
+            tree.rotateToRight();
+
+            Assert.assertEquals(2, tree.size());
+            Assert.assertTrue(tree.isBalanced());
+        }
+
+        @Test
+        public void rotate_tree_with_two_nodes_to_left_2() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("2");
+            tree.add("1");
+
+            tree.rotateToLeft();
+
+            Assert.assertEquals(2, tree.size());
+            Assert.assertTrue(tree.isBalanced());
+        }
+
+        @Test
+        public void rotate_tree_with_two_nodes_to_right_2() {
+            Tree<String> tree = new BinarySearchTree<>();
+
+            tree.add("1");
+            tree.add("2");
+
+            tree.rotateToRight();
+
+            Assert.assertEquals(2, tree.size());
+            Assert.assertTrue(tree.isBalanced());
+        }
+
+        @Test
+        public void rotate_tree_to_right() {
             Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("2");
@@ -279,8 +363,6 @@ public class BinarySearchTreeTest {
             tree.add("3");
             tree.add("5");
             tree.add("6");
-
-            Assert.assertFalse(tree.isBalanced());
 
             tree.rotateToLeft();
 
@@ -289,7 +371,7 @@ public class BinarySearchTreeTest {
         }
 
         @Test
-        public void rotate_tree_to_left_right() {
+        public void rotate_tree_to_left() {
             Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("5");
@@ -298,8 +380,6 @@ public class BinarySearchTreeTest {
             tree.add("1");
             tree.add("4");
             tree.add("6");
-
-            Assert.assertFalse(tree.isBalanced());
 
             tree.rotateToRight();
 
