@@ -181,7 +181,7 @@ public class BinarySearchTree<T> implements Tree<T> {
 
     @Override
     public boolean isBalanced() {
-        if (isBalancedRecursive(root.left) && isBalancedRecursive(root.right))
+        if (root == null)
             return true;
 
         return false;

@@ -205,6 +205,11 @@ public class BinarySearchTreeTest {
     }
 
     public static class IsBalanced {
+        @Test
+        public void should_be_balanced_empty_tree() {
+            Tree<String> tree = new BinarySearchTree<>();
 
+            Assert.assertTrue(tree.isBalanced());
+        }
     }
 }
