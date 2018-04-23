@@ -164,7 +164,7 @@ public class BinarySearchTree<T> implements Tree<T> {
         return depth;
     }
 
-    public int depthRecursive(Node<T> node) {
+    private int depthRecursive(Node<T> node) {
         int depth = 0;
 
         if (node != null) {
