@@ -46,7 +46,7 @@ public class AccessToPrivateTest {
         }
 
         @Test
-        public void should_retrieve_access_to_private_field() {
+        public void should_retrieve_access_to_private_method() {
             Entity entity = new Entity();
             Class clazz = entity.getClass();
 
