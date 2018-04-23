@@ -328,7 +328,7 @@ public class BinarySearchTreeTest {
         }
 
         @Test
-        public void rotate_tree_with_two_nodes_to_left_2() {
+        public void rotate_tree_without_right_nodes_to_left() {
             Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("2");
@@ -341,7 +341,7 @@ public class BinarySearchTreeTest {
         }
 
         @Test
-        public void rotate_tree_with_two_nodes_to_right_2() {
+        public void rotate_tree_without_left_nodes_to_right() {
             Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("1");
