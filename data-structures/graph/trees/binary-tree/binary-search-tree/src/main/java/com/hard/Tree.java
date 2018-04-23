@@ -1,6 +1,6 @@
 package com.hard;
 
-interface Tree<T> {
+interface Tree<T> extends Balanced {
     void add(T data);
 
     void remove(T data);
