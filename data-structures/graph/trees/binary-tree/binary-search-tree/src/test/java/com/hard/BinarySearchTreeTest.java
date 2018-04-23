@@ -254,4 +254,8 @@ public class BinarySearchTreeTest {
             Assert.assertFalse(tree.isBalanced());
         }
     }
+
+    public static class Rotation {
+
+    }
 }

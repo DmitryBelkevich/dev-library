@@ -211,4 +211,14 @@ public class BinarySearchTree<T> implements Tree<T> {
 
         return false;
     }
+
+    @Override
+    public void rotateToLeft() {
+
+    }
+
+    @Override
+    public void rotateToRight() {
+
+    }
 }
