@@ -29,4 +29,30 @@ public class TreePrinter {
     public void setShowNulls(boolean showNulls) {
         this.showNulls = showNulls;
     }
+
+    public void print() {
+        BinarySearchTree.Node node = getRoot();
+
+        System.out.println(node);
+    }
+
+    public BinarySearchTree.Node getRoot() {
+        Class<?> treeClass = tree.getClass();
+
+        Field field = null;
+        try {
+            field = treeClass.getDeclaredField("root");
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        BinarySearchTree.Node node = null;
+        try {
+            node = (BinarySearchTree.Node) field.get(tree);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        return node;
+    }
 }
