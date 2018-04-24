@@ -7,3 +7,19 @@ Rules:
 - end nodes are BLACK
 - if parent node is RED then child node is BLACK (if parent node is BLACK then child node can be BLACK or RED)
 - depth in BLACK nodes is the same always
+
+Black:
+    parent:
+        null
+        black
+        red
+    child:
+        L: null, R: null
+        black
+        red
+
+Red:
+    parent:
+        black
+    child:
+        black
