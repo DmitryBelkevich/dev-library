@@ -63,4 +63,40 @@ public class TreeWrapper<T> implements Tree<T> {
 
         return node;
     }
+
+    public T getNodeData() {
+        Class<?> treeClass = tree.getClass();
+
+        Field field = null;
+        try {
+            field = treeClass.getDeclaredField("root");
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        Object node = null;
+        try {
+            node = field.get(tree);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        Class<?> c = node.getClass();
+
+        for (Field f : c.getDeclaredFields())
+            System.out.println(f);
+
+        Field f = null;
+        try {
+            f = c.getDeclaredField("data");
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+//        f.get();
+
+        T data = null;
+
+        return data;
+    }
 }
