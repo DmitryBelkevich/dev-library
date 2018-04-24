@@ -16,8 +16,6 @@ public class TreePrinterTest {
     public void should_print_tree() {
         Tree<String> tree = new BinarySearchTree<>();
 
-        TreePrinter treePrinter = new TreePrinter(tree);
-
         tree.add("4");
         tree.add("2");
         tree.add("1");
@@ -26,6 +24,7 @@ public class TreePrinterTest {
         tree.add("5");
         tree.add("7");
 
+        TreePrinter treePrinter = new TreePrinter(tree);
         treePrinter.print();
     }
 }
