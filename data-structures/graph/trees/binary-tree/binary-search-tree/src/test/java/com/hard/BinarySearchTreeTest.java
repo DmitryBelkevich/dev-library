@@ -189,7 +189,7 @@ public class BinarySearchTreeTest {
         }
 
         @Test
-        public void should_add_nodes_and_return_tree_size() {
+        public void should_add_nodes_and_return_tree_depth() {
             Tree<String> tree = new BinarySearchTree<>();
 
             tree.add("3");
@@ -274,6 +274,7 @@ public class BinarySearchTreeTest {
             tree.rotateToRight();
 
             Assert.assertEquals(0, tree.size());
+            Assert.assertEquals(0, tree.depth());
             Assert.assertTrue(tree.isBalanced());
         }
 
@@ -286,6 +287,7 @@ public class BinarySearchTreeTest {
             tree.rotateToLeft();
 
             Assert.assertEquals(1, tree.size());
+            Assert.assertEquals(1, tree.depth());
             Assert.assertTrue(tree.isBalanced());
         }
 
@@ -298,6 +300,7 @@ public class BinarySearchTreeTest {
             tree.rotateToRight();
 
             Assert.assertEquals(1, tree.size());
+            Assert.assertEquals(1, tree.depth());
             Assert.assertTrue(tree.isBalanced());
         }
 
@@ -311,6 +314,7 @@ public class BinarySearchTreeTest {
             tree.rotateToLeft();
 
             Assert.assertEquals(2, tree.size());
+            Assert.assertEquals(2, tree.depth());
             Assert.assertTrue(tree.isBalanced());
         }
 
@@ -324,6 +328,7 @@ public class BinarySearchTreeTest {
             tree.rotateToRight();
 
             Assert.assertEquals(2, tree.size());
+            Assert.assertEquals(2, tree.depth());
             Assert.assertTrue(tree.isBalanced());
         }
 
@@ -337,6 +342,7 @@ public class BinarySearchTreeTest {
             tree.rotateToLeft();
 
             Assert.assertEquals(2, tree.size());
+            Assert.assertEquals(2, tree.depth());
             Assert.assertTrue(tree.isBalanced());
         }
 
@@ -350,6 +356,7 @@ public class BinarySearchTreeTest {
             tree.rotateToRight();
 
             Assert.assertEquals(2, tree.size());
+            Assert.assertEquals(2, tree.depth());
             Assert.assertTrue(tree.isBalanced());
         }
 
@@ -367,6 +374,7 @@ public class BinarySearchTreeTest {
             tree.rotateToLeft();
 
             Assert.assertEquals(6, tree.size());
+            Assert.assertEquals(3, tree.depth());
             Assert.assertTrue(tree.isBalanced());
         }
 
@@ -384,6 +392,7 @@ public class BinarySearchTreeTest {
             tree.rotateToRight();
 
             Assert.assertEquals(6, tree.size());
+            Assert.assertEquals(3, tree.depth());
             Assert.assertTrue(tree.isBalanced());
         }
     }
