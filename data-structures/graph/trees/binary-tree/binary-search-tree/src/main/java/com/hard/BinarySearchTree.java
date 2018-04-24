@@ -1,13 +1,13 @@
 package com.hard;
 
 public class BinarySearchTree<T> implements Tree<T> {
-    private class Node<T> {
-        private T data;
-        private Node<T> left;
-        private Node<T> right;
+    /*private*/ class Node<T> {
+        /*private*/ T data;
+        /*private*/ Node<T> left;
+        /*private*/ Node<T> right;
     }
 
-    private Node<T> root;
+    /*private*/ Node<T> root;
 
     @Override
     public void add(T data) {

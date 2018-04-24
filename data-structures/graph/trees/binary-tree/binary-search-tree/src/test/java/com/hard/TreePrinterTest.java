@@ -1,6 +1,5 @@
 package com.hard;
 
-import com.hard.printer.TreePrinter;
 import org.junit.Test;
 
 public class TreePrinterTest {
