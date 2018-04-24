@@ -7,7 +7,7 @@ public class TreePrinterTest {
     public void should_not_print_empty_tree() {
         Tree<String> tree = new BinarySearchTree<>();
 
-        TreePrinter treePrinter = new TreePrinter(tree);
+        TreePrinter treePrinter = new TreePrinter(new TreeWrapper(tree));
         treePrinter.print();
     }
 
@@ -23,7 +23,7 @@ public class TreePrinterTest {
         tree.add("5");
         tree.add("7");
 
-        TreePrinter treePrinter = new TreePrinter(tree);
+        TreePrinter treePrinter = new TreePrinter(new TreeWrapper(tree));
         treePrinter.print();
     }
 }

@@ -1,24 +1,22 @@
 package com.hard;
 
-import java.lang.reflect.Field;
-
-public class TreePrinter {
-    private Tree tree;
+public class TreePrinter<T> {
+    private TreeWrapper<T> tree;
 
     boolean showNulls = true;
 
     public TreePrinter() {
     }
 
-    public TreePrinter(Tree tree) {
+    public TreePrinter(TreeWrapper<T> tree) {
         this.tree = tree;
     }
 
-    public Tree getTree() {
+    public TreeWrapper<T> getTree() {
         return tree;
     }
 
-    public void setTree(Tree tree) {
+    public void setTree(TreeWrapper<T> tree) {
         this.tree = tree;
     }
 
@@ -31,28 +29,8 @@ public class TreePrinter {
     }
 
     public void print() {
-        BinarySearchTree.Node node = getRoot();
+        BinarySearchTree.Node node = tree.getRoot();
 
         System.out.println(node);
-    }
-
-    public BinarySearchTree.Node getRoot() {
-        Class<?> treeClass = tree.getClass();
-
-        Field field = null;
-        try {
-            field = treeClass.getDeclaredField("root");
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-
-        BinarySearchTree.Node node = null;
-        try {
-            node = (BinarySearchTree.Node) field.get(tree);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-        return node;
     }
 }
