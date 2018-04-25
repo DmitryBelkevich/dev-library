@@ -38,6 +38,7 @@
         <module>generics</module>
         <module>annotations</module>
         <module>java-10-core</module>
+        <module>java-8-core</module>
     </modules>
 
 </project>
