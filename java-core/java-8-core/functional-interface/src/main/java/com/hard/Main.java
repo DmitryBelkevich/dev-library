@@ -17,6 +17,7 @@ public class Main {
  * функциональный интерфейс - интерфейс с ровно одним объявленным абстрактным методом
  */
 
+@FunctionalInterface
 interface Listener {
     void execute();
 }
