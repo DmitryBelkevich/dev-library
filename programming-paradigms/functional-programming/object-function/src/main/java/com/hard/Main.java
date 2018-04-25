@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Function<Integer, String> intToString = new Function<Integer, String>() {
             @Override
-            public String apply(Integer t) {
-                return t.toString();
+            public String apply(Integer from) {
+                return from.toString();
             }
         };
 
@@ -14,6 +14,6 @@ public class Main {
     }
 }
 
-interface Function<T, R> {
-    R apply(T t);
+interface Function<F, T> {
+    T apply(F from);
 }
