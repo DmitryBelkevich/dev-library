@@ -17,6 +17,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>streams</module>
     </modules>
 
 </project>

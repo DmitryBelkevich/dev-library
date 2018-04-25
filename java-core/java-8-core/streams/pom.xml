@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java-core</artifactId>
+        <artifactId>java-8-core</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

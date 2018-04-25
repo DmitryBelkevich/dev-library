@@ -32,7 +32,6 @@
         <module>immutable-objects</module>
         <module>files</module>
         <module>io-streams</module>
-        <module>streams</module>
         <module>override</module>
         <module>cast</module>
         <module>autoboxing-unboxing</module>
