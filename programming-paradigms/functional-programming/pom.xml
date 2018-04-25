@@ -6,19 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library</artifactId>
+        <artifactId>programming-paradigms</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>programming-paradigms</artifactId>
+    <artifactId>functional-programming</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>object-oriented-programming--oop</module>
-        <module>functional-programming</module>
     </modules>
 
 </project>
