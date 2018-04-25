@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>programming-paradigms</artifactId>
+        <artifactId>functional-programming</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>functional-programming</artifactId>
+    <artifactId>object-function</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>object-function</module>
-        <module>monad</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
