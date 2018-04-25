@@ -84,6 +84,10 @@ class Strategy2 {
     }
 
     public String joinNumbers(Collection<? extends Integer> numbers) {
-        return join(map(numbers, intToString), ", ");
+        Collection<String> strings = map(numbers, intToString);
+
+        String result = join(strings, ", ");
+
+        return result;
     }
 }
