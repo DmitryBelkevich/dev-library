@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>java-10-core</module>
+        <module>java-core</module>
         <module>programming-paradigms</module>
         <module>data-structures</module>
         <module>algorithms</module>
