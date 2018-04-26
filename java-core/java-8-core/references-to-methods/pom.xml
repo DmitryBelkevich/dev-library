@@ -12,9 +12,6 @@
 
     <artifactId>references-to-methods</artifactId>
 
-    <packaging>pom</packaging>
-
-    <modules>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
