@@ -6,18 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java-8-core</artifactId>
+        <artifactId>functional-interface</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>functional-interface</artifactId>
+    <artifactId>built-in-functional-interfaces</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>built-in-functional-interfaces</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
