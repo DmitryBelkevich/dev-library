@@ -192,4 +192,50 @@ public class StreamTest {
             }
         }
     }
+
+    @Test
+    public void test1() {
+        Arrays.stream(new int[]{1, 2, 3})
+                .map(n -> 2 * n + 1)
+                .average()
+                .ifPresent(System.out::println);
+    }
+
+    public static class Cast {
+        @Test
+        public void mapToInt() {
+            Stream.of("1", "2", "3")
+                    .mapToInt(Integer::parseInt)
+                    .forEach(System.out::println);
+        }
+
+        @Test
+        public void mapToLong() {
+            Stream.of("1", "2", "3")
+                    .mapToLong(Long::parseLong)
+                    .forEach(System.out::println);
+        }
+
+        @Test
+        public void mapToDouble() {
+            Stream.of("1", "2", "3")
+                    .mapToDouble(Double::parseDouble)
+                    .forEach(System.out::println);
+        }
+
+        @Test
+        public void mapToObj() {
+            Arrays.stream(new int[]{1, 2, 3})
+                    .mapToObj(i -> i)
+                    .forEach(System.out::println);
+        }
+
+        @Test
+        public void mapToObj_mapToObj() {
+            Stream.of(1.0, 2.0, 3.0)
+                    .mapToInt(Double::intValue)
+                    .mapToObj(i -> i)
+                    .forEach(System.out::println);
+        }
+    }
 }
