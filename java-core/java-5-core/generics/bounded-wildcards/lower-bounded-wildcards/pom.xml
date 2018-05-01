@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>generics</artifactId>
+        <artifactId>bounded-wildcards</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bounded-wildcards</artifactId>
+    <artifactId>lower-bounded-wildcards</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>upper-bounded-wildcards</module>
-        <module>lower-bounded-wildcards</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
