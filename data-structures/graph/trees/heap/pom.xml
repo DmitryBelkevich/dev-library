@@ -12,6 +12,8 @@
 
     <artifactId>heap</artifactId>
 
+    <name>${project.artifactId}</name>
+
     <packaging>pom</packaging>
 
     <modules>

@@ -12,6 +12,8 @@
 
     <artifactId>references-to-methods</artifactId>
 
+    <name>${project.artifactId}</name>
+
     <packaging>jar</packaging>
 
 </project>

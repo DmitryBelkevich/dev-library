@@ -12,6 +12,8 @@
 
     <artifactId>springframework-project</artifactId>
 
+    <name>${project.artifactId}</name>
+
     <packaging>pom</packaging>
 
     <modules>
