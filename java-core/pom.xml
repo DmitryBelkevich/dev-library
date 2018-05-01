@@ -35,7 +35,6 @@
         <module>override</module>
         <module>cast</module>
         <module>autoboxing-unboxing</module>
-        <module>generics</module>
         <module>annotations</module>
         <module>java-5-core</module>
         <module>java-8-core</module>
