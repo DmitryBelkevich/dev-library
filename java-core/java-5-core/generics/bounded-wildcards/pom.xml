@@ -6,21 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java-5-core</artifactId>
+        <artifactId>generics</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>generics</artifactId>
+    <artifactId>bounded-wildcards</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>generic-classes</module>
-        <module>generic-methods</module>
-        <module>wildcard-parameters</module>
-        <module>bounded-wildcards</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
