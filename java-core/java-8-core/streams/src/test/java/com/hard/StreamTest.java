@@ -3,9 +3,7 @@ package com.hard;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -103,6 +101,16 @@ public class StreamTest {
                         .stream()
                         .map(String::toUpperCase)
                         .forEach(System.out::println);  // A, B, C
+            }
+
+            /**
+             * flatMap
+             */
+            @Test
+            public void flatMap_test() {
+                Stream.of(Arrays.asList("a", "b"), Arrays.asList("c", "d"), Arrays.asList("e", "f"))
+                        .flatMap(x -> x.stream())
+                        .forEach(System.out::println);  // a, b, c, d, e, f
             }
         }
 
