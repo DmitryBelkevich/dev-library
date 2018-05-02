@@ -238,4 +238,29 @@ public class StreamTest {
                     .forEach(System.out::println);
         }
     }
+
+    public static class ProcessingOrder {
+        @Test
+        public void test1() {
+            Stream.of("a", "b", "c")
+                    .filter(str -> {
+                        System.out.println("filter: " + str);
+                        return true;
+                    })
+                    .forEach(str -> System.out.println("print: " + str));
+        }
+
+        @Test
+        public void test2() {
+            Stream.of("a2", "b2", "c1", "d3")
+                    .map(str -> {
+                        System.out.println("map: " + str);
+                        return str.toUpperCase();
+                    })
+                    .anyMatch(str -> {
+                        System.out.println("anyMatch: " + str);
+                        return str.startsWith("B");
+                    });
+        }
+    }
 }
