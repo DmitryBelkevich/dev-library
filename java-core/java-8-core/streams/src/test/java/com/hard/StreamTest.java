@@ -271,4 +271,36 @@ public class StreamTest {
                     });
         }
     }
+
+    public static class MapTest {
+        @Test
+        public void putIfAbsent() {
+            Map<Integer, String> map = new HashMap<>();
+
+            for (int i = 0; i < 3; i++)
+                map.putIfAbsent(i, String.valueOf(i));
+
+            map.forEach((key, value) -> System.out.println(key + " " + value));
+        }
+
+        @Test
+        public void computeIfPresent() {
+            Map<Integer, String> map = new HashMap<>();
+
+            map.putIfAbsent(1, "a");
+
+            map.computeIfPresent(1, (key, value) -> key + value);
+
+            Assert.assertEquals("1a", map.get(1));
+        }
+
+        @Test
+        public void computeIfAbsent() {
+            Map<Integer, String> map = new HashMap<>();
+
+            map.computeIfAbsent(1, key -> key + "a");
+
+            Assert.assertEquals("1a", map.get(1));
+        }
+    }
 }
