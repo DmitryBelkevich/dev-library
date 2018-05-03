@@ -17,11 +17,7 @@ class Repository {
 }
 
 class Service {
-    private Repository repository;
-
-    public Service() {
-        repository = new Repository();
-    }
+    private Repository repository = new Repository();
 
     public void getAll() {
         repository.getAll();
