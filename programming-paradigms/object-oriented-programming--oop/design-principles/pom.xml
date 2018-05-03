@@ -6,18 +6,18 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>principles</artifactId>
+        <artifactId>object-oriented-programming--oop</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>solid</artifactId>
+    <artifactId>design-principles</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>the-single-responsibility-principle--srp</module>
+        <module>solid</module>
     </modules>
 
 </project>

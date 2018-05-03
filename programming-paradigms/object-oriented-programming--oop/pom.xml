@@ -21,8 +21,8 @@
         <module>inheritance</module>
         <module>polymorphism</module>
         <module>abstract-class-diff-interface</module>
-        <module>principles</module>
         <module>inheritance-composition-aggregation</module>
+        <module>design-principles</module>
     </modules>
 
 </project>
