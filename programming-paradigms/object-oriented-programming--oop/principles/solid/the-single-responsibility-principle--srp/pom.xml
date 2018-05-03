@@ -6,18 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>principles</artifactId>
+        <artifactId>solid</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>solid</artifactId>
+    <artifactId>the-single-responsibility-principle--srp</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>the-single-responsibility-principle--srp</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
