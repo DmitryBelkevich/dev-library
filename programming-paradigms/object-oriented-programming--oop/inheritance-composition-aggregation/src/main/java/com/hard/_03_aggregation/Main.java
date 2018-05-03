@@ -1,10 +1,10 @@
-package com.hard._02_composition;
+package com.hard._03_aggregation;
 
 public class Main {
     public static void main(String[] args) {
         Repository repository = new Repository();
 
-        Service service = new Service();
+        Service service = new Service(repository);
 
         service.getAll();
     }
@@ -20,7 +20,19 @@ class Service {
     private Repository repository;
 
     public Service() {
-        repository = new Repository();
+
+    }
+
+    public Service(Repository repository) {
+        this.repository = repository;
+    }
+
+    public Repository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(Repository repository) {
+        this.repository = repository;
     }
 
     public void getAll() {
