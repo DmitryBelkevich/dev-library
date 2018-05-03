@@ -1,3 +1,4 @@
-The Single Responsibility Principle (Принцип единственной ответственности)
+The Single Responsibility Principle (SRP)
+Принцип единственной ответственности
 
 Существует лишь одна причина, приводящая к изменению класса.
