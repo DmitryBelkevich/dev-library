@@ -5,16 +5,16 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        High c;
+        High obj;
 
-        c = new High();
-        c.f(); // 1
+        obj = new High();
+        obj.f(); // 1
 
-        c = new Middle();
-        c.f(); // 2
+        obj = new Middle();
+        obj.f(); // 2
 
-        c = new Low();
-        c.f(); // 2
+        obj = new Low();
+        obj.f(); // 2
     }
 }
 
