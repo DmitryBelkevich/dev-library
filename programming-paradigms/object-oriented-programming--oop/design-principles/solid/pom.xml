@@ -18,7 +18,7 @@
 
     <modules>
         <module>the-single-responsibility-principle--srp</module>
-        <module>the-open-closed-principle</module>
+        <module>the-open-closed-principle--ocp</module>
     </modules>
 
 </project>

@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>the-open-closed-principle</artifactId>
+    <artifactId>the-open-closed-principle--ocp</artifactId>
 
     <name>${project.artifactId}</name>
 
