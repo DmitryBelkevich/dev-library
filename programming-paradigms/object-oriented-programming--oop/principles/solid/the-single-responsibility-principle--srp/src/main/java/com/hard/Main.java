@@ -2,7 +2,10 @@ package com.hard;
 
 public class Main {
     public static void main(String[] args) {
+        ComputerFacade computer = new ComputerFacade();
 
+        computer.showImage();
+        computer.playMusic();
     }
 }
 
@@ -36,9 +39,9 @@ class Player {
     }
 }
 
-class Computer {
-    private Display display;
-    private Player player;
+class ComputerFacade {
+    private Display display = new Display();
+    private Player player = new Player();
 
     public void showImage() {
         display.showImage();
