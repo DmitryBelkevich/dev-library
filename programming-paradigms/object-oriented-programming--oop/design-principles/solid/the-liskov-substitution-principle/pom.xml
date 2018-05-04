@@ -6,20 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>design-principles</artifactId>
+        <artifactId>solid</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>solid</artifactId>
+    <artifactId>the-liskov-substitution-principle</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>the-single-responsibility-principle--srp</module>
-        <module>the-open-closed-principle--ocp</module>
-        <module>the-liskov-substitution-principle</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
