@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>the-liskov-substitution-principle</artifactId>
+    <artifactId>the-liskov-substitution-principle--lsp</artifactId>
 
     <name>${project.artifactId}</name>
 

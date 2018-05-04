@@ -19,7 +19,7 @@
     <modules>
         <module>the-single-responsibility-principle--srp</module>
         <module>the-open-closed-principle--ocp</module>
-        <module>the-liskov-substitution-principle</module>
+        <module>the-liskov-substitution-principle--lsp</module>
     </modules>
 
 </project>
