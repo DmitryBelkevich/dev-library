@@ -14,9 +14,9 @@ public class Main {
 
 class GraphicEditor {
     public void drawShape(Shape shape) {
-        if (shape.type == 1)
+        if (shape instanceof Circle)
             drawCircle((Circle) shape);
-        else if (shape.type == 2)
+        else if (shape instanceof Rectangle)
             drawRectangle((Rectangle) shape);
     }
 
@@ -30,17 +30,13 @@ class GraphicEditor {
 }
 
 class Shape {
-    protected int type;
+
 }
 
 class Circle extends Shape {
-    public Circle() {
-        type = 1;
-    }
+
 }
 
 class Rectangle extends Shape {
-    public Rectangle() {
-        type = 2;
-    }
+
 }
