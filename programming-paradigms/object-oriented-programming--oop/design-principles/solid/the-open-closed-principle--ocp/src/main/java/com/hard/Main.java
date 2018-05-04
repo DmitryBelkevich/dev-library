@@ -40,3 +40,7 @@ class Circle implements Shape {
 class Rectangle implements Shape {
 
 }
+
+/**
+ * Good example
+ */

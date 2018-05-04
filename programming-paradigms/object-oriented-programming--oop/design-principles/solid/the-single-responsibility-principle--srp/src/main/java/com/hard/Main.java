@@ -10,7 +10,7 @@ public class Main {
 }
 
 /**
- * Before
+ * Bad example
  */
 
 //class Computer {
@@ -24,7 +24,7 @@ public class Main {
 //}
 
 /**
- * After
+ * Good example
  */
 
 class Display {
