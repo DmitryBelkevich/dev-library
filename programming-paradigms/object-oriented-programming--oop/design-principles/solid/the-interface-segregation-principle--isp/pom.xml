@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>the-interface-segregation-principle</artifactId>
+    <artifactId>the-interface-segregation-principle--isp</artifactId>
 
     <name>${project.artifactId}</name>
 

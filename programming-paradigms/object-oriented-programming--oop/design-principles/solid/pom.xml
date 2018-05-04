@@ -20,7 +20,7 @@
         <module>the-single-responsibility-principle--srp</module>
         <module>the-open-closed-principle--ocp</module>
         <module>the-liskov-substitution-principle--lsp</module>
-        <module>the-interface-segregation-principle</module>
+        <module>the-interface-segregation-principle--isp</module>
     </modules>
 
 </project>
