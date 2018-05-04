@@ -21,6 +21,7 @@
         <module>the-open-closed-principle--ocp</module>
         <module>the-liskov-substitution-principle--lsp</module>
         <module>the-interface-segregation-principle--isp</module>
+        <module>the-dependency-inversion-principle--dip</module>
     </modules>
 
 </project>
