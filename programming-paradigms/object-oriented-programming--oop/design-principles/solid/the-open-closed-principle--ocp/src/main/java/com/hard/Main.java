@@ -12,15 +12,15 @@ public class Main {
  * Bad example
  */
 
-interface Shape {
+abstract class Shape {
 
 }
 
-class Circle implements Shape {
+class Circle extends Shape {
 
 }
 
-class Rectangle implements Shape {
+class Rectangle extends Shape {
 
 }
 
