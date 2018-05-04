@@ -12,6 +12,18 @@ public class Main {
  * Bad example
  */
 
+interface Shape {
+
+}
+
+class Circle implements Shape {
+
+}
+
+class Rectangle implements Shape {
+
+}
+
 class GraphicEditor {
     public void drawShape(Shape shape) {
         if (shape instanceof Circle)
@@ -27,18 +39,6 @@ class GraphicEditor {
     public void drawRectangle(Rectangle rectangle) {
         System.out.println("drawing rectangle");
     }
-}
-
-interface Shape {
-
-}
-
-class Circle implements Shape {
-
-}
-
-class Rectangle implements Shape {
-
 }
 
 /**
