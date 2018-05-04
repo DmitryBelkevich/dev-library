@@ -5,3 +5,11 @@ public class Main {
 
     }
 }
+
+/**
+ * Bad example
+ */
+
+/**
+ * Good example
+ */
