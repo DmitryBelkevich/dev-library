@@ -72,28 +72,34 @@ class MinusExpression implements Expression {
 
 class Context {
     public Expression evaluate(String str) {
+        Expression expression = null;
+
         int position = str.length() - 1;
 
-        while (position > 0) {
-            if (Character.isDigit(str.charAt(position))) {
-                position--;
-            } else {
-                Expression left = evaluate(str.substring(0, position));
-                Expression right = new NumberExpression(Integer.valueOf(str.substring(position + 1, str.length())));
+        while (true) {
+            if (position <= 0)
+                return new NumberExpression(Integer.valueOf(str));
 
-                char operator = str.charAt(position);
+            if (!Character.isDigit(str.charAt(position)))
+                break;
 
-                switch (operator) {
-                    case '+':
-                        return new PlusExpression(left, right);
-                    case '-':
-                        return new MinusExpression(left, right);
-                }
-            }
+            position--;
         }
 
-        int result = Integer.valueOf(str);
+        Expression left = evaluate(str.substring(0, position));
+        Expression right = new NumberExpression(Integer.valueOf(str.substring(position + 1, str.length())));
 
-        return new NumberExpression(result);
+        char operator = str.charAt(position);
+
+        switch (operator) {
+            case '+':
+                expression = new PlusExpression(left, right);
+                break;
+            case '-':
+                expression = new MinusExpression(left, right);
+                break;
+        }
+
+        return expression;
     }
 }
