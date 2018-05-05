@@ -1,6 +1,6 @@
 package com.hard;
 
-public class Main {
+public class Arithmetic {
     static int factorial(int i) {
         if (i <= 1)
             return 1;
