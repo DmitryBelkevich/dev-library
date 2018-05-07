@@ -121,36 +121,31 @@ class AppCompatFrame {
 }
 
 class MainFrame extends AppCompatFrame {
-    // 2.1 create components (if need access to components from listeners)
     private JButton button1;
 
     @Override
     protected void onCreate() {
-        button1 = (JButton) findViewById(R.id.button1);
-
-        /**
-         * 5 add listeners:
-         */
-
-        // 5.1 add Listeners (may use Anonymous class, lambdas)
-        button1.addActionListener(new Button1ActionListener());
-        frame.addWindowListener(new CloseWindowListener());
+        findElements();
+        addListeners();
 
         // 1.4 other frame settings
         frame.setVisible(true);
         //frame.pack();
     }
 
-    /**
-     * 3 listeners
-     */
+    public void findElements() {
+        button1 = (JButton) findViewById(R.id.button1);
+    }
 
-    // 3.1 create listeners (may use any class: Inner Class, Nested Class)
+    public void addListeners() {
+        button1.addActionListener(new Button1ActionListener());
+        frame.addWindowListener(new CloseWindowListener());
+    }
+
     private class Button1ActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent event) {
             System.out.println("Hello World");
-            //event.getSource();	// возвращает объект
         }
     }
 
