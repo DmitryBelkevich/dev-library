@@ -32,6 +32,7 @@ class InitialContext {
         switch (id) {
             case R.id.button1:
                 JButton button = new JButton("Button1");
+                button.setCursor(new Cursor(Cursor.HAND_CURSOR));    // add awt-components
                 return button;
         }
 
@@ -69,11 +70,7 @@ class AppCompatFrame {
     // 1.1 create frame
     protected JFrame frame = new JFrame("App");
 
-    private JButton button1;
-
     public AppCompatFrame() {
-        this.button1 = (JButton) componentLocator.getComponent(R.id.button1);
-
         /**
          * 1 frame:
          */
@@ -87,19 +84,11 @@ class AppCompatFrame {
         frame.setLayout(new GridBagLayout());
 
         /**
-         * 2 components:
-         */
-
-        // 2.2 components settings
-        button1.setCursor(new Cursor(Cursor.HAND_CURSOR));    // add awt-components
-
-        // 2.3 create layout Components
-
-        /**
          * 4 add components:
          */
 
         // 4.1 add components (may with layout)
+        JButton button1 = (JButton) componentLocator.getComponent(R.id.button1);
         frame.add(button1);
     }
 
@@ -108,7 +97,7 @@ class AppCompatFrame {
     }
 
     public JComponent findViewById(int id) {
-        return button1;
+        return componentLocator.getComponent(id);
     }
 }
 
