@@ -33,23 +33,7 @@ class AppCompatFrame {
 
         // 1.3 set layout
         frame.setLayout(new GridBagLayout());
-    }
 
-    protected void onCreate() {
-
-    }
-
-    public JComponent findViewById(int id) {
-        return button1;
-    }
-}
-
-class MainFrame extends AppCompatFrame {
-    // 2.1 create components (if need access to components from listeners)
-    private JButton button1 = new JButton("Button1");
-
-    @Override
-    protected void onCreate() {
         /**
          * 2 components:
          */
@@ -65,6 +49,24 @@ class MainFrame extends AppCompatFrame {
 
         // 4.1 add components (may with layout)
         frame.add(button1);
+    }
+
+    protected void onCreate() {
+
+    }
+
+    public JComponent findViewById(int id) {
+        return button1;
+    }
+}
+
+class MainFrame extends AppCompatFrame {
+    // 2.1 create components (if need access to components from listeners)
+    private JButton button1;
+
+    @Override
+    protected void onCreate() {
+        button1 = (JButton) findViewById(1);
 
         /**
          * 5 add components and listeners:
