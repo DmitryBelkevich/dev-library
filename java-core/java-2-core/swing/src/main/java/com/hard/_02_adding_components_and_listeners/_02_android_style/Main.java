@@ -1,4 +1,4 @@
-package com.hard._02_adding_components_and_listeners._02;
+package com.hard._02_adding_components_and_listeners._02_android_style;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,15 +11,22 @@ public class Main {
     public static void main(String[] args) {
         MainFrame frame = new MainFrame();
 
-        frame.create();
+        frame.onCreate();
     }
 }
 
-class MainFrame {
+class AppCompatFrame {
+    protected void onCreate() {
+
+    }
+}
+
+class MainFrame extends AppCompatFrame {
     // 2.1 create components (if need access to components from listeners)
     private JButton button1 = new JButton("Button1");
 
-    public void create() {
+    @Override
+    protected void onCreate() {
         /**
          * 1 frame:
          */
@@ -40,7 +47,7 @@ class MainFrame {
          */
 
         // 2.2 components settings
-        button1.setCursor(new Cursor(Cursor.HAND_CURSOR));	// add awt-components
+        button1.setCursor(new Cursor(Cursor.HAND_CURSOR));    // add awt-components
 
         // 2.3 create layout Components
 
