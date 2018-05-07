@@ -42,7 +42,7 @@ class MainFrame {
         // 2.2 components settings
         button1.setCursor(new Cursor(Cursor.HAND_CURSOR));	// add awt-components
 
-        // 2.3 create layout Components
+        // 2.3 create layout components
 
         /**
          * 4 add components and listeners:
