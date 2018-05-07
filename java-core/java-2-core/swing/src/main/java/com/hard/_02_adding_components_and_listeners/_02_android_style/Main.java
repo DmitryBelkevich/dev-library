@@ -95,7 +95,7 @@ class MainFrame extends AppCompatFrame {
 
     @Override
     protected void onCreate() {
-        button1 = (JButton) findViewById(1);
+        button1 = (JButton) findViewById(R.id.button1);
 
         /**
          * 5 add listeners:
