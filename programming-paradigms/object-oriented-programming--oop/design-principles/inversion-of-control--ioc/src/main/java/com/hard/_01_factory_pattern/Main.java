@@ -2,9 +2,9 @@ package com.hard._01_factory_pattern;
 
 public class Main {
     public static void main(String[] args) {
-        ProductService productService = new ProductService();
+        ProductController productController = new ProductController();
 
-        productService.getAll();
+        productController.getAll();
     }
 }
 
@@ -12,11 +12,11 @@ public class Main {
  * Entity
  */
 
-interface ProductDao {
+interface ProductService {
     void getAll();
 }
 
-class ProductDaoImpl implements ProductDao {
+class ProductServiceImpl implements ProductService {
     @Override
     public void getAll() {
         System.out.println("getAll");
@@ -28,12 +28,12 @@ class ProductDaoImpl implements ProductDao {
  */
 
 interface Factory {
-    ProductDao getProductDao();
+    ProductService getProductService();
 }
 
 class Factory1 implements Factory {
-    public ProductDao getProductDao() {
-        return new ProductDaoImpl();
+    public ProductService getProductService() {
+        return new ProductServiceImpl();
     }
 }
 
@@ -41,15 +41,15 @@ class Factory1 implements Factory {
  * Inversion of Control (IoC)
  */
 
-class ProductService {
-    private ProductDao productDao;
+class ProductController {
+    private ProductService productService;
 
-    public ProductService() {
+    public ProductController() {
         Factory factory = new Factory1();
-        productDao = factory.getProductDao();
+        productService = factory.getProductService();
     }
 
     public void getAll() {
-        productDao.getAll();
+        productService.getAll();
     }
 }
