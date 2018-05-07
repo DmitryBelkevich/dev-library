@@ -5,6 +5,14 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
+        MainFrame frame = new MainFrame();
+
+        frame.create();
+    }
+}
+
+class MainFrame {
+    public void create() {
         JFrame frame = new JFrame("App");
 
         frame.setSize(640, 480);
