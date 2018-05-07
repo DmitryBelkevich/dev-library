@@ -53,5 +53,3 @@ class ProductService {
         productDao.getAll();
     }
 }
-
-
