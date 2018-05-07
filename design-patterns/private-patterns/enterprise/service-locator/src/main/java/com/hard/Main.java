@@ -82,10 +82,6 @@ class InitialContext {
 class Cache {
     private List<Service> services = new ArrayList<>();
 
-    public Cache() {
-
-    }
-
     public void addService(Service newService) {
         boolean exists = false;
 
