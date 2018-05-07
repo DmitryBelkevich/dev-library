@@ -65,7 +65,7 @@ class MainFrame {
      */
 
     // 1. create listeners (may use any class: Inner Class, Nested Class)
-    public class Button1ActionListener implements ActionListener {
+    private class Button1ActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent event) {
             System.out.println("Hello World");
@@ -73,7 +73,7 @@ class MainFrame {
         }
     }
 
-    public class CloseWindowListener extends WindowAdapter {
+    private class CloseWindowListener extends WindowAdapter {
         @Override
         public void windowClosing(WindowEvent e) {
             System.out.println("Window is closing");
