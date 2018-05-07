@@ -45,8 +45,15 @@ class MainFrame {
         // 2.3 create layout Components
 
         /**
-         * 4 Add components and Listeners:
+         * 4 add components and listeners:
          */
+
+        // 1. add Components (may with layout)
+        frame.add(button1);
+
+        // 2. add Listeners (may use Anonymous class, lambdas)
+        button1.addActionListener(new Button1ActionListener());
+        frame.addWindowListener(new CloseWindowListener());
 
         // 1.4 other frame settings
         frame.setVisible(true);
