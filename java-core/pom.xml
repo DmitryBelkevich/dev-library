@@ -36,6 +36,7 @@
         <module>cast</module>
         <module>autoboxing-unboxing</module>
         <module>annotations</module>
+        <module>java-2-core</module>
         <module>java-5-core</module>
         <module>java-7-core</module>
         <module>java-8-core</module>
