@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>object-oriented-programming--oop</artifactId>
+        <artifactId>design-principles</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>design-principles</artifactId>
+    <artifactId>inversion-of-control--ioc</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>solid</module>
-        <module>inversion-of-control--ioc</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
