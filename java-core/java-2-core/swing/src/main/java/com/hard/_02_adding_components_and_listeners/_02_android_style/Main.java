@@ -44,7 +44,7 @@ class AppCompatFrame {
         // 2.3 create layout Components
 
         /**
-         * 4 add components and listeners:
+         * 4 add components:
          */
 
         // 4.1 add components (may with layout)
@@ -69,7 +69,7 @@ class MainFrame extends AppCompatFrame {
         button1 = (JButton) findViewById(1);
 
         /**
-         * 5 add components and listeners:
+         * 5 add listeners:
          */
 
         // 5.1 add Listeners (may use Anonymous class, lambdas)
