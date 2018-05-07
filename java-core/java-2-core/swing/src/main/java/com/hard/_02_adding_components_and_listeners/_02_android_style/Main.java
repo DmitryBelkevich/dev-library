@@ -19,6 +19,8 @@ class AppCompatFrame {
     // 1.1 create frame
     protected JFrame frame = new JFrame("App");
 
+    private JButton button1 = new JButton("Button1");
+
     public AppCompatFrame() {
         /**
          * 1 frame:
@@ -35,6 +37,10 @@ class AppCompatFrame {
 
     protected void onCreate() {
 
+    }
+
+    public JComponent findViewById(int id) {
+        return button1;
     }
 }
 
@@ -60,7 +66,11 @@ class MainFrame extends AppCompatFrame {
         // 4.1 add components (may with layout)
         frame.add(button1);
 
-        // 4.2 add Listeners (may use Anonymous class, lambdas)
+        /**
+         * 5 add components and listeners:
+         */
+
+        // 5.1 add Listeners (may use Anonymous class, lambdas)
         button1.addActionListener(new Button1ActionListener());
         frame.addWindowListener(new CloseWindowListener());
 
