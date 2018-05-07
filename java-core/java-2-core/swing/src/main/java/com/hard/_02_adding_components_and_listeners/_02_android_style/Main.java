@@ -115,7 +115,7 @@ class AppCompatFrame {
 
     }
 
-    public JComponent findViewById(int id) {
+    public JComponent findComponentById(int id) {
         return locator.getComponent(id);
     }
 }
@@ -134,7 +134,7 @@ class MainFrame extends AppCompatFrame {
     }
 
     public void findElements() {
-        button1 = (JButton) findViewById(R.id.button1);
+        button1 = (JButton) findComponentById(R.id.button1);
     }
 
     public void addListeners() {
