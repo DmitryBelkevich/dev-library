@@ -41,7 +41,7 @@ class MainFrame {
         // 2.3 create layout Components
 
         /**
-         * 3 ADD COMPONENTS AND LISTENERS:
+         * 4 Add components and Listeners:
          */
 
         // 1.4 other frame settings
@@ -50,6 +50,6 @@ class MainFrame {
     }
 
     /**
-     * 4 Listeners
+     * 3 Listeners
      */
 }
