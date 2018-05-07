@@ -17,6 +17,14 @@ public class Main {
 //class Product {
 //    private String title;
 //
+//    public String getTitle() {
+//        return title;
+//    }
+//
+//    public void setTitle(String title) {
+//        this.title = title;
+//    }
+//
 //    public Collection<Product> getAll() {
 //        System.out.println("getAll");
 //        return null;
@@ -50,6 +58,14 @@ public class Main {
 
 class Product {
     private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
 
 class ProductRepository {
