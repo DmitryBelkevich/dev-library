@@ -2,7 +2,7 @@ package com.hard.example2;
 
 public class Main {
     public static void main(String[] args) {
-        OrderService orderService = new OrderService();
+        AbstractOrderService orderService = new OrderService();
 
         orderService.getTotalPrice();
     }
@@ -12,7 +12,7 @@ public class Main {
  * Bad example
  */
 
-//class OrderService {
+//class AbstractOrderService {
 //    public void getTotalPrice() {
 //        System.out.println("get all positions of cart");
 //        System.out.println("get discount for current user");
@@ -24,22 +24,30 @@ public class Main {
  * Good example
  */
 
-class OrderService {
+abstract class AbstractOrderService {
     public void getTotalPrice() {
         getProducts();
         getDiscount();
         calculateTotalPrice();
     }
 
+    public abstract void getProducts();
+
+    public abstract void getDiscount();
+
+    public void calculateTotalPrice() {
+        System.out.println("count of total price");
+    }
+}
+
+class OrderService extends AbstractOrderService {
+    @Override
     public void getProducts() {
         System.out.println("get all positions of cart");
     }
 
+    @Override
     public void getDiscount() {
         System.out.println("get discount for current user");
-    }
-
-    public void calculateTotalPrice() {
-        System.out.println("count of total price");
     }
 }
