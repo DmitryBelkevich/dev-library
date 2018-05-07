@@ -1,10 +1,12 @@
 package com.hard.example2;
 
+import java.util.Collection;
+
 public class Main {
     public static void main(String[] args) {
-        UserRepository userRepository = new UserRepository();
+        ProductRepository productRepository = new ProductRepository();
 
-        User user = userRepository.getById(1);
+        Product product = productRepository.getById(1);
     }
 }
 
@@ -12,15 +14,33 @@ public class Main {
  * Bad example
  */
 
-//class User {
-//    private String name;
+//class Product {
+//    private String title;
 //
-//    public User getById(int id) {
+//    public Collection<Product> getAll() {
+//        System.out.println("getAll");
+//        return null;
+//    }
+//
+//    public Product getById(int id) {
+//        System.out.println("getById");
 //        return null;
 //    }
 //
 //    public void save() {
-//        System.out.println("save user");
+//        System.out.println("save");
+//    }
+//
+//    public void delete() {
+//        System.out.println("delete");
+//    }
+//
+//    public void show() {
+//        System.out.println("show");
+//    }
+//
+//    public void print() {
+//        System.out.println("print");
 //    }
 //}
 
@@ -28,16 +48,36 @@ public class Main {
  * Good example
  */
 
-class User {
-    private String name;
+class Product {
+    private String title;
 }
 
-class UserRepository {
-    public User getById(int id) {
+class ProductRepository {
+    public Collection<Product> getAll() {
+        System.out.println("getAll");
         return null;
     }
 
-    public void save(User user) {
-        System.out.println("save user");
+    public Product getById(int id) {
+        System.out.println("getById");
+        return null;
+    }
+
+    public void save() {
+        System.out.println("save");
+    }
+
+    public void delete() {
+        System.out.println("delete");
+    }
+}
+
+class ProductView {
+    public void show() {
+        System.out.println("show");
+    }
+
+    public void print() {
+        System.out.println("print");
     }
 }
