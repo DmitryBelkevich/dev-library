@@ -51,7 +51,7 @@ class InitialContext {
         switch (id) {
             case R.id.button1:
                 JButton button = new JButton("Button1");
-                button.setCursor(new Cursor(Cursor.HAND_CURSOR));    // add awt-components
+                button.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 return button;
         }
 
