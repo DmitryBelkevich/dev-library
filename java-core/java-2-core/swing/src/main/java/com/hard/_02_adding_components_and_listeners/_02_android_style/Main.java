@@ -19,7 +19,7 @@ public class Main {
 
 class R {
     public static class id {
-        public static final int frame1 = 1;
+        public static final int main_frame = 1;
 
         public static final int button1 = 2;
     }
@@ -32,7 +32,7 @@ class R {
 class InitialContext {
     public JFrame getFrame(int id) {
         switch (id) {
-            case R.id.frame1:
+            case R.id.main_frame:
                 JFrame frame = new JFrame("App");
 
                 frame.setSize(640, 480);
@@ -105,7 +105,7 @@ class AppCompatFrame {
     protected JFrame frame;
 
     public AppCompatFrame() {
-        frame = locator.getFrame(R.id.frame1);
+        frame = locator.getFrame(R.id.main_frame);
 
         frame.setVisible(true);
         //frame.pack();
