@@ -66,7 +66,7 @@ class InitialContext {
  * Component locator
  */
 
-class FrameLocator {
+class Locator {
     private InitialContext initialContext = new InitialContext();
     private Map<Integer, JFrame> frames = new HashMap<>();
     private Map<Integer, JComponent> components = new HashMap<>();
@@ -103,12 +103,12 @@ class FrameLocator {
  */
 
 class AppCompatFrame {
-    private FrameLocator frameLocator = new FrameLocator();
+    private Locator locator = new Locator();
 
     protected JFrame frame;
 
     public AppCompatFrame() {
-        frame = frameLocator.getFrame(R.id.frame1);
+        frame = locator.getFrame(R.id.frame1);
     }
 
     protected void onCreate() {
@@ -116,7 +116,7 @@ class AppCompatFrame {
     }
 
     public JComponent findViewById(int id) {
-        return frameLocator.getComponent(id);
+        return locator.getComponent(id);
     }
 }
 
