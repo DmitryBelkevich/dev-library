@@ -128,7 +128,6 @@ class MainFrame extends AppCompatFrame {
         findElements();
         addListeners();
 
-        // 1.4 other frame settings
         frame.setVisible(true);
         //frame.pack();
     }
