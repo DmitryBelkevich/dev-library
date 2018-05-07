@@ -109,6 +109,9 @@ class AppCompatFrame {
 
     public AppCompatFrame() {
         frame = locator.getFrame(R.id.frame1);
+
+        frame.setVisible(true);
+        //frame.pack();
     }
 
     protected void onCreate() {
@@ -127,9 +130,6 @@ class MainFrame extends AppCompatFrame {
     protected void onCreate() {
         findElements();
         addListeners();
-
-        frame.setVisible(true);
-        //frame.pack();
     }
 
     public void findElements() {
