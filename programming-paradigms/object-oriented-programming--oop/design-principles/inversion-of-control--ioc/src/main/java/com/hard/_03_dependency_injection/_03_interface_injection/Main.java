@@ -33,11 +33,11 @@ class ProductServiceImpl implements ProductService {
  * Inversion of Control (IoC)
  */
 
-interface Injector {
+interface Injectable {
     void inject(ProductService productService);
 }
 
-class ProductController implements Injector {
+class ProductController implements Injectable {
     private ProductService productService;
 
     @Override
