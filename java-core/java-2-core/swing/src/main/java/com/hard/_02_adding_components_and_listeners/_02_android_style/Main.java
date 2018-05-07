@@ -15,6 +15,12 @@ public class Main {
     }
 }
 
+class R {
+    public static class id {
+        public static final int button1 = 1;
+    }
+}
+
 /**
  * InitialContext
  */
@@ -22,7 +28,7 @@ public class Main {
 class InitialContext {
     public JComponent getComponent(int id) {
         switch (id) {
-            case 1:
+            case R.id.button1:
                 return new JButton("Button1");
         }
 
@@ -43,7 +49,7 @@ class AppCompatFrame {
     private JButton button1;
 
     public AppCompatFrame() {
-        this.button1 = (JButton) initialContext.getComponent(1);
+        this.button1 = (JButton) initialContext.getComponent(R.id.button1);
 
         /**
          * 1 frame:
