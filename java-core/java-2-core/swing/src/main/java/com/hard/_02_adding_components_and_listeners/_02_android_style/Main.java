@@ -63,10 +63,12 @@ class InitialContext {
  * Component locator
  */
 
-class ComponentLocator {
-    private InitialContext initialContext = new InitialContext();
+abstract class Locator {
+    protected InitialContext initialContext = new InitialContext();
+}
+
+class FrameLocator extends Locator {
     private Map<Integer, JFrame> frames = new HashMap<>();
-    private Map<Integer, JComponent> components = new HashMap<>();
 
     public JFrame getFrame(int id) {
         JFrame frame = frames.get(id);
@@ -78,6 +80,10 @@ class ComponentLocator {
 
         return frame;
     }
+}
+
+class ComponentLocator extends Locator {
+    private Map<Integer, JComponent> components = new HashMap<>();
 
     public JComponent getComponent(int id) {
         JComponent component = components.get(id);
@@ -96,17 +102,18 @@ class ComponentLocator {
  */
 
 class AppCompatFrame {
+    private FrameLocator frameLocator = new FrameLocator();
     private ComponentLocator componentLocator = new ComponentLocator();
+
     protected JFrame frame;
 
     public AppCompatFrame() {
-        frame = componentLocator.getFrame(R.id.frame1);
+        frame = frameLocator.getFrame(R.id.frame1);
 
         /**
          * 4 add components:
          */
 
-        // 4.1 add components (may with layout)
         JButton button1 = (JButton) componentLocator.getComponent(R.id.button1);
         frame.add(button1);
     }
