@@ -41,6 +41,9 @@ class InitialContext {
 
                 frame.setLayout(new GridBagLayout());
 
+//                JButton button1 = (JButton) getComponent(R.id.button1);
+//                frame.add(button1);
+
                 return frame;
         }
 
@@ -63,27 +66,25 @@ class InitialContext {
  * Component locator
  */
 
-abstract class Locator {
-    protected InitialContext initialContext = new InitialContext();
-}
-
-class FrameLocator extends Locator {
+class FrameLocator {
+    private InitialContext initialContext = new InitialContext();
     private Map<Integer, JFrame> frames = new HashMap<>();
+    private Map<Integer, JComponent> components = new HashMap<>();
 
     public JFrame getFrame(int id) {
         JFrame frame = frames.get(id);
 
         if (frame == null) {
             frame = initialContext.getFrame(id);
+
+            JButton button1 = (JButton) getComponent(R.id.button1);
+            frame.add(button1);
+
             frames.put(id, frame);
         }
 
         return frame;
     }
-}
-
-class ComponentLocator extends Locator {
-    private Map<Integer, JComponent> components = new HashMap<>();
 
     public JComponent getComponent(int id) {
         JComponent component = components.get(id);
@@ -103,19 +104,11 @@ class ComponentLocator extends Locator {
 
 class AppCompatFrame {
     private FrameLocator frameLocator = new FrameLocator();
-    private ComponentLocator componentLocator = new ComponentLocator();
 
     protected JFrame frame;
 
     public AppCompatFrame() {
         frame = frameLocator.getFrame(R.id.frame1);
-
-        /**
-         * 4 add components:
-         */
-
-        JButton button1 = (JButton) componentLocator.getComponent(R.id.button1);
-        frame.add(button1);
     }
 
     protected void onCreate() {
@@ -123,7 +116,7 @@ class AppCompatFrame {
     }
 
     public JComponent findViewById(int id) {
-        return componentLocator.getComponent(id);
+        return frameLocator.getComponent(id);
     }
 }
 
