@@ -7,6 +7,6 @@ Inversion of Control (IoC)
 - "Service locator" pattern
 - "Dependency injection" pattern
     * Constructor injection (через конструктор)
-    * Setter injection (Через метод класса)
-    * Interface injection (Через интерфейс внедрения)
+    * Setter injection (через метод класса)
+    * Interface injection (через интерфейс внедрения)
 - Contextualized lookup (контекстный поиск)
