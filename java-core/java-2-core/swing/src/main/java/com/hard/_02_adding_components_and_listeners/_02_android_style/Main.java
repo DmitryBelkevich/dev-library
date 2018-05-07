@@ -41,9 +41,6 @@ class InitialContext {
 
                 frame.setLayout(new GridBagLayout());
 
-//                JButton button1 = (JButton) getComponent(R.id.button1);
-//                frame.add(button1);
-
                 return frame;
         }
 
