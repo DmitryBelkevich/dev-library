@@ -16,6 +16,23 @@ public class Main {
 }
 
 class AppCompatFrame {
+    // 1.1 create frame
+    protected JFrame frame = new JFrame("App");
+
+    public AppCompatFrame() {
+        /**
+         * 1 frame:
+         */
+
+        // 1.2 window settings
+        frame.setSize(640, 480);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+
+        // 1.3 set layout
+        frame.setLayout(new GridBagLayout());
+    }
+
     protected void onCreate() {
 
     }
@@ -27,21 +44,6 @@ class MainFrame extends AppCompatFrame {
 
     @Override
     protected void onCreate() {
-        /**
-         * 1 frame:
-         */
-
-        // 1.1 create frame
-        JFrame frame = new JFrame("App");
-
-        // 1.2 window settings
-        frame.setSize(640, 480);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-
-        // 1.3 set layout
-        frame.setLayout(new GridBagLayout());
-
         /**
          * 2 components:
          */
