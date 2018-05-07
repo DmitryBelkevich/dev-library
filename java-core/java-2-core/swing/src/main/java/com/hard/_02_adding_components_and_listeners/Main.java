@@ -48,10 +48,10 @@ class MainFrame {
          * 4 add components and listeners:
          */
 
-        // 1. add components (may with layout)
+        // 4.1 add components (may with layout)
         frame.add(button1);
 
-        // 2. add Listeners (may use Anonymous class, lambdas)
+        // 4.2 add Listeners (may use Anonymous class, lambdas)
         button1.addActionListener(new Button1ActionListener());
         frame.addWindowListener(new CloseWindowListener());
 
