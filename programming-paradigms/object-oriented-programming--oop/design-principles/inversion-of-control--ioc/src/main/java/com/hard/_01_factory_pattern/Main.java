@@ -9,12 +9,16 @@ public class Main {
 }
 
 /**
- * Entity
+ * Service
  */
 
 interface ProductService {
     void getAll();
 }
+
+/**
+ * Concrete Service
+ */
 
 class ProductServiceImpl implements ProductService {
     @Override
