@@ -12,36 +12,44 @@ public class Main {
 }
 
 class MainFrame {
+    // 2.1 create Components (if need access to components from listeners)
+    private JButton button1 = new JButton("Button1");
+
     public void create() {
         /**
-         * Frame:
+         * 1 Frame:
          */
 
-        // 1. create frame
+        // 1.1 create frame
         JFrame frame = new JFrame("App");
 
-        // 2. Window settings
+        // 1.2 Window settings
         frame.setSize(640, 480);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        // 3. set layout
+        // 1.3 set layout
         frame.setLayout(new GridBagLayout());
 
         /**
-         * Components:
+         * 2 Components:
          */
+
+        // 2.2 Components settings
+        button1.setCursor(new Cursor(Cursor.HAND_CURSOR));	// add awt-components
+
+        // 2.3 create layout Components
 
         /**
-         * ADD COMPONENTS AND LISTENERS:
+         * 3 ADD COMPONENTS AND LISTENERS:
          */
 
-        // other frame settings
+        // 1.4 other frame settings
         frame.setVisible(true);
         //frame.pack();
     }
 
     /**
-     * Listeners
+     * 4 Listeners
      */
 }
