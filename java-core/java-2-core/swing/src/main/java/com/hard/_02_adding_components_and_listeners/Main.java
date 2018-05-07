@@ -2,6 +2,10 @@ package com.hard._02_adding_components_and_listeners;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,7 +27,7 @@ class MainFrame {
         // 1.1 create frame
         JFrame frame = new JFrame("App");
 
-        // 1.2 Window settings
+        // 1.2 window settings
         frame.setSize(640, 480);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -35,7 +39,7 @@ class MainFrame {
          * 2 Components:
          */
 
-        // 2.2 Components settings
+        // 2.2 components settings
         button1.setCursor(new Cursor(Cursor.HAND_CURSOR));	// add awt-components
 
         // 2.3 create layout Components
@@ -52,4 +56,20 @@ class MainFrame {
     /**
      * 3 Listeners
      */
+
+    // 1. create listeners (may use any class: Inner Class, Nested Class)
+    public class Button1ActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent event) {
+            System.out.println("Hello World");
+            //event.getSource();	// возвращает объект
+        }
+    }
+
+    public class CloseWindowListener extends WindowAdapter {
+        @Override
+        public void windowClosing(WindowEvent e) {
+            System.out.println("Window is closing");
+        }
+    }
 }
