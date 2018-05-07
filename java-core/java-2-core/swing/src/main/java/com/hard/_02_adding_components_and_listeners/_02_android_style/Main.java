@@ -15,13 +15,36 @@ public class Main {
     }
 }
 
+/**
+ * InitialContext
+ */
+
+class InitialContext {
+    public JComponent getComponent(int id) {
+        switch (id) {
+            case 1:
+                return new JButton("Button1");
+        }
+
+        return null;
+    }
+}
+
+/**
+ * Frames
+ */
+
 class AppCompatFrame {
+    private InitialContext initialContext = new InitialContext();
+
     // 1.1 create frame
     protected JFrame frame = new JFrame("App");
 
-    private JButton button1 = new JButton("Button1");
+    private JButton button1;
 
     public AppCompatFrame() {
+        this.button1 = (JButton) initialContext.getComponent(1);
+
         /**
          * 1 frame:
          */
