@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,17 +24,38 @@ class R {
 }
 
 /**
- * InitialContext
+ * Initial context
  */
 
 class InitialContext {
     public JComponent getComponent(int id) {
         switch (id) {
             case R.id.button1:
-                return new JButton("Button1");
+                JButton button = new JButton("Button1");
+                return button;
         }
 
         return null;
+    }
+}
+
+/**
+ * Component locator
+ */
+
+class ComponentLocator {
+    private InitialContext initialContext = new InitialContext();
+    private Map<Integer, JComponent> cache = new HashMap<>();
+
+    public JComponent getComponent(int id) {
+        JComponent component = cache.get(id);
+
+        if (component == null) {
+            component = initialContext.getComponent(id);
+            cache.put(id, component);
+        }
+
+        return component;
     }
 }
 
@@ -41,7 +64,7 @@ class InitialContext {
  */
 
 class AppCompatFrame {
-    private InitialContext initialContext = new InitialContext();
+    private ComponentLocator componentLocator = new ComponentLocator();
 
     // 1.1 create frame
     protected JFrame frame = new JFrame("App");
@@ -49,7 +72,7 @@ class AppCompatFrame {
     private JButton button1;
 
     public AppCompatFrame() {
-        this.button1 = (JButton) initialContext.getComponent(R.id.button1);
+        this.button1 = (JButton) componentLocator.getComponent(R.id.button1);
 
         /**
          * 1 frame:
