@@ -64,7 +64,7 @@ class MainFrame {
      * 3 Listeners
      */
 
-    // 1. create listeners (may use any class: Inner Class, Nested Class)
+    // 3.1 create listeners (may use any class: Inner Class, Nested Class)
     private class Button1ActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent event) {
