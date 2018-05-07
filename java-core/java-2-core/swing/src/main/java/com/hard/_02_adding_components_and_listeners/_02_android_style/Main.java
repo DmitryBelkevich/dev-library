@@ -19,7 +19,9 @@ public class Main {
 
 class R {
     public static class id {
-        public static final int button1 = 1;
+        public static final int frame1 = 1;
+
+        public static final int button1 = 2;
     }
 }
 
@@ -28,6 +30,23 @@ class R {
  */
 
 class InitialContext {
+    public JFrame getFrame(int id) {
+        switch (id) {
+            case R.id.frame1:
+                JFrame frame = new JFrame("App");
+
+                frame.setSize(640, 480);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setLocationRelativeTo(null);
+
+                frame.setLayout(new GridBagLayout());
+
+                return frame;
+        }
+
+        return null;
+    }
+
     public JComponent getComponent(int id) {
         switch (id) {
             case R.id.button1:
@@ -46,14 +65,26 @@ class InitialContext {
 
 class ComponentLocator {
     private InitialContext initialContext = new InitialContext();
-    private Map<Integer, JComponent> cache = new HashMap<>();
+    private Map<Integer, JFrame> frames = new HashMap<>();
+    private Map<Integer, JComponent> components = new HashMap<>();
+
+    public JFrame getFrame(int id) {
+        JFrame frame = frames.get(id);
+
+        if (frame == null) {
+            frame = initialContext.getFrame(id);
+            frames.put(id, frame);
+        }
+
+        return frame;
+    }
 
     public JComponent getComponent(int id) {
-        JComponent component = cache.get(id);
+        JComponent component = components.get(id);
 
         if (component == null) {
             component = initialContext.getComponent(id);
-            cache.put(id, component);
+            components.put(id, component);
         }
 
         return component;
@@ -66,22 +97,10 @@ class ComponentLocator {
 
 class AppCompatFrame {
     private ComponentLocator componentLocator = new ComponentLocator();
-
-    // 1.1 create frame
-    protected JFrame frame = new JFrame("App");
+    protected JFrame frame;
 
     public AppCompatFrame() {
-        /**
-         * 1 frame:
-         */
-
-        // 1.2 window settings
-        frame.setSize(640, 480);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-
-        // 1.3 set layout
-        frame.setLayout(new GridBagLayout());
+        frame = componentLocator.getFrame(R.id.frame1);
 
         /**
          * 4 add components:
