@@ -6,18 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>java-core</artifactId>
+        <artifactId>java-2-core</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java-2-core</artifactId>
+    <artifactId>swing</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>swing</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
