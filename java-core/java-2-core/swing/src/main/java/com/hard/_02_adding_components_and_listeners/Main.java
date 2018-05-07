@@ -16,12 +16,12 @@ public class Main {
 }
 
 class MainFrame {
-    // 2.1 create Components (if need access to components from listeners)
+    // 2.1 create components (if need access to components from listeners)
     private JButton button1 = new JButton("Button1");
 
     public void create() {
         /**
-         * 1 Frame:
+         * 1 frame:
          */
 
         // 1.1 create frame
@@ -36,7 +36,7 @@ class MainFrame {
         frame.setLayout(new GridBagLayout());
 
         /**
-         * 2 Components:
+         * 2 components:
          */
 
         // 2.2 components settings
@@ -48,7 +48,7 @@ class MainFrame {
          * 4 add components and listeners:
          */
 
-        // 1. add Components (may with layout)
+        // 1. add components (may with layout)
         frame.add(button1);
 
         // 2. add Listeners (may use Anonymous class, lambdas)
@@ -61,7 +61,7 @@ class MainFrame {
     }
 
     /**
-     * 3 Listeners
+     * 3 listeners
      */
 
     // 3.1 create listeners (may use any class: Inner Class, Nested Class)
