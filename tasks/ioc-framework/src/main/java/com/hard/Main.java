@@ -3,6 +3,8 @@ package com.hard;
 import java.lang.annotation.Annotation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -115,12 +117,23 @@ class Initializer {
     }
 
     public void initContext() {
-        inspectClass(Dao.class, appContext);
-        inspectClass(Service.class, appContext);
-        inspectClass(Controller.class, appContext);
+        Collection<Class<?>> classes = getClasses();
+
+        for (Class<?> clazz : classes)
+            inspectClass(clazz);
     }
 
-    private void inspectClass(Class<?> clazz, AppContext appContext) {
+    private Collection<Class<?>> getClasses() {
+        Collection<Class<?>> classes = new ArrayList<>();
+
+        classes.add(Dao.class);
+        classes.add(Service.class);
+        classes.add(Controller.class);
+
+        return classes;
+    }
+
+    private void inspectClass(Class<?> clazz) {
         Annotation[] annotations = clazz.getAnnotations();
 
         for (Annotation annotation : annotations) {
