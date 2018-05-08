@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         ProductController productController = new ProductController();
 
-        productController.lookup(new Context1());
+        productController.lookup(new Context());
 
         productController.getAll();
     }
@@ -33,12 +33,7 @@ class ProductServiceImpl implements ProductService {
  * Context
  */
 
-interface Context {
-    ProductService getProductService(String title);
-}
-
-class Context1 implements Context {
-    @Override
+class Context {
     public ProductService getProductService(String title) {
         switch (title) {
             case "ProductService":
