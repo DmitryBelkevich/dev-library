@@ -28,8 +28,9 @@ public class Main {
     String value() default "";
 }
 
+@Retention(RetentionPolicy.RUNTIME)
 @interface Autowired {
-
+    String value() default "";
 }
 
 /**
@@ -45,7 +46,7 @@ class Dao {
 
 @Bean("service")
 class Service {
-    @Autowired
+    @Autowired("dao")
     private Dao dao;
 
     public void getAll() {
@@ -55,7 +56,7 @@ class Service {
 
 @Bean("controller")
 class Controller {
-    @Autowired
+    @Autowired("service")
     private Service service;
 
     public void getAll() {
