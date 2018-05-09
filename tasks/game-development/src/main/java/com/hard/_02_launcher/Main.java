@@ -65,13 +65,13 @@ class DesktopApplication {
         this.game = game;
         this.config = config;
 
-        System.out.println("App has launched on Desktop");
-        System.out.println("run swing frame");
-
         init();
     }
 
     public void init() {
+        System.out.println("App has launched on Desktop");
+        System.out.println("run swing frame");
+
         game.run();
     }
 }
@@ -84,13 +84,13 @@ class AndroidApplication {
         this.game = game;
         this.config = config;
 
-        System.out.println("App has launched on Android");
-        System.out.println("run main activity");
-
         init();
     }
 
     public void init() {
+        System.out.println("App has launched on Android");
+        System.out.println("run main activity");
+
         game.run();
     }
 }
@@ -103,13 +103,13 @@ class HtmlApplication {
         this.game = game;
         this.config = config;
 
-        System.out.println("App has launched on Html");
-        System.out.println("run window");
-
         init();
     }
 
     public void init() {
+        System.out.println("App has launched on Html");
+        System.out.println("run window");
+
         game.run();
     }
 }
