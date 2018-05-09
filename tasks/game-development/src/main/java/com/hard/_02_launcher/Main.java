@@ -21,6 +21,16 @@ class Game {
     public static final int WIDTH = 480;
     public static final int HEIGHT = 800;
     public static final String title = "Game";
+
+    // image
+    // graphic
+    // music
+
+    // GameStateManager
+
+    public void run() {
+
+    }
 }
 
 /**
