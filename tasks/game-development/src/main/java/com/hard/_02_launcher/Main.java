@@ -2,8 +2,8 @@ package com.hard._02_launcher;
 
 public class Main {
     public static void main(String[] args) {
-        Launcher launcher = new DesktopLauncher();
-        launcher.run();
+        DesktopLauncher desktopLauncher = new DesktopLauncher();
+        desktopLauncher.main();
     }
 }
 
@@ -11,27 +11,20 @@ public class Main {
  * Launcher
  */
 
-interface Launcher {
-    void run();
-}
-
-class DesktopLauncher implements Launcher {
-    @Override
-    public void run() {
+class DesktopLauncher {
+    public void main() {
         System.out.println("App has launched on Desktop");
     }
 }
 
-class AndroidLauncher implements Launcher {
-    @Override
-    public void run() {
+class AndroidLauncher {
+    public void onCreate() {
         System.out.println("App has launched on Android");
     }
 }
 
-class HtmlLauncher implements Launcher {
-    @Override
-    public void run() {
+class HtmlLauncher {
+    public void create() {
         System.out.println("App has launched on Html");
     }
 }
