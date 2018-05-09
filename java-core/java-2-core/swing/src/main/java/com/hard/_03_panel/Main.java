@@ -15,11 +15,13 @@ class MainFrame {
     public void create() {
         JFrame frame = new JFrame("App");
 
-        frame.setContentPane(new Panel());
+        frame.setSize(640, 480);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
 //        frame.setLayout(new GridBagLayout());
+
+        frame.setContentPane(new Panel());
 
         frame.setVisible(true);
         frame.pack();
