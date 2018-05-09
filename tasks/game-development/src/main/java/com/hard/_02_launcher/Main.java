@@ -29,7 +29,7 @@ class Game {
     // GameStateManager
 
     public void run() {
-
+        System.out.println("game has running");
     }
 }
 
@@ -66,6 +66,13 @@ class DesktopApplication {
         this.config = config;
 
         System.out.println("App has launched on Desktop");
+        System.out.println("run swing frame");
+
+        init();
+    }
+
+    public void init() {
+        game.run();
     }
 }
 
@@ -78,6 +85,13 @@ class AndroidApplication {
         this.config = config;
 
         System.out.println("App has launched on Android");
+        System.out.println("run main activity");
+
+        init();
+    }
+
+    public void init() {
+        game.run();
     }
 }
 
@@ -90,6 +104,13 @@ class HtmlApplication {
         this.config = config;
 
         System.out.println("App has launched on Html");
+        System.out.println("run window");
+
+        init();
+    }
+
+    public void init() {
+        game.run();
     }
 }
 
