@@ -1,4 +1,4 @@
-package com.hard._02_launcher;
+package com.hard._01_launcher;
 
 public class Main {
     public static void main(String[] args) {

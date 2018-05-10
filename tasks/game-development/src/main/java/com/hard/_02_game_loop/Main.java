@@ -1,4 +1,4 @@
-package com.hard._01_game_loop;
+package com.hard._02_game_loop;
 
 import java.util.concurrent.TimeUnit;
 
