@@ -31,10 +31,6 @@ public class Main {
                 frameCount = 0;
             }
 
-            System.out.println(
-                    "frameCount=" + frameCount + "\t\t"
-            );
-
             if (i >= 10)
                 break;
 
