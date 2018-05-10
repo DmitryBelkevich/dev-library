@@ -8,6 +8,8 @@ public class Main {
         double targetTimeSeconds = 1d / fps;
         long targetTimeMills = Math.round(targetTimeSeconds * 1000);
 
+        long totalTimeNano = 0;
+
         int frameCount = 0;
         int maxFrameCount = 5;
 
@@ -25,9 +27,15 @@ public class Main {
 
             sleep(waitingTimeMills);
 
+            totalTimeNano += System.nanoTime() - startTimeNano;
             frameCount++;
 
             if (frameCount == maxFrameCount) {
+                double averageFpsSec = 1d / TimeUnit.NANOSECONDS.toMillis(totalTimeNano / frameCount);
+                double averageFpsMills = averageFpsSec * 1000;
+                System.out.println(averageFpsMills);
+
+                totalTimeNano = 0;
                 frameCount = 0;
             }
 
