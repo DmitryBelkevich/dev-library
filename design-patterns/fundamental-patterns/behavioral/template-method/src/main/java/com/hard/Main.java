@@ -2,19 +2,11 @@ package com.hard;
 
 public class Main {
     public static void main(String[] args) {
-        Entity entity = getEntity("Entity1");
-        entity.templateMethod();
-    }
+        Factory factory = new Factory();
 
-    public static Entity getEntity(String name) {
-        switch (name) {
-            case "Entity1":
-                return new Entity1();
-            case "Entity2":
-                return new Entity2();
-            default:
-                throw new RuntimeException();
-        }
+        Entity entity = factory.getEntity("Entity1");
+
+        entity.templateMethod();
     }
 }
 
@@ -60,5 +52,22 @@ class Entity2 extends Entity {
     @Override
     public void subOperation2() {
 
+    }
+}
+
+/**
+ * Factory
+ */
+
+class Factory {
+    public Entity getEntity(String name) {
+        switch (name) {
+            case "Entity1":
+                return new Entity1();
+            case "Entity2":
+                return new Entity2();
+            default:
+                throw new RuntimeException();
+        }
     }
 }
