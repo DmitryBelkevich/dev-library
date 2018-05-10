@@ -1,4 +1,4 @@
-package com.hard._2_template;
+package com.hard._2_template._01;
 
 public class Main {
     public static void main(String[] args) {
