@@ -66,11 +66,11 @@ class Originator {
         return state;
     }
 
-    public Memento createMemento() {
-        return new Memento(state);
-    }
-
     public void setMemento(Memento memento) {
         state = memento.getState();
+    }
+
+    public Memento createMemento() {
+        return new Memento(state);
     }
 }
