@@ -116,20 +116,20 @@ class Controller {
         this.view = view;
     }
 
-    public void setModelId(int id) {
-        model.setId(id);
-    }
-
     public int getModelId() {
         return model.getId();
     }
 
-    public void setModelName(String name) {
-        model.setName(name);
+    public void setModelId(int id) {
+        model.setId(id);
     }
 
     public String getModelName() {
         return model.getName();
+    }
+
+    public void setModelName(String name) {
+        model.setName(name);
     }
 
     public void view1() {
