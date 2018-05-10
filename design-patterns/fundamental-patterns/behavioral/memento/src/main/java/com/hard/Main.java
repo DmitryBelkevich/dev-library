@@ -44,12 +44,12 @@ class Memento {
 class Caretaker {
     private Memento memento;
 
-    public void setMemento(Memento memento) {
-        this.memento = memento;
-    }
-
     public Memento getMemento() {
         return memento;
+    }
+
+    public void setMemento(Memento memento) {
+        this.memento = memento;
     }
 }
 
@@ -60,19 +60,19 @@ class Caretaker {
 class Originator {
     private String state;
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public String getState() {
         return state;
     }
 
-    public void setMemento(Memento memento) {
-        state = memento.getState();
+    public void setState(String state) {
+        this.state = state;
     }
 
     public Memento createMemento() {
         return new Memento(state);
+    }
+
+    public void setMemento(Memento memento) {
+        state = memento.getState();
     }
 }
