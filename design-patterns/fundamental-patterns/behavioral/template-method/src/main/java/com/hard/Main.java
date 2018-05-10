@@ -47,7 +47,7 @@ class Entity1 extends Entity {
 
     @Override
     public void subOperation2() {
-        System.out.println("Navifation 1");
+        System.out.println("Navigation 1");
     }
 }
 
