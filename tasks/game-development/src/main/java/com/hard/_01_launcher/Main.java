@@ -14,7 +14,11 @@ public class Main {
 }
 
 /**
- * Game core
+ * --- Adapter pattern ---
+ */
+
+/**
+ * Game core (Adapter)
  */
 
 class Game {
@@ -34,7 +38,7 @@ class Game {
 }
 
 /**
- * Config
+ * Config (Adapter)
  */
 
 class DesktopConfig {
@@ -54,7 +58,7 @@ class HtmlConfig {
 }
 
 /**
- * Application
+ * Application (Target)
  */
 
 class DesktopApplication {
@@ -115,7 +119,7 @@ class HtmlApplication {
 }
 
 /**
- * Launcher
+ * Launcher (Client to target)
  */
 
 class DesktopLauncher {
