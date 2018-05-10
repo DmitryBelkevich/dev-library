@@ -8,6 +8,9 @@ public class Main {
         double targetTimeSeconds = 1d / fps;
         long targetTimeMills = Math.round(targetTimeSeconds * 1000);
 
+        int frameCount = 0;
+        int maxFrameCount = 5;
+
         int i = 0;
         while (true) {
             long startTimeNano = System.nanoTime();
@@ -21,6 +24,16 @@ public class Main {
                 waitingTimeMills = 0;
 
             sleep(waitingTimeMills);
+
+            frameCount++;
+
+            if (frameCount == maxFrameCount) {
+                frameCount = 0;
+            }
+
+            System.out.println(
+                    "frameCount=" + frameCount + "\t\t"
+            );
 
             if (i >= 10)
                 break;
