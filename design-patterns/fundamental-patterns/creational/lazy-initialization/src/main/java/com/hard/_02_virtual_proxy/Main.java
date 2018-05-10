@@ -2,8 +2,8 @@ package com.hard._02_virtual_proxy;
 
 public class Main {
     public static void main(String[] args) {
-        IService service = new ServiceProxy();
-        service.operation();
+        IEntity entity = new ServiceProxy();
+        entity.operation();
     }
 }
 
@@ -11,13 +11,13 @@ public class Main {
  * Virtual proxy
  */
 
-interface IService {
+interface IEntity {
     void operation();
 }
 
-class Service implements IService {
-    public Service() {
-        System.out.println("create Service object");
+class Entity implements IEntity {
+    public Entity() {
+        System.out.println("creating of object");
     }
 
     @Override
@@ -26,14 +26,14 @@ class Service implements IService {
     }
 }
 
-class ServiceProxy implements IService {
-    private Service service;
+class ServiceProxy implements IEntity {
+    private Entity entity;
 
     @Override
     public void operation() {
-        if (service == null)
-            service = new Service();
+        if (entity == null)
+            entity = new Entity();
 
-        service.operation();
+        entity.operation();
     }
 }
