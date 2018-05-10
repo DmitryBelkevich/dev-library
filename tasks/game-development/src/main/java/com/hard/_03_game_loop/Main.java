@@ -6,20 +6,21 @@ public class Main {
     public static void main(String[] args) {
         long fps = 60;
         double targetTimeSeconds = 1d / fps;
-        long targetTime = Math.round(targetTimeSeconds * 1000);
+        long targetTimeMills = Math.round(targetTimeSeconds * 1000);
 
         int i = 0;
         while (true) {
-            long startTime = System.nanoTime();
+            long startTimeNano = System.nanoTime();
             process();
-            long finishTime = System.nanoTime();
-            long elapsedTime = TimeUnit.NANOSECONDS.toMillis(finishTime - startTime);
+            long finishTimeNano = System.nanoTime();
+            long elapsedTimeNano = finishTimeNano - startTimeNano;
+            long elapsedTimeMills = TimeUnit.NANOSECONDS.toMillis(elapsedTimeNano);
 
-            long waitingTime = targetTime - elapsedTime;
-            if (waitingTime < 0)
-                waitingTime = 0;
+            long waitingTimeMills = targetTimeMills - elapsedTimeMills;
+            if (waitingTimeMills < 0)
+                waitingTimeMills = 0;
 
-            sleep(waitingTime);
+            sleep(waitingTimeMills);
 
             if (i >= 10)
                 break;
