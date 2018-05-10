@@ -1,4 +1,4 @@
-package com.hard.templates._02;
+package com.hard.templates._02_fps;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package com.hard.templates._01;
+package com.hard.templates._01_game_loop;
 
 import javax.swing.*;
 import java.awt.*;
