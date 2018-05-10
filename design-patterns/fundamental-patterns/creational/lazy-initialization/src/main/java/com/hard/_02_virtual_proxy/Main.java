@@ -2,7 +2,7 @@ package com.hard._02_virtual_proxy;
 
 public class Main {
     public static void main(String[] args) {
-        IEntity entity = new ServiceProxy();
+        IEntity entity = new EntityProxy();
         entity.operation();
     }
 }
@@ -26,7 +26,7 @@ class Entity implements IEntity {
     }
 }
 
-class ServiceProxy implements IEntity {
+class EntityProxy implements IEntity {
     private Entity entity;
 
     @Override
