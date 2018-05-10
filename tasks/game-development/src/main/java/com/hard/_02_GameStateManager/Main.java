@@ -1,4 +1,4 @@
-package com.hard._03_GameStateManager;
+package com.hard._02_GameStateManager;
 
 public class Main {
     public static void main(String[] args) {
