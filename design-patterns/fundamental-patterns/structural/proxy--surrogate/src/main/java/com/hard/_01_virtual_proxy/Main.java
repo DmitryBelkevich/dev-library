@@ -1,20 +1,16 @@
-package com.hard;
+package com.hard._01_virtual_proxy;
 
 public class Main {
     public static void main(String[] args) {
-        IService service = new Service();        // create Service object
-        service.operation();                    // operation
+        IService service = new Service();        // eager initialization
+        service.operation();
 
         System.out.println("----------");
 
-        IService service2 = new ServiceProxy();
-        service2.operation();                    // create Service object, operation
+        IService serviceProxy = new ServiceProxy();
+        serviceProxy.operation();                    // lazy initialization
     }
 }
-
-/**
- * virtual proxy
- */
 
 /**
  * Subject, Service
@@ -54,8 +50,3 @@ class ServiceProxy implements IService {
         service.operation();
     }
 }
-
-// другие варианты:
-// remote proxy (удалённый прокси)
-// protection proxy
-// smart link
