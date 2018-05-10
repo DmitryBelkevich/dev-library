@@ -13,6 +13,10 @@ public class Main {
  */
 
 class Entity {
+    public Entity() {
+        System.out.println("creating of object");
+    }
+
     public void operation() {
         System.out.println("operation");
     }
