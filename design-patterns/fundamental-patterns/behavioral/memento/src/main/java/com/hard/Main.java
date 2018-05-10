@@ -9,12 +9,14 @@ public class Main {
         originator.setState("State 1");
         System.out.println(originator.getState());
 
-        caretaker.setMemento(originator.createMemento());
+        Memento createdMemento = originator.createMemento();
+        caretaker.setMemento(createdMemento);
 
         originator.setState("State 2");
         System.out.println(originator.getState());
 
-        originator.setMemento(caretaker.getMemento());
+        Memento loadedMemento = caretaker.getMemento();
+        originator.setMemento(loadedMemento);
         System.out.println(originator.getState());
     }
 }
