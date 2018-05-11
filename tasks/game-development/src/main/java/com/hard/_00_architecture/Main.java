@@ -134,6 +134,9 @@ abstract class Game {
 
     public void run() {
         update();
+        update();
+        update();
+        update();
     }
 
     abstract void update();
@@ -149,9 +152,6 @@ class Game1 extends Game {
 
     @Override
     void update() {
-        gameStateManager.update();
-        gameStateManager.update();
-        gameStateManager.update();
         gameStateManager.update();
     }
 }
