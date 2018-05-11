@@ -132,6 +132,13 @@ abstract class Game {
     protected GameStateManager gameStateManager;
     protected Saver saver;
 
+    public Game() {
+        gameStateManager = new GameStateManager();
+        saver = new Saver();
+
+        gameStateManager.setState(new MenuState(gameStateManager, saver));
+    }
+
     public void run() {
         update();
         update();
@@ -139,21 +146,13 @@ abstract class Game {
         update();
     }
 
-    abstract void update();
+    public void update() {
+        gameStateManager.update();
+    }
 }
 
 class Game1 extends Game {
-    public Game1() {
-        gameStateManager = new GameStateManager();
-        saver = new Saver();
 
-        gameStateManager.setState(new MenuState(gameStateManager, saver));
-    }
-
-    @Override
-    void update() {
-        gameStateManager.update();
-    }
 }
 
 /**
