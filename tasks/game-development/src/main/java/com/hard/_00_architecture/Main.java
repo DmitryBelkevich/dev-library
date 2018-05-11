@@ -13,14 +13,14 @@ public class Main {
  */
 
 final class File {
-    private final State state;
+    private final GameState gameState;
 
-    public File(State state) {
-        this.state = state;
+    public File(GameState gameState) {
+        this.gameState = gameState;
     }
 
-    public State getState() {
-        return state;
+    public GameState getGameState() {
+        return gameState;
     }
 }
 
@@ -40,11 +40,11 @@ class Saver {
  * State pattern
  */
 
-abstract class State implements Cloneable {
+abstract class GameState implements Cloneable {
     protected GameStateManager gameStateManager;
     protected Saver saver;
 
-    public State(GameStateManager gameStateManager, Saver saver) {
+    public GameState(GameStateManager gameStateManager, Saver saver) {
         this.gameStateManager = gameStateManager;
         this.saver = saver;
     }
@@ -57,7 +57,7 @@ abstract class State implements Cloneable {
     public abstract void update();
 }
 
-class MenuState extends State {
+class MenuState extends GameState {
     public MenuState(GameStateManager gameStateManager, Saver saver) {
         super(gameStateManager, saver);
     }
@@ -65,23 +65,23 @@ class MenuState extends State {
     @Override
     public void update() {
         System.out.println("MenuState");
-        gameStateManager.setState(new GameState(gameStateManager, saver));
+        gameStateManager.setGameState(new PlayState(gameStateManager, saver));
     }
 }
 
-class GameState extends State {
-    public GameState(GameStateManager gameStateManager, Saver saver) {
+class PlayState extends GameState {
+    public PlayState(GameStateManager gameStateManager, Saver saver) {
         super(gameStateManager, saver);
     }
 
     @Override
     public void update() {
-        System.out.println("GameState");
-        gameStateManager.setState(new GameOverState(gameStateManager, saver));
+        System.out.println("PlayState");
+        gameStateManager.setGameState(new GameOverState(gameStateManager, saver));
     }
 }
 
-class GameOverState extends State {
+class GameOverState extends GameState {
     public GameOverState(GameStateManager gameStateManager, Saver saver) {
         super(gameStateManager, saver);
     }
@@ -89,29 +89,29 @@ class GameOverState extends State {
     @Override
     public void update() {
         System.out.println("GameOverState");
-        gameStateManager.setState(new MenuState(gameStateManager, saver));
+        gameStateManager.setGameState(new MenuState(gameStateManager, saver));
     }
 }
 
 class GameStateManager {
-    private State state;
+    private GameState gameState;
 
-    public void setState(State state) {
-        this.state = state;
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
     }
 
-    public State getState() {
-        return state;
+    public GameState getGameState() {
+        return gameState;
     }
 
     public void update() {
-        state.update();
+        gameState.update();
     }
 
     public File createFile() {
-        State clonedState = null;
+        GameState clonedState = null;
         try {
-            clonedState = (State) state.clone();
+            clonedState = (GameState) gameState.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
@@ -120,7 +120,7 @@ class GameStateManager {
     }
 
     public void load(File file) {
-        state = file.getState();
+        gameState = file.getGameState();
     }
 }
 
@@ -129,6 +129,14 @@ class GameStateManager {
  */
 
 abstract class Game {
+    public static final int WIDTH = 480;
+    public static final int HEIGHT = 800;
+    public static final String title = "Game";
+
+    // image
+    // graphic
+    // music
+
     protected GameStateManager gameStateManager;
     protected Saver saver;
 
@@ -136,7 +144,7 @@ abstract class Game {
         gameStateManager = new GameStateManager();
         saver = new Saver();
 
-        gameStateManager.setState(new MenuState(gameStateManager, saver));
+        gameStateManager.setGameState(new MenuState(gameStateManager, saver));
     }
 
     public void run() {
