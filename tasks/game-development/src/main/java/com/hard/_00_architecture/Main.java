@@ -41,11 +41,11 @@ class Saver {
  */
 
 abstract class State implements Cloneable {
-    protected StateManager stateManager;
+    protected GameStateManager gameStateManager;
     protected Saver saver;
 
-    public State(StateManager stateManager, Saver saver) {
-        this.stateManager = stateManager;
+    public State(GameStateManager gameStateManager, Saver saver) {
+        this.gameStateManager = gameStateManager;
         this.saver = saver;
     }
 
@@ -58,42 +58,42 @@ abstract class State implements Cloneable {
 }
 
 class MenuState extends State {
-    public MenuState(StateManager stateManager, Saver saver) {
-        super(stateManager, saver);
+    public MenuState(GameStateManager gameStateManager, Saver saver) {
+        super(gameStateManager, saver);
     }
 
     @Override
     public void update() {
         System.out.println("MenuState");
-        stateManager.setState(new GameState(stateManager, saver));
+        gameStateManager.setState(new GameState(gameStateManager, saver));
     }
 }
 
 class GameState extends State {
-    public GameState(StateManager stateManager, Saver saver) {
-        super(stateManager, saver);
+    public GameState(GameStateManager gameStateManager, Saver saver) {
+        super(gameStateManager, saver);
     }
 
     @Override
     public void update() {
         System.out.println("GameState");
-        stateManager.setState(new GameOverState(stateManager, saver));
+        gameStateManager.setState(new GameOverState(gameStateManager, saver));
     }
 }
 
 class GameOverState extends State {
-    public GameOverState(StateManager stateManager, Saver saver) {
-        super(stateManager, saver);
+    public GameOverState(GameStateManager gameStateManager, Saver saver) {
+        super(gameStateManager, saver);
     }
 
     @Override
     public void update() {
         System.out.println("GameOverState");
-        stateManager.setState(new MenuState(stateManager, saver));
+        gameStateManager.setState(new MenuState(gameStateManager, saver));
     }
 }
 
-class StateManager {
+class GameStateManager {
     private State state;
 
     public void setState(State state) {
@@ -115,6 +115,7 @@ class StateManager {
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
+
         return new File(clonedState);
     }
 
@@ -128,7 +129,7 @@ class StateManager {
  */
 
 abstract class Game {
-    protected StateManager stateManager;
+    protected GameStateManager gameStateManager;
     protected Saver saver;
 
     public void run() {
@@ -140,20 +141,24 @@ abstract class Game {
 
 class Game1 extends Game {
     public Game1() {
-        stateManager = new StateManager();
+        gameStateManager = new GameStateManager();
         saver = new Saver();
 
-        stateManager.setState(new MenuState(stateManager, saver));
+        gameStateManager.setState(new MenuState(gameStateManager, saver));
     }
 
     @Override
     void update() {
-        stateManager.update();
-        stateManager.update();
-        stateManager.update();
-        stateManager.update();
+        gameStateManager.update();
+        gameStateManager.update();
+        gameStateManager.update();
+        gameStateManager.update();
     }
 }
+
+/**
+ * Factory
+ */
 
 class GameFactory {
     public Game getGame(String title) {
