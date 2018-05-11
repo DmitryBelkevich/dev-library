@@ -1,10 +1,15 @@
-package com.hard._00_architecture;
+package com.hard._01_architecture;
 
 public class Main {
     public static void main(String[] args) {
-        GameFactory gameFactory = new GameFactory();
-        Game game = gameFactory.getGame("Game1");
-        game.run();
+        DesktopLauncher desktopLauncher = new DesktopLauncher();
+        desktopLauncher.main();
+
+//        AndroidLauncher androidLauncher = new AndroidLauncher();
+//        androidLauncher.onCreate();
+
+//        HtmlLauncher htmlLauncher = new HtmlLauncher();
+//        htmlLauncher.create();
     }
 }
 
