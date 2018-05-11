@@ -56,8 +56,8 @@ class MainFrame {
         frame.addWindowListener(new CloseWindowListener());
 
         // 1.4 other frame settings
-        frame.setVisible(true);
         //frame.pack();
+        frame.setVisible(true);
     }
 
     /**

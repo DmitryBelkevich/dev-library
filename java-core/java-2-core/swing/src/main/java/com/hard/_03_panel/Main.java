@@ -23,8 +23,8 @@ class MainFrame {
 
         frame.setContentPane(new Panel());
 
-        frame.setVisible(true);
         frame.pack();
+        frame.setVisible(true);
     }
 }
 

@@ -15,8 +15,8 @@ public class Main {
 
         window.setContentPane(new GamePanel());
 
-        window.setVisible(true);
         window.pack();
+        window.setVisible(true);
     }
 }
 
