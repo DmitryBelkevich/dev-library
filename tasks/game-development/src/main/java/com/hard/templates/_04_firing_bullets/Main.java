@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,7 +38,8 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
 
     private long targetTime = 1000 / fps;
 
-    private Player player;
+    private static Player player;
+    public static List<Bullet> bullets;
 
     public GamePanel() {
         super();
@@ -66,6 +69,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
         graphics = (Graphics2D) image.getGraphics();
 
         player = new Player();
+        bullets = new ArrayList<>();
 
         long totalTime = 0;
 
@@ -104,6 +108,16 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
 
     private void gameUpdate() {
         player.update();
+
+        for (int i = 0; i < bullets.size(); i++) {
+            Bullet bullet = bullets.get(i);
+            boolean remove = bullet.update();
+
+            if (remove) {
+                bullets.remove(i);
+                i--;
+            }
+        }
     }
 
     private void gameRender() {
@@ -111,8 +125,14 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
         graphics.fillRect(0, 0, WIDTH, HEIGHT);
         graphics.setColor(Color.BLACK);
         graphics.drawString("FPS: " + averageFps, 10, 10);
+        graphics.drawString("num bullets: " + bullets.size(), 10, 20);
 
         player.draw(graphics);
+
+        for (int i = 0; i < bullets.size(); i++) {
+            Bullet bullet = bullets.get(i);
+            bullet.draw(graphics);
+        }
     }
 
     private void gameDraw() {
@@ -141,6 +161,9 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
 
         if (keyCode == KeyEvent.VK_DOWN)
             player.setDown(true);
+
+        if (keyCode == KeyEvent.VK_Z)
+            player.setFiring(true);
     }
 
     @Override
@@ -158,6 +181,9 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
 
         if (keyCode == KeyEvent.VK_DOWN)
             player.setDown(false);
+
+        if (keyCode == KeyEvent.VK_Z)
+            player.setFiring(false);
     }
 }
 
@@ -174,6 +200,10 @@ class Player {
     private boolean right;
     private boolean up;
     private boolean down;
+
+    private boolean firing;
+    private long firingTimer;
+    private long firingDelay;
 
     private int lives;
 
@@ -193,6 +223,10 @@ class Player {
 
         color1 = Color.WHITE;
         color2 = Color.RED;
+
+        firing = false;
+        firingTimer = System.nanoTime();
+        firingDelay = 200;
     }
 
     public void setLeft(boolean left) {
@@ -209,6 +243,10 @@ class Player {
 
     public void setDown(boolean down) {
         this.down = down;
+    }
+
+    public void setFiring(boolean firing) {
+        this.firing = firing;
     }
 
     public void update() {
@@ -241,6 +279,17 @@ class Player {
 
         dx = 0;
         dy = 0;
+
+        if (firing) {
+            long elapsedTime = (System.nanoTime() - firingTimer) / 1000000;
+
+            if (elapsedTime > firingDelay) {
+                List<Bullet> bullets = GamePanel.bullets;
+                bullets.add(new Bullet(270, x, y));
+
+                firingTimer = System.nanoTime();
+            }
+        }
     }
 
     public void draw(Graphics2D graphics) {
@@ -252,5 +301,55 @@ class Player {
         graphics.drawOval(x - r, y - r, 2 * r, 2 * r);
 
         graphics.setStroke(new BasicStroke(1));
+    }
+}
+
+class Bullet {
+    private double x;
+    private double y;
+    private int r;
+
+    private double dx;
+    private double dy;
+    private double rad;
+    private double speed;
+
+    private Color color1;
+
+    public Bullet(int angle, double x, double y) {
+        this.x = x;
+        this.y = y;
+        this.r = 2;
+
+        rad = Math.toRadians(angle);
+        speed = 15;
+        dx = Math.cos(rad) * speed;
+        dy = Math.sin(rad) * speed;
+
+        color1 = Color.YELLOW;
+    }
+
+    public boolean update() {
+        x += dx;
+        y += dy;
+
+        if (x < -r)
+            return true;
+
+        if (x > GamePanel.WIDTH + r)
+            return true;
+
+        if (y < -r)
+            return true;
+
+        if (y > GamePanel.HEIGHT + r)
+            return true;
+
+        return false;
+    }
+
+    public void draw(Graphics2D graphics) {
+        graphics.setColor(color1);
+        graphics.fillOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
     }
 }
