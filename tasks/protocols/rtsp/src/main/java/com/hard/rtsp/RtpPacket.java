@@ -1,6 +1,6 @@
-package com.hard.rtsp.server;
+package com.hard.rtsp;
 
-public class RTPpacket {
+public class RtpPacket {
     // size of the RTP header:
     static int HEADER_SIZE = 12;
 
@@ -24,10 +24,10 @@ public class RTPpacket {
     public byte[] payload;
 
     // --------------------------
-    // Constructor of an RTPpacket object from header fields and payload
+    // Constructor of an RtpPacket object from header fields and payload
     // bitstream
     // --------------------------
-    public RTPpacket(int PType, int Framenb, int Time, byte[] data,
+    public RtpPacket(int PType, int Framenb, int Time, byte[] data,
                      int data_length) {
         // fill by default header fields:
         Version = 2;
@@ -66,9 +66,9 @@ public class RTPpacket {
     }
 
     // --------------------------
-    // Constructor of an RTPpacket object from the packet bistream
+    // Constructor of an RtpPacket object from the packet bistream
     // --------------------------
-    public RTPpacket(byte[] packet, int packet_size) {
+    public RtpPacket(byte[] packet, int packet_size) {
         // fill default fields:
         Version = 2;
         Padding = 0;
@@ -101,7 +101,7 @@ public class RTPpacket {
     }
 
     // --------------------------
-    // getpayload: return the payload bistream of the RTPpacket and its size
+    // getpayload: return the payload bistream of the RtpPacket and its size
     // --------------------------
     public int getpayload(byte[] data) {
 

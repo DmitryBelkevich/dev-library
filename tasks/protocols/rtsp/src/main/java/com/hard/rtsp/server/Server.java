@@ -1,5 +1,7 @@
 package com.hard.rtsp.server;
 
+import com.hard.rtsp.RtpPacket;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -198,8 +200,8 @@ public class Server extends JFrame implements ActionListener {
                 //get next frame to send from the video, as well as its size
                 int image_length = video.getNextFrame(buffer);
                 System.out.print("\n" + image_length);
-                //Builds an RTPpacket object containing the frame
-                RTPpacket rtp_packet = new RTPpacket(MJPEG_TYPE, imageNb, imageNb * FRAME_PERIOD, buffer, image_length);
+                //Builds an RtpPacket object containing the frame
+                RtpPacket rtp_packet = new RtpPacket(MJPEG_TYPE, imageNb, imageNb * FRAME_PERIOD, buffer, image_length);
 
                 //get to total length of the full rtp packet to send
                 int packet_length = rtp_packet.getlength();
