@@ -219,9 +219,8 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
                 double dy = playerY - enemyY;
                 double dist = Math.sqrt(dx * dx + dy * dy);
 
-                if (dist < playerR + enemyR) {
+                if (dist < playerR + enemyR)
                     player.loseLife();
-                }
             }
         }
     }
