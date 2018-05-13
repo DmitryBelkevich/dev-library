@@ -197,6 +197,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
             Enemy enemy = enemies.get(i);
 
             if (enemy.isDead()) {
+                player.addScore(enemy.getType() + enemy.getRank());
                 enemies.remove(i);
                 i--;
             }
@@ -229,10 +230,6 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
         // draw background
         graphics.setColor(new Color(0, 100, 255));
         graphics.fillRect(0, 0, WIDTH, HEIGHT);
-
-//        graphics.setColor(Color.BLACK);
-//        graphics.drawString("FPS: " + averageFps, 10, 10);
-//        graphics.drawString("num bullets: " + bullets.size(), 10, 20);
 
         // draw player
         player.draw(graphics);
@@ -275,6 +272,16 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
             graphics.drawOval(20 + (20 * i), 20, player.getR() * 2, player.getR() * 2);
             graphics.setStroke(new BasicStroke(1));
         }
+
+        // draw info
+        graphics.setColor(Color.BLACK);
+        graphics.drawString("FPS: " + averageFps, 10, 10);
+        graphics.drawString("num bullets: " + bullets.size(), 10, 20);
+
+        // draw player score
+        graphics.setColor(Color.WHITE);
+        graphics.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+        graphics.drawString("Score: " + player.getScore(), WIDTH - 100, 30);
     }
 
     private void gameDraw() {
@@ -371,6 +378,8 @@ class Player {
     private Color color1;
     private Color color2;
 
+    private int score;
+
     public Player() {
         x = GamePanel.WIDTH / 2;
         y = GamePanel.HEIGHT / 2;
@@ -391,6 +400,8 @@ class Player {
 
         recovering = false;
         recoveryTimer = 0;
+
+        score = 0;
     }
 
     public int getX() {
@@ -431,6 +442,14 @@ class Player {
 
     public void setFiring(boolean firing) {
         this.firing = firing;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void addScore(int i) {
+        score += i;
     }
 
     public void loseLife() {
@@ -529,7 +548,7 @@ class Bullet {
         this.r = 2;
 
         rad = Math.toRadians(angle);
-        speed = 15;
+        speed = 10;
         dx = Math.cos(rad) * speed;
         dy = Math.sin(rad) * speed;
 
@@ -630,6 +649,14 @@ class Enemy {
 
     public int getR() {
         return r;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public int getRank() {
+        return rank;
     }
 
     public boolean isDead() {
