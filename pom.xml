@@ -20,6 +20,7 @@
         <module>design-patterns</module>
         <module>frameworks</module>
         <module>tasks</module>
+        <module>development</module>
     </modules>
 
     <properties>
