@@ -150,6 +150,7 @@ abstract class Game {
     // List<Player> players;
     // List<Enemy> enemies;
     // List<Bullet> bullets;
+    // List<MovingPlatform> movingPlatforms;
 
     public Game() {
         gameStateManager = new GameStateManager();
@@ -170,6 +171,7 @@ abstract class Game {
         // players.update();
         // enemies.update();
         // bullets.update();
+        // movingPlatforms.update();
     }
 }
 
