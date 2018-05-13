@@ -146,7 +146,10 @@ abstract class Game {
     protected GameStateManager gameStateManager;
     protected Saver saver;
 
-    // Entities (List<Player>, List<Enemy>, List<Bullet>)
+    // Entities:
+    // List<Player> players;
+    // List<Enemy> enemies;
+    // List<Bullet> bullets;
 
     public Game() {
         gameStateManager = new GameStateManager();
