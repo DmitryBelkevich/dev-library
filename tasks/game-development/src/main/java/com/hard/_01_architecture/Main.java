@@ -167,6 +167,9 @@ abstract class Game {
 
     public void update() {
         gameStateManager.update();
+        // players.update();
+        // enemies.update();
+        // bullets.update();
     }
 }
 
