@@ -131,6 +131,7 @@ class GameStateManager {
 
 /**
  * Template-method pattern
+ * Facade pattern
  */
 
 abstract class Game {
@@ -144,6 +145,8 @@ abstract class Game {
 
     protected GameStateManager gameStateManager;
     protected Saver saver;
+
+    // Entities (List<Player>, List<Enemy>, List<Bullet>)
 
     public Game() {
         gameStateManager = new GameStateManager();
