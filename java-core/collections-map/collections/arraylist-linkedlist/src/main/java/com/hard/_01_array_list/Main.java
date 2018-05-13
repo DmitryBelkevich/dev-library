@@ -1,10 +1,11 @@
 package com.hard._01_array_list;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Integer> collection = new ArrayList<>();
+        List<Integer> collection = new ArrayList<>();
 
         // 1 реализация на основе массива
 
