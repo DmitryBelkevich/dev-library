@@ -201,6 +201,29 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
                 i--;
             }
         }
+
+        // player enemy collision
+        if (!player.isRecovering()) {
+            int playerX = player.getX();
+            int playerY = player.getY();
+            int playerR = player.getR();
+
+            for (int i = 0; i < enemies.size(); i++) {
+                Enemy enemy = enemies.get(i);
+
+                double enemyX = enemy.getX();
+                double enemyY = enemy.getY();
+                double enemyR = enemy.getR();
+
+                double dx = playerX - enemyX;
+                double dy = playerY - enemyY;
+                double dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < playerR + enemyR) {
+                    player.loseLife();
+                }
+            }
+        }
     }
 
     private void gameRender() {
@@ -341,6 +364,9 @@ class Player {
     private long firingTimer;
     private long firingDelay;
 
+    private boolean recovering;
+    private long recoveryTimer;
+
     private int lives;
 
     private Color color1;
@@ -363,6 +389,9 @@ class Player {
         firing = false;
         firingTimer = System.nanoTime();
         firingDelay = 200;
+
+        recovering = false;
+        recoveryTimer = 0;
     }
 
     public int getX() {
@@ -375,6 +404,10 @@ class Player {
 
     public int getR() {
         return r;
+    }
+
+    public boolean isRecovering() {
+        return recovering;
     }
 
     public int getLives() {
@@ -399,6 +432,12 @@ class Player {
 
     public void setFiring(boolean firing) {
         this.firing = firing;
+    }
+
+    public void loseLife() {
+        lives--;
+        recovering = true;
+        recoveryTimer = System.nanoTime();
     }
 
     public void update() {
@@ -442,17 +481,34 @@ class Player {
                 firingTimer = System.nanoTime();
             }
         }
+
+        long elapsed = (System.nanoTime() - recoveryTimer) / 1000000;
+        if (elapsed > 2000) {
+            recovering = false;
+            recoveryTimer = 0;
+        }
     }
 
     public void draw(Graphics2D graphics) {
-        graphics.setColor(color1);
-        graphics.fillOval(x - r, y - r, 2 * r, 2 * r);
+        if (recovering) {
+            graphics.setColor(color2);
+            graphics.fillOval(x - r, y - r, 2 * r, 2 * r);
 
-        graphics.setStroke(new BasicStroke(3));
-        graphics.setColor(color1.darker());
-        graphics.drawOval(x - r, y - r, 2 * r, 2 * r);
+            graphics.setStroke(new BasicStroke(3));
+            graphics.setColor(color2.darker());
+            graphics.drawOval(x - r, y - r, 2 * r, 2 * r);
 
-        graphics.setStroke(new BasicStroke(1));
+            graphics.setStroke(new BasicStroke(1));
+        } else {
+            graphics.setColor(color1);
+            graphics.fillOval(x - r, y - r, 2 * r, 2 * r);
+
+            graphics.setStroke(new BasicStroke(3));
+            graphics.setColor(color1.darker());
+            graphics.drawOval(x - r, y - r, 2 * r, 2 * r);
+
+            graphics.setStroke(new BasicStroke(1));
+        }
     }
 }
 
