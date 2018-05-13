@@ -17,6 +17,8 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>game-development</module>
+        <module>webapp-development</module>
     </modules>
 
 </project>
