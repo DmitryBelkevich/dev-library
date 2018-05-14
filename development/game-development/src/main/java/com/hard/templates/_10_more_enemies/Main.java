@@ -618,10 +618,13 @@ class Player {
             }
         }
 
-        long elapsed = (System.nanoTime() - recoveryTimer) / 1000000;
-        if (elapsed > 2000) {
-            recovering = false;
-            recoveryTimer = 0;
+        if (recovering) {
+            long elapsed = (System.nanoTime() - recoveryTimer) / 1000000;
+
+            if (elapsed > 2000) {
+                recovering = false;
+                recoveryTimer = 0;
+            }
         }
     }
 
@@ -729,6 +732,9 @@ class Enemy {
     private boolean ready;
     private boolean dead;
 
+    private boolean hit;
+    private long hitTimer;
+
     public Enemy(int type, int rank) {
         this.type = type;
         this.rank = rank;
@@ -785,6 +791,9 @@ class Enemy {
 
         ready = false;
         dead = false;
+
+        hit = false;
+        hitTimer = 0;
     }
 
     public double getX() {
@@ -814,9 +823,11 @@ class Enemy {
     public void hit() {
         health--;
 
-        if (health <= 0) {
+        if (health <= 0)
             dead = true;
-        }
+
+        hit = true;
+        hitTimer = System.nanoTime();
     }
 
     public void explode() {
@@ -864,16 +875,35 @@ class Enemy {
 
         if (y > GamePanel.HEIGHT - r && dy > 0)
             dy = -dy;
+
+        if (hit) {
+            long elapsed = (System.nanoTime() - hitTimer) / 1000000;
+
+            if (elapsed > 50) {
+                hit = false;
+                hitTimer = 0;
+            }
+        }
     }
 
     public void draw(Graphics2D graphics) {
-        graphics.setColor(color1);
-        graphics.fillOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
+        if (hit) {
+            graphics.setColor(Color.WHITE);
+            graphics.fillOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
 
-        graphics.setStroke(new BasicStroke(3));
-        graphics.setColor(color1.darker());
-        graphics.drawOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
-        graphics.setStroke(new BasicStroke(1));
+            graphics.setStroke(new BasicStroke(3));
+            graphics.setColor(Color.WHITE.darker());
+            graphics.drawOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
+            graphics.setStroke(new BasicStroke(1));
+        } else {
+            graphics.setColor(color1);
+            graphics.fillOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
+
+            graphics.setStroke(new BasicStroke(3));
+            graphics.setColor(color1.darker());
+            graphics.drawOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
+            graphics.setStroke(new BasicStroke(1));
+        }
     }
 }
 
