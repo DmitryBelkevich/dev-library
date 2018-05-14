@@ -44,6 +44,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
     public static List<Bullet> bullets;
     public static List<Enemy> enemies;
     public static List<PowerUp> powerUps;
+    public static List<Explosion> explosions;
 
     private long waveStartTimer;
     private long waveStartTimerDiff;
@@ -85,6 +86,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
         bullets = new ArrayList<>();
         enemies = new ArrayList<>();
         powerUps = new ArrayList<>();
+        explosions = new ArrayList<>();
 
         waveStartTimer = 0;
         waveStartTimerDiff = 0;
@@ -171,6 +173,17 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
             }
         }
 
+        // explosion update
+        for (int i = 0; i < explosions.size(); i++) {
+            Explosion explosion = explosions.get(i);
+            boolean remove = explosion.update();
+
+            if (remove) {
+                explosions.remove(i);
+                i--;
+            }
+        }
+
         // enemy update
         for (int i = 0; i < enemies.size(); i++) {
             Enemy enemy = enemies.get(i);
@@ -226,6 +239,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
                 i--;
 
                 enemy.explode();
+                explosions.add(new Explosion(enemy.getX(), enemy.getY(), enemy.getR(), enemy.getR() + 30));
             }
         }
 
@@ -308,6 +322,12 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
         for (int i = 0; i < powerUps.size(); i++) {
             PowerUp powerUp = powerUps.get(i);
             powerUp.draw(graphics);
+        }
+
+        // draw explosion
+        for (int i = 0; i < explosions.size(); i++) {
+            Explosion explosion = explosions.get(i);
+            explosion.draw(graphics);
         }
 
         // draw wave number
@@ -741,7 +761,7 @@ class Enemy {
 
         // default enemy
         if (type == 1) {
-            color1 = Color.BLUE;
+            color1 = new Color(0, 0, 255, 128);
 
             if (rank == 1) {
                 speed = 2;
@@ -760,23 +780,47 @@ class Enemy {
 
         // stronger, faster default
         if (type == 2) {
-            color1 = Color.RED;
+            color1 = new Color(255, 0, 0, 128);
 
             if (rank == 1) {
                 speed = 3;
                 r = 5;
                 health = 2;
+            } else if (rank == 2) {
+                speed = 3;
+                r = 10;
+                health = 3;
+            } else if (rank == 3) {
+                speed = 2.5;
+                r = 20;
+                health = 3;
+            } else if (rank == 4) {
+                speed = 2.5;
+                r = 30;
+                health = 4;
             }
         }
 
         // slow, but hard to kill
         if (type == 3) {
-            color1 = Color.GREEN;
+            color1 = new Color(0, 255, 0, 128);
 
             if (rank == 1) {
                 speed = 1.5;
                 r = 5;
                 health = 5;
+            } else if (rank == 2) {
+                speed = 1.5;
+                r = 10;
+                health = 6;
+            } else if (rank == 3) {
+                speed = 1.5;
+                r = 25;
+                health = 7;
+            } else if (rank == 4) {
+                speed = 1.5;
+                r = 45;
+                health = 8;
             }
         }
 
@@ -836,6 +880,10 @@ class Enemy {
 
             if (type == 1)
                 amount = 3;
+            else if (type == 2)
+                amount = 3;
+            else if (type == 3)
+                amount = 4;
 
             for (int i = 0; i < amount; i++) {
                 Enemy enemy = new Enemy(getType(), getRank() - 1);
@@ -968,6 +1016,36 @@ class PowerUp {
 
         graphics.setStroke(new BasicStroke(3));
         graphics.setColor(color1.darker());
+        graphics.drawOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
+        graphics.setStroke(new BasicStroke(1));
+    }
+}
+
+class Explosion {
+    private double x;
+    private double y;
+    private int r;
+    private int maxRadius;
+
+    public Explosion(double x, double y, int r, int maxRadius) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.maxRadius = maxRadius;
+    }
+
+    public boolean update() {
+        r += 2;
+
+        if (r >= maxRadius)
+            return true;
+
+        return false;
+    }
+
+    public void draw(Graphics2D graphics) {
+        graphics.setColor(new Color(255, 255, 255, 128));
+        graphics.setStroke(new BasicStroke(3));
         graphics.drawOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
         graphics.setStroke(new BasicStroke(1));
     }
