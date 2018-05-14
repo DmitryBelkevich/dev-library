@@ -104,6 +104,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
         int frameCount = 0;
         int maxFrameCount = 30;
 
+        // game loop
         while (isRunning) {
             long startTime = System.nanoTime();
 
@@ -132,6 +133,25 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
                 totalTime = 0;
             }
         }
+
+        graphics.setColor(new Color(0, 100, 255));
+        graphics.fillRect(0, 0, WIDTH, HEIGHT);
+        graphics.setColor(Color.WHITE);
+        graphics.setFont(new Font("Century Gothic", Font.PLAIN, 16));
+
+        String str = "G A M E   O V E R";
+        FontMetrics fontMetrics = graphics.getFontMetrics();
+        Rectangle2D rectangle = fontMetrics.getStringBounds(str, graphics);
+        int length = (int) rectangle.getWidth();
+        graphics.drawString(str, (WIDTH - length) / 2, HEIGHT / 2);
+
+        String str2 = "Final score: " + player.getScore();
+        FontMetrics fontMetrics2 = graphics.getFontMetrics();
+        Rectangle2D rectangle2 = fontMetrics2.getStringBounds(str2, graphics);
+        int length2 = (int) rectangle2.getWidth();
+        graphics.drawString(str2, (WIDTH - length2) / 2, HEIGHT / 2 + 30);
+
+        gameDraw();
     }
 
     private void gameUpdate() {
@@ -261,6 +281,10 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
                 explosions.add(new Explosion(enemy.getX(), enemy.getY(), enemy.getR(), enemy.getR() + 30));
             }
         }
+
+        // check dead player
+        if (player.isDead())
+            isRunning = false;
 
         // player-enemy collision
         if (!player.isRecovering()) {
@@ -394,8 +418,8 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
 
             String str = "*** Wave " + waveNumber + " ***";
             FontMetrics fontMetrics = graphics.getFontMetrics();
-            Rectangle2D rectangle2D = fontMetrics.getStringBounds(str, graphics);
-            int length = (int) rectangle2D.getWidth();
+            Rectangle2D rectangle = fontMetrics.getStringBounds(str, graphics);
+            int length = (int) rectangle.getWidth();
             int alpha = (int) (255 * Math.sin(Math.PI * waveStartTimerDiff / waveDelay));
 
             if (alpha > 255)
@@ -455,17 +479,42 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
             for (int i = 0; i < 4; i++)
                 enemies.add(new Enemy(1, 1));
         } else if (waveNumber == 2) {
+            for (int i = 0; i < 8; i++)
+                enemies.add(new Enemy(1, 1));
+        } else if (waveNumber == 3) {
             for (int i = 0; i < 4; i++)
                 enemies.add(new Enemy(1, 1));
 
             for (int i = 0; i < 2; i++)
                 enemies.add(new Enemy(1, 2));
-        } else if (waveNumber == 3) {
-            for (int i = 0; i < 2; i++)
-                enemies.add(new Enemy(1, 3));
-
+        } else if (waveNumber == 4) {
+            enemies.add(new Enemy(1, 3));
             enemies.add(new Enemy(1, 4));
-        }
+
+            for (int i = 0; i < 4; i++)
+                enemies.add(new Enemy(2, 1));
+        } else if (waveNumber == 5) {
+            enemies.add(new Enemy(1, 4));
+            enemies.add(new Enemy(1, 3));
+            enemies.add(new Enemy(2, 3));
+        } else if (waveNumber == 6) {
+            enemies.add(new Enemy(1, 3));
+
+            for (int i = 0; i < 4; i++)
+                enemies.add(new Enemy(2, 1));
+
+            for (int i = 0; i < 4; i++)
+                enemies.add(new Enemy(3, 1));
+        } else if (waveNumber == 7) {
+            enemies.add(new Enemy(1, 3));
+            enemies.add(new Enemy(2, 3));
+            enemies.add(new Enemy(3, 3));
+        } else if (waveNumber == 8) {
+            enemies.add(new Enemy(1, 4));
+            enemies.add(new Enemy(2, 4));
+            enemies.add(new Enemy(3, 4));
+        } else if (waveNumber == 9)
+            isRunning = false;
     }
 
     @Override
@@ -590,6 +639,10 @@ class Player {
 
     public int getLives() {
         return lives;
+    }
+
+    public boolean isDead() {
+        return lives <= 0;
     }
 
     public void setLeft(boolean left) {
@@ -1159,7 +1212,16 @@ class Text {
 
     public void draw(Graphics2D graphics) {
         graphics.setFont(new Font("Century Gothic", Font.PLAIN, 12));
-        graphics.setColor(Color.WHITE);
-        graphics.drawString(str, (int) x, (int) y);
+
+        long elapsed = (System.nanoTime() - start) / 1000000;
+        int alpha = (int) (255 * Math.sin(Math.PI * elapsed / time));
+        if (alpha > 255)
+            alpha = 255;
+
+        graphics.setColor(new Color(255, 255, 255, alpha));
+        FontMetrics fontMetrics = graphics.getFontMetrics();
+        Rectangle2D rectangle = fontMetrics.getStringBounds(str, graphics);
+        int length = (int) rectangle.getWidth();
+        graphics.drawString(str, (int) (x - (length / 2)), (int) y);
     }
 }
