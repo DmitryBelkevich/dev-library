@@ -698,6 +698,13 @@ class Player {
     public void increasePower(int i) {
         power += i;
 
+        if (powerLevel == 4) {
+            if (power > requiredPower[powerLevel]) {
+                power = requiredPower[powerLevel];
+            }
+            return;
+        }
+
         if (power >= requiredPower[powerLevel]) {
             power -= requiredPower[powerLevel];
             powerLevel++;
@@ -927,19 +934,19 @@ class Enemy {
             if (rank == 1) {
                 speed = 1.5;
                 r = 5;
-                health = 5;
+                health = 3;
             } else if (rank == 2) {
                 speed = 1.5;
                 r = 10;
-                health = 6;
+                health = 4;
             } else if (rank == 3) {
                 speed = 1.5;
                 r = 25;
-                health = 7;
+                health = 5;
             } else if (rank == 4) {
                 speed = 1.5;
                 r = 45;
-                health = 8;
+                health = 5;
             }
         }
 
@@ -1011,6 +1018,7 @@ class Enemy {
             for (int i = 0; i < amount; i++) {
                 Enemy enemy = new Enemy(getType(), getRank() - 1);
 
+                enemy.setSlow(slow);
                 enemy.x = this.x;
                 enemy.y = this.y;
                 double angle = 0;
