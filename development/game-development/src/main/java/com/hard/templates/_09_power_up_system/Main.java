@@ -195,9 +195,9 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
                 double dx = bulletX - enemyX;
                 double dy = bulletY - enemyY;
 
-                double dist = Math.sqrt(dx * dx + dy * dy);
+                double distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (dist < bulletR + enemyR) {
+                if (distance < bulletR + enemyR) {
                     enemy.hit();
                     bullets.remove(i);
                     i--;
@@ -216,9 +216,9 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
 
                 if (random < 0.001)
                     powerUps.add(new PowerUp(1, enemy.getX(), enemy.getY()));
-                else if (random >= 0.001 && random < 0.12)
+                else if (random < 0.101)
                     powerUps.add(new PowerUp(2, enemy.getX(), enemy.getY()));
-                else if (random <= 0.02)
+                else if (random < 0.12)
                     powerUps.add(new PowerUp(3, enemy.getX(), enemy.getY()));
 
                 player.addScore(enemy.getType() + enemy.getRank());
@@ -242,10 +242,42 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
 
                 double dx = playerX - enemyX;
                 double dy = playerY - enemyY;
-                double dist = Math.sqrt(dx * dx + dy * dy);
+                double distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (dist < playerR + enemyR)
+                if (distance < playerR + enemyR)
                     player.loseLife();
+            }
+        }
+
+        // player-powerup collision
+        int playerX = player.getX();
+        int playerY = player.getY();
+        int playerR = player.getR();
+
+        for (int i = 0; i < powerUps.size(); i++) {
+            PowerUp powerUp = powerUps.get(i);
+
+            double powerUpX = powerUp.getX();
+            double powerUpY = powerUp.getY();
+            double powerUpR = powerUp.getR();
+
+            double dx = playerX - powerUpX;
+            double dy = playerY - powerUpY;
+            double distance = Math.sqrt(dx * dx + dy * dy);
+
+            // collected powerup
+            if (distance < playerR + powerUpR) {
+                int type = powerUp.getType();
+
+                if (type == 1)
+                    player.gainLife();
+                else if (type == 2)
+                    player.increasePower(1);
+                else if (type == 3)
+                    player.increasePower(2);
+
+                powerUps.remove(i);
+                i--;
             }
         }
     }
@@ -302,6 +334,15 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
             graphics.drawOval(20 + (20 * i), 20, player.getR() * 2, player.getR() * 2);
             graphics.setStroke(new BasicStroke(1));
         }
+
+        // draw player power
+        graphics.setColor(Color.YELLOW);
+        graphics.fillRect(20, 40, player.getPower() * 8, 8);
+        graphics.setColor(Color.YELLOW.darker());
+        graphics.setStroke(new BasicStroke(2));
+        for (int i = 0; i < player.getRequiredPower(); i++)
+            graphics.drawRect(20 + 8 * i, 40, 8, 8);
+        graphics.setStroke(new BasicStroke(1));
 
         // draw info
         graphics.setColor(Color.BLACK);
@@ -408,6 +449,12 @@ class Player {
 
     private int score;
 
+    private int powerLevel;
+    private int power;
+    private int[] requiredPower = {
+            1, 2, 3, 4, 5,
+    };
+
     public Player() {
         x = GamePanel.WIDTH / 2;
         y = GamePanel.HEIGHT / 2;
@@ -476,14 +523,39 @@ class Player {
         return score;
     }
 
+    public int getPowerLevel() {
+        return powerLevel;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public int getRequiredPower() {
+        return requiredPower[powerLevel];
+    }
+
     public void addScore(int i) {
         score += i;
+    }
+
+    public void gainLife() {
+        lives++;
     }
 
     public void loseLife() {
         lives--;
         recovering = true;
         recoveryTimer = System.nanoTime();
+    }
+
+    public void increasePower(int i) {
+        power += i;
+
+        if (power >= requiredPower[powerLevel]) {
+            power -= requiredPower[powerLevel];
+            powerLevel++;
+        }
     }
 
     public void update() {
@@ -517,6 +589,7 @@ class Player {
         dx = 0;
         dy = 0;
 
+        // firing
         if (firing) {
             long elapsedTime = (System.nanoTime() - firingTimer) / 1000000;
 
