@@ -594,10 +594,19 @@ class Player {
             long elapsedTime = (System.nanoTime() - firingTimer) / 1000000;
 
             if (elapsedTime > firingDelay) {
-                List<Bullet> bullets = GamePanel.bullets;
-                bullets.add(new Bullet(270, x, y));
-
                 firingTimer = System.nanoTime();
+
+                List<Bullet> bullets = GamePanel.bullets;
+                if (powerLevel < 2) {
+                    bullets.add(new Bullet(270, x, y));
+                } else if (powerLevel < 4) {
+                    bullets.add(new Bullet(270, x + 5, y));
+                    bullets.add(new Bullet(270, x - 5, y));
+                } else {
+                    bullets.add(new Bullet(270, x, y));
+                    bullets.add(new Bullet(275, x + 5, y));
+                    bullets.add(new Bullet(265, x - 5, y));
+                }
             }
         }
 
