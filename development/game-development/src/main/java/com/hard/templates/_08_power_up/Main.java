@@ -39,6 +39,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
 
     private long targetTime = 1000 / fps;
 
+    // entities
     private static Player player;
     public static List<Bullet> bullets;
     public static List<Enemy> enemies;
