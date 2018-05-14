@@ -365,13 +365,17 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
         enemies.clear();
 
         if (waveNumber == 1) {
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4; i++)
                 enemies.add(new Enemy(1, 1));
-            }
         } else if (waveNumber == 2) {
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < 8; i++)
                 enemies.add(new Enemy(1, 1));
-            }
+        } else if (waveNumber == 3) {
+            for (int i = 0; i < 4; i++)
+                enemies.add(new Enemy(2, 1));
+
+            for (int i = 0; i < 4; i++)
+                enemies.add(new Enemy(3, 1));
         }
     }
 
@@ -452,7 +456,7 @@ class Player {
     private int powerLevel;
     private int power;
     private int[] requiredPower = {
-            1, 2, 3, 4, 5,
+            1, 2, 3, 4, 5
     };
 
     public Player() {
@@ -733,6 +737,28 @@ class Enemy {
                 speed = 2;
                 r = 5;
                 health = 1;
+            }
+        }
+
+        // stronger, faster default
+        if (type == 2) {
+            color1 = Color.RED;
+
+            if (rank == 1) {
+                speed = 3;
+                r = 5;
+                health = 2;
+            }
+        }
+
+        // slow, but hard to kill
+        if (type == 3) {
+            color1 = Color.GREEN;
+
+            if (rank == 1) {
+                speed = 1.5;
+                r = 5;
+                health = 5;
             }
         }
 
