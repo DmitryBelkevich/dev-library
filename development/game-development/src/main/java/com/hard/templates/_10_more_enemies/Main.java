@@ -220,12 +220,12 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
                     powerUps.add(new PowerUp(2, enemy.getX(), enemy.getY()));
                 else if (random < 0.12)
                     powerUps.add(new PowerUp(3, enemy.getX(), enemy.getY()));
-                else
-                    powerUps.add(new PowerUp(2, enemy.getX(), enemy.getY()));
 
                 player.addScore(enemy.getType() + enemy.getRank());
                 enemies.remove(i);
                 i--;
+
+                enemy.explode();
             }
         }
 
@@ -370,14 +370,16 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
             for (int i = 0; i < 4; i++)
                 enemies.add(new Enemy(1, 1));
         } else if (waveNumber == 2) {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 4; i++)
                 enemies.add(new Enemy(1, 1));
-        } else if (waveNumber == 3) {
-            for (int i = 0; i < 4; i++)
-                enemies.add(new Enemy(2, 1));
 
-            for (int i = 0; i < 4; i++)
-                enemies.add(new Enemy(3, 1));
+            for (int i = 0; i < 2; i++)
+                enemies.add(new Enemy(1, 2));
+        } else if (waveNumber == 3) {
+            for (int i = 0; i < 2; i++)
+                enemies.add(new Enemy(1, 3));
+
+            enemies.add(new Enemy(1, 4));
         }
     }
 
@@ -739,6 +741,14 @@ class Enemy {
                 speed = 2;
                 r = 5;
                 health = 1;
+            } else if (rank == 2) {
+                speed = 2;
+                r = 10;
+                health = 2;
+            } else if (rank == 3) {
+                speed = 1.5;
+                r = 30;
+                health = 4;
             }
         }
 
@@ -806,6 +816,30 @@ class Enemy {
 
         if (health <= 0) {
             dead = true;
+        }
+    }
+
+    public void explode() {
+        if (rank > 1) {
+            int amount = 0;
+
+            if (type == 1)
+                amount = 3;
+
+            for (int i = 0; i < amount; i++) {
+                Enemy enemy = new Enemy(getType(), getRank() - 1);
+
+                enemy.x = this.x;
+                enemy.y = this.y;
+                double angle = 0;
+                if (!ready)
+                    angle = Math.random() * 140 + 20;
+                else
+                    angle = Math.random() * 360;
+                enemy.rad = Math.toRadians(angle);
+
+                GamePanel.enemies.add(enemy);
+            }
         }
     }
 
