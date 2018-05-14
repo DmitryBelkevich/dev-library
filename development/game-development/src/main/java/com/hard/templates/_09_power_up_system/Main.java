@@ -227,7 +227,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
             }
         }
 
-        // player enemy collision
+        // player-enemy collision
         if (!player.isRecovering()) {
             int playerX = player.getX();
             int playerY = player.getY();
