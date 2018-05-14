@@ -43,6 +43,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
     private static Player player;
     public static List<Bullet> bullets;
     public static List<Enemy> enemies;
+    public static List<PowerUp> powerUps;
 
     private long waveStartTimer;
     private long waveStartTimerDiff;
@@ -83,6 +84,7 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
         player = new Player();
         bullets = new ArrayList<>();
         enemies = new ArrayList<>();
+        powerUps = new ArrayList<>();
 
         waveStartTimer = 0;
         waveStartTimerDiff = 0;
@@ -158,6 +160,17 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
             }
         }
 
+        // powerUp update
+        for (int i = 0; i < powerUps.size(); i++) {
+            PowerUp powerUp = powerUps.get(i);
+            boolean remove = powerUp.update();
+
+            if (remove) {
+                powerUps.remove(i);
+                i--;
+            }
+        }
+
         // enemy update
         for (int i = 0; i < enemies.size(); i++) {
             Enemy enemy = enemies.get(i);
@@ -198,6 +211,16 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
             Enemy enemy = enemies.get(i);
 
             if (enemy.isDead()) {
+                // chance for powerUp
+                double random = Math.random();
+
+                if (random < 0.001)
+                    powerUps.add(new PowerUp(1, enemy.getX(), enemy.getY()));
+                else if (random < 0.02)
+                    powerUps.add(new PowerUp(3, enemy.getX(), enemy.getY()));
+                else if (random < 0.12)
+                    powerUps.add(new PowerUp(2, enemy.getX(), enemy.getY()));
+
                 player.addScore(enemy.getType() + enemy.getRank());
                 enemies.remove(i);
                 i--;
@@ -245,6 +268,12 @@ class GamePanel extends JPanel implements Runnable, KeyListener {
         for (int i = 0; i < enemies.size(); i++) {
             Enemy enemy = enemies.get(i);
             enemy.draw(graphics);
+        }
+
+        // draw powerUps
+        for (int i = 0; i < powerUps.size(); i++) {
+            PowerUp powerUp = powerUps.get(i);
+            powerUp.draw(graphics);
         }
 
         // draw wave number
@@ -698,6 +727,72 @@ class Enemy {
     public void draw(Graphics2D graphics) {
         graphics.setColor(color1);
         graphics.fillOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
+
+        graphics.setStroke(new BasicStroke(3));
+        graphics.setColor(color1.darker());
+        graphics.drawOval((int) (x - r), (int) (y - r), 2 * r, 2 * r);
+        graphics.setStroke(new BasicStroke(1));
+    }
+}
+
+class PowerUp {
+    private double x;
+    private double y;
+    private int r;
+
+    private int type;
+    private Color color1;
+
+    // 1) +1 life
+    // 2) +1 power
+    // 3) +2 power
+
+    public PowerUp(int type, double x, double y) {
+        this.type = type;
+
+        this.x = x;
+        this.y = y;
+
+        if (type == 1) {
+            color1 = Color.PINK;
+            r = 3;
+        } else if (type == 2) {
+            color1 = Color.YELLOW;
+            r = 3;
+        } else if (type == 3) {
+            color1 = Color.YELLOW;
+            r = 5;
+        }
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public int getR() {
+        return r;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public boolean update() {
+        y += 2;
+
+        if (y > GamePanel.HEIGHT + r)
+            return true;
+
+        return false;
+    }
+
+    public void draw(Graphics2D graphics) {
+        graphics.setColor(color1);
+        graphics.fillRect((int) (x - r), (int) (y - r), 2 * r, 2 * r);
 
         graphics.setStroke(new BasicStroke(3));
         graphics.setColor(color1.darker());
