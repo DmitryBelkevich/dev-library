@@ -1,4 +1,4 @@
-package com.hard._03_panel._02_drawing;
+package com.hard._03_panel._02_drawing._01_paint;
 
 import javax.swing.*;
 import java.awt.*;
