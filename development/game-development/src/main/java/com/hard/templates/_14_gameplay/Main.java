@@ -879,8 +879,9 @@ class Enemy {
         this.type = type;
         this.rank = rank;
 
-        // default enemy
         if (type == 1) {
+            // default enemy
+
             color1 = new Color(0, 0, 255, 128);
 
             if (rank == 1) {
@@ -896,10 +897,9 @@ class Enemy {
                 r = 30;
                 health = 4;
             }
-        }
+        } else if (type == 2) {
+            // stronger, faster default
 
-        // stronger, faster default
-        if (type == 2) {
             color1 = new Color(255, 0, 0, 128);
 
             if (rank == 1) {
@@ -919,10 +919,9 @@ class Enemy {
                 r = 30;
                 health = 4;
             }
-        }
+        } else if (type == 3) {
+            // slow, but hard to kill
 
-        // slow, but hard to kill
-        if (type == 3) {
             color1 = new Color(0, 255, 0, 128);
 
             if (rank == 1) {
