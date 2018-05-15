@@ -4,8 +4,6 @@ import com.hard._00_my_game.GameFrame;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 public abstract class Game {
@@ -27,25 +25,6 @@ public abstract class Game {
         GameFrame gameFrame = new GameFrame();
         gameFrame.create();
 
-        gameFrame.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                int keyCode = e.getKeyCode();
-                gameStateManager.keyPressed(keyCode);
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                int keyCode = e.getKeyCode();
-                gameStateManager.keyReleased(keyCode);
-            }
-        });
-
         this.frame = gameFrame.getFrame();
 
         // settings
@@ -53,6 +32,7 @@ public abstract class Game {
 
         // states
         this.gameStateManager = new GameStateManager();
+        gameFrame.addKeyListener(gameStateManager);
 
         // graphics
         this.bufferedImage = new BufferedImage(GameFrame.WIDTH, GameFrame.HEIGHT, BufferedImage.TYPE_INT_RGB);

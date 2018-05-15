@@ -1,6 +1,9 @@
 package com.hard._00_my_game;
 
+import com.hard._00_my_game.games.GameStateManager;
+
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class GameFrame {
@@ -22,7 +25,24 @@ public class GameFrame {
         return frame;
     }
 
-    public void addKeyListener(KeyListener keyListener) {
-        frame.addKeyListener(keyListener);
+    public void addKeyListener(GameStateManager gameStateManager) {
+        frame.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                int keyCode = e.getKeyCode();
+                gameStateManager.keyPressed(keyCode);
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                int keyCode = e.getKeyCode();
+                gameStateManager.keyReleased(keyCode);
+            }
+        });
     }
 }
