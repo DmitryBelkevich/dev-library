@@ -1,6 +1,7 @@
 package com.hard._00_my_game.games;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,5 +35,13 @@ public class GameStateManager {
 
     public void draw(Graphics graphics) {
         currentGameState.draw(graphics);
+    }
+
+    public void keyPressed(int key) {
+        currentGameState.keyPressed(key);
+    }
+
+    public void keyReleased(int key) {
+        currentGameState.keyReleased(key);
     }
 }

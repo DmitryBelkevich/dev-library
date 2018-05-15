@@ -24,7 +24,7 @@ public class GameOverState extends GameState {
 
     @Override
     public void update() {
-        System.out.println("Game Over State");
+//        System.out.println("Game Over State");
 
         if (i++ > 200) {
             i = 0;
@@ -41,5 +41,15 @@ public class GameOverState extends GameState {
     public void draw(Graphics graphics) {
         background.draw(graphics);
         menu.draw(graphics);
+    }
+
+    @Override
+    public void keyPressed(int key) {
+
+    }
+
+    @Override
+    public void keyReleased(int key) {
+
     }
 }

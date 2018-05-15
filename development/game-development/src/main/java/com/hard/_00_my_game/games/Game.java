@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 
 public abstract class Game {
     // window
+    protected GameFrame gameFrame;
     protected JFrame frame;
 
     // settings
@@ -22,7 +23,7 @@ public abstract class Game {
 
     public Game() {
         // window
-        GameFrame gameFrame = new GameFrame();
+        gameFrame = new GameFrame();
         gameFrame.create();
 
         this.frame = gameFrame.getFrame();

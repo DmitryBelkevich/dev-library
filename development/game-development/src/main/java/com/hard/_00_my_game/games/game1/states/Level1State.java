@@ -23,7 +23,7 @@ public class Level1State extends GameState {
 
     @Override
     public void update() {
-        System.out.println("Level 1 State");
+//        System.out.println("Level 1 State");
 
         if (i++ > 200) {
             i = 0;
@@ -40,5 +40,15 @@ public class Level1State extends GameState {
     public void draw(Graphics graphics) {
         background.draw(graphics);
         player.draw(graphics);
+    }
+
+    @Override
+    public void keyPressed(int key) {
+
+    }
+
+    @Override
+    public void keyReleased(int key) {
+
     }
 }

@@ -10,9 +10,30 @@ import com.hard._00_my_game.games.game1.states.Level1State;
 import com.hard._00_my_game.games.game1.states.MenuState;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class Game1 extends Game {
     public Game1() {
+        this.gameFrame.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                int keyCode = e.getKeyCode();
+                gameStateManager.keyPressed(keyCode);
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                int keyCode = e.getKeyCode();
+                gameStateManager.keyReleased(keyCode);
+            }
+        });
+
         MenuState menuState = new MenuState(this.gameStateManager);
         this.gameStateManager.addGameState(menuState);
         this.gameStateManager.addGameState(new Level1State(this.gameStateManager));

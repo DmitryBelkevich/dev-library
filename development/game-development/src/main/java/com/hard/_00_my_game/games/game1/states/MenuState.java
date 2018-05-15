@@ -1,6 +1,5 @@
 package com.hard._00_my_game.games.game1.states;
 
-import com.hard._00_my_game.GameFrame;
 import com.hard._00_my_game.games.GameState;
 import com.hard._00_my_game.games.GameStateManager;
 import com.hard._00_my_game.games.game1.entities.Background;
@@ -32,7 +31,7 @@ public class MenuState extends GameState {
 
     @Override
     public void update() {
-        System.out.println("MenuState");
+//        System.out.println("MenuState");
 
         if (i++ > 200) {
             i = 0;
@@ -48,10 +47,23 @@ public class MenuState extends GameState {
     @Override
     public void draw(Graphics graphics) {
         // background
+        background.draw(graphics);
+
+        // menu
         menu.draw(graphics);
 
         // options
         for (Text text : options)
             text.draw(graphics);
+    }
+
+    @Override
+    public void keyPressed(int key) {
+        System.out.println(key);
+    }
+
+    @Override
+    public void keyReleased(int key) {
+
     }
 }

@@ -12,4 +12,8 @@ public abstract class GameState {
     public abstract void update();
 
     public abstract void draw(Graphics graphics);
+
+    public abstract void keyPressed(int key);
+
+    public abstract void keyReleased(int key);
 }

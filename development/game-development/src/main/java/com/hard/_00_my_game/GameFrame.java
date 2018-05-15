@@ -1,6 +1,7 @@
 package com.hard._00_my_game;
 
 import javax.swing.*;
+import java.awt.event.KeyListener;
 
 public class GameFrame {
     public static int WIDTH = 640;
@@ -19,5 +20,9 @@ public class GameFrame {
 
     public JFrame getFrame() {
         return frame;
+    }
+
+    public void addKeyListener(KeyListener keyListener) {
+        frame.addKeyListener(keyListener);
     }
 }
