@@ -8,6 +8,7 @@ import com.hard._00_my_game.games.game1.entities.Entity;
 import com.hard._00_my_game.games.game1.entities.Text;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class GameOverState extends GameState {
     private Entity background;
@@ -20,19 +21,8 @@ public class GameOverState extends GameState {
         this.menu = new Text("Game Over", GameFrame.WIDTH / 2, GameFrame.HEIGHT / 2);
     }
 
-    int i = 0;
-
     @Override
     public void update() {
-//        System.out.println("Game Over State");
-
-        if (i++ > 200) {
-            i = 0;
-
-            GameState gameState = this.gameStateManager.getGameState(0);
-            this.gameStateManager.setCurrentGameState(gameState);
-        }
-
         background.update();
         menu.update();
     }
@@ -45,7 +35,20 @@ public class GameOverState extends GameState {
 
     @Override
     public void keyPressed(int key) {
+        if (key == KeyEvent.VK_NUMPAD0) {
+            GameState gameState = gameStateManager.getGameState(0);
+            this.gameStateManager.setCurrentGameState(gameState);
+        }
 
+        if (key == KeyEvent.VK_NUMPAD1) {
+            GameState gameState = gameStateManager.getGameState(1);
+            this.gameStateManager.setCurrentGameState(gameState);
+        }
+
+        if (key == KeyEvent.VK_NUMPAD2) {
+            GameState gameState = gameStateManager.getGameState(2);
+            this.gameStateManager.setCurrentGameState(gameState);
+        }
     }
 
     @Override

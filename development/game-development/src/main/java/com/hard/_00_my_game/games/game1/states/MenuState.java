@@ -7,6 +7,7 @@ import com.hard._00_my_game.games.game1.entities.Entity;
 import com.hard._00_my_game.games.game1.entities.Text;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -27,39 +28,40 @@ public class MenuState extends GameState {
         this.options.add(new Text("quit", 100, 130));
     }
 
-    int i = 0;
-
     @Override
     public void update() {
-//        System.out.println("MenuState");
-
-        if (i++ > 200) {
-            i = 0;
-
-            GameState gameState = this.gameStateManager.getGameState(1);
-            this.gameStateManager.setCurrentGameState(gameState);
-        }
-
         background.update();
         menu.update();
+
+        for (Text text : options)
+            text.update();
     }
 
     @Override
     public void draw(Graphics graphics) {
-        // background
         background.draw(graphics);
-
-        // menu
         menu.draw(graphics);
 
-        // options
         for (Text text : options)
             text.draw(graphics);
     }
 
     @Override
     public void keyPressed(int key) {
-        System.out.println(key);
+        if (key == KeyEvent.VK_NUMPAD0) {
+            GameState gameState = gameStateManager.getGameState(0);
+            this.gameStateManager.setCurrentGameState(gameState);
+        }
+
+        if (key == KeyEvent.VK_NUMPAD1) {
+            GameState gameState = gameStateManager.getGameState(1);
+            this.gameStateManager.setCurrentGameState(gameState);
+        }
+
+        if (key == KeyEvent.VK_NUMPAD2) {
+            GameState gameState = gameStateManager.getGameState(2);
+            this.gameStateManager.setCurrentGameState(gameState);
+        }
     }
 
     @Override
