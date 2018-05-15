@@ -39,8 +39,8 @@ public class GameStateManager {
         gameStateSaver.save(file);
     }
 
-    public void load() {
-        File file = gameStateSaver.load();
+    public void load(int i) {
+        File file = gameStateSaver.getFile(i);
         currentGameState = file.getGameState();
     }
 

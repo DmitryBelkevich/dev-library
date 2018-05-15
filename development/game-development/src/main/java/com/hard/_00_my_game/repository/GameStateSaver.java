@@ -1,13 +1,16 @@
 package com.hard._00_my_game.repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameStateSaver {
-    private File file;
+    private List<File> files = new ArrayList<>();
 
     public void save(File file) {
-        this.file = file;
+        files.add(file);
     }
 
-    public File load() {
-        return file;
+    public File getFile(int i) {
+        return files.get(i);
     }
 }

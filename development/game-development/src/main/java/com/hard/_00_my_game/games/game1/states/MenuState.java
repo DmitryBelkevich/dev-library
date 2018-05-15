@@ -68,7 +68,7 @@ public class MenuState extends GameState {
         // load
 
         if (key == KeyEvent.VK_L)
-            gameStateManager.load();
+            gameStateManager.load(0);
     }
 
     @Override
