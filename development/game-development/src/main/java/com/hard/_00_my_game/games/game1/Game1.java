@@ -4,6 +4,7 @@ import com.hard._00_my_game.games.Game;
 import com.hard._00_my_game.games.game1.entities.Background;
 import com.hard._00_my_game.games.game1.entities.Entity;
 import com.hard._00_my_game.games.game1.entities.Player;
+import com.hard._00_my_game.games.game1.states.MenuState;
 
 import java.awt.*;
 
@@ -15,7 +16,7 @@ public class Game1 extends Game {
         this.player = new Player(0, 0);
         this.background = new Background(0, 0);
 
-//        this.gameStateManager
+        this.gameStateManager.addGameState(new MenuState());
     }
 
     @Override
