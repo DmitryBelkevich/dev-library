@@ -11,6 +11,7 @@ public abstract class Game {
     protected JFrame frame;
 
     // settings
+    protected int speed;
 
     // graphics
     protected BufferedImage bufferedImage;
@@ -22,6 +23,9 @@ public abstract class Game {
         gameFrame.create();
 
         this.frame = gameFrame.getFrame();
+
+        // settings
+        this.speed = 1000;
 
         // graphics
         this.bufferedImage = new BufferedImage(GameFrame.WIDTH, GameFrame.HEIGHT, BufferedImage.TYPE_INT_RGB);
