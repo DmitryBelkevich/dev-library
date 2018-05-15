@@ -22,7 +22,7 @@ public class Game1 extends Game {
 
     // entities
     private Entity background;
-    private Entity entity;
+    private Entity player;
 
     public Game1() {
         // window
@@ -36,7 +36,7 @@ public class Game1 extends Game {
         this.graphics = bufferedImage.getGraphics();
 
         // entities
-        this.entity = new Player(0, 0);
+        this.player = new Player(0, 0);
         this.background = new Background(0, 0);
     }
 
@@ -58,13 +58,13 @@ public class Game1 extends Game {
     @Override
     public void update() {
         background.update();
-        entity.update();
+        player.update();
     }
 
     @Override
     public void draw(Graphics graphics) {
         background.draw(graphics);
-        entity.draw(graphics);
+        player.draw(graphics);
     }
 
     public void display(JFrame frame) {
