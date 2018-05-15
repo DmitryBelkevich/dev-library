@@ -42,7 +42,7 @@ class Saver {
 }
 
 /**
- * State pattern
+ * GameState pattern
  */
 
 abstract class GameState implements Cloneable {

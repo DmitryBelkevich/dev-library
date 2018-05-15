@@ -13,6 +13,9 @@ public abstract class Game {
     // settings
     protected int speed;
 
+    // states
+    protected GameStateManager gameStateManager;
+
     // graphics
     protected BufferedImage bufferedImage;
     protected Graphics graphics;
@@ -26,6 +29,9 @@ public abstract class Game {
 
         // settings
         this.speed = 1000;
+
+        // states
+        this.gameStateManager = new GameStateManager();
 
         // graphics
         this.bufferedImage = new BufferedImage(GameFrame.WIDTH, GameFrame.HEIGHT, BufferedImage.TYPE_INT_RGB);

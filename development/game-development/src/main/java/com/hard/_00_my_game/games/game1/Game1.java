@@ -14,6 +14,8 @@ public class Game1 extends Game {
     public Game1() {
         this.player = new Player(0, 0);
         this.background = new Background(0, 0);
+
+//        this.gameStateManager
     }
 
     @Override
