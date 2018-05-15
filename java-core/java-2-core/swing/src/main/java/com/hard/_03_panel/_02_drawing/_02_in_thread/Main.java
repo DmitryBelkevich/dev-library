@@ -6,29 +6,25 @@ import java.awt.image.BufferedImage;
 
 public class Main {
     public static void main(String[] args) {
-        new Thread(() -> {
-            // creation GUI
+        // creation GUI
 
-            JFrame frame = new JFrame("App");
+        JFrame frame = new JFrame("App");
 
-            frame.setSize(640, 480);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setLocationRelativeTo(null);
+        frame.setSize(640, 480);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
-//            frame.setContentPane(new JPanel());
+        frame.setVisible(true);
 
-            frame.setVisible(true);
+        // drawing
 
-            // drawing
+        BufferedImage bufferedImage = new BufferedImage(200, 100, BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics2D = (Graphics2D) bufferedImage.getGraphics();
 
-            BufferedImage bufferedImage = new BufferedImage(200, 100, BufferedImage.TYPE_INT_RGB);
-            Graphics2D graphics2D = (Graphics2D) bufferedImage.getGraphics();
+        graphics2D.drawString("Hello World", 0, 10);
 
-            graphics2D.drawString("Hello World", 0, 10);
-
-            Graphics graphics = frame.getGraphics();
-            graphics.drawImage(bufferedImage, 50, 50, null);
-            graphics.dispose();
-        }).start();
+        Graphics graphics = frame.getGraphics();
+        graphics.drawImage(bufferedImage, 50, 50, null);
+        graphics.dispose();
     }
 }
