@@ -78,7 +78,7 @@ class Saver {
     }
 
     public void saveFile(File file) {
-        this.files.add(file);
+        files.add(file);
     }
 }
 
