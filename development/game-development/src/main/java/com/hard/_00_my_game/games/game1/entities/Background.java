@@ -1,4 +1,4 @@
-package com.hard._00_my_game.entities;
+package com.hard._00_my_game.games.game1.entities;
 
 import com.hard._00_my_game.GameFrame;
 
