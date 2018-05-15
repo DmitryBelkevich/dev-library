@@ -59,7 +59,7 @@ class Caretaker {
     }
 
     public void addMemento(Memento memento) {
-        this.mementos.add(memento);
+        mementos.add(memento);
     }
 }
 
