@@ -2,7 +2,7 @@ package com.hard._00_my_game.games;
 
 import java.awt.*;
 
-public abstract class GameState {
+public abstract class GameState implements Cloneable {
     protected GameStateManager gameStateManager;
 
     public GameState(GameStateManager gameStateManager) {
