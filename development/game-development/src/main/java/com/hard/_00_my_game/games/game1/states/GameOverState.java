@@ -49,6 +49,11 @@ public class GameOverState extends GameState {
             GameState gameState = gameStateManager.getGameState(2);
             gameStateManager.setCurrentGameState(gameState);
         }
+
+        // load
+
+        if (key == KeyEvent.VK_L)
+            gameStateManager.load();
     }
 
     @Override

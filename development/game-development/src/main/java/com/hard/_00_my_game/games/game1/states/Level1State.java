@@ -5,6 +5,8 @@ import com.hard._00_my_game.games.GameStateManager;
 import com.hard._00_my_game.games.game1.entities.Background;
 import com.hard._00_my_game.games.game1.entities.Entity;
 import com.hard._00_my_game.games.game1.entities.Player;
+import com.hard._00_my_game.repository.File;
+import com.hard._00_my_game.repository.GameStateSaver;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -48,6 +50,14 @@ public class Level1State extends GameState {
             GameState gameState = gameStateManager.getGameState(2);
             gameStateManager.setCurrentGameState(gameState);
         }
+
+        // save
+
+        if (key == KeyEvent.VK_S)
+            gameStateManager.save(this);
+
+        if (key == KeyEvent.VK_L)
+            gameStateManager.load();
     }
 
     @Override

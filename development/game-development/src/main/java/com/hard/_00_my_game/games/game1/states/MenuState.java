@@ -5,6 +5,8 @@ import com.hard._00_my_game.games.GameStateManager;
 import com.hard._00_my_game.games.game1.entities.Background;
 import com.hard._00_my_game.games.game1.entities.Entity;
 import com.hard._00_my_game.games.game1.entities.Text;
+import com.hard._00_my_game.repository.File;
+import com.hard._00_my_game.repository.GameStateSaver;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -62,6 +64,11 @@ public class MenuState extends GameState {
             GameState gameState = gameStateManager.getGameState(2);
             gameStateManager.setCurrentGameState(gameState);
         }
+
+        // load
+
+        if (key == KeyEvent.VK_L)
+            gameStateManager.load();
     }
 
     @Override

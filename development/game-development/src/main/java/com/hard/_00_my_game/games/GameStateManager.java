@@ -1,5 +1,8 @@
 package com.hard._00_my_game.games;
 
+import com.hard._00_my_game.repository.File;
+import com.hard._00_my_game.repository.GameStateSaver;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +11,11 @@ public class GameStateManager {
     private List<GameState> gameStates;
     private GameState currentGameState;
 
+    private GameStateSaver gameStateSaver;
+
     public GameStateManager() {
         this.gameStates = new ArrayList<>();
+        this.gameStateSaver = new GameStateSaver();
     }
 
     public void addGameState(GameState gameState) {
@@ -26,6 +32,16 @@ public class GameStateManager {
 
     public void setCurrentGameState(GameState currentGameState) {
         this.currentGameState = currentGameState;
+    }
+
+    public void save(GameState gameState) {
+        File file = new File(gameState);
+        gameStateSaver.save(file);
+    }
+
+    public void load() {
+        File file = gameStateSaver.load();
+        currentGameState = file.getGameState();
     }
 
     public void update() {
