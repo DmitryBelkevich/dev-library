@@ -1,21 +1,31 @@
 package com.hard.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         StateManager stateManager = new StateManager();
-
         Saver saver = new Saver();
+
+        // changing state
 
         stateManager.setState(new State1());
         System.out.println(stateManager.getState());
 
+        // saving state
+
         File createdFile = stateManager.createFile();
         saver.saveFile(createdFile);
+
+        // changing state
 
         stateManager.setState(new State2());
         System.out.println(stateManager.getState());
 
-        File loadedFile = saver.getFile();
+        // loading state
+
+        File loadedFile = saver.getFile(0);
         stateManager.loadFile(loadedFile);
         System.out.println(stateManager.getState());
     }
@@ -61,14 +71,14 @@ class File {
  */
 
 class Saver {
-    private File file;
+    private List<File> files = new ArrayList<>();
 
-    public File getFile() {
-        return file;
+    public File getFile(int i) {
+        return files.get(i);
     }
 
     public void saveFile(File file) {
-        this.file = file;
+        this.files.add(file);
     }
 }
 
