@@ -55,11 +55,13 @@ public class Game1 extends Game {
         }
     }
 
+    @Override
     public void update() {
         background.update();
         entity.update();
     }
 
+    @Override
     public void draw(Graphics graphics) {
         background.draw(graphics);
         entity.draw(graphics);
