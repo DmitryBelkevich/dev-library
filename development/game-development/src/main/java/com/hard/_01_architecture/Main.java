@@ -137,7 +137,7 @@ class GameStateManager {
 abstract class Game {
     public static final int WIDTH = 480;
     public static final int HEIGHT = 800;
-    public static final String title = "Game";
+    public static final String title = "Game1";
 
     // image
     // graphic

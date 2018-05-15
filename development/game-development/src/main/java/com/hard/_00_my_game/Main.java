@@ -1,12 +1,19 @@
 package com.hard._00_my_game;
 
 import com.hard._00_my_game.games.Game;
+import com.hard._00_my_game.games.GameFactory;
 
-import javax.swing.*;
-
-public class Main extends JPanel {
+public class Main {
     public static void main(String[] args) {
-        Game game = new Game();
+        GameFactory gameFactory = new GameFactory();
+
+        Game game = null;
+        try {
+            game = gameFactory.getGame("Game1");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         game.run();
     }
 }
