@@ -44,8 +44,8 @@ public class Game1 extends Game {
     public void run() {
         while (true) {
             update();
-            draw(graphics);
-            display(frame);
+            draw();
+            display();
 
             try {
                 Thread.sleep(10);
@@ -62,12 +62,12 @@ public class Game1 extends Game {
     }
 
     @Override
-    public void draw(Graphics graphics) {
+    public void draw() {
         background.draw(graphics);
         player.draw(graphics);
     }
 
-    public void display(JFrame frame) {
+    public void display() {
         Graphics graphics = frame.getGraphics();
         graphics.drawImage(bufferedImage, 0, 0, null);
         graphics.dispose();
