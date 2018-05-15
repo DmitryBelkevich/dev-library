@@ -50,17 +50,17 @@ public class MenuState extends GameState {
     public void keyPressed(int key) {
         if (key == KeyEvent.VK_NUMPAD0) {
             GameState gameState = gameStateManager.getGameState(0);
-            this.gameStateManager.setCurrentGameState(gameState);
+            gameStateManager.setCurrentGameState(gameState);
         }
 
         if (key == KeyEvent.VK_NUMPAD1) {
             GameState gameState = gameStateManager.getGameState(1);
-            this.gameStateManager.setCurrentGameState(gameState);
+            gameStateManager.setCurrentGameState(gameState);
         }
 
         if (key == KeyEvent.VK_NUMPAD2) {
             GameState gameState = gameStateManager.getGameState(2);
-            this.gameStateManager.setCurrentGameState(gameState);
+            gameStateManager.setCurrentGameState(gameState);
         }
     }
 
