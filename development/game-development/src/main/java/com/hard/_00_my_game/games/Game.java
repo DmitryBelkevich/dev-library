@@ -4,11 +4,12 @@ import com.hard._00_my_game.GameFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 public abstract class Game {
     // window
-    protected GameFrame gameFrame;
     protected JFrame frame;
 
     // settings
@@ -23,8 +24,27 @@ public abstract class Game {
 
     public Game() {
         // window
-        gameFrame = new GameFrame();
+        GameFrame gameFrame = new GameFrame();
         gameFrame.create();
+
+        gameFrame.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                int keyCode = e.getKeyCode();
+                gameStateManager.keyPressed(keyCode);
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                int keyCode = e.getKeyCode();
+                gameStateManager.keyReleased(keyCode);
+            }
+        });
 
         this.frame = gameFrame.getFrame();
 
