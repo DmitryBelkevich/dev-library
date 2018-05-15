@@ -12,6 +12,7 @@ public class Main {
             game = gameFactory.getGame("Game1");
         } catch (Exception e) {
             e.printStackTrace();
+            System.exit(0);
         }
 
         game.run();
