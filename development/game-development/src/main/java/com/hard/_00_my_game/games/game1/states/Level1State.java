@@ -56,6 +56,8 @@ public class Level1State extends GameState {
         if (key == KeyEvent.VK_S)
             gameStateManager.save(this);
 
+        // load
+
         if (key == KeyEvent.VK_L)
             gameStateManager.load();
     }
