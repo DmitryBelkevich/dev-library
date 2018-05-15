@@ -1,6 +1,7 @@
 package com.hard._00_my_game.games.game1;
 
 import com.hard._00_my_game.games.Game;
+import com.hard._00_my_game.games.GameState;
 import com.hard._00_my_game.games.game1.entities.Background;
 import com.hard._00_my_game.games.game1.entities.Entity;
 import com.hard._00_my_game.games.game1.entities.Player;
@@ -11,16 +12,13 @@ import com.hard._00_my_game.games.game1.states.MenuState;
 import java.awt.*;
 
 public class Game1 extends Game {
-    private Entity background;
-    private Entity player;
-
     public Game1() {
-        this.player = new Player(0, 0);
-        this.background = new Background(0, 0);
+        MenuState menuState = new MenuState(this.gameStateManager);
+        this.gameStateManager.addGameState(menuState);
+        this.gameStateManager.addGameState(new Level1State(this.gameStateManager));
+        this.gameStateManager.addGameState(new GameOverState(this.gameStateManager));
 
-        this.gameStateManager.addGameState(new MenuState());
-        this.gameStateManager.addGameState(new Level1State());
-        this.gameStateManager.addGameState(new GameOverState());
+        this.gameStateManager.setCurrentGameState(menuState);
     }
 
     @Override
@@ -40,14 +38,14 @@ public class Game1 extends Game {
 
     @Override
     public void update() {
-        background.update();
-        player.update();
+        GameState gameState = gameStateManager.getCurrentGameState();
+        gameState.update();
     }
 
     @Override
     public void draw() {
-        background.draw(graphics);
-        player.draw(graphics);
+        GameState gameState = gameStateManager.getCurrentGameState();
+        gameState.draw(graphics);
     }
 
     public void display() {
