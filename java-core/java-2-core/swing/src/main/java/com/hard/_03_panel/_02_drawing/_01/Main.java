@@ -19,12 +19,12 @@ public class Main {
         // drawing
 
         BufferedImage bufferedImage = new BufferedImage(200, 100, BufferedImage.TYPE_INT_RGB);
-        Graphics2D graphics2D = (Graphics2D) bufferedImage.getGraphics();
+        Graphics graphics1 = bufferedImage.getGraphics();
 
-        graphics2D.drawString("Hello World", 0, 10);
+        graphics1.drawString("Hello World", 0, 10);
 
-        Graphics graphics = frame.getGraphics();
-        graphics.drawImage(bufferedImage, 50, 50, null);
-        graphics.dispose();
+        Graphics graphics2 = frame.getGraphics();
+        graphics2.drawImage(bufferedImage, 50, 50, null);
+        graphics2.dispose();
     }
 }
