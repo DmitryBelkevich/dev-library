@@ -15,7 +15,7 @@ public class Main {
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setLocationRelativeTo(null);
 
-            frame.setContentPane(new JPanel());
+//            frame.setContentPane(new JPanel());
 
             frame.setVisible(true);
 
