@@ -81,26 +81,26 @@ public class Player extends MapObject {
 
         // load sprites
         try {
-            BufferedImage spritesheet = ImageIO.read(
+            BufferedImage spriteSheet = ImageIO.read(
                     getClass().getResourceAsStream(
                             "/sprites/player/player_sprites.gif"
                     )
             );
 
-            sprites = new ArrayList<BufferedImage[]>();
+            sprites = new ArrayList<>();
             for (int i = 0; i < 7; i++) {
                 BufferedImage[] bi = new BufferedImage[numFrames[i]];
 
                 for (int j = 0; j < numFrames[i]; j++) {
                     if (i != SCRATCHING) {
-                        bi[j] = spritesheet.getSubimage(
+                        bi[j] = spriteSheet.getSubimage(
                                 j * width,
                                 i * height,
                                 width,
                                 height
                         );
                     } else {
-                        bi[j] = spritesheet.getSubimage(
+                        bi[j] = spriteSheet.getSubimage(
                                 j * width * 2,
                                 i * height,
                                 width * 2,
