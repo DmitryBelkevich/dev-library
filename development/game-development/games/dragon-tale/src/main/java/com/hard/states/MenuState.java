@@ -21,10 +21,10 @@ public class MenuState extends GameState {
     private Font font;
 
     public MenuState(GameStateManager gsm) {
-        this.gsm = gsm;
+        this.gameStateManager = gsm;
 
         try {
-            bg = new Background("/Backgrounds/menubg.gif", 1);
+            bg = new Background("/backgrounds/menu_bg.gif", 1);
             bg.setVector(-0.1, 0);
 
             titleColor = new Color(128, 0, 0);
@@ -47,30 +47,30 @@ public class MenuState extends GameState {
         bg.update();
     }
 
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D graphics) {
         // draw bg
-        bg.draw(g);
+        bg.draw(graphics);
 
         // draw title
-        g.setColor(titleColor);
-        g.setFont(titleFont);
-        g.drawString("Dragon Tale", 80, 70);
+        graphics.setColor(titleColor);
+        graphics.setFont(titleFont);
+        graphics.drawString("Dragon Tale", 80, 70);
 
         // draw menu options
-        g.setFont(font);
+        graphics.setFont(font);
         for (int i = 0; i < options.length; i++) {
             if (i == currentChoice) {
-                g.setColor(Color.BLACK);
+                graphics.setColor(Color.BLACK);
             } else {
-                g.setColor(Color.RED);
+                graphics.setColor(Color.RED);
             }
-            g.drawString(options[i], 145, 140 + i * 15);
+            graphics.drawString(options[i], 145, 140 + i * 15);
         }
     }
 
     private void select() {
         if (currentChoice == 0) {
-            gsm.setState(GameStateManager.LEVEL_1_STATE);
+            gameStateManager.setState(GameStateManager.LEVEL_1_STATE);
         }
         if (currentChoice == 1) {
             // help
@@ -80,17 +80,17 @@ public class MenuState extends GameState {
         }
     }
 
-    public void keyPressed(int k) {
-        if (k == KeyEvent.VK_ENTER) {
+    public void keyPressed(int key) {
+        if (key == KeyEvent.VK_ENTER) {
             select();
         }
-        if (k == KeyEvent.VK_UP) {
+        if (key == KeyEvent.VK_UP) {
             currentChoice--;
             if (currentChoice == -1) {
                 currentChoice = options.length - 1;
             }
         }
-        if (k == KeyEvent.VK_DOWN) {
+        if (key == KeyEvent.VK_DOWN) {
             currentChoice++;
             if (currentChoice == options.length) {
                 currentChoice = 0;
@@ -98,7 +98,7 @@ public class MenuState extends GameState {
         }
     }
 
-    public void keyReleased(int k) {
+    public void keyReleased(int key) {
 
     }
 }

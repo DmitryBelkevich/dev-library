@@ -29,19 +29,19 @@ public class Level1State extends GameState {
     private AudioPlayer bgMusic;
 
     public Level1State(GameStateManager gsm) {
-        this.gsm = gsm;
+        this.gameStateManager = gsm;
         init();
     }
 
     public void init() {
 
         tileMap = new TileMap(30);
-        tileMap.loadTiles("/Tilesets/grasstileset.gif");
-        tileMap.loadMap("/Maps/level1-1.map");
+        tileMap.loadTiles("/Tilesets/grass_tileset.gif");
+        tileMap.loadMap("/maps/level1-1.map");
         tileMap.setPosition(0, 0);
         tileMap.setTween(1);
 
-        bg = new Background("/Backgrounds/grassbg1.gif", 0.1);
+        bg = new Background("/backgrounds/grass_bg1.gif", 0.1);
 
         player = new Player(tileMap);
         player.setPosition(100, 100);
@@ -52,7 +52,7 @@ public class Level1State extends GameState {
 
         hud = new Hud(player);
 
-        bgMusic = new AudioPlayer("/Music/level1-1.mp3");
+        bgMusic = new AudioPlayer("/music/level1-1.mp3");
         bgMusic.play();
 
     }
@@ -115,52 +115,52 @@ public class Level1State extends GameState {
 
     }
 
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D graphics) {
 
         // draw bg
-        bg.draw(g);
+        bg.draw(graphics);
 
         // draw tilemap
-        tileMap.draw(g);
+        tileMap.draw(graphics);
 
         // draw player
-        player.draw(g);
+        player.draw(graphics);
 
         // draw enemies
         for (int i = 0; i < enemies.size(); i++) {
-            enemies.get(i).draw(g);
+            enemies.get(i).draw(graphics);
         }
 
         // draw explosions
         for (int i = 0; i < explosions.size(); i++) {
             explosions.get(i).setMapPosition(
                     (int) tileMap.getx(), (int) tileMap.gety());
-            explosions.get(i).draw(g);
+            explosions.get(i).draw(graphics);
         }
 
         // draw hud
-        hud.draw(g);
+        hud.draw(graphics);
 
     }
 
-    public void keyPressed(int k) {
-        if (k == KeyEvent.VK_LEFT) player.setLeft(true);
-        if (k == KeyEvent.VK_RIGHT) player.setRight(true);
-        if (k == KeyEvent.VK_UP) player.setUp(true);
-        if (k == KeyEvent.VK_DOWN) player.setDown(true);
-        if (k == KeyEvent.VK_W) player.setJumping(true);
-        if (k == KeyEvent.VK_E) player.setGliding(true);
-        if (k == KeyEvent.VK_R) player.setScratching();
-        if (k == KeyEvent.VK_F) player.setFiring();
+    public void keyPressed(int key) {
+        if (key == KeyEvent.VK_LEFT) player.setLeft(true);
+        if (key == KeyEvent.VK_RIGHT) player.setRight(true);
+        if (key == KeyEvent.VK_UP) player.setUp(true);
+        if (key == KeyEvent.VK_DOWN) player.setDown(true);
+        if (key == KeyEvent.VK_W) player.setJumping(true);
+        if (key == KeyEvent.VK_E) player.setGliding(true);
+        if (key == KeyEvent.VK_R) player.setScratching();
+        if (key == KeyEvent.VK_F) player.setFiring();
     }
 
-    public void keyReleased(int k) {
-        if (k == KeyEvent.VK_LEFT) player.setLeft(false);
-        if (k == KeyEvent.VK_RIGHT) player.setRight(false);
-        if (k == KeyEvent.VK_UP) player.setUp(false);
-        if (k == KeyEvent.VK_DOWN) player.setDown(false);
-        if (k == KeyEvent.VK_W) player.setJumping(false);
-        if (k == KeyEvent.VK_E) player.setGliding(false);
+    public void keyReleased(int key) {
+        if (key == KeyEvent.VK_LEFT) player.setLeft(false);
+        if (key == KeyEvent.VK_RIGHT) player.setRight(false);
+        if (key == KeyEvent.VK_UP) player.setUp(false);
+        if (key == KeyEvent.VK_DOWN) player.setDown(false);
+        if (key == KeyEvent.VK_W) player.setJumping(false);
+        if (key == KeyEvent.VK_E) player.setGliding(false);
     }
 
 }

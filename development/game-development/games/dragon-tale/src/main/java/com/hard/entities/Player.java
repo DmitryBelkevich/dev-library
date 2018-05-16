@@ -82,7 +82,7 @@ public class Player extends MapObject {
         try {
             BufferedImage spritesheet = ImageIO.read(
                     getClass().getResourceAsStream(
-                            "/Sprites/Player/playersprites.gif"
+                            "/sprites/player/player_sprites.gif"
                     )
             );
 
@@ -121,8 +121,8 @@ public class Player extends MapObject {
         animation.setDelay(400);
 
         sfx = new HashMap<String, AudioPlayer>();
-        sfx.put("jump", new AudioPlayer("/SFX/jump.mp3"));
-        sfx.put("scratch", new AudioPlayer("/SFX/scratch.mp3"));
+        sfx.put("jump", new AudioPlayer("/sounds-fx/jump.mp3"));
+        sfx.put("scratch", new AudioPlayer("/sounds-fx/scratch.mp3"));
 
     }
 
