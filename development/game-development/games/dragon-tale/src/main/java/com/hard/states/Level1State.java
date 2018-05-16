@@ -21,7 +21,7 @@ public class Level1State extends GameState {
 
     private Player player;
 
-    private ArrayList<Enemy> enemies;//TODO List
+    private List<Enemy> enemies;
     private List<Explosion> explosions;
 
     private Hud hud;

@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Player extends MapObject {
     // player stuff
@@ -120,7 +121,7 @@ public class Player extends MapObject {
         animation.setFrames(sprites.get(IDLE));
         animation.setDelay(400);
 
-        sfx = new HashMap<String, AudioPlayer>();
+        sfx = new HashMap<>();
         sfx.put("jump", new AudioPlayer("/sounds-fx/jump.mp3"));
         sfx.put("scratch", new AudioPlayer("/sounds-fx/scratch.mp3"));
 
@@ -154,7 +155,7 @@ public class Player extends MapObject {
         gliding = b;
     }
 
-    public void checkAttack(ArrayList<Enemy> enemies) {
+    public void checkAttack(List<Enemy> enemies) {
         // loop through enemies
         for (int i = 0; i < enemies.size(); i++) {
             Enemy enemy = enemies.get(i);
