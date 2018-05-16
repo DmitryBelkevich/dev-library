@@ -6,22 +6,26 @@ public class GameStateManager {
     private GameState[] gameStates;
     private int currentState;
 
-    public static final int NUMGAMESTATES = 2;
-    public static final int MENUSTATE = 0;
-    public static final int LEVEL1STATE = 1;
+    public static final int NUM_GAME_STATES = 2;
+    public static final int MENU_STATE = 0;
+    public static final int LEVEL_1_STATE = 1;
 
     public GameStateManager() {
-        gameStates = new GameState[NUMGAMESTATES];
+        gameStates = new GameState[NUM_GAME_STATES];
 
-        currentState = MENUSTATE;
+        currentState = MENU_STATE;
         loadState(currentState);
     }
 
     private void loadState(int state) {
-        if (state == MENUSTATE)
-            gameStates[state] = new MenuState(this);
-        if (state == LEVEL1STATE)
-            gameStates[state] = new Level1State(this);
+        switch (state) {
+            case MENU_STATE:
+                gameStates[state] = new MenuState(this);
+                break;
+            case LEVEL_1_STATE:
+                gameStates[state] = new Level1State(this);
+                break;
+        }
     }
 
     private void unloadState(int state) {
@@ -43,9 +47,9 @@ public class GameStateManager {
         }
     }
 
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D graphics) {
         try {
-            gameStates[currentState].draw(g);
+            gameStates[currentState].draw(graphics);
         } catch (Exception e) {
 
         }

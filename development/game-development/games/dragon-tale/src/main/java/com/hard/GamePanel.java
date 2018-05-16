@@ -23,15 +23,14 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 
     // image
     private BufferedImage image;
-    private Graphics2D g;
+    private Graphics2D graphics;
 
     // game state manager
-    private GameStateManager gsm;
+    private GameStateManager gameStateManager;
 
     public GamePanel() {
         super();
-        setPreferredSize(
-                new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
+        setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
         setFocusable(true);
         requestFocus();
     }
@@ -46,15 +45,12 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     private void init() {
-        image = new BufferedImage(
-                WIDTH, HEIGHT,
-                BufferedImage.TYPE_INT_RGB
-        );
-        g = (Graphics2D) image.getGraphics();
+        image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+        graphics = (Graphics2D) image.getGraphics();
 
         running = true;
 
-        gsm = new GameStateManager();
+        gameStateManager = new GameStateManager();
     }
 
     public void run() {
@@ -87,19 +83,17 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     private void update() {
-        gsm.update();
+        gameStateManager.update();
     }
 
     private void draw() {
-        gsm.draw(g);
+        gameStateManager.draw(graphics);
     }
 
     private void drawToScreen() {
-        Graphics g2 = getGraphics();
-        g2.drawImage(image, 0, 0,
-                WIDTH * SCALE, HEIGHT * SCALE,
-                null);
-        g2.dispose();
+        Graphics graphics = getGraphics();
+        graphics.drawImage(image, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
+        graphics.dispose();
     }
 
     public void keyTyped(KeyEvent key) {
@@ -107,10 +101,10 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
     }
 
     public void keyPressed(KeyEvent key) {
-        gsm.keyPressed(key.getKeyCode());
+        gameStateManager.keyPressed(key.getKeyCode());
     }
 
     public void keyReleased(KeyEvent key) {
-        gsm.keyReleased(key.getKeyCode());
+        gameStateManager.keyReleased(key.getKeyCode());
     }
 }
