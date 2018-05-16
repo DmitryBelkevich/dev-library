@@ -96,33 +96,38 @@ public class TileMap {
     }
 
     public void loadMap(String path) {
+        Class<?> clazz = this.getClass();
+        InputStream inputStream = clazz.getResourceAsStream(path);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
         try {
-            InputStream in = getClass().getResourceAsStream(path);
-            BufferedReader br = new BufferedReader(
-                    new InputStreamReader(in)
-            );
-
-            numCols = Integer.parseInt(br.readLine());
-            numRows = Integer.parseInt(br.readLine());
-            map = new int[numRows][numCols];
-            width = numCols * tileSize;
-            height = numRows * tileSize;
-
-            xMin = GamePanel.WIDTH - width;
-            xMax = 0;
-            yMin = GamePanel.HEIGHT - height;
-            yMax = 0;
-
-            String delims = "\\s+";
-            for (int row = 0; row < numRows; row++) {
-                String line = br.readLine();
-                String[] tokens = line.split(delims);
-                for (int col = 0; col < numCols; col++) {
-                    map[row][col] = Integer.parseInt(tokens[col]);
-                }
-            }
-        } catch (Exception e) {
+            numCols = Integer.parseInt(bufferedReader.readLine());
+            numRows = Integer.parseInt(bufferedReader.readLine());
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        map = new int[numRows][numCols];
+        width = numCols * tileSize;
+        height = numRows * tileSize;
+
+        xMin = GamePanel.WIDTH - width;
+        xMax = 0;
+        yMin = GamePanel.HEIGHT - height;
+        yMax = 0;
+
+        String delims = "\\s+";
+        for (int row = 0; row < numRows; row++) {
+            String line = null;
+            try {
+                line = bufferedReader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String[] tokens = line.split(delims);
+            for (int col = 0; col < numCols; col++)
+                map[row][col] = Integer.parseInt(tokens[col]);
         }
     }
 
