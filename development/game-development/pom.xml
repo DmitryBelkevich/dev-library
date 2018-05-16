@@ -14,6 +14,8 @@
 
     <name>${project.artifactId}</name>
 
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+
+    <modules></modules>
 
 </project>
