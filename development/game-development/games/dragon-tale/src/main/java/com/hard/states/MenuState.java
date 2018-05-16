@@ -75,6 +75,7 @@ public class MenuState extends GameState {
             if (currentChoice == -1)
                 currentChoice = options.length - 1;
         }
+
         if (key == KeyEvent.VK_DOWN) {
             currentChoice++;
 
