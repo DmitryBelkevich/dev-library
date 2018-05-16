@@ -40,26 +40,30 @@ public class GameStateManager {
     }
 
     public void update() {
+        GameState gameState = gameStates[currentState];
         try {
-            gameStates[currentState].update();
+            gameState.update();
         } catch (Exception e) {
 
         }
     }
 
     public void draw(Graphics2D graphics) {
+        GameState gameState = gameStates[currentState];
         try {
-            gameStates[currentState].draw(graphics);
+            gameState.draw(graphics);
         } catch (Exception e) {
 
         }
     }
 
     public void keyPressed(int k) {
-        gameStates[currentState].keyPressed(k);
+        GameState gameState = gameStates[currentState];
+        gameState.keyPressed(k);
     }
 
     public void keyReleased(int k) {
-        gameStates[currentState].keyReleased(k);
+        GameState gameState = gameStates[currentState];
+        gameState.keyReleased(k);
     }
 }
