@@ -36,7 +36,7 @@ public class Level1State extends GameState {
     public void init() {
 
         tileMap = new TileMap(30);
-        tileMap.loadTiles("/Tilesets/grass_tileset.gif");
+        tileMap.loadTiles("/tilesets/grass_tileset.gif");
         tileMap.loadMap("/maps/level1-1.map");
         tileMap.setPosition(0, 0);
         tileMap.setTween(1);
