@@ -17,6 +17,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!--<module>galaxy</module>-->
+        <module>dragon-tale</module>
+        <module>artifact</module>
     </modules>
 
     <properties>
