@@ -130,6 +130,7 @@ public class TileMap {
         int rc = map[row][col];
         int r = rc / numTilesAcross;
         int c = rc % numTilesAcross;
+
         return tiles[r][c].getType();
     }
 
@@ -162,10 +163,7 @@ public class TileMap {
             if (row >= numRows)
                 break;
 
-            for (
-                    int col = colOffset;
-                    col < colOffset + numColsToDraw;
-                    col++) {
+            for (int col = colOffset; col < colOffset + numColsToDraw; col++) {
                 if (col >= numCols)
                     break;
 
@@ -176,12 +174,7 @@ public class TileMap {
                 int r = rc / numTilesAcross;
                 int c = rc % numTilesAcross;
 
-                graphics.drawImage(
-                        tiles[r][c].getImage(),
-                        (int) x + col * tileSize,
-                        (int) y + row * tileSize,
-                        null
-                );
+                graphics.drawImage(tiles[r][c].getImage(), (int) x + col * tileSize, (int) y + row * tileSize, null);
             }
         }
     }
