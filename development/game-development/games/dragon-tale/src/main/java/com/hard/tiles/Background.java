@@ -5,10 +5,10 @@ import com.hard.GamePanel;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class Background {
-    private BufferedImage image;
-
     private double x;
     private double y;
     private double dx;
@@ -16,15 +16,18 @@ public class Background {
 
     private double moveScale;
 
-    public Background(String s, double ms) {
+    private BufferedImage image;
+
+    public Background(String path, double moveScale) {
+        Class<?> clazz = this.getClass();
+        InputStream inputStream = clazz.getResourceAsStream(path);
         try {
-            image = ImageIO.read(
-                    getClass().getResourceAsStream(s)
-            );
-            moveScale = ms;
-        } catch (Exception e) {
+            image = ImageIO.read(inputStream);
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
+        this.moveScale = moveScale;
     }
 
     public void setPosition(double x, double y) {
@@ -42,24 +45,13 @@ public class Background {
         y += dy;
     }
 
-    public void draw(Graphics2D g) {
-        g.drawImage(image, (int) x, (int) y, null);
+    public void draw(Graphics2D graphics) {
+        graphics.drawImage(image, (int) x, (int) y, null);
 
-        if (x < 0) {
-            g.drawImage(
-                    image,
-                    (int) x + GamePanel.WIDTH,
-                    (int) y,
-                    null
-            );
-        }
-        if (x > 0) {
-            g.drawImage(
-                    image,
-                    (int) x - GamePanel.WIDTH,
-                    (int) y,
-                    null
-            );
-        }
+        if (x < 0)
+            graphics.drawImage(image, (int) x + GamePanel.WIDTH, (int) y, null);
+
+        if (x > 0)
+            graphics.drawImage(image, (int) x - GamePanel.WIDTH, (int) y, null);
     }
 }

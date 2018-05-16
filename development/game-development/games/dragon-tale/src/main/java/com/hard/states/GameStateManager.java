@@ -57,13 +57,13 @@ public class GameStateManager {
         }
     }
 
-    public void keyPressed(int k) {
+    public void keyPressed(int key) {
         GameState gameState = gameStates[currentState];
-        gameState.keyPressed(k);
+        gameState.keyPressed(key);
     }
 
-    public void keyReleased(int k) {
+    public void keyReleased(int key) {
         GameState gameState = gameStates[currentState];
-        gameState.keyReleased(k);
+        gameState.keyReleased(key);
     }
 }
