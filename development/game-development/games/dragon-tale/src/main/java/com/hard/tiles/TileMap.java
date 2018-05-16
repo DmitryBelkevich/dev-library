@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -15,10 +16,10 @@ public class TileMap {
     private double y;
 
     // bounds
-    private int xmin;
-    private int ymin;
-    private int xmax;
-    private int ymax;
+    private int xMin;
+    private int yMin;
+    private int xMax;
+    private int yMax;
 
     private double tween;
 
@@ -48,39 +49,51 @@ public class TileMap {
         tween = 0.07;
     }
 
-    public void loadTiles(String s) {
-        try {
-            tileset = ImageIO.read(
-                    getClass().getResourceAsStream(s)
-            );
-            numTilesAcross = tileset.getWidth() / tileSize;
-            tiles = new Tile[2][numTilesAcross];
+    public double getX() {
+        return x;
+    }
 
-            BufferedImage subimage;
-            for (int col = 0; col < numTilesAcross; col++) {
-                subimage = tileset.getSubimage(
-                        col * tileSize,
-                        0,
-                        tileSize,
-                        tileSize
-                );
-                tiles[0][col] = new Tile(subimage, Tile.NORMAL);
-                subimage = tileset.getSubimage(
-                        col * tileSize,
-                        tileSize,
-                        tileSize,
-                        tileSize
-                );
-                tiles[1][col] = new Tile(subimage, Tile.BLOCKED);
-            }
-        } catch (Exception e) {
+    public double getY() {
+        return y;
+    }
+
+    public int getTileSize() {
+        return tileSize;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void loadTiles(String path) {
+        Class<?> clazz = this.getClass();
+        InputStream inputStream = clazz.getResourceAsStream(path);
+        try {
+            tileset = ImageIO.read(inputStream);
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        numTilesAcross = tileset.getWidth() / tileSize;
+        tiles = new Tile[2][numTilesAcross];
+
+        BufferedImage subImage;
+        for (int col = 0; col < numTilesAcross; col++) {
+            subImage = tileset.getSubimage(col * tileSize, 0, tileSize, tileSize);
+            tiles[0][col] = new Tile(subImage, Tile.NORMAL);
+
+            subImage = tileset.getSubimage(col * tileSize, tileSize, tileSize, tileSize);
+            tiles[1][col] = new Tile(subImage, Tile.BLOCKED);
         }
     }
 
-    public void loadMap(String s) {
+    public void loadMap(String path) {
         try {
-            InputStream in = getClass().getResourceAsStream(s);
+            InputStream in = getClass().getResourceAsStream(path);
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(in)
             );
@@ -91,10 +104,10 @@ public class TileMap {
             width = numCols * tileSize;
             height = numRows * tileSize;
 
-            xmin = GamePanel.WIDTH - width;
-            xmax = 0;
-            ymin = GamePanel.HEIGHT - height;
-            ymax = 0;
+            xMin = GamePanel.WIDTH - width;
+            xMax = 0;
+            yMin = GamePanel.HEIGHT - height;
+            yMax = 0;
 
             String delims = "\\s+";
             for (int row = 0; row < numRows; row++) {
@@ -107,27 +120,6 @@ public class TileMap {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-    }
-
-    public int getTileSize() {
-        return tileSize;
-    }
-
-    public double getx() {
-        return x;
-    }
-
-    public double gety() {
-        return y;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
     public int getType(int row, int col) {
@@ -152,17 +144,21 @@ public class TileMap {
     }
 
     private void fixBounds() {
-        if (x < xmin) x = xmin;
-        if (y < ymin) y = ymin;
-        if (x > xmax) x = xmax;
-        if (y > ymax) y = ymax;
+        if (x < xMin)
+            x = xMin;
+
+        if (y < yMin)
+            y = yMin;
+
+        if (x > xMax)
+            x = xMax;
+
+        if (y > yMax)
+            y = yMax;
     }
 
-    public void draw(Graphics2D g) {
-        for (
-                int row = rowOffset;
-                row < rowOffset + numRowsToDraw;
-                row++) {
+    public void draw(Graphics2D graphics) {
+        for (int row = rowOffset; row < rowOffset + numRowsToDraw; row++) {
             if (row >= numRows)
                 break;
 
@@ -180,7 +176,7 @@ public class TileMap {
                 int r = rc / numTilesAcross;
                 int c = rc % numTilesAcross;
 
-                g.drawImage(
+                graphics.drawImage(
                         tiles[r][c].getImage(),
                         (int) x + col * tileSize,
                         (int) y + row * tileSize,

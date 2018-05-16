@@ -190,8 +190,8 @@ public abstract class MapObject {
     }
 
     public void setMapPosition() {
-        xMap = tileMap.getx();
-        yMap = tileMap.gety();
+        xMap = tileMap.getX();
+        yMap = tileMap.getY();
     }
 
     public void setLeft(boolean b) {
