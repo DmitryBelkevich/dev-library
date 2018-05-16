@@ -108,10 +108,10 @@ public class TileMap {
             ymin = GamePanel.HEIGHT - height;
             ymax = 0;
 
-            String delims = "\\s+";
+            String delimeters = "\\s+";
             for (int row = 0; row < numRows; row++) {
                 String line = br.readLine();
-                String[] tokens = line.split(delims);
+                String[] tokens = line.split(delimeters);
                 for (int col = 0; col < numCols; col++) {
                     map[row][col] = Integer.parseInt(tokens[col]);
                 }
