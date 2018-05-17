@@ -43,9 +43,9 @@ public class Client {
      */
 
     //rtsp states
-    private final static int INIT = 0;
-    private final static int READY = 1;
-    private final static int PLAYING = 2;
+    private static final int INIT = 0;
+    private static final int READY = 1;
+    private static final int PLAYING = 2;
     private static int state; //RTSP state == INIT or READY or PLAYING
     private Socket rtspSocket; //socket used to send/receive RTSP messages
 
@@ -56,7 +56,7 @@ public class Client {
     private int rtspSequenceNumber = 0; //Sequence number of RTSP messages within the session
     private int rtspId = 0; //ID of the RTSP session (given by the RTSP Server)
 
-    private final static String CRLF = "\r\n";
+    private static final String CRLF = "\r\n";
 
     /**
      * Video constants
