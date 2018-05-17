@@ -15,7 +15,7 @@ public class Main {
 
 class Game {
     private volatile boolean isRunning;
-    private JPanel panel = new JPanel();
+    private JPanel panel;
 
     private static final String TITLE = "Game";
     private static final double SCALE = 1;
@@ -36,7 +36,7 @@ class Game {
     private double dx = 0;
     private double dy = 0;
 
-    private double speed = 50;
+    private double speed = 5;
 
     // moving
     private boolean left = false;
@@ -125,13 +125,14 @@ class Game {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        frame.addKeyListener(keyListener);
-
+        panel = new JPanel();
         panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         frame.setContentPane(panel);
 
         frame.pack();
         frame.setVisible(true);
+
+        frame.addKeyListener(keyListener);
     }
 
     private void init() {
