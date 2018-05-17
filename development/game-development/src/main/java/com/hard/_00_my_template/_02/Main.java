@@ -54,6 +54,7 @@ class Game {
         while (isRunning) {
             // update
 
+            // check moving
             if (left)
                 dx = -speed;
 
@@ -66,9 +67,11 @@ class Game {
             if (down)
                 dy = speed;
 
+            // moving
             x += dx;
             y += dy;
 
+            // check collision
             if (x <= 0)
                 x = 0;
 
@@ -81,6 +84,7 @@ class Game {
             if (y >= HEIGHT - h)
                 y = HEIGHT - h;
 
+            // stop moving
             dx = 0;
             dy = 0;
 
