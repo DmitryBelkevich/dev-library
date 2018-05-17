@@ -15,10 +15,10 @@ public class Singleton {
 }
 
 /**
- * Initialization on Demand Holder
+ * Initialization on Demand Holder:
  *
- * + объект инициализируется при первом вызове метода getInstance() (ленивая инициализация)
- *
+ * + lazy initialization
+ * + multithreading safe
  * - отсутствует возможность обработки исключительных ситуаций (exceptions) во время вызова конструктора
  *
  * можно использовать:
