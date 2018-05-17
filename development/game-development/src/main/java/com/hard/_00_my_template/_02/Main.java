@@ -26,8 +26,8 @@ class Game {
     private Graphics2D graphics = (Graphics2D) image.getGraphics();
 
     // entity
-    private int w = 200;
-    private int h = 200;
+    private int w = 64;
+    private int h = 64;
 
     private double x = WIDTH / 2 - w / 2;
     private double y = HEIGHT / 2 - h / 2;
