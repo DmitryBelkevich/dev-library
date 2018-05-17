@@ -15,4 +15,17 @@ public class SingletonTest {
 
         Assert.assertSame(singleton1, singleton2);
     }
+
+    /**
+     * проверка на многопоточность
+     */
+
+    @Test
+    public void should_work_in_multithreading() {
+        for (int i = 0; i < 1_000; i++) {
+            new Thread(() -> {
+                System.out.println(Singleton.getInstance());
+            }).start();
+        }
+    }
 }
