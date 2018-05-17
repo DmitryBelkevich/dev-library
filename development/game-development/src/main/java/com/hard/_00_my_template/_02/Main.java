@@ -53,55 +53,8 @@ class Game {
         init();
 
         while (isRunning) {
-            // update
-
-            // check moving
-            if (left)
-                dx = -speed;
-
-            if (right)
-                dx = speed;
-
-            if (up)
-                dy = -speed;
-
-            if (down)
-                dy = speed;
-
-            // moving
-            x += dx;
-            y += dy;
-
-            // check collision
-            if (x <= 0)
-                x = 0;
-
-            if (y <= 0)
-                y = 0;
-
-            if (x >= WIDTH - w)
-                x = WIDTH - w;
-
-            if (y >= HEIGHT - h)
-                y = HEIGHT - h;
-
-            // stop moving
-            dx = 0;
-            dy = 0;
-
-            // draw
-            graphics.setColor(new Color(255, 0, 0, 255));
-            graphics.fillOval((int) x, (int) y, w, h);
-
-            String str =
-                    "x: " + x
-                            + ";\t    y: " + y
-                            + ";\t    dx: " + dx
-                            + ";\t    dy: " + dy
-                            + ";\t    speed: " + speed;
-            graphics.setColor(new Color(0, 255, 0, 255));
-            graphics.drawString(str, 50, 50);
-
+            update();
+            draw();
             display(image);
             clearScreen(graphics);
 
@@ -140,6 +93,62 @@ class Game {
 
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+    }
+
+    private void update() {
+        // check moving
+
+        if (left)
+            dx = -speed;
+
+        if (right)
+            dx = speed;
+
+        if (up)
+            dy = -speed;
+
+        if (down)
+            dy = speed;
+
+        // moving
+
+        x += dx;
+        y += dy;
+
+        // check collision
+
+        if (x <= 0)
+            x = 0;
+
+        if (y <= 0)
+            y = 0;
+
+        if (x >= WIDTH - w)
+            x = WIDTH - w;
+
+        if (y >= HEIGHT - h)
+            y = HEIGHT - h;
+
+        // stop moving
+
+        dx = 0;
+        dy = 0;
+    }
+
+    private void draw() {
+        // drawing entity
+        graphics.setColor(new Color(255, 0, 0, 255));
+        graphics.fillOval((int) x, (int) y, w, h);
+
+        // drawing console
+        String str =
+                "x: " + x
+                        + ";\t    y: " + y
+                        + ";\t    dx: " + dx
+                        + ";\t    dy: " + dy
+                        + ";\t    speed: " + speed;
+        graphics.setColor(new Color(0, 255, 0, 255));
+        graphics.drawString(str, 50, 50);
     }
 
     private void display(BufferedImage image) {
