@@ -37,6 +37,12 @@ class Game {
 
     private double speed = 5;
 
+    // moving
+    private boolean left = false;
+    private boolean right = false;
+    private boolean up = false;
+    private boolean down = false;
+
     /**
      * Game loop
      */
@@ -47,6 +53,18 @@ class Game {
 
         while (isRunning) {
             // update
+
+            if (left)
+                dx = -speed;
+
+            if (right)
+                dx = speed;
+
+            if (up)
+                dy = -speed;
+
+            if (down)
+                dy = speed;
 
             x += dx;
             y += dy;
@@ -62,6 +80,9 @@ class Game {
 
             if (y >= HEIGHT - h)
                 y = HEIGHT - h;
+
+            dx = 0;
+            dy = 0;
 
             // draw
             graphics.setColor(new Color(255, 0, 0, 255));
@@ -129,35 +150,39 @@ class Game {
 
         @Override
         public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+            int keyCode = e.getKeyCode();
+
+            if (keyCode == KeyEvent.VK_ESCAPE)
                 isRunning = false;
 
-            if (e.getKeyCode() == KeyEvent.VK_LEFT)
-                dx = -speed;
+            if (keyCode == KeyEvent.VK_LEFT)
+                left = true;
 
-            if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-                dx = speed;
+            if (keyCode == KeyEvent.VK_RIGHT)
+                right = true;
 
-            if (e.getKeyCode() == KeyEvent.VK_UP)
-                dy = -speed;
+            if (keyCode == KeyEvent.VK_UP)
+                up = true;
 
-            if (e.getKeyCode() == KeyEvent.VK_DOWN)
-                dy = speed;
+            if (keyCode == KeyEvent.VK_DOWN)
+                down = true;
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_LEFT)
-                dx = 0;
+            int keyCode = e.getKeyCode();
 
-            if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-                dx = 0;
+            if (keyCode == KeyEvent.VK_LEFT)
+                left = false;
 
-            if (e.getKeyCode() == KeyEvent.VK_UP)
-                dy = 0;
+            if (keyCode == KeyEvent.VK_RIGHT)
+                right = false;
 
-            if (e.getKeyCode() == KeyEvent.VK_DOWN)
-                dy = 0;
+            if (keyCode == KeyEvent.VK_UP)
+                up = false;
+
+            if (keyCode == KeyEvent.VK_DOWN)
+                down = false;
         }
     };
 }
