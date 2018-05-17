@@ -501,10 +501,12 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             isRunning = false;
     }
 
+    @Override
     public void keyTyped(KeyEvent key) {
 
     }
 
+    @Override
     public void keyPressed(KeyEvent key) {
         int keyCode = key.getKeyCode();
 
@@ -524,6 +526,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
             player.setFiring(true);
     }
 
+    @Override
     public void keyReleased(KeyEvent key) {
         int keyCode = key.getKeyCode();
 
