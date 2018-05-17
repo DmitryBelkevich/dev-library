@@ -17,6 +17,15 @@ public class SingletonTest {
     }
 
     /**
+     * Проверка на lazy initialization
+     */
+
+    @Test
+    public void should_have_lazy_initialization() {
+//        String str = Singleton.str;
+    }
+
+    /**
      * проверка на многопоточность
      */
 
