@@ -1,4 +1,4 @@
-package com.hard._5_double_checked_locking;
+package com.hard._04_lazy;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -30,8 +30,8 @@ public class SingletonTest {
      */
 
     @Test
-    public void should_work_in_multithreading() {
-        for (int i = 0; i < 1_000; i++) {
+    public void should_not_work_in_multithreading() {
+        for (int i = 0; i < 1000; i++) {
             new Thread(() -> {
                 System.out.println(Singleton.getInstance());
             }).start();

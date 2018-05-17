@@ -1,4 +1,4 @@
-package com.hard._5_double_checked_locking;
+package com.hard._06_double_checked_locking;
 
 public class Singleton {
     private static volatile Singleton instance;

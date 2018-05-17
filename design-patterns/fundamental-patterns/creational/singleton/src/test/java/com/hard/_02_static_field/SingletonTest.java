@@ -1,4 +1,4 @@
-package com.hard._1_not_lazy;
+package com.hard._02_static_field;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,8 +10,8 @@ public class SingletonTest {
 
     @Test
     public void should_be_the_same_object_by_creating() {
-        Singleton singleton1 = Singleton.getInstance();
-        Singleton singleton2 = Singleton.getInstance();
+        Singleton singleton1 = Singleton.instance;
+        Singleton singleton2 = Singleton.instance;
 
         Assert.assertSame(singleton1, singleton2);
     }
@@ -33,7 +33,7 @@ public class SingletonTest {
     public void should_work_in_multithreading() {
         for (int i = 0; i < 1_000; i++) {
             new Thread(() -> {
-                System.out.println(Singleton.getInstance());
+                System.out.println(Singleton.instance);
             }).start();
         }
     }

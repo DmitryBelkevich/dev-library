@@ -1,4 +1,4 @@
-package com.hard._3_Initialization_on_Demand_Holder;
+package com.hard._07_Initialization_on_Demand_Holder;
 
 import org.junit.Assert;
 import org.junit.Test;

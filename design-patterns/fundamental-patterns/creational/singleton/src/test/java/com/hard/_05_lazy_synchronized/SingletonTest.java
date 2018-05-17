@@ -1,4 +1,4 @@
-package com.hard._4_lazy_synchronized;
+package com.hard._05_lazy_synchronized;
 
 import org.junit.Assert;
 import org.junit.Test;

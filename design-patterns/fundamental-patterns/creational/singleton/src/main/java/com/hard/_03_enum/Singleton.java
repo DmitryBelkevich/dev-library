@@ -1,4 +1,4 @@
-package com.hard._7_enum;
+package com.hard._03_enum;
 
 public enum Singleton {
     instance

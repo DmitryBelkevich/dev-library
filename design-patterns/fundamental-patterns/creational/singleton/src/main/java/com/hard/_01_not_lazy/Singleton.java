@@ -1,4 +1,4 @@
-package com.hard._1_not_lazy;
+package com.hard._01_not_lazy;
 
 public class Singleton {
     private static Singleton instance = new Singleton();
