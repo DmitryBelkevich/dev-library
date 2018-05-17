@@ -1,22 +1,10 @@
 package com.hard;
 
-public class Main {
-    public static void main(String[] args) {
-        DoubleCheckedLocking doubleCheckedLocking = new DoubleCheckedLocking();
-
-        Entity entity = doubleCheckedLocking.getEntity();
-    }
-}
-
-class Entity {
-
-}
-
 /**
  * Double checked locking
  */
 
-class DoubleCheckedLocking {
+public class DoubleCheckedLocking {
     private volatile Entity entity = null;
 
     public Entity getEntity() {
