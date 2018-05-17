@@ -35,7 +35,7 @@ class Entity2 {
 }
 
 class Entity {
-    private final static Entity2 entity2 = new Entity2();
+    private static final Entity2 entity2 = new Entity2();
 
     public static void execute() {
         synchronized (entity2) {
