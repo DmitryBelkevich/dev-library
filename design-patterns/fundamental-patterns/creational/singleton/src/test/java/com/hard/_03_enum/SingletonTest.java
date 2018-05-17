@@ -31,10 +31,31 @@ public class SingletonTest {
 
     @Test
     public void should_work_in_multithreading() {
-        for (int i = 0; i < 1_000; i++) {
-            new Thread(() -> {
-                System.out.println(Singleton.instance);
-            }).start();
+        final int n = 1_000;
+        Singleton[] singletons = new Singleton[n];
+
+        Thread[] threads = new Thread[n];
+
+        for (int i = 0; i < n; i++) {
+            int j = i;
+
+            threads[i] = new Thread(() -> {
+                singletons[j] = Singleton.instance;
+            });
         }
+
+        for (Thread thread : threads)
+            thread.start();
+
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        for (int i = 1; i < n; i++)
+            Assert.assertSame(singletons[0], singletons[i]);
     }
 }
