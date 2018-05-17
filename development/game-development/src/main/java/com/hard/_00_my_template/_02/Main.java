@@ -15,8 +15,9 @@ public class Main {
 
 class Game {
     private volatile boolean isRunning;
-    private JFrame frame = new JFrame("Game");
+    private JPanel panel = new JPanel();
 
+    private static final String TITLE = "Game";
     private static final double SCALE = 1;
     private static final int WIDTH = (int) (640 * SCALE);
     private static final int HEIGHT = (int) (480 * SCALE);
@@ -35,7 +36,7 @@ class Game {
     private double dx = 0;
     private double dy = 0;
 
-    private double speed = 5;
+    private double speed = 50;
 
     // moving
     private boolean left = false;
@@ -116,6 +117,8 @@ class Game {
     }
 
     private void createGui() {
+        JFrame frame = new JFrame(TITLE);
+
         frame.setSize(WIDTH, HEIGHT);
 
         frame.setResizable(false);
@@ -124,7 +127,10 @@ class Game {
 
         frame.addKeyListener(keyListener);
 
-//        frame.pack();
+        panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        frame.setContentPane(panel);
+
+        frame.pack();
         frame.setVisible(true);
     }
 
@@ -136,7 +142,7 @@ class Game {
     }
 
     private void display(BufferedImage image) {
-        Graphics graphics = frame.getGraphics();
+        Graphics graphics = panel.getGraphics();
         graphics.drawImage(image, 0, 0, null);
         graphics.dispose();
     }
