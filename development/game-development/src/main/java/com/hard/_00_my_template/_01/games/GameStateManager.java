@@ -1,7 +1,7 @@
-package com.hard._00_my_game.games;
+package com.hard._00_my_template._01.games;
 
-import com.hard._00_my_game.repository.File;
-import com.hard._00_my_game.repository.GameStateSaver;
+import com.hard._00_my_template._01.repository.File;
+import com.hard._00_my_template._01.repository.GameStateSaver;
 
 import java.awt.*;
 import java.util.ArrayList;

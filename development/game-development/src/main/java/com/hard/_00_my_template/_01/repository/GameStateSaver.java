@@ -1,4 +1,4 @@
-package com.hard._00_my_game.repository;
+package com.hard._00_my_template._01.repository;
 
 import java.util.ArrayList;
 import java.util.List;

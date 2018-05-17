@@ -1,36 +1,35 @@
-package com.hard._00_my_game.games.game1.states;
+package com.hard._00_my_template._01.games.game1.states;
 
-import com.hard._00_my_game.GameFrame;
-import com.hard._00_my_game.games.GameState;
-import com.hard._00_my_game.games.GameStateManager;
-import com.hard._00_my_game.games.game1.entities.Background;
-import com.hard._00_my_game.games.game1.entities.Entity;
-import com.hard._00_my_game.games.game1.entities.Text;
+import com.hard._00_my_template._01.games.GameState;
+import com.hard._00_my_template._01.games.GameStateManager;
+import com.hard._00_my_template._01.games.game1.entities.Background;
+import com.hard._00_my_template._01.games.game1.entities.Entity;
+import com.hard._00_my_template._01.games.game1.entities.Player;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class GameOverState extends GameState {
+public class Level1State extends GameState {
     private Entity background;
-    private Text menu;
+    private Entity player;
 
-    public GameOverState(GameStateManager gameStateManager) {
+    public Level1State(GameStateManager gameStateManager) {
         super(gameStateManager);
 
         this.background = new Background(0, 0);
-        this.menu = new Text("Game Over", GameFrame.WIDTH / 2, GameFrame.HEIGHT / 2);
+        this.player = new Player(0, 0);
     }
 
     @Override
     public void update() {
         background.update();
-        menu.update();
+        player.update();
     }
 
     @Override
     public void draw(Graphics graphics) {
         background.draw(graphics);
-        menu.draw(graphics);
+        player.draw(graphics);
     }
 
     @Override
@@ -49,6 +48,11 @@ public class GameOverState extends GameState {
             GameState gameState = gameStateManager.getGameState(2);
             gameStateManager.setCurrentGameState(gameState);
         }
+
+        // save
+
+        if (key == KeyEvent.VK_S)
+            gameStateManager.save(this);
 
         // load
 
