@@ -1,4 +1,4 @@
-package com.hard._1_template;
+package com.hard._1_example;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,19 +10,23 @@ public class Main {
     }
 
     // Rule: str1 or str2 contains 'aaa'
-    public static Expression getOrExpression() {
-        Expression str1 = new TerminalExpression("aaa");
-        Expression str2 = new TerminalExpression("bbb");
+    public static NonTerminalExpression getOrExpression() {
+        TerminalExpression expression1 = new ContainsExpression("aaa");
+        TerminalExpression expression2 = new ContainsExpression("bbb");
 
-        return new OrExpression(str1, str2);
+        NonTerminalExpression expression = new OrExpression(expression1, expression2);
+
+        return expression;
     }
 
     // Rule: str1 and str2 contains 'aaa bbb'
-    public static Expression getAndExpression() {
-        Expression str1 = new TerminalExpression("aaa");
-        Expression str2 = new TerminalExpression("bbb");
+    public static NonTerminalExpression getAndExpression() {
+        TerminalExpression expression1 = new ContainsExpression("aaa");
+        TerminalExpression expression2 = new ContainsExpression("bbb");
 
-        return new AndExpression(str1, str2);
+        NonTerminalExpression expression = new AndExpression(expression1, expression2);
+
+        return expression;
     }
 }
 
@@ -38,19 +42,11 @@ interface Expression {
  * Concrete Expression
  */
 
-class TerminalExpression implements Expression {
-    private String data;
+abstract class TerminalExpression implements Expression {
+    protected String data;
 
     public TerminalExpression(String data) {
         this.data = data;
-    }
-
-    @Override
-    public boolean interpret(String context) {
-        if (context.contains(data))
-            return true;
-
-        return false;
     }
 }
 
@@ -61,6 +57,20 @@ abstract class NonTerminalExpression implements Expression {
     public NonTerminalExpression(Expression expression1, Expression expression2) {
         this.expression1 = expression1;
         this.expression2 = expression2;
+    }
+}
+
+class ContainsExpression extends TerminalExpression {
+    public ContainsExpression(String data) {
+        super(data);
+    }
+
+    @Override
+    public boolean interpret(String context) {
+        if (context.contains(data))
+            return true;
+
+        return false;
     }
 }
 
