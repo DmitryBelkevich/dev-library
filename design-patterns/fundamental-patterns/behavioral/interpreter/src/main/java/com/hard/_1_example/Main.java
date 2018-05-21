@@ -5,8 +5,8 @@ public class Main {
         Expression orExpression = getOrExpression();
         Expression andExpression = getAndExpression();
 
-        System.out.println("str1 or str2 constrains 'aaa'? - " + orExpression.interpret("... aaa ..."));
-        System.out.println("str1 and str2 constrains 'aaa bbb'? - " + andExpression.interpret("... aaa ... bbb ..."));
+        System.out.println("a string '... aaa ...' contains 'aaa' or 'bbb' string? - " + orExpression.interpret("... aaa ..."));
+        System.out.println("a string '... aaa ... bbb ...' contains 'aaa' and 'bbb' string - " + andExpression.interpret("... aaa ... bbb ..."));
     }
 
     // Rule: a string '... aaa ...' contains 'aaa' or 'bbb' string
