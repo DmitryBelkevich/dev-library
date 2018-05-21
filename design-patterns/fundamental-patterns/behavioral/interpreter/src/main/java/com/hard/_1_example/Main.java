@@ -9,7 +9,7 @@ public class Main {
         System.out.println("str1 and str2 constrains 'aaa bbb'? - " + andExpression.interpret("... aaa ... bbb ..."));
     }
 
-    // Rule: a string '... aaa ...' contains str1 or str2
+    // Rule: a string '... aaa ...' contains 'aaa' or 'bbb' string
     public static NonTerminalExpression getOrExpression() {
         TerminalExpression expression1 = new ContainsExpression("aaa");
         TerminalExpression expression2 = new ContainsExpression("bbb");
@@ -19,7 +19,7 @@ public class Main {
         return expression;
     }
 
-    // Rule: a string '... aaa ... bbb ...' contains str1 and str2
+    // Rule: a string '... aaa ... bbb ...' contains 'aaa' and 'bbb' string
     public static NonTerminalExpression getAndExpression() {
         TerminalExpression expression1 = new ContainsExpression("aaa");
         TerminalExpression expression2 = new ContainsExpression("bbb");
