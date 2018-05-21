@@ -54,13 +54,19 @@ class TerminalExpression implements Expression {
     }
 }
 
-class OrExpression implements Expression {
-    private Expression expression1;
-    private Expression expression2;
+abstract class NonTerminalExpression implements Expression {
+    protected Expression expression1;
+    protected Expression expression2;
 
-    public OrExpression(Expression expression1, Expression expression2) {
+    public NonTerminalExpression(Expression expression1, Expression expression2) {
         this.expression1 = expression1;
         this.expression2 = expression2;
+    }
+}
+
+class OrExpression extends NonTerminalExpression {
+    public OrExpression(Expression expression1, Expression expression2) {
+        super(expression1, expression2);
     }
 
     @Override
@@ -69,13 +75,9 @@ class OrExpression implements Expression {
     }
 }
 
-class AndExpression implements Expression {
-    private Expression expression1;
-    private Expression expression2;
-
+class AndExpression extends NonTerminalExpression {
     public AndExpression(Expression expression1, Expression expression2) {
-        this.expression1 = expression1;
-        this.expression2 = expression2;
+        super(expression1, expression2);
     }
 
     @Override
