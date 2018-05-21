@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Context context = new Context();
 
-        Expression expression = context.evaluate("1+2+3+4-10");
+        Expression expression = context.evaluate("1+2+3+4");
         int result = expression.interpret();
 
         System.out.println(result);
@@ -23,11 +23,27 @@ interface Expression {
  * Concrete Expression
  */
 
-class NumberExpression implements Expression {
-    private int data;
+abstract class TerminalExpression implements Expression {
+    protected int data;
 
-    public NumberExpression(int data) {
+    public TerminalExpression(int data) {
         this.data = data;
+    }
+}
+
+abstract class NonTerminalExpression implements Expression {
+    protected Expression expression1;
+    protected Expression expression2;
+
+    public NonTerminalExpression(Expression expression1, Expression expression2) {
+        this.expression1 = expression1;
+        this.expression2 = expression2;
+    }
+}
+
+class NumberExpression extends TerminalExpression {
+    public NumberExpression(int data) {
+        super(data);
     }
 
     @Override
@@ -36,13 +52,9 @@ class NumberExpression implements Expression {
     }
 }
 
-class PlusExpression implements Expression {
-    private Expression expression1;
-    private Expression expression2;
-
+class PlusExpression extends NonTerminalExpression {
     public PlusExpression(Expression expression1, Expression expression2) {
-        this.expression1 = expression1;
-        this.expression2 = expression2;
+        super(expression1, expression2);
     }
 
     @Override
@@ -51,13 +63,9 @@ class PlusExpression implements Expression {
     }
 }
 
-class MinusExpression implements Expression {
-    private Expression expression1;
-    private Expression expression2;
-
+class MinusExpression extends NonTerminalExpression {
     public MinusExpression(Expression expression1, Expression expression2) {
-        this.expression1 = expression1;
-        this.expression2 = expression2;
+        super(expression1, expression2);
     }
 
     @Override
