@@ -3,10 +3,14 @@ package com.hard;
 import java.util.Stack;
 
 public class Postfix {
+    private char separator;
+
+    public Postfix() {
+        this.separator = ' ';
+    }
+
     public double evaluate(String expression) {
         Stack<Double> operands = new Stack<>();
-
-        char separator = ' ';
 
         for (int i = 0; i < expression.length(); i++) {
             char currentChar = expression.charAt(i);
@@ -52,5 +56,13 @@ public class Postfix {
         }
 
         return operands.pop();
+    }
+
+    public char getSeparator() {
+        return separator;
+    }
+
+    public void setSeparator(char separator) {
+        this.separator = separator;
     }
 }
