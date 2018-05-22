@@ -6,24 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library</artifactId>
+        <artifactId>tasks</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>tasks</artifactId>
+    <artifactId>infix-prefix-postfix</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>evaluate-consumed-time</module>
-        <module>factorial</module>
-        <module>infix-prefix-postfix</module>
-        <module>callback</module>
-        <module>clone-of-instance</module>
-        <module>protocols</module>
-        <module>ioc-framework</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
