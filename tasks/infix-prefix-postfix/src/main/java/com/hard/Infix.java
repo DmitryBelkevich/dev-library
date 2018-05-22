@@ -3,20 +3,6 @@ package com.hard;
 import java.util.Stack;
 
 public class Infix {
-    private char separator;
-
-    public Infix() {
-        this.separator = ' ';
-    }
-
-    public char getSeparator() {
-        return separator;
-    }
-
-    public void setSeparator(char separator) {
-        this.separator = separator;
-    }
-
     public String toPostfix(String infix) {
         Stack<Character> operators = new Stack<>();
 
@@ -26,7 +12,7 @@ public class Infix {
         for (int i = 0; i < infix.length(); i++) {
             char currentChar = infix.charAt(i);
 
-            if (currentChar == separator)
+            if (isSeparator(currentChar))
                 continue;
             else if (isOperand(currentChar)) {
                 StringBuilder digitBuilder = new StringBuilder();
@@ -53,7 +39,7 @@ public class Infix {
                     continue;
                 }
 
-                postfixBuilder.append(separator);
+                postfixBuilder.append(' ');
                 postfixBuilder.append(digitBuilder);
             } else if (isOperator(currentChar)) {
                 operators.push(currentChar);
@@ -61,7 +47,7 @@ public class Infix {
         }
 
         while (!operators.empty()) {
-            postfixBuilder.append(separator);
+            postfixBuilder.append(' ');
 
             char operator = operators.pop();
             postfixBuilder.append(operator);
@@ -72,6 +58,10 @@ public class Infix {
 
     public String toPrefix(String infix) {
         return null;
+    }
+
+    private boolean isSeparator(char character) {
+        return character == ' ';
     }
 
     private boolean isOperand(char character) {
