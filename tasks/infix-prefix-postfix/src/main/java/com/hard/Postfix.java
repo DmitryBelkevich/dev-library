@@ -31,8 +31,10 @@ public class Postfix {
                 while (true) {
                     currentChar = postfix.charAt(i);
 
-                    if (!isOperand(currentChar))
+                    if (!isOperand(currentChar)) {
+                        i--;
                         break;
+                    }
 
                     digitBuilder.append(currentChar);
 
