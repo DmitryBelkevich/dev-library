@@ -4,8 +4,43 @@ import java.util.Stack;
 
 public class Infix {
     public double evaluate(String infix) {
-        // TODO
-        return 0;
+        double result = 0;
+
+        for (int i = infix.length() - 1; i >= 0; i--) {
+            char currentChar = infix.charAt(i);
+
+            if (isSeparator(currentChar))
+                continue;
+            else if (isOperand(currentChar)) {
+
+            } else if (isOperator(currentChar)) {
+                String result1 = infix.substring(0, i);
+                double operand1 = evaluate(result1);
+
+                String result2 = infix.substring(i + 1, infix.length());
+                double operand2 = Double.valueOf(result2);
+
+                switch (currentChar) {
+                    case '+':
+                        result = operand1 + operand2;
+                        break;
+                    case '-':
+                        result = operand1 - operand2;
+                        break;
+                    case '*':
+                        result = operand1 * operand2;
+                        break;
+                    case '/':
+                        result = operand1 / operand2;
+                        break;
+                    case '^':
+                        result = Math.pow(operand1, operand2);
+                        break;
+                }
+            }
+        }
+
+        return result;
     }
 
     public String toPostfix(String infix) {//TODO brackets
