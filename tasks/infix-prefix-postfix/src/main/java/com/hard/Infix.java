@@ -135,4 +135,19 @@ public class Infix {
                 character == '/' ||
                 character == '^';
     }
+
+    private int precedence(char character) {
+        if (character == '(' || character == ')')
+            return 1;
+        else if (character == '-' || character == '+')
+            return 2;
+        else if (character == '*' || character == '/')
+            return 3;
+        else
+            return 0;
+    }
+
+    private boolean hasHigherPrecedence(char character1, char character2) {
+        return precedence(character1) >= precedence(character2);
+    }
 }
