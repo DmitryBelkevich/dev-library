@@ -19,7 +19,7 @@ public class InfixTest {
         public void should_convert_infix_to_postfix_2() {
             Infix infix = new Infix();
 
-            String expression = "2+2*2";
+            String expression = "2.0+2.0*2.0";
             String postfix = infix.toPostfix(expression);
 
             Assert.assertSame("2.0 2.0 2.0 * +", postfix);
@@ -29,7 +29,7 @@ public class InfixTest {
         public void should_convert_infix_to_postfix_3() {
             Infix infix = new Infix();
 
-            String expression = "2^3^2";
+            String expression = "2.0^3.0^2.0";
             String postfix = infix.toPostfix(expression);
 
             Assert.assertSame("2 3 2 ^ ^", postfix);
