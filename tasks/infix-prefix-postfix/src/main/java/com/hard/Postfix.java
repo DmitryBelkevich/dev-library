@@ -36,7 +36,7 @@ public class Postfix {
                 double operand = Double.valueOf(stringBuilder.toString());
 
                 operands.push(operand);
-            } else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/') {
+            } else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/' || currentChar == '^') {
                 double operand2 = operands.pop();
                 double operand1 = operands.pop();
 
@@ -52,6 +52,9 @@ public class Postfix {
                         break;
                     case '/':
                         operands.push(operand1 / operand2);
+                        break;
+                    case '^':
+                        operands.push(Math.pow(operand1, operand2));
                         break;
                 }
             }
