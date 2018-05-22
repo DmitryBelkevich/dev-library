@@ -12,7 +12,7 @@ public class InfixTest {
             String expression = "(2.0+2.0)*2.0";
             String postfix = infix.toPostfix(expression);
 
-            Assert.assertSame("2.0 2.0 + 2.0 *", postfix);
+            Assert.assertEquals("2.0 2.0 + 2.0 *", postfix);
         }
 
         @Test
@@ -22,7 +22,7 @@ public class InfixTest {
             String expression = "2.0+2.0*2.0";
             String postfix = infix.toPostfix(expression);
 
-            Assert.assertSame("2.0 2.0 2.0 * +", postfix);
+            Assert.assertEquals("2.0 2.0 2.0 * +", postfix);
         }
 
         @Test
@@ -32,7 +32,7 @@ public class InfixTest {
             String expression = "2.0^3.0^2.0";
             String postfix = infix.toPostfix(expression);
 
-            Assert.assertSame("2 3 2 ^ ^", postfix);
+            Assert.assertEquals("2 3 2 ^ ^", postfix);
         }
     }
 
@@ -44,7 +44,7 @@ public class InfixTest {
             String expression = "(2.0+2.0)*2.0";
             String prefix = infix.toPrefix(expression);
 
-            Assert.assertSame("* + 2.0 2.0 2.0", prefix);
+            Assert.assertEquals("* + 2.0 2.0 2.0", prefix);
         }
 
         @Test
@@ -54,7 +54,7 @@ public class InfixTest {
             String expression = "2.0+2.0*2.0";
             String prefix = infix.toPrefix(expression);
 
-            Assert.assertSame("+ * 2.0 2.0 2.0", prefix);
+            Assert.assertEquals("+ * 2.0 2.0 2.0", prefix);
         }
 
         @Test
@@ -64,7 +64,7 @@ public class InfixTest {
             String expression = "2.0^3.0^2.0";
             String prefix = infix.toPrefix(expression);
 
-            Assert.assertSame("^ 2.0 ^ 3.0 2.0", prefix);
+            Assert.assertEquals("^ 2.0 ^ 3.0 2.0", prefix);
         }
     }
 }
