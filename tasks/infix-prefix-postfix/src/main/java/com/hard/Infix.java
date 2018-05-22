@@ -161,6 +161,9 @@ public class Infix {
         if (character == '*' || character == '/')
             return 3;
 
+        if (character == '^')
+            return 4;
+
         return 0;
     }
 
