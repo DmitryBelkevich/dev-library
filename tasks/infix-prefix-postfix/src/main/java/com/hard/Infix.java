@@ -133,13 +133,16 @@ public class Infix {
                 character == '-' ||
                 character == '*' ||
                 character == '/' ||
-                character == '^';
+                character == '^' ||
+                character == '(' ||
+                character == ')'
+                ;
     }
 
     private int precedence(char character) {
         if (character == '(' || character == ')')
             return 1;
-        else if (character == '-' || character == '+')
+        else if (character == '+' || character == '-')
             return 2;
         else if (character == '*' || character == '/')
             return 3;
