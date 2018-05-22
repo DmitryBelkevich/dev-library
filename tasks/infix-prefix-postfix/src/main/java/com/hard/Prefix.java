@@ -17,54 +17,58 @@ public class Prefix {
         this.separator = separator;
     }
 
-    public double evaluate(String expression) {
+    public double evaluate(String prefix) {
         Stack<Double> operands = new Stack<>();
 
-        for (int i = expression.length() - 1; i >= 0; i--) {
-            char currentChar = expression.charAt(i);
+        for (int i = prefix.length() - 1; i >= 0; i--) {
+            char currentChar = prefix.charAt(i);
 
             if (currentChar == separator)
                 continue;
             else if (Character.isDigit(currentChar) || currentChar == '.') {
-                StringBuilder stringBuilder = new StringBuilder();
+                StringBuilder digitBuilder = new StringBuilder();
 
                 while (true) {
-                    currentChar = expression.charAt(i);
+                    currentChar = prefix.charAt(i);
 
                     if (!Character.isDigit(currentChar))
                         if (currentChar != '.')
                             if (currentChar == separator)
                                 break;
 
-                    stringBuilder.insert(0, currentChar);
+                    digitBuilder.insert(0, currentChar);
 
                     i--;
                 }
 
-                double operand = Double.valueOf(stringBuilder.toString());
+                double operand = Double.valueOf(digitBuilder.toString());
 
                 operands.push(operand);
             } else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/' || currentChar == '^') {
                 double operand1 = operands.pop();
                 double operand2 = operands.pop();
 
+                double result = 0;
+
                 switch (currentChar) {
                     case '+':
-                        operands.push(operand1 + operand2);
+                        result = operand1 + operand2;
                         break;
                     case '-':
-                        operands.push(operand1 - operand2);
+                        result = operand1 - operand2;
                         break;
                     case '*':
-                        operands.push(operand1 * operand2);
+                        result = operand1 * operand2;
                         break;
                     case '/':
-                        operands.push(operand1 / operand2);
+                        result = operand1 / operand2;
                         break;
                     case '^':
-                        operands.push(Math.pow(operand1, operand2));
+                        result = Math.pow(operand1, operand2);
                         break;
                 }
+
+                operands.push(result);
             }
         }
 
