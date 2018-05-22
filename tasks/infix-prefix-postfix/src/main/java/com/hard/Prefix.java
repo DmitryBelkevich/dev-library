@@ -31,9 +31,6 @@ public class Prefix {
                 while (true) {
                     currentChar = prefix.charAt(i);
 
-                    if (currentChar == separator)
-                        break;
-
                     if (!isOperand(currentChar))
                         break;
 

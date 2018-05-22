@@ -31,9 +31,6 @@ public class Postfix {
                 while (true) {
                     currentChar = postfix.charAt(i);
 
-                    if (currentChar == separator)
-                        break;
-
                     if (!isOperand(currentChar))
                         break;
 
