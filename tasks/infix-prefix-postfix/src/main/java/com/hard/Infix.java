@@ -154,9 +154,11 @@ public class Infix {
     private int precedence(char character) {
         if (character == '(' || character == ')')
             return 1;
-        else if (character == '+' || character == '-')
+
+        if (character == '+' || character == '-')
             return 2;
-        else if (character == '*' || character == '/')
+
+        if (character == '*' || character == '/')
             return 3;
 
         return 0;
