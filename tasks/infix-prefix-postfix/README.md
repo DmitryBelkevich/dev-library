@@ -20,4 +20,4 @@ operator operand operand
 Postfix:
 operand operand operator
     
-    +22*2
+    *+222
