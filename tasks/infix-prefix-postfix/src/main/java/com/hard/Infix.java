@@ -100,6 +100,11 @@ public class Infix {
                 postfixBuilder.append(' ');
                 postfixBuilder.append(digitBuilder);
             } else if (isOperator(currentChar)) {
+                while (!operators.isEmpty() && currentChar != '(' && hasHigherPrecedence(operators.peek(), currentChar)) {
+                    char operator = operators.pop();
+                    postfixBuilder.append(operator);
+                }
+
                 operators.push(currentChar);
             }
         }
@@ -146,8 +151,8 @@ public class Infix {
             return 2;
         else if (character == '*' || character == '/')
             return 3;
-        else
-            return 0;
+
+        return 0;
     }
 
     private boolean hasHigherPrecedence(char character1, char character2) {
