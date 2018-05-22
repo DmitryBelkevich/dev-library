@@ -101,6 +101,7 @@ public class Infix {
                 postfixBuilder.append(digitBuilder);
             } else if (isOperator(currentChar)) {
                 while (!operators.isEmpty() && currentChar != '(' && hasHigherPrecedence(operators.peek(), currentChar)) {
+                    postfixBuilder.append(' ');
                     char operator = operators.pop();
                     postfixBuilder.append(operator);
                 }
