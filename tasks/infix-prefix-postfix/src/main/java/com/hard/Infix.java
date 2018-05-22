@@ -8,7 +8,7 @@ public class Infix {
         return 0;
     }
 
-    public String toPostfix(String infix) {
+    public String toPostfix(String infix) {//TODO brackets
         Stack<Character> operators = new Stack<>();
 
         StringBuilder postfixBuilder = new StringBuilder();
