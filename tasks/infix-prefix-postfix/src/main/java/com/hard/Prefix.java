@@ -25,7 +25,7 @@ public class Prefix {
 
             if (currentChar == separator)
                 continue;
-            else if (Character.isDigit(currentChar) || currentChar == '.') {
+            else if (isOperand(currentChar)) {
                 StringBuilder digitBuilder = new StringBuilder();
 
                 while (true) {
@@ -44,7 +44,7 @@ public class Prefix {
                 double operand = Double.valueOf(digitBuilder.toString());
 
                 operands.push(operand);
-            } else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/' || currentChar == '^') {
+            } else if (isOperator(currentChar)) {
                 double operand1 = operands.pop();
                 double operand2 = operands.pop();
 
@@ -73,5 +73,18 @@ public class Prefix {
         }
 
         return operands.pop();
+    }
+
+    private boolean isOperand(char character) {
+        return Character.isDigit(character) ||
+                character == '.';
+    }
+
+    private boolean isOperator(char character) {
+        return character == '+' ||
+                character == '-' ||
+                character == '*' ||
+                character == '/' ||
+                character == '^';
     }
 }
