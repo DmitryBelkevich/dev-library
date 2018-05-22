@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Postfix {
     public double evaluate(String expression) {
-        Stack<Double> digits = new Stack<>();
+        Stack<Double> operands = new Stack<>();
 
         char separator = ' ';
 
@@ -29,28 +29,28 @@ public class Postfix {
                     i++;
                 }
 
-                digits.push(Double.valueOf(stringBuilder.toString()));
+                operands.push(Double.valueOf(stringBuilder.toString()));
             } else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/') {
-                double operand2 = digits.pop();
-                double operand1 = digits.pop();
+                double operand2 = operands.pop();
+                double operand1 = operands.pop();
 
                 switch (currentChar) {
                     case '+':
-                        digits.push(operand1 + operand2);
+                        operands.push(operand1 + operand2);
                         break;
                     case '-':
-                        digits.push(operand1 - operand2);
+                        operands.push(operand1 - operand2);
                         break;
                     case '*':
-                        digits.push(operand1 * operand2);
+                        operands.push(operand1 * operand2);
                         break;
                     case '/':
-                        digits.push(operand1 / operand2);
+                        operands.push(operand1 / operand2);
                         break;
                 }
             }
         }
 
-        return digits.pop();
+        return operands.pop();
     }
 }
