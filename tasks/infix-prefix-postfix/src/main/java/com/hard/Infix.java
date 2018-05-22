@@ -3,6 +3,11 @@ package com.hard;
 import java.util.Stack;
 
 public class Infix {
+    public double evaluate(String infix) {
+        // TODO
+        return 0;
+    }
+
     public String toPostfix(String infix) {
         Stack<Character> operators = new Stack<>();
 
@@ -57,6 +62,7 @@ public class Infix {
     }
 
     public String toPrefix(String infix) {
+        // TODO
         return null;
     }
 
