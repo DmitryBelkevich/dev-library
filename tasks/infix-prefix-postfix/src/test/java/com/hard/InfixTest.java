@@ -32,7 +32,7 @@ public class InfixTest {
             String expression = "2.0^3.0^2.0";
             String postfix = infix.toPostfix(expression);
 
-            Assert.assertEquals("2 3 2 ^ ^", postfix);
+            Assert.assertEquals("2.0 3.0 2.0 ^ ^", postfix);
         }
     }
 
