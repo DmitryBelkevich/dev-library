@@ -15,19 +15,17 @@ public class Postfix {
                 continue;
             else if (Character.isDigit(currentChar) || currentChar == '.') {
                 StringBuilder stringBuilder = new StringBuilder();
-                int j = i;
+
                 while (true) {
-                     if (!Character.isDigit(expression.charAt(j)))
-                         if (expression.charAt(j) != '.')
-                             if (expression.charAt(j) == delimeter)
+                     if (!Character.isDigit(expression.charAt(i)))
+                         if (expression.charAt(i) != '.')
+                             if (expression.charAt(i) == delimeter)
                                  break;
 
-                    stringBuilder.append(expression.charAt(j));
+                    stringBuilder.append(expression.charAt(i));
 
-                    j++;
+                    i++;
                 }
-
-                i = j;
 
                 digits.push(Double.valueOf(stringBuilder.toString()));
             } else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/') {
