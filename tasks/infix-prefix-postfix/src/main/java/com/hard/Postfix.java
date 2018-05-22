@@ -29,6 +29,9 @@ public class Postfix {
                 StringBuilder digitBuilder = new StringBuilder();
 
                 while (true) {
+                    if (i >= postfix.length())
+                        break;
+
                     currentChar = postfix.charAt(i);
 
                     if (!isOperand(currentChar)) {

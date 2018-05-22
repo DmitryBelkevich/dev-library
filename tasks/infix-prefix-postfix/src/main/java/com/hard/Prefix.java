@@ -29,6 +29,9 @@ public class Prefix {
                 StringBuilder digitBuilder = new StringBuilder();
 
                 while (true) {
+                    if (i < 0)
+                        break;
+
                     currentChar = prefix.charAt(i);
 
                     if (!isOperand(currentChar)) {
