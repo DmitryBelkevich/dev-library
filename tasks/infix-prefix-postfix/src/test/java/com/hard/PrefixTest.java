@@ -17,7 +17,7 @@ public class PrefixTest {
     public void should_evaluate_expression_2() {
         Prefix prefix = new Prefix();
 
-        String expression = "* 2.0 2.0 + 2.0";  // infix: 2+2*2
+        String expression = "+ * 2.0 2.0 2.0";  // infix: 2+2*2
         double result = prefix.evaluate(expression);
         Assert.assertEquals(6, result, 0);
     }
@@ -26,17 +26,8 @@ public class PrefixTest {
     public void should_evaluate_expression_3() {
         Prefix prefix = new Prefix();
 
-        String expression = "^ ^ 2.0 2.0 2.0";  // infix: 2^2^2
+        String expression = "^ 2.0 ^ 3.0 2.0";  // infix: 2^3^2
         double result = prefix.evaluate(expression);
-        Assert.assertEquals(6, result, 0);
-    }
-
-    @Test//del
-    public void should_evaluate_expression_4() {
-        Prefix prefix = new Prefix();
-
-        String expression = "- + * 2 3 + 5 4 9";  // infix: 2*3+5*4-9
-        double result = prefix.evaluate(expression);
-        Assert.assertEquals(17, result, 0);
+        Assert.assertEquals(512, result, 0);
     }
 }
