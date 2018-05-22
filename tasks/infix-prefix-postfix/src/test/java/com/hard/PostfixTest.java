@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class PostfixTest {
     @Test
-    public void test1() {
+    public void should_evaluate_expression_1() {
         Postfix postfix = new Postfix();
 
         String expression = "2.0 2.0 + 2.0 *";  // infix: (2+2)*2
@@ -14,7 +14,7 @@ public class PostfixTest {
     }
 
     @Test
-    public void test2() {
+    public void should_evaluate_expression_2() {
         Postfix postfix = new Postfix();
 
         String expression = "2.0 2.0 2.0 * +";  // infix: 2+2*2
