@@ -19,7 +19,7 @@ public class Main {
 
             if (currentChar == delimeter)
                 continue;
-            if (Character.isDigit(currentChar) || currentChar == '.') {
+            else if (Character.isDigit(currentChar) || currentChar == '.') {
                 StringBuilder stringBuilder = new StringBuilder();
                 int j = i;
                 while (true) {
