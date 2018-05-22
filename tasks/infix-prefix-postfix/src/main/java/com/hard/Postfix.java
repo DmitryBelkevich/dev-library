@@ -3,17 +3,7 @@ package com.hard;
 import java.util.Stack;
 
 public class Postfix {
-    public static void main(String[] args) {
-//        String expression = "2.0 2.0 + 2.0 *";//(2+2)*2
-//        double result = evaluate(expression);
-//        System.out.println(result);//8
-
-        String expression = "2.0 2.0 2.0 * +";//2+2*2
-        double result = evaluate(expression);
-        System.out.println(result);//6
-    }
-
-    private static double evaluate(String expression) {
+    public double evaluate(String expression) {
         Stack<Double> digits = new Stack<>();
 
         char delimeter = ' ';
