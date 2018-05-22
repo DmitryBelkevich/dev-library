@@ -32,8 +32,10 @@ public class Prefix {
                     currentChar = prefix.charAt(i);
 
                     if (currentChar == separator)
-                        if (!isOperand(currentChar))
-                            break;
+                        break;
+
+                    if (!isOperand(currentChar))
+                        break;
 
                     digitBuilder.insert(0, currentChar);
 
