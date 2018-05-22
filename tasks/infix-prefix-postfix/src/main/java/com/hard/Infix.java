@@ -61,7 +61,7 @@ public class Infix {
         return result;
     }
 
-    public String toPostfix(String infix) {//TODO brackets
+    public String toPostfix(String infix) {
         Stack<Character> operators = new Stack<>();
 
         StringBuilder postfixBuilder = new StringBuilder();
@@ -99,6 +99,12 @@ public class Infix {
 
                 postfixBuilder.append(' ');
                 postfixBuilder.append(digitBuilder);
+            } else if (currentChar == ')') {
+                char popped;
+                while ((popped = operators.pop()) != '(') {
+                    postfixBuilder.append(' ');
+                    postfixBuilder.append(popped);
+                }
             } else if (isOperator(currentChar)) {
                 while (!operators.isEmpty() && currentChar != '(' && hasHigherPrecedence(operators.peek(), currentChar)) {
                     postfixBuilder.append(' ');
