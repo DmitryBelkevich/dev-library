@@ -33,7 +33,9 @@ public class Postfix {
                     i++;
                 }
 
-                operands.push(Double.valueOf(stringBuilder.toString()));
+                double operand = Double.valueOf(stringBuilder.toString());
+
+                operands.push(operand);
             } else if (currentChar == '+' || currentChar == '-' || currentChar == '*' || currentChar == '/') {
                 double operand2 = operands.pop();
                 double operand1 = operands.pop();
