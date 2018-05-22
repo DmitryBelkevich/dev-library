@@ -12,7 +12,25 @@ public class Infix {
             if (isSeparator(currentChar))
                 continue;
             else if (isOperand(currentChar)) {
+                StringBuilder digitBuilder = new StringBuilder();
 
+                while (true) {
+                    if (i < 0)
+                        break;
+
+                    currentChar = infix.charAt(i);
+
+                    if (!isOperand(currentChar)) {
+                        i++;
+                        break;
+                    }
+
+                    digitBuilder.insert(0, currentChar);
+
+                    i--;
+                }
+
+                double operand = Double.valueOf(digitBuilder.toString());
             } else if (isOperator(currentChar)) {
                 String result1 = infix.substring(0, i);
                 double operand1 = evaluate(result1);
