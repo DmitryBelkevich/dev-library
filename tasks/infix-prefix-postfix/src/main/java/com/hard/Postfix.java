@@ -31,10 +31,9 @@ public class Postfix {
                 while (true) {
                     currentChar = postfix.charAt(i);
 
-                    if (!Character.isDigit(currentChar))
-                        if (currentChar != '.')
-                            if (currentChar == separator)
-                                break;
+                    if (!isOperand(currentChar))
+                        if (currentChar == separator)
+                            break;
 
                     digitBuilder.append(currentChar);
 
