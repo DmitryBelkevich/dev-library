@@ -9,6 +9,14 @@ public class Postfix {
         this.separator = ' ';
     }
 
+    public char getSeparator() {
+        return separator;
+    }
+
+    public void setSeparator(char separator) {
+        this.separator = separator;
+    }
+
     public double evaluate(String expression) {
         Stack<Double> operands = new Stack<>();
 
@@ -61,13 +69,5 @@ public class Postfix {
         }
 
         return operands.pop();
-    }
-
-    public char getSeparator() {
-        return separator;
-    }
-
-    public void setSeparator(char separator) {
-        this.separator = separator;
     }
 }

@@ -9,6 +9,14 @@ public class Prefix {
         this.separator = ' ';
     }
 
+    public char getSeparator() {
+        return separator;
+    }
+
+    public void setSeparator(char separator) {
+        this.separator = separator;
+    }
+
     public double evaluate(String expression) {
         Stack<Double> operands = new Stack<>();
 
