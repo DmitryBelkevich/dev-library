@@ -71,7 +71,7 @@ public class Entity {
         }
 
         standAnimation.setFrames(standFrames);
-        standAnimation.setSpeedFrame(0.1000);
+        standAnimation.setSpeedFrame(0.0800);
 
         // walk frames
 
@@ -88,7 +88,7 @@ public class Entity {
         }
 
         walkAnimation.setFrames(walkFrames);
-        walkAnimation.setSpeedFrame(0.145);
+        walkAnimation.setSpeedFrame(0.1000);
 
         /**
          * add animations
