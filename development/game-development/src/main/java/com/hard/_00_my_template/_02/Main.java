@@ -1,10 +1,15 @@
 package com.hard._00_my_template._02;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -45,8 +50,10 @@ class Game {
     private boolean down = false;
 
     // time
+    private double elapsed;
 
-    double elapsed;
+    // animation
+    private Animation animation;
 
     /**
      * Game loop
@@ -74,13 +81,13 @@ class Game {
             elapsed /= 20;
 
             update(elapsed);
-            draw();
+            draw(elapsed);
             display(image);
             clearScreen(graphics);
 
             long finish = System.nanoTime();
 
-            elapsed = (double) (finish - start) / 1_000_000;    // mills
+            elapsed = (double) (finish - start) / 1_000_000;
         }
 
         System.exit(0);
@@ -110,6 +117,8 @@ class Game {
 
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        animation = new Animation();
     }
 
     private void update(double time) {
@@ -163,12 +172,20 @@ class Game {
         /**
          * stop moving
          */
+
+        /**
+         * animation
+         */
+        animation.update(time);
     }
 
-    private void draw() {
-        // drawing entity
+    private void draw(double time) {
+        // drawing entity (circle)
         graphics.setColor(new Color(255, 0, 0, 255));
         graphics.fillOval((int) x, (int) y, w, h);
+
+        // drawing entity (sprite)
+        animation.draw(graphics, x, y);
 
         // drawing console
         drawConsole();
@@ -287,4 +304,48 @@ class Game {
             }
         }
     };
+}
+
+class Animation {
+    private List<BufferedImage> frames;
+
+    private double speedFrame = 0.145;
+    private double currentFrame = 0;
+
+    public Animation() {
+        Class<?> clazz = this.getClass();
+        InputStream inputStream = clazz.getResourceAsStream("/player.png");
+
+        BufferedImage sprite = null;
+        try {
+            sprite = ImageIO.read(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        frames = new ArrayList<>();
+
+        int wSprite = 95;
+        int hSprite = 75;
+
+        BufferedImage frame1 = sprite.getSubimage(0 + wSprite * 0, 220, wSprite, hSprite);
+        BufferedImage frame2 = sprite.getSubimage(0 + wSprite * 1, 220, wSprite, hSprite);
+        BufferedImage frame3 = sprite.getSubimage(0 + wSprite * 2, 220, wSprite, hSprite);
+
+        frames.add(frame1);
+        frames.add(frame2);
+        frames.add(frame3);
+    }
+
+    public void update(double time) {
+        currentFrame += speedFrame * time;
+        if (currentFrame >= frames.size())
+            currentFrame = 0;
+    }
+
+    public void draw(Graphics graphics, double x, double y) {
+        BufferedImage frame = frames.get((int) currentFrame);
+
+        graphics.drawImage(frame, (int) x, (int) y, null);
+    }
 }
