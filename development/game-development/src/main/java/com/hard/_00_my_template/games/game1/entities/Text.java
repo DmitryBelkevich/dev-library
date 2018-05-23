@@ -1,4 +1,4 @@
-package com.hard._00_my_template._01.games.game1.entities;
+package com.hard._00_my_template.games.game1.entities;
 
 import java.awt.*;
 

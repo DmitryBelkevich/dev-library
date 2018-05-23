@@ -1,6 +1,6 @@
-package com.hard._00_my_template._01.games.game1.entities;
+package com.hard._00_my_template.games.game1.entities;
 
-import com.hard._00_my_template._01.GameFrame;
+import com.hard._00_my_template.GameFrame;
 
 import java.awt.*;
 

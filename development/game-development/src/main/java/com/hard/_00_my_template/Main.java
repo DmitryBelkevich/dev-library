@@ -1,7 +1,7 @@
-package com.hard._00_my_template._01;
+package com.hard._00_my_template;
 
-import com.hard._00_my_template._01.games.Game;
-import com.hard._00_my_template._01.games.GameFactory;
+import com.hard._00_my_template.games.Game;
+import com.hard._00_my_template.games.GameFactory;
 
 public class Main {
     public static void main(String[] args) {

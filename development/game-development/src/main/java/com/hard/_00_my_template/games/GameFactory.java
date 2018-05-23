@@ -1,6 +1,6 @@
-package com.hard._00_my_template._01.games;
+package com.hard._00_my_template.games;
 
-import com.hard._00_my_template._01.games.game1.Game1;
+import com.hard._00_my_template.games.game1.Game1;
 
 public class GameFactory {
     public Game getGame(String title) throws Exception {

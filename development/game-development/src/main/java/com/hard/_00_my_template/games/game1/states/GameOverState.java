@@ -1,11 +1,11 @@
-package com.hard._00_my_template._01.games.game1.states;
+package com.hard._00_my_template.games.game1.states;
 
-import com.hard._00_my_template._01.GameFrame;
-import com.hard._00_my_template._01.games.GameState;
-import com.hard._00_my_template._01.games.GameStateManager;
-import com.hard._00_my_template._01.games.game1.entities.Background;
-import com.hard._00_my_template._01.games.game1.entities.Entity;
-import com.hard._00_my_template._01.games.game1.entities.Text;
+import com.hard._00_my_template.GameFrame;
+import com.hard._00_my_template.games.GameState;
+import com.hard._00_my_template.games.GameStateManager;
+import com.hard._00_my_template.games.game1.entities.Background;
+import com.hard._00_my_template.games.game1.entities.Entity;
+import com.hard._00_my_template.games.game1.entities.Text;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

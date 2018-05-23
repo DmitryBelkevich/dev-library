@@ -1,4 +1,4 @@
-package com.hard._00_my_template._01.repository;
+package com.hard._00_my_template.repository;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.hard._00_my_template._01.games;
+package com.hard._00_my_template.games;
 
-import com.hard._00_my_template._01.GameFrame;
+import com.hard._00_my_template.GameFrame;
 
 import javax.swing.*;
 import java.awt.*;

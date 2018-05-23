@@ -1,6 +1,6 @@
-package com.hard._00_my_template._01.repository;
+package com.hard._00_my_template.repository;
 
-import com.hard._00_my_template._01.games.GameState;
+import com.hard._00_my_template.games.GameState;
 
 public class File {
     private final GameState gameState;

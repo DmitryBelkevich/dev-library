@@ -1,6 +1,6 @@
-package com.hard._00_my_template._01;
+package com.hard._00_my_template;
 
-import com.hard._00_my_template._01.games.GameStateManager;
+import com.hard._00_my_template.games.GameStateManager;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;

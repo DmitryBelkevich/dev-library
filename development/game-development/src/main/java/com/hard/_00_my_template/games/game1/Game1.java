@@ -1,10 +1,10 @@
-package com.hard._00_my_template._01.games.game1;
+package com.hard._00_my_template.games.game1;
 
-import com.hard._00_my_template._01.games.Game;
-import com.hard._00_my_template._01.games.GameState;
-import com.hard._00_my_template._01.games.game1.states.GameOverState;
-import com.hard._00_my_template._01.games.game1.states.Level1State;
-import com.hard._00_my_template._01.games.game1.states.MenuState;
+import com.hard._00_my_template.games.Game;
+import com.hard._00_my_template.games.GameState;
+import com.hard._00_my_template.games.game1.states.GameOverState;
+import com.hard._00_my_template.games.game1.states.Level1State;
+import com.hard._00_my_template.games.game1.states.MenuState;
 
 import java.awt.*;
 

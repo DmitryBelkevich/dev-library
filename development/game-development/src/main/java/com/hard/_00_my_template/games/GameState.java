@@ -1,4 +1,4 @@
-package com.hard._00_my_template._01.games;
+package com.hard._00_my_template.games;
 
 import java.awt.*;
 

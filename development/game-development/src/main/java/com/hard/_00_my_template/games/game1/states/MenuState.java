@@ -1,35 +1,49 @@
-package com.hard._00_my_template._01.games.game1.states;
+package com.hard._00_my_template.games.game1.states;
 
-import com.hard._00_my_template._01.games.GameState;
-import com.hard._00_my_template._01.games.GameStateManager;
-import com.hard._00_my_template._01.games.game1.entities.Background;
-import com.hard._00_my_template._01.games.game1.entities.Entity;
-import com.hard._00_my_template._01.games.game1.entities.Player;
+import com.hard._00_my_template.games.GameState;
+import com.hard._00_my_template.games.GameStateManager;
+import com.hard._00_my_template.games.game1.entities.Background;
+import com.hard._00_my_template.games.game1.entities.Entity;
+import com.hard._00_my_template.games.game1.entities.Text;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Collection;
 
-public class Level1State extends GameState {
+public class MenuState extends GameState {
     private Entity background;
-    private Entity player;
+    private Text menu;
+    private Collection<Text> options;
 
-    public Level1State(GameStateManager gameStateManager) {
+    public MenuState(GameStateManager gameStateManager) {
         super(gameStateManager);
 
         this.background = new Background(0, 0);
-        this.player = new Player(0, 0);
+        this.menu = new Text("Menu", 100, 100);
+
+        this.options = new ArrayList<>();
+        this.options.add(new Text("start", 100, 110));
+        this.options.add(new Text("help", 100, 120));
+        this.options.add(new Text("quit", 100, 130));
     }
 
     @Override
     public void update() {
         background.update();
-        player.update();
+        menu.update();
+
+        for (Text text : options)
+            text.update();
     }
 
     @Override
     public void draw(Graphics graphics) {
         background.draw(graphics);
-        player.draw(graphics);
+        menu.draw(graphics);
+
+        for (Text text : options)
+            text.draw(graphics);
     }
 
     @Override
@@ -48,11 +62,6 @@ public class Level1State extends GameState {
             GameState gameState = gameStateManager.getGameState(2);
             gameStateManager.setCurrentGameState(gameState);
         }
-
-        // save
-
-        if (key == KeyEvent.VK_S)
-            gameStateManager.save(this);
 
         // load
 
