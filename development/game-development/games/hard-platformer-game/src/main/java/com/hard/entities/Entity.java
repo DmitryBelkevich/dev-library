@@ -20,20 +20,21 @@ public class Entity {
     private double x = Game.WIDTH / 2 - w / 2;
     private double y = Game.HEIGHT / 2 - h / 2;
 
-    private double speed = 0;
+    private double speed;
 
-    private double dx = 0;
-    private double dy = 0;
+    private double dx;
+    private double dy;
 
     // moving
-    private boolean left = false;
-    private boolean right = false;
-    private boolean up = false;
-    private boolean down = false;
+    private boolean left;
+    private boolean right;
+    private boolean up;
+    private boolean down;
 
     // animation
     private AnimationManager animationManager;
 
+    // console
     private Console console;
 
     public Entity() {
