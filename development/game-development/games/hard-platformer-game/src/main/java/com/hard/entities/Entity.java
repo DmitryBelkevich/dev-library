@@ -287,11 +287,10 @@ public class Entity {
          * moving
          */
 
-        x += dx * time;
-
         if (!bottomCollision)
             dy = dy + Game.GRAVITY * time;
 
+        x += dx * time;
         y += dy * time;
 
         /**
