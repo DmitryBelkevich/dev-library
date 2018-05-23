@@ -1,6 +1,6 @@
-package com.hard;
+package com.hard.animation;
 
-public class States {
+public class AnimationState {
     public static class Entity {
         public static final int STAND = 0;
         public static final int WALK = 1;

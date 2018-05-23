@@ -2,6 +2,7 @@ package com.hard;
 
 import com.hard.animation.Animation;
 import com.hard.animation.AnimationManager;
+import com.hard.animation.AnimationState;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -86,10 +87,10 @@ public class Entity {
          * add animations
          */
 
-        animationManager.addAnimation(States.Entity.STAND, standAnimation);
-        animationManager.addAnimation(States.Entity.WALK, movingAnimation);
+        animationManager.addAnimation(AnimationState.Entity.STAND, standAnimation);
+        animationManager.addAnimation(AnimationState.Entity.WALK, movingAnimation);
 
-        animationManager.setCurrentAnimation(States.Entity.STAND);
+        animationManager.setCurrentAnimation(AnimationState.Entity.STAND);
     }
 
     public double getX() {
