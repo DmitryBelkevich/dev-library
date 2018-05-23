@@ -1,5 +1,8 @@
 package com.hard;
 
+import com.hard.animation.Animation;
+import com.hard.animation.AnimationManager;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;

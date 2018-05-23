@@ -1,4 +1,4 @@
-package com.hard;
+package com.hard.animation;
 
 import java.awt.*;
 import java.util.HashMap;

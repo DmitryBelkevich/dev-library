@@ -1,4 +1,4 @@
-package com.hard;
+package com.hard.animation;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -10,7 +10,6 @@ public class Animation {
     private double currentFrame = 0;
     private double speedFrame = 0.145;
 
-    // params
     private boolean playing;
     private boolean looped;
     private boolean flipped;
