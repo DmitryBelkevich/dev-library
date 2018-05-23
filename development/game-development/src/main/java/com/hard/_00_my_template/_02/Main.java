@@ -33,16 +33,20 @@ class Game {
     private double x = WIDTH / 2 - w / 2;
     private double y = HEIGHT / 2 - h / 2;
 
+    private double speed = 0;
+
     private double dx = 0;
     private double dy = 0;
-
-    private double speed = 5;
 
     // moving
     private boolean left = false;
     private boolean right = false;
     private boolean up = false;
     private boolean down = false;
+
+    // time
+
+    double elapsed;
 
     /**
      * Game loop
@@ -53,17 +57,30 @@ class Game {
         init();
 
         while (isRunning) {
-            update();
+            /**
+             * nanos / 1 = nanos
+             * nanos / 1_000 = micro
+             * nanos / 1_000_000 = mills
+             * nanos / 1_000_000_000 = seconds
+             *
+             * seconds * 1 = seconds
+             * seconds * 1_000 = mills
+             * seconds * 1_000_000 = micro
+             * seconds * 1_000_000_000 = nanos
+             */
+
+            long start = System.nanoTime();
+
+            elapsed /= 20;
+
+            update(elapsed);
             draw();
             display(image);
             clearScreen(graphics);
 
-            long waitingTime = 30;
-            try {
-                Thread.sleep(waitingTime);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            long finish = System.nanoTime();
+
+            elapsed = (double) (finish - start) / 1_000_000;    // mills
         }
 
         System.exit(0);
@@ -95,27 +112,41 @@ class Game {
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
     }
 
-    private void update() {
-        // check moving
+    private void update(double time) {
+        /**
+         * check moving
+         */
 
-        if (left)
+        if (left) {
+            speed = 5;
             dx = -speed;
+        }
 
-        if (right)
+        if (right) {
+            speed = 5;
             dx = speed;
+        }
 
-        if (up)
+        if (up) {
+            speed = 5;
             dy = -speed;
+        }
 
-        if (down)
+        if (down) {
+            speed = 5;
             dy = speed;
+        }
 
-        // moving
+        /**
+         * moving
+         */
 
-        x += dx;
-        y += dy;
+        x += dx * time;
+        y += dy * time;
 
-        // check collision
+        /**
+         * check collision
+         */
 
         if (x < 0)
             x = 0;
@@ -129,10 +160,9 @@ class Game {
         if (y > HEIGHT - h)
             y = HEIGHT - h;
 
-        // stop moving
-
-        dx = 0;
-        dy = 0;
+        /**
+         * stop moving
+         */
     }
 
     private void draw() {
@@ -141,14 +171,50 @@ class Game {
         graphics.fillOval((int) x, (int) y, w, h);
 
         // drawing console
-        String str =
-                "x: " + x
-                        + ";\t    y: " + y
-                        + ";\t    dx: " + dx
-                        + ";\t    dy: " + dy
-                        + ";\t    speed: " + speed;
+        drawConsole();
+    }
+
+    private void drawConsole() {
+        int step = 20;
+
         graphics.setColor(new Color(0, 255, 0, 255));
-        graphics.drawString(str, 50, 50);
+
+//        if (x != 0) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("x=" + x, 50, 1 * step);
+//        graphics.setColor(new Color(0, 255, 0, 255));
+
+//        if (y != 0) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("y=" + y, 50, 2 * step);
+//        graphics.setColor(new Color(0, 255, 0, 255));
+
+        if (dx != 0) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("dx=" + dx, 50, 3 * step);
+        graphics.setColor(new Color(0, 255, 0, 255));
+
+        if (dy != 0) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("dy=" + dy, 50, 4 * step);
+        graphics.setColor(new Color(0, 255, 0, 255));
+
+        if (speed != 0) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("speed=" + speed, 50, 5 * step);
+        graphics.setColor(new Color(0, 255, 0, 255));
+
+
+        if (left) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("left=" + left, 50, 7 * step);
+        graphics.setColor(new Color(0, 255, 0, 255));
+
+        if (right) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("right=" + right, 50, 8 * step);
+        graphics.setColor(new Color(0, 255, 0, 255));
+
+        if (up) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("up=" + up, 50, 9 * step);
+        graphics.setColor(new Color(0, 255, 0, 255));
+
+        if (down) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("down=" + down, 50, 10 * step);
+        graphics.setColor(new Color(0, 255, 0, 255));
     }
 
     private void display(BufferedImage image) {
@@ -175,34 +241,50 @@ class Game {
             if (keyCode == KeyEvent.VK_ESCAPE)
                 isRunning = false;
 
-            if (keyCode == KeyEvent.VK_LEFT)
+            if (keyCode == KeyEvent.VK_LEFT) {
                 left = true;
+            }
 
-            if (keyCode == KeyEvent.VK_RIGHT)
+            if (keyCode == KeyEvent.VK_RIGHT) {
                 right = true;
+            }
 
-            if (keyCode == KeyEvent.VK_UP)
+            if (keyCode == KeyEvent.VK_UP) {
                 up = true;
+            }
 
-            if (keyCode == KeyEvent.VK_DOWN)
+            if (keyCode == KeyEvent.VK_DOWN) {
                 down = true;
+            }
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
             int keyCode = e.getKeyCode();
 
-            if (keyCode == KeyEvent.VK_LEFT)
+            if (keyCode == KeyEvent.VK_LEFT) {
                 left = false;
+                speed = 0;
+                dx = speed;
+            }
 
-            if (keyCode == KeyEvent.VK_RIGHT)
+            if (keyCode == KeyEvent.VK_RIGHT) {
                 right = false;
+                speed = 0;
+                dx = speed * 0;
+            }
 
-            if (keyCode == KeyEvent.VK_UP)
+            if (keyCode == KeyEvent.VK_UP) {
                 up = false;
+                speed = 0;
+                dy = speed;
+            }
 
-            if (keyCode == KeyEvent.VK_DOWN)
+            if (keyCode == KeyEvent.VK_DOWN) {
                 down = false;
+                speed = 0;
+                dy = speed;
+            }
         }
     };
 }
