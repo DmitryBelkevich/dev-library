@@ -278,7 +278,9 @@ public class Entity {
         }
 
         if (!left && !right && !jumping && !sitting) {
-            animationManager.setCurrentAnimation(AnimationState.Entity.STANDING);
+            if (bottomCollision) {
+                animationManager.setCurrentAnimation(AnimationState.Entity.STANDING);
+            }
         }
 
         /**
