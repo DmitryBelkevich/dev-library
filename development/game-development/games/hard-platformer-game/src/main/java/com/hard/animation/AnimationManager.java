@@ -1,7 +1,9 @@
 package com.hard.animation;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AnimationManager {
@@ -62,5 +64,27 @@ public class AnimationManager {
     public void setFlipped(boolean flipped) {
         Animation animation = animations.get(currentAnimation);
         animation.setFlipped(flipped);
+    }
+
+    public int getWidth() {
+        Animation animation = animations.get(currentAnimation);
+        int currentFrame = (int) animation.getCurrentFrame();
+
+        List<BufferedImage> frames = animation.getFrames();
+
+        BufferedImage frame = frames.get(currentFrame);
+
+        return frame.getWidth();
+    }
+
+    public int getHeight() {
+        Animation animation = animations.get(currentAnimation);
+        int currentFrame = (int) animation.getCurrentFrame();
+
+        List<BufferedImage> frames = animation.getFrames();
+
+        BufferedImage frame = frames.get(currentFrame);
+
+        return frame.getHeight();
     }
 }
