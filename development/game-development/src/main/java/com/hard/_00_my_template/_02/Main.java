@@ -185,7 +185,7 @@ class Game {
         graphics.fillOval((int) x, (int) y, w, h);
 
         // drawing entity (sprite)
-        animation.draw(graphics, x, y);
+        animation.draw(graphics, x, y, w, h);
 
         // drawing console
         drawConsole();
@@ -343,9 +343,9 @@ class Animation {
             currentFrame = 0;
     }
 
-    public void draw(Graphics graphics, double x, double y) {
+    public void draw(Graphics graphics, double x, double y, int w, int h) {
         BufferedImage frame = frames.get((int) currentFrame);
 
-        graphics.drawImage(frame, (int) x, (int) y, null);
+        graphics.drawImage(frame, (int) x, (int) y, w, h, null);
     }
 }
