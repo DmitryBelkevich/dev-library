@@ -20,6 +20,7 @@
         <module>galaxy</module>
         <module>dragon-tale</module>
         <module>artifact</module>
+        <module>hard-platformer-game</module>
     </modules>
 
     <properties>
