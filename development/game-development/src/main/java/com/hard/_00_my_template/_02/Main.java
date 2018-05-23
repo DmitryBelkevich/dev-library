@@ -240,9 +240,39 @@ class Entity {
     public Entity() {
         animationManager = new AnimationManager();
 
-        Animation animation = new Animation();
-        animationManager.addAnimation(animation);
-        animationManager.setCurrentAnimation(animation);
+        Animation movingAnimation = new Animation();
+
+        // init sprite
+
+        Class<?> clazz = this.getClass();
+        InputStream inputStream = clazz.getResourceAsStream("/player.png");
+
+        BufferedImage sprite = null;
+        try {
+            sprite = ImageIO.read(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List<BufferedImage> frames = new ArrayList<>();
+
+        int wSprite = 95;
+        int hSprite = 75;
+
+        BufferedImage frame1 = sprite.getSubimage(0 + wSprite * 0, 220, wSprite, hSprite);
+        BufferedImage frame2 = sprite.getSubimage(0 + wSprite * 1, 220, wSprite, hSprite);
+        BufferedImage frame3 = sprite.getSubimage(0 + wSprite * 2, 220, wSprite, hSprite);
+
+        frames.add(frame1);
+        frames.add(frame2);
+        frames.add(frame3);
+
+        movingAnimation.setFrames(frames);
+
+        // add animation
+
+        animationManager.addAnimation(movingAnimation);
+        animationManager.setCurrentAnimation(0);
     }
 
     public double getX() {
@@ -415,7 +445,7 @@ class Entity {
 
 class AnimationManager {
     private List<Animation> animations;
-    private Animation currentAnimation;
+    private int currentAnimation;
 
     public AnimationManager() {
         animations = new ArrayList<>();
@@ -425,20 +455,22 @@ class AnimationManager {
         animations.add(animation);
     }
 
-    public Animation getCurrentAnimation() {
+    public int getCurrentAnimation() {
         return currentAnimation;
     }
 
-    public void setCurrentAnimation(Animation currentAnimation) {
+    public void setCurrentAnimation(int currentAnimation) {
         this.currentAnimation = currentAnimation;
     }
 
     public void update(double time) {
-        currentAnimation.update(time);
+        Animation animation = animations.get(currentAnimation);
+        animation.update(time);
     }
 
     public void draw(Graphics graphics, double x, double y, int w, int h) {
-        currentAnimation.draw(graphics, x, y, w, h);
+        Animation animation = animations.get(currentAnimation);
+        animation.draw(graphics, x, y, w, h);
     }
 }
 
@@ -453,29 +485,12 @@ class Animation {
     private boolean looped;
     private boolean flipped;
 
-    public Animation() {
-        Class<?> clazz = this.getClass();
-        InputStream inputStream = clazz.getResourceAsStream("/player.png");
+    public List<BufferedImage> getFrames() {
+        return frames;
+    }
 
-        BufferedImage sprite = null;
-        try {
-            sprite = ImageIO.read(inputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        frames = new ArrayList<>();
-
-        int wSprite = 95;
-        int hSprite = 75;
-
-        BufferedImage frame1 = sprite.getSubimage(0 + wSprite * 0, 220, wSprite, hSprite);
-        BufferedImage frame2 = sprite.getSubimage(0 + wSprite * 1, 220, wSprite, hSprite);
-        BufferedImage frame3 = sprite.getSubimage(0 + wSprite * 2, 220, wSprite, hSprite);
-
-        frames.add(frame1);
-        frames.add(frame2);
-        frames.add(frame3);
+    public void setFrames(List<BufferedImage> frames) {
+        this.frames = frames;
     }
 
     public boolean isPlaying() {
