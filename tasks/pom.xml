@@ -19,7 +19,6 @@
     <modules>
         <module>evaluate-consumed-time</module>
         <module>factorial</module>
-        <module>infix-prefix-postfix</module>
         <module>callback</module>
         <module>clone-of-instance</module>
         <module>protocols</module>
