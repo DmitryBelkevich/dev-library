@@ -33,4 +33,34 @@ public class AnimationManager {
         Animation animation = animations.get(currentAnimation);
         animation.draw(graphics, x, y, w, h);
     }
+
+    public boolean isPlaying() {
+        Animation animation = animations.get(currentAnimation);
+        return animation.isPlaying();
+    }
+
+    public void setPlaying(boolean playing) {
+        Animation animation = animations.get(currentAnimation);
+        animation.setPlaying(playing);
+    }
+
+    public boolean isLooped() {
+        Animation animation = animations.get(currentAnimation);
+        return animation.isLooped();
+    }
+
+    public void setLooped(boolean looped) {
+        Animation animation = animations.get(currentAnimation);
+        animation.setLooped(looped);
+    }
+
+    public boolean isFlipped() {
+        Animation animation = animations.get(currentAnimation);
+        return animation.isFlipped();
+    }
+
+    public void setFlipped(boolean flipped) {
+        Animation animation = animations.get(currentAnimation);
+        animation.setFlipped(flipped);
+    }
 }

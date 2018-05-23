@@ -186,11 +186,13 @@ public class Entity {
 
         if (left) {
             moveToLeft();
+            animationManager.setFlipped(true);
             animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
         if (right) {
             moveToRight();
+            animationManager.setFlipped(false);
             animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
@@ -202,6 +204,10 @@ public class Entity {
         if (down) {
             moveToDown();
             animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
+        }
+
+        if (!left && !right && !up && !down) {
+            animationManager.setCurrentAnimation(AnimationState.Entity.STAND);
         }
 
         /**
