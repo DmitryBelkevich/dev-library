@@ -210,29 +210,17 @@ class Game {
         public void keyReleased(KeyEvent e) {
             int keyCode = e.getKeyCode();
 
-            if (keyCode == KeyEvent.VK_LEFT) {
+            if (keyCode == KeyEvent.VK_LEFT)
                 entity.setLeft(false);
-                entity.setSpeed(0);//speed = 0
-                entity.setDx(0);//dx = speed;
-            }
 
-            if (keyCode == KeyEvent.VK_RIGHT) {
+            if (keyCode == KeyEvent.VK_RIGHT)
                 entity.setRight(false);
-                entity.setSpeed(0);
-                entity.setDx(0);//dx = speed * 0;
-            }
 
-            if (keyCode == KeyEvent.VK_UP) {
+            if (keyCode == KeyEvent.VK_UP)
                 entity.setUp(false);
-                entity.setSpeed(0);
-                entity.setDy(0);//dy = speed;
-            }
 
-            if (keyCode == KeyEvent.VK_DOWN) {
+            if (keyCode == KeyEvent.VK_DOWN)
                 entity.setDown(false);
-                entity.setSpeed(0);
-                entity.setDy(0);//dy = speed;
-            }
         }
     };
 }
@@ -308,6 +296,9 @@ class Entity {
 
     public void setLeft(boolean left) {
         this.left = left;
+
+        speed = 0;
+        dx = speed;
     }
 
     public boolean isRight() {
@@ -316,6 +307,9 @@ class Entity {
 
     public void setRight(boolean right) {
         this.right = right;
+
+        speed = 0;
+        dx = speed;
     }
 
     public boolean isUp() {
@@ -324,6 +318,9 @@ class Entity {
 
     public void setUp(boolean up) {
         this.up = up;
+
+        speed = 0;
+        dy = speed;
     }
 
     public boolean isDown() {
@@ -332,6 +329,9 @@ class Entity {
 
     public void setDown(boolean down) {
         this.down = down;
+
+        speed = 0;
+        dy = speed;
     }
 
     public void update(double time) {
