@@ -34,6 +34,8 @@ public class Entity {
     // animation
     private AnimationManager animationManager;
 
+    private Console console;
+
     public Entity() {
         animationManager = new AnimationManager();
 
@@ -94,6 +96,9 @@ public class Entity {
         animationManager.addAnimation(AnimationState.Entity.WALK, walkAnimation);
 
         animationManager.setCurrentAnimation(AnimationState.Entity.STAND);
+
+        // console
+        console = new Console();
     }
 
     public double getX() {
@@ -251,6 +256,8 @@ public class Entity {
 
         // drawing entity (sprite)
         animationManager.draw(graphics, x, y, w, h);
+
+        console.draw(graphics, this);
     }
 
     public void moveToLeft() {
