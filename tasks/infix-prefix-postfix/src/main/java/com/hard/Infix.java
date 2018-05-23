@@ -176,6 +176,6 @@ public class Infix {
     }
 
     private boolean hasHigherPrecedence(char character1, char character2) {
-        return precedence(character1) >= precedence(character2);
+        return precedence(character1) > precedence(character2);
     }
 }
