@@ -252,6 +252,7 @@ class Entity {
     public Entity() {
         animationManager = new AnimationManager();
 
+        Animation standAnimation = new Animation();
         Animation movingAnimation = new Animation();
 
         /**
@@ -267,6 +268,19 @@ class Entity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // stand frames
+
+        List<BufferedImage> standFrames = new ArrayList<>();
+
+        int w_standFrame = 95;
+        int h_standFrame = 75;
+
+        BufferedImage standFrame1 = sprite.getSubimage(0 + w_standFrame * 1 ,220 ,w_standFrame ,h_standFrame);
+
+        standFrames.add(standFrame1);
+
+        standAnimation.setFrames(standFrames);
 
         // walk frames
 
@@ -286,10 +300,10 @@ class Entity {
         movingAnimation.setFrames(walkFrames);
 
         /**
-         * add animation
+         * add animations
          */
 
-        animationManager.addAnimation(States.Entity.STAND, movingAnimation);
+        animationManager.addAnimation(States.Entity.STAND, standAnimation);
         animationManager.addAnimation(States.Entity.WALK, movingAnimation);
 
         animationManager.setCurrentAnimation(States.Entity.STAND);
