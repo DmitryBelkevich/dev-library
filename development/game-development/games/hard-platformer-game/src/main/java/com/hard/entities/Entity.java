@@ -47,7 +47,7 @@ public class Entity {
          */
 
         Class<?> clazz = this.getClass();
-        InputStream inputStream = clazz.getResourceAsStream("/player.png");
+        InputStream inputStream = clazz.getResourceAsStream("/sprites/player.png");
 
         BufferedImage sprite = null;
         try {
