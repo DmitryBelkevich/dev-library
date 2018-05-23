@@ -61,33 +61,31 @@ public class Entity {
         List<BufferedImage> standFrames = new ArrayList<>();
 
         int x_standFrame = 0;
-        int y_standFrame = 220;
-        int w_standFrame = 95;
-        int h_standFrame = 75;
+        int y_standFrame = 190;
+        int w_standFrame = 45;
+        int h_standFrame = 48;
 
-        BufferedImage standFrame1 = sprite.getSubimage(x_standFrame + w_standFrame * 1, y_standFrame, w_standFrame, h_standFrame);
-
-        standFrames.add(standFrame1);
+        for (int i = 0; i < 3; i++) {
+            BufferedImage frame = sprite.getSubimage(x_standFrame + w_standFrame * i, y_standFrame, w_standFrame, h_standFrame);
+            standFrames.add(frame);
+        }
 
         standAnimation.setFrames(standFrames);
-        standAnimation.setSpeedFrame(0.145);
+        standAnimation.setSpeedFrame(0.1000);
 
         // walk frames
 
         List<BufferedImage> walkFrames = new ArrayList<>();
 
         int x_walkFrame = 0;
-        int y_walkFrame = 220;
-        int w_walkFrame = 95;
-        int h_walkFrame = 75;
+        int y_walkFrame = 245;
+        int w_walkFrame = 40;
+        int h_walkFrame = 48;
 
-        BufferedImage walkFrame1 = sprite.getSubimage(x_walkFrame + w_walkFrame * 0, y_walkFrame, w_walkFrame, h_walkFrame);
-        BufferedImage walkFrame2 = sprite.getSubimage(x_walkFrame + w_walkFrame * 1, y_walkFrame, w_walkFrame, h_walkFrame);
-        BufferedImage walkFrame3 = sprite.getSubimage(x_walkFrame + w_walkFrame * 2, y_walkFrame, w_walkFrame, h_walkFrame);
-
-        walkFrames.add(walkFrame1);
-        walkFrames.add(walkFrame2);
-        walkFrames.add(walkFrame3);
+        for (int i = 0; i < 6; i++) {
+            BufferedImage frame = sprite.getSubimage(x_walkFrame + w_walkFrame * i, y_walkFrame, w_walkFrame, h_walkFrame);
+            walkFrames.add(frame);
+        }
 
         walkAnimation.setFrames(walkFrames);
         walkAnimation.setSpeedFrame(0.145);
@@ -260,11 +258,11 @@ public class Entity {
     }
 
     public void draw(Graphics graphics) {
-        // drawing entity (circle)
+        // drawing background
         graphics.setColor(new Color(255, 0, 0, 255));
-        graphics.fillOval((int) x, (int) y, w, h);
+        graphics.fillRect((int) x, (int) y, w, h);
 
-        // drawing entity (sprite)
+        // drawing entity
         animationManager.draw(graphics, x, y, w, h);
 
         console.draw(graphics, this);
