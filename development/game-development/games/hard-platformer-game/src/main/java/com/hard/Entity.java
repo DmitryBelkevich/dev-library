@@ -186,18 +186,22 @@ public class Entity {
 
         if (left) {
             moveToLeft();
+            animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
         if (right) {
             moveToRight();
+            animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
         if (up) {
             moveToUp();
+            animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
         if (down) {
             moveToDown();
+            animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
         /**
