@@ -56,7 +56,7 @@ public class Entity {
         int w_standFrame = 95;
         int h_standFrame = 75;
 
-        BufferedImage standFrame1 = sprite.getSubimage(0 + w_standFrame * 1 ,220 ,w_standFrame ,h_standFrame);
+        BufferedImage standFrame1 = sprite.getSubimage(0 + w_standFrame * 1, 220, w_standFrame, h_standFrame);
 
         standFrames.add(standFrame1);
 
