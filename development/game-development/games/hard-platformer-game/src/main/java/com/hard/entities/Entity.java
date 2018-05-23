@@ -46,9 +46,6 @@ public class Entity {
     public Entity() {
         animationManager = new AnimationManager();
 
-        Animation standAnimation = new Animation();
-        Animation walkAnimation = new Animation();
-
         /**
          * init sprite
          */
@@ -63,48 +60,72 @@ public class Entity {
             e.printStackTrace();
         }
 
-        // stand frames
+        // standing frames
 
-        List<BufferedImage> standFrames = new ArrayList<>();
+        Animation standingAnimation = new Animation();
 
-        int x_standFrame = 0;
-        int y_standFrame = 190;
-        int w_standFrame = 45;
-        int h_standFrame = 48;
+        List<BufferedImage> standingFrames = new ArrayList<>();
+
+        int x_standingFrame = 0;
+        int y_standingFrame = 190;
+        int w_standingFrame = 45;
+        int h_standingFrame = 48;
 
         for (int i = 0; i < 3; i++) {
-            BufferedImage frame = sprite.getSubimage(x_standFrame + w_standFrame * i, y_standFrame, w_standFrame, h_standFrame);
-            standFrames.add(frame);
+            BufferedImage frame = sprite.getSubimage(x_standingFrame + w_standingFrame * i, y_standingFrame, w_standingFrame, h_standingFrame);
+            standingFrames.add(frame);
         }
 
-        standAnimation.setFrames(standFrames);
-        standAnimation.setSpeedFrame(0.0800);
+        standingAnimation.setFrames(standingFrames);
+        standingAnimation.setSpeedFrame(0.0800);
 
-        // walk frames
+        // going frames
 
-        List<BufferedImage> walkFrames = new ArrayList<>();
+        Animation goingAnimation = new Animation();
 
-        int x_walkFrame = 0;
-        int y_walkFrame = 245;
-        int w_walkFrame = 40;
-        int h_walkFrame = 48;
+        List<BufferedImage> goingFrames = new ArrayList<>();
+
+        int x_goingFrame = 0;
+        int y_goingFrame = 245;
+        int w_goingFrame = 40;
+        int h_goingFrame = 48;
 
         for (int i = 0; i < 6; i++) {
-            BufferedImage frame = sprite.getSubimage(x_walkFrame + w_walkFrame * i, y_walkFrame, w_walkFrame, h_walkFrame);
-            walkFrames.add(frame);
+            BufferedImage frame = sprite.getSubimage(x_goingFrame + w_goingFrame * i, y_goingFrame, w_goingFrame, h_goingFrame);
+            goingFrames.add(frame);
         }
 
-        walkAnimation.setFrames(walkFrames);
-        walkAnimation.setSpeedFrame(0.1000);
+        goingAnimation.setFrames(goingFrames);
+        goingAnimation.setSpeedFrame(0.1000);
+
+        // jumping frames
+
+        Animation jumpingAnimation = new Animation();
+
+        List<BufferedImage> jumpingFrames = new ArrayList<>();
+
+        int x_jumpingFrame = 0;
+        int y_jumpingFrame = 1015;
+        int w_jumpingFrame = 150 / 4;
+        int h_jumpingFrame = 34;
+
+        for (int i = 0; i < 4; i++) {
+            BufferedImage frame = sprite.getSubimage(x_jumpingFrame + w_jumpingFrame * i, y_jumpingFrame, w_jumpingFrame, h_jumpingFrame);
+            jumpingFrames.add(frame);
+        }
+
+        jumpingAnimation.setFrames(jumpingFrames);
+        goingAnimation.setSpeedFrame(0.1000);
 
         /**
          * add animations
          */
 
-        animationManager.addAnimation(AnimationState.Entity.STAND, standAnimation);
-        animationManager.addAnimation(AnimationState.Entity.WALK, walkAnimation);
+        animationManager.addAnimation(AnimationState.Entity.STANDING, standingAnimation);
+        animationManager.addAnimation(AnimationState.Entity.GOING, goingAnimation);
+        animationManager.addAnimation(AnimationState.Entity.JUMPING, goingAnimation);
 
-        animationManager.setCurrentAnimation(AnimationState.Entity.STAND);
+        animationManager.setCurrentAnimation(AnimationState.Entity.STANDING);
 
         // console
         console = new Console();
@@ -224,7 +245,7 @@ public class Entity {
             dx = -speed;
 
             animationManager.setFlipped(true);
-            animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
+            animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
         }
 
         if (right) {
@@ -232,7 +253,7 @@ public class Entity {
             dx = speed;
 
             animationManager.setFlipped(false);
-            animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
+            animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
         }
 
         if (jumping) {
@@ -241,14 +262,14 @@ public class Entity {
                 bottomCollision = false;
             }
 
-            animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
+            animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
         }
 
         if (sitting) {
             speed = 5;
             dy = speed;
 
-            animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
+            animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
         }
 
         if (!left && !right) {
@@ -257,7 +278,7 @@ public class Entity {
         }
 
         if (!left && !right && !jumping && !sitting) {
-            animationManager.setCurrentAnimation(AnimationState.Entity.STAND);
+            animationManager.setCurrentAnimation(AnimationState.Entity.STANDING);
         }
 
         /**
