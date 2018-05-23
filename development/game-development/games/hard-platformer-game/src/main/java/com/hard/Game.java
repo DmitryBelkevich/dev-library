@@ -17,18 +17,17 @@ public class Game {
     public static final int WIDTH = (int) (640 * SCALE);
     public static final int HEIGHT = (int) (480 * SCALE);
 
+    public static final double GRAVITY = 1.2;
+
     // graphics
     private BufferedImage image;
     private Graphics2D graphics;
 
-    // entity
-    private Entity entity;
-
     // time
     private double time;
 
-    // global settings
-    public static final double GRAVITY = 1.2;
+    // entities
+    private Entity entity;
 
     /**
      * Game loop
