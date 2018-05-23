@@ -100,25 +100,27 @@ public class Infix {
                 postfixBuilder.append(' ');
                 postfixBuilder.append(digitBuilder);
             } else if (isOperator(currentChar)) {
-                while (!operators.isEmpty() && operators.peek() != '(' && hasHigherPrecedence(operators.peek(), currentChar)) {
-                    postfixBuilder.append(' ');
+                if (currentChar == '(') {
+                    operators.push(currentChar);
+                } else if (currentChar == ')') {
+                    while (!operators.empty() && operators.peek() != '(') {
+                        postfixBuilder.append(' ');
 
-                    char operator = operators.pop();
-                    postfixBuilder.append(operator);
+                        char operator = operators.pop();
+                        postfixBuilder.append(operator);
+                    }
+
+                    operators.pop();
+                } else {
+                    while (!operators.isEmpty() && operators.peek() != '(' && hasHigherPrecedence(operators.peek(), currentChar)) {
+                        postfixBuilder.append(' ');
+
+                        char operator = operators.pop();
+                        postfixBuilder.append(operator);
+                    }
+
+                    operators.push(currentChar);
                 }
-
-                operators.push(currentChar);
-            } else if (currentChar == '(') {
-                operators.push(currentChar);
-            } else if (currentChar == ')') {
-                while (!operators.empty() && operators.peek() != '(') {
-                    postfixBuilder.append(' ');
-
-                    char operator = operators.pop();
-                    postfixBuilder.append(operator);
-                }
-
-                operators.pop();
             }
         }
 
