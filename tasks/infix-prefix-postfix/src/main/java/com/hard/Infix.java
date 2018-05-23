@@ -99,20 +99,26 @@ public class Infix {
 
                 postfixBuilder.append(' ');
                 postfixBuilder.append(digitBuilder);
-            } else if (currentChar == ')') {
-                char popped;
-                while ((popped = operators.pop()) != '(') {
-                    postfixBuilder.append(' ');
-                    postfixBuilder.append(popped);
-                }
             } else if (isOperator(currentChar)) {
-                while (!operators.isEmpty() && currentChar != '(' && hasHigherPrecedence(operators.peek(), currentChar)) {
+                while (!operators.isEmpty() && operators.peek() != '(' && hasHigherPrecedence(operators.peek(), currentChar)) {
                     postfixBuilder.append(' ');
+
                     char operator = operators.pop();
                     postfixBuilder.append(operator);
                 }
 
                 operators.push(currentChar);
+            } else if (currentChar == '(') {
+                operators.push(currentChar);
+            } else if (currentChar == ')') {
+                while (!operators.empty() && operators.peek() != '(') {
+                    postfixBuilder.append(' ');
+
+                    char operator = operators.pop();
+                    postfixBuilder.append(operator);
+                }
+
+                operators.pop();
             }
         }
 
