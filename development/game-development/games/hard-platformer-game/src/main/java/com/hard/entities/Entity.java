@@ -123,7 +123,7 @@ public class Entity {
 
         animationManager.addAnimation(AnimationState.Entity.STANDING, standingAnimation);
         animationManager.addAnimation(AnimationState.Entity.GOING, goingAnimation);
-        animationManager.addAnimation(AnimationState.Entity.JUMPING, goingAnimation);
+        animationManager.addAnimation(AnimationState.Entity.JUMPING, jumpingAnimation);
 
         animationManager.setCurrentAnimation(AnimationState.Entity.STANDING);
 
@@ -260,9 +260,9 @@ public class Entity {
             if (bottomCollision) {
                 dy = -24.0;
                 bottomCollision = false;
-            }
 
-            animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
+                animationManager.setCurrentAnimation(AnimationState.Entity.JUMPING);
+            }
         }
 
         if (sitting) {
