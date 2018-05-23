@@ -254,7 +254,9 @@ class Entity {
 
         Animation movingAnimation = new Animation();
 
-        // init sprite
+        /**
+         * init sprite
+         */
 
         Class<?> clazz = this.getClass();
         InputStream inputStream = clazz.getResourceAsStream("/player.png");
@@ -265,6 +267,8 @@ class Entity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // walk frames
 
         List<BufferedImage> walkFrames = new ArrayList<>();
 
@@ -281,7 +285,9 @@ class Entity {
 
         movingAnimation.setFrames(walkFrames);
 
-        // add animation
+        /**
+         * add animation
+         */
 
         animationManager.addAnimation(States.Entity.STAND, movingAnimation);
         animationManager.addAnimation(States.Entity.WALK, movingAnimation);
