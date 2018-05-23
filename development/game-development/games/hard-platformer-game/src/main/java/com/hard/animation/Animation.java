@@ -62,9 +62,12 @@ public class Animation {
     }
 
     public void update(double time) {
-        currentFrame += speedFrame * time;
-        if (currentFrame >= frames.size())
-            currentFrame = 0;
+        if (playing) {
+            currentFrame += speedFrame * time;
+
+            if (currentFrame >= frames.size())
+                currentFrame = 0;
+        }
     }
 
     public void draw(Graphics graphics, double x, double y, int w, int h) {
