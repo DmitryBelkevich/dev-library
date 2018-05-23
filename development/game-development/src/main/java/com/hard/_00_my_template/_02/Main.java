@@ -19,7 +19,7 @@ public class Main {
 }
 
 class Game {
-    private volatile boolean isRunning;
+    private volatile boolean running;
     private JPanel panel;
 
     private static final String TITLE = "Game";
@@ -45,19 +45,7 @@ class Game {
         createGui();
         init();
 
-        while (isRunning) {
-            /**
-             * nanos / 1 = nanos
-             * nanos / 1_000 = micro
-             * nanos / 1_000_000 = mills
-             * nanos / 1_000_000_000 = seconds
-             *
-             * seconds * 1 = seconds
-             * seconds * 1_000 = mills
-             * seconds * 1_000_000 = micro
-             * seconds * 1_000_000_000 = nanos
-             */
-
+        while (running) {
             long start = System.nanoTime();
 
             time /= 20;
@@ -95,7 +83,7 @@ class Game {
     }
 
     private void init() {
-        isRunning = true;
+        running = true;
 
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         graphics = (Graphics2D) image.getGraphics();
@@ -194,7 +182,7 @@ class Game {
             int keyCode = e.getKeyCode();
 
             if (keyCode == KeyEvent.VK_ESCAPE)
-                isRunning = false;
+                running = false;
 
             if (keyCode == KeyEvent.VK_LEFT)
                 entity.setLeft(true);
@@ -247,10 +235,10 @@ class Entity {
     private boolean down = false;
 
     // animation
-    private Animation animation;
+    private AnimationManager animationManager;
 
     public Entity() {
-        animation = new Animation();
+        animationManager = new AnimationManager();
     }
 
     public double getX() {
@@ -392,7 +380,7 @@ class Entity {
         /**
          * animation
          */
-        animation.update(time);
+        animationManager.update(time);
     }
 
     public void draw(Graphics graphics, double time) {
@@ -401,15 +389,42 @@ class Entity {
         graphics.fillOval((int) x, (int) y, w, h);
 
         // drawing entity (sprite)
-        animation.draw(graphics, x, y, w, h);
+        animationManager.draw(graphics, x, y, w, h);
+    }
+}
+
+class AnimationManager {
+    private List<Animation> animations;
+    private Animation currentAnimation;
+
+    public AnimationManager() {
+        animations = new ArrayList<>();
+
+        Animation animation = new Animation();
+        animations.add(animation);
+
+        currentAnimation = animation;
+    }
+
+    public void update(double time) {
+        currentAnimation.update(time);
+    }
+
+    public void draw(Graphics graphics, double x, double y, int w, int h) {
+        currentAnimation.draw(graphics, x, y, w, h);
     }
 }
 
 class Animation {
     private List<BufferedImage> frames;
 
-    private double speedFrame = 0.145;
     private double currentFrame = 0;
+    private double speedFrame = 0.145;
+
+    // params
+    private boolean loop;
+    private boolean flip;
+    private boolean playing;
 
     public Animation() {
         Class<?> clazz = this.getClass();
