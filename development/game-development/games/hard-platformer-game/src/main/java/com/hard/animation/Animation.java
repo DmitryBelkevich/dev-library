@@ -29,6 +29,14 @@ public class Animation {
         this.frames = frames;
     }
 
+    public double getCurrentFrame() {
+        return currentFrame;
+    }
+
+    public void setCurrentFrame(double currentFrame) {
+        this.currentFrame = currentFrame;
+    }
+
     public double getSpeedFrame() {
         return speedFrame;
     }
