@@ -239,6 +239,10 @@ class Entity {
 
     public Entity() {
         animationManager = new AnimationManager();
+
+        Animation animation = new Animation();
+        animationManager.addAnimation(animation);
+        animationManager.setCurrentAnimation(animation);
     }
 
     public double getX() {
@@ -415,11 +419,18 @@ class AnimationManager {
 
     public AnimationManager() {
         animations = new ArrayList<>();
+    }
 
-        Animation animation = new Animation();
+    public void addAnimation(Animation animation) {
         animations.add(animation);
+    }
 
-        currentAnimation = animation;
+    public Animation getCurrentAnimation() {
+        return currentAnimation;
+    }
+
+    public void setCurrentAnimation(Animation currentAnimation) {
+        this.currentAnimation = currentAnimation;
     }
 
     public void update(double time) {
