@@ -1,4 +1,4 @@
-package com.hard._00_my_template._02;
+package com.hard;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
