@@ -423,8 +423,8 @@ class Animation {
 
     // params
     private boolean playing;
-    private boolean loop;
-    private boolean flip;
+    private boolean looped;
+    private boolean flipped;
 
     public Animation() {
         Class<?> clazz = this.getClass();
@@ -449,6 +449,30 @@ class Animation {
         frames.add(frame1);
         frames.add(frame2);
         frames.add(frame3);
+    }
+
+    public boolean isPlaying() {
+        return playing;
+    }
+
+    public void setPlaying(boolean playing) {
+        this.playing = playing;
+    }
+
+    public boolean isLooped() {
+        return looped;
+    }
+
+    public void setLooped(boolean looped) {
+        this.looped = looped;
+    }
+
+    public boolean isFlipped() {
+        return flipped;
+    }
+
+    public void setFlipped(boolean flipped) {
+        this.flipped = flipped;
     }
 
     public void update(double time) {
