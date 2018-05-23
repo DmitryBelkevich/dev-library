@@ -70,17 +70,18 @@ public class Animation {
     }
 
     public void update(double time) {
-        if (playing) {
-            currentFrame += speedFrame * time;
+        if (!playing)
+            return;
 
-            if (currentFrame >= frames.size())
-                if (looped)
-                    currentFrame = 0;
-                else {
-                    currentFrame = frames.size() - 1;
-                    playing = false;
-                }
-        }
+        currentFrame += speedFrame * time;
+
+        if (currentFrame >= frames.size())
+            if (looped)
+                currentFrame = 0;
+            else {
+                currentFrame = frames.size() - 1;
+                playing = false;
+            }
     }
 
     public void draw(Graphics graphics, double x, double y, int w, int h) {
