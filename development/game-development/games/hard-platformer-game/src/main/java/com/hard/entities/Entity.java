@@ -25,11 +25,11 @@ public class Entity {
     private double dx;
     private double dy;
 
-    // moving
+    // states
     private boolean left;
     private boolean right;
-    private boolean up;
-    private boolean down;
+    private boolean jumping;
+    private boolean sitting;
 
     // collision
     private boolean leftCollision;
@@ -166,20 +166,20 @@ public class Entity {
         this.right = right;
     }
 
-    public boolean isUp() {
-        return up;
+    public boolean isJumping() {
+        return jumping;
     }
 
-    public void setUp(boolean up) {
-        this.up = up;
+    public void setJumping(boolean jumping) {
+        this.jumping = jumping;
     }
 
-    public boolean isDown() {
-        return down;
+    public boolean isSitting() {
+        return sitting;
     }
 
-    public void setDown(boolean down) {
-        this.down = down;
+    public void setSitting(boolean sitting) {
+        this.sitting = sitting;
     }
 
     public boolean isLeftCollision() {
@@ -235,14 +235,16 @@ public class Entity {
             animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
-        if (up) {
-            speed = 5;
-            dy = -speed;
+        if (jumping) {
+            if (bottomCollision) {
+                dy = -24.0;
+                bottomCollision = false;
+            }
 
             animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
-        if (down) {
+        if (sitting) {
             speed = 5;
             dy = speed;
 
@@ -254,12 +256,7 @@ public class Entity {
             dx = speed;
         }
 
-        if (!up && !down) {
-            speed = 0;
-            dy = speed;
-        }
-
-        if (!left && !right && !up && !down) {
+        if (!left && !right && !jumping && !sitting) {
             animationManager.setCurrentAnimation(AnimationState.Entity.STAND);
         }
 
@@ -268,6 +265,10 @@ public class Entity {
          */
 
         x += dx * time;
+
+        if (!bottomCollision)
+            dy = dy + Game.GRAVITY * time;
+
         y += dy * time;
 
         /**
@@ -285,6 +286,13 @@ public class Entity {
 
         if (y > Game.HEIGHT - h)
             y = Game.HEIGHT - h;
+
+        // check collision 2
+
+        if (y >= Game.HEIGHT - h) {
+            bottomCollision = true;
+            dy = 0;
+        }
 
         /**
          * stop moving

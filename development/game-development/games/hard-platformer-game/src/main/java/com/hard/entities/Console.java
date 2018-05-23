@@ -42,8 +42,8 @@ public class Console {
 
         boolean left = entity.isLeft();
         boolean right = entity.isRight();
-        boolean up = entity.isUp();
-        boolean down = entity.isDown();
+        boolean jumping = entity.isJumping();
+        boolean sitting = entity.isSitting();
 
         if (left) graphics.setColor(new Color(225, 0, 0, 255));
         graphics.drawString("left=" + left, 50, 7 * step);
@@ -53,12 +53,12 @@ public class Console {
         graphics.drawString("right=" + right, 50, 8 * step);
         graphics.setColor(new Color(0, 255, 0, 255));
 
-        if (up) graphics.setColor(new Color(225, 0, 0, 255));
-        graphics.drawString("up=" + up, 50, 9 * step);
+        if (jumping) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("jumping=" + jumping, 50, 9 * step);
         graphics.setColor(new Color(0, 255, 0, 255));
 
-        if (down) graphics.setColor(new Color(225, 0, 0, 255));
-        graphics.drawString("down=" + down, 50, 10 * step);
+        if (sitting) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("sitting=" + sitting, 50, 10 * step);
         graphics.setColor(new Color(0, 255, 0, 255));
 
         /**

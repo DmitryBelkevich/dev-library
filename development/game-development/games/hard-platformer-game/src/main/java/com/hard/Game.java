@@ -27,6 +27,9 @@ public class Game {
     // time
     private double time;
 
+    // global settings
+    public static final double GRAVITY = 1.2;
+
     /**
      * Game loop
      */
@@ -123,10 +126,10 @@ public class Game {
                 entity.setRight(true);
 
             if (keyCode == KeyEvent.VK_UP)
-                entity.setUp(true);
+                entity.setJumping(true);
 
             if (keyCode == KeyEvent.VK_DOWN)
-                entity.setDown(true);
+                entity.setSitting(true);
         }
 
         @Override
@@ -140,10 +143,10 @@ public class Game {
                 entity.setRight(false);
 
             if (keyCode == KeyEvent.VK_UP)
-                entity.setUp(false);
+                entity.setJumping(false);
 
             if (keyCode == KeyEvent.VK_DOWN)
-                entity.setDown(false);
+                entity.setSitting(false);
         }
     };
 }
