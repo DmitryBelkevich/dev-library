@@ -74,11 +74,12 @@ public class Animation {
             currentFrame += speedFrame * time;
 
             if (currentFrame >= frames.size())
-
-            if (looped)
-                currentFrame = 0;
-            else
-                playing = false;
+                if (looped)
+                    currentFrame = 0;
+                else {
+                    currentFrame = frames.size() - 1;
+                    playing = false;
+                }
         }
     }
 
