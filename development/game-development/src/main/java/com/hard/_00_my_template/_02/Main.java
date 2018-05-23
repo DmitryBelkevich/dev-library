@@ -51,7 +51,7 @@ class Game {
             time /= 20;
 
             update(time);
-            draw(time);
+            draw();
             display(image);
             clearScreen(graphics);
 
@@ -98,8 +98,8 @@ class Game {
         entity.update(time);
     }
 
-    private void draw(double time) {
-        entity.draw(graphics, time);
+    private void draw() {
+        entity.draw(graphics);
 
         drawConsole();
     }
@@ -331,23 +331,19 @@ class Entity {
          */
 
         if (left) {
-            speed = 5;
-            dx = -speed;
+            moveToLeft();
         }
 
         if (right) {
-            speed = 5;
-            dx = speed;
+            moveToRight();
         }
 
         if (up) {
-            speed = 5;
-            dy = -speed;
+            moveToUp();
         }
 
         if (down) {
-            speed = 5;
-            dy = speed;
+            moveToDown();
         }
 
         /**
@@ -383,13 +379,33 @@ class Entity {
         animationManager.update(time);
     }
 
-    public void draw(Graphics graphics, double time) {
+    public void draw(Graphics graphics) {
         // drawing entity (circle)
         graphics.setColor(new Color(255, 0, 0, 255));
         graphics.fillOval((int) x, (int) y, w, h);
 
         // drawing entity (sprite)
         animationManager.draw(graphics, x, y, w, h);
+    }
+
+    public void moveToLeft() {
+        speed = 5;
+        dx = -speed;
+    }
+
+    public void moveToRight() {
+        speed = 5;
+        dx = speed;
+    }
+
+    public void moveToUp() {
+        speed = 5;
+        dy = -speed;
+    }
+
+    public void moveToDown() {
+        speed = 5;
+        dy = speed;
     }
 }
 
