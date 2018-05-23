@@ -4,61 +4,8 @@ import java.util.Stack;
 
 public class Infix {
     public double evaluate(String infix) {
-        double result = 0;
-
-        for (int i = infix.length() - 1; i >= 0; i--) {
-            char currentChar = infix.charAt(i);
-
-            if (isSeparator(currentChar))
-                continue;
-            else if (isOperand(currentChar)) {
-                StringBuilder digitBuilder = new StringBuilder();
-
-                while (true) {
-                    if (i < 0)
-                        break;
-
-                    currentChar = infix.charAt(i);
-
-                    if (!isOperand(currentChar)) {
-                        i++;
-                        break;
-                    }
-
-                    digitBuilder.insert(0, currentChar);
-
-                    i--;
-                }
-
-                double operand = Double.valueOf(digitBuilder.toString());
-            } else if (isOperator(currentChar)) {
-                String result1 = infix.substring(0, i);
-                double operand1 = evaluate(result1);
-
-                String result2 = infix.substring(i + 1, infix.length());
-                double operand2 = Double.valueOf(result2);
-
-                switch (currentChar) {
-                    case '+':
-                        result = operand1 + operand2;
-                        break;
-                    case '-':
-                        result = operand1 - operand2;
-                        break;
-                    case '*':
-                        result = operand1 * operand2;
-                        break;
-                    case '/':
-                        result = operand1 / operand2;
-                        break;
-                    case '^':
-                        result = Math.pow(operand1, operand2);
-                        break;
-                }
-            }
-        }
-
-        return result;
+        // TODO
+        return 0;
     }
 
     public String toPostfix(String infix) {
