@@ -24,36 +24,18 @@ class Game {
 
     private static final String TITLE = "Game";
     private static final double SCALE = 1;
-    private static final int WIDTH = (int) (640 * SCALE);
-    private static final int HEIGHT = (int) (480 * SCALE);
+    public static final int WIDTH = (int) (640 * SCALE);
+    public static final int HEIGHT = (int) (480 * SCALE);
 
     // graphics
     private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private Graphics2D graphics = (Graphics2D) image.getGraphics();
 
     // entity
-    private int w = 64;
-    private int h = 64;
-
-    private double x = WIDTH / 2 - w / 2;
-    private double y = HEIGHT / 2 - h / 2;
-
-    private double speed = 0;
-
-    private double dx = 0;
-    private double dy = 0;
-
-    // moving
-    private boolean left = false;
-    private boolean right = false;
-    private boolean up = false;
-    private boolean down = false;
+    private Entity entity;
 
     // time
     private double elapsed;
-
-    // animation
-    private Animation animation;
 
     /**
      * Game loop
@@ -118,80 +100,33 @@ class Game {
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-        animation = new Animation();
+        entity = new Entity();
     }
 
     private void update(double time) {
-        /**
-         * check moving
-         */
-
-        if (left) {
-            speed = 5;
-            dx = -speed;
-        }
-
-        if (right) {
-            speed = 5;
-            dx = speed;
-        }
-
-        if (up) {
-            speed = 5;
-            dy = -speed;
-        }
-
-        if (down) {
-            speed = 5;
-            dy = speed;
-        }
-
-        /**
-         * moving
-         */
-
-        x += dx * time;
-        y += dy * time;
-
-        /**
-         * check collision
-         */
-
-        if (x < 0)
-            x = 0;
-
-        if (y < 0)
-            y = 0;
-
-        if (x > WIDTH - w)
-            x = WIDTH - w;
-
-        if (y > HEIGHT - h)
-            y = HEIGHT - h;
-
-        /**
-         * stop moving
-         */
-
-        /**
-         * animation
-         */
-        animation.update(time);
+        entity.update(time);
     }
 
     private void draw(double time) {
-        // drawing entity (circle)
-        graphics.setColor(new Color(255, 0, 0, 255));
-        graphics.fillOval((int) x, (int) y, w, h);
+        entity.draw(graphics, time);
 
-        // drawing entity (sprite)
-        animation.draw(graphics, x, y, w, h);
-
-        // drawing console
         drawConsole();
     }
 
     private void drawConsole() {
+        double x = entity.getX();
+        double y = entity.getY();
+
+        double dx = entity.getDx();
+        double dy = entity.getDy();
+
+        double speed = entity.getSpeed();
+
+        boolean left = entity.isLeft();
+        boolean right = entity.isRight();
+        boolean up = entity.isUp();
+        boolean down = entity.isDown();
+
         int step = 20;
 
         graphics.setColor(new Color(0, 255, 0, 255));
@@ -258,21 +193,17 @@ class Game {
             if (keyCode == KeyEvent.VK_ESCAPE)
                 isRunning = false;
 
-            if (keyCode == KeyEvent.VK_LEFT) {
-                left = true;
-            }
+            if (keyCode == KeyEvent.VK_LEFT)
+                entity.setLeft(true);
 
-            if (keyCode == KeyEvent.VK_RIGHT) {
-                right = true;
-            }
+            if (keyCode == KeyEvent.VK_RIGHT)
+                entity.setRight(true);
 
-            if (keyCode == KeyEvent.VK_UP) {
-                up = true;
-            }
+            if (keyCode == KeyEvent.VK_UP)
+                entity.setUp(true);
 
-            if (keyCode == KeyEvent.VK_DOWN) {
-                down = true;
-            }
+            if (keyCode == KeyEvent.VK_DOWN)
+                entity.setDown(true);
         }
 
         @Override
@@ -280,30 +211,195 @@ class Game {
             int keyCode = e.getKeyCode();
 
             if (keyCode == KeyEvent.VK_LEFT) {
-                left = false;
-                speed = 0;
-                dx = speed;
+                entity.setLeft(false);
+                entity.setSpeed(0);//speed = 0
+                entity.setDx(0);//dx = speed;
             }
 
             if (keyCode == KeyEvent.VK_RIGHT) {
-                right = false;
-                speed = 0;
-                dx = speed * 0;
+                entity.setRight(false);
+                entity.setSpeed(0);
+                entity.setDx(0);//dx = speed * 0;
             }
 
             if (keyCode == KeyEvent.VK_UP) {
-                up = false;
-                speed = 0;
-                dy = speed;
+                entity.setUp(false);
+                entity.setSpeed(0);
+                entity.setDy(0);//dy = speed;
             }
 
             if (keyCode == KeyEvent.VK_DOWN) {
-                down = false;
-                speed = 0;
-                dy = speed;
+                entity.setDown(false);
+                entity.setSpeed(0);
+                entity.setDy(0);//dy = speed;
             }
         }
     };
+}
+
+class Entity {
+    private int w = 64;
+    private int h = 64;
+
+    private double x = Game.WIDTH / 2 - w / 2;
+    private double y = Game.HEIGHT / 2 - h / 2;
+
+    private double speed = 0;
+
+    private double dx = 0;
+    private double dy = 0;
+
+    // moving
+    private boolean left = false;
+    private boolean right = false;
+    private boolean up = false;
+    private boolean down = false;
+
+    // animation
+    private Animation animation;
+
+    public Entity() {
+        animation = new Animation();
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public double getDx() {
+        return dx;
+    }
+
+    public void setDx(double dx) {
+        this.dx = dx;
+    }
+
+    public double getDy() {
+        return dy;
+    }
+
+    public void setDy(double dy) {
+        this.dy = dy;
+    }
+
+    public boolean isLeft() {
+        return left;
+    }
+
+    public void setLeft(boolean left) {
+        this.left = left;
+    }
+
+    public boolean isRight() {
+        return right;
+    }
+
+    public void setRight(boolean right) {
+        this.right = right;
+    }
+
+    public boolean isUp() {
+        return up;
+    }
+
+    public void setUp(boolean up) {
+        this.up = up;
+    }
+
+    public boolean isDown() {
+        return down;
+    }
+
+    public void setDown(boolean down) {
+        this.down = down;
+    }
+
+    public void update(double time) {
+        /**
+         * check moving
+         */
+
+        if (left) {
+            speed = 5;
+            dx = -speed;
+        }
+
+        if (right) {
+            speed = 5;
+            dx = speed;
+        }
+
+        if (up) {
+            speed = 5;
+            dy = -speed;
+        }
+
+        if (down) {
+            speed = 5;
+            dy = speed;
+        }
+
+        /**
+         * moving
+         */
+
+        x += dx * time;
+        y += dy * time;
+
+        /**
+         * check collision
+         */
+
+        if (x < 0)
+            x = 0;
+
+        if (y < 0)
+            y = 0;
+
+        if (x > Game.WIDTH - w)
+            x = Game.WIDTH - w;
+
+        if (y > Game.HEIGHT - h)
+            y = Game.HEIGHT - h;
+
+        /**
+         * stop moving
+         */
+
+        /**
+         * animation
+         */
+        animation.update(time);
+    }
+
+    public void draw(Graphics graphics, double time) {
+        // drawing entity (circle)
+        graphics.setColor(new Color(255, 0, 0, 255));
+        graphics.fillOval((int) x, (int) y, w, h);
+
+        // drawing entity (sprite)
+        animation.draw(graphics, x, y, w, h);
+    }
 }
 
 class Animation {
