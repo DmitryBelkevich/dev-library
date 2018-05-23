@@ -151,9 +151,6 @@ public class Entity {
 
     public void setLeft(boolean left) {
         this.left = left;
-
-        speed = 0;
-        dx = speed;
     }
 
     public boolean isRight() {
@@ -162,9 +159,6 @@ public class Entity {
 
     public void setRight(boolean right) {
         this.right = right;
-
-        speed = 0;
-        dx = speed;
     }
 
     public boolean isUp() {
@@ -173,9 +167,6 @@ public class Entity {
 
     public void setUp(boolean up) {
         this.up = up;
-
-        speed = 0;
-        dy = speed;
     }
 
     public boolean isDown() {
@@ -184,9 +175,6 @@ public class Entity {
 
     public void setDown(boolean down) {
         this.down = down;
-
-        speed = 0;
-        dy = speed;
     }
 
     public void update(double time) {
@@ -195,25 +183,43 @@ public class Entity {
          */
 
         if (left) {
-            moveToLeft();
+            speed = 5;
+            dx = -speed;
+
             animationManager.setFlipped(true);
             animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
         if (right) {
-            moveToRight();
+            speed = 5;
+            dx = speed;
+
             animationManager.setFlipped(false);
             animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
         if (up) {
-            moveToUp();
+            speed = 5;
+            dy = -speed;
+
             animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
         }
 
         if (down) {
-            moveToDown();
+            speed = 5;
+            dy = speed;
+
             animationManager.setCurrentAnimation(AnimationState.Entity.WALK);
+        }
+
+        if (!left && !right) {
+            speed = 0;
+            dx = speed;
+        }
+
+        if (!up && !down) {
+            speed = 0;
+            dy = speed;
         }
 
         if (!left && !right && !up && !down) {
@@ -262,25 +268,5 @@ public class Entity {
         animationManager.draw(graphics, x, y, w, h);
 
         console.draw(graphics, this);
-    }
-
-    public void moveToLeft() {
-        speed = 5;
-        dx = -speed;
-    }
-
-    public void moveToRight() {
-        speed = 5;
-        dx = speed;
-    }
-
-    public void moveToUp() {
-        speed = 5;
-        dy = -speed;
-    }
-
-    public void moveToDown() {
-        speed = 5;
-        dy = speed;
     }
 }
