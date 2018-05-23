@@ -9,7 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -216,6 +218,16 @@ class Game {
     };
 }
 
+class States {
+    public static class Entity {
+        public static final int STAND = 0;
+        public static final int WALK = 1;
+        public static final int RUN = 2;
+        public static final int SIT = 3;
+        public static final int JUMP = 4;
+    }
+}
+
 class Entity {
     private int w = 64;
     private int h = 64;
@@ -254,25 +266,27 @@ class Entity {
             e.printStackTrace();
         }
 
-        List<BufferedImage> frames = new ArrayList<>();
+        List<BufferedImage> walkFrames = new ArrayList<>();
 
-        int wSprite = 95;
-        int hSprite = 75;
+        int w_walkFrame = 95;
+        int h_walkFrame = 75;
 
-        BufferedImage frame1 = sprite.getSubimage(0 + wSprite * 0, 220, wSprite, hSprite);
-        BufferedImage frame2 = sprite.getSubimage(0 + wSprite * 1, 220, wSprite, hSprite);
-        BufferedImage frame3 = sprite.getSubimage(0 + wSprite * 2, 220, wSprite, hSprite);
+        BufferedImage walkFrame1 = sprite.getSubimage(0 + w_walkFrame * 0, 220, w_walkFrame, h_walkFrame);
+        BufferedImage walkFrame2 = sprite.getSubimage(0 + w_walkFrame * 1, 220, w_walkFrame, h_walkFrame);
+        BufferedImage walkFrame3 = sprite.getSubimage(0 + w_walkFrame * 2, 220, w_walkFrame, h_walkFrame);
 
-        frames.add(frame1);
-        frames.add(frame2);
-        frames.add(frame3);
+        walkFrames.add(walkFrame1);
+        walkFrames.add(walkFrame2);
+        walkFrames.add(walkFrame3);
 
-        movingAnimation.setFrames(frames);
+        movingAnimation.setFrames(walkFrames);
 
         // add animation
 
-        animationManager.addAnimation(movingAnimation);
-        animationManager.setCurrentAnimation(0);
+        animationManager.addAnimation(States.Entity.STAND, movingAnimation);
+        animationManager.addAnimation(States.Entity.WALK, movingAnimation);
+
+        animationManager.setCurrentAnimation(States.Entity.STAND);
     }
 
     public double getX() {
@@ -444,15 +458,15 @@ class Entity {
 }
 
 class AnimationManager {
-    private List<Animation> animations;
+    private Map<Integer, Animation> animations;
     private int currentAnimation;
 
     public AnimationManager() {
-        animations = new ArrayList<>();
+        animations = new HashMap<>();
     }
 
-    public void addAnimation(Animation animation) {
-        animations.add(animation);
+    public void addAnimation(int title, Animation animation) {
+        animations.put(title, animation);
     }
 
     public int getCurrentAnimation() {
