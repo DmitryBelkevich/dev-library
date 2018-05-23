@@ -28,8 +28,8 @@ class Game {
     public static final int HEIGHT = (int) (480 * SCALE);
 
     // graphics
-    private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-    private Graphics2D graphics = (Graphics2D) image.getGraphics();
+    private BufferedImage image;
+    private Graphics2D graphics;
 
     // entity
     private Entity entity;
@@ -96,6 +96,9 @@ class Game {
 
     private void init() {
         isRunning = true;
+
+        image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+        graphics = (Graphics2D) image.getGraphics();
 
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
