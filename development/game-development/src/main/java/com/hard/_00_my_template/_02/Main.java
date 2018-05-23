@@ -35,7 +35,7 @@ class Game {
     private Entity entity;
 
     // time
-    private double elapsed;
+    private double time;
 
     /**
      * Game loop
@@ -60,16 +60,16 @@ class Game {
 
             long start = System.nanoTime();
 
-            elapsed /= 20;
+            time /= 20;
 
-            update(elapsed);
-            draw(elapsed);
+            update(time);
+            draw(time);
             display(image);
             clearScreen(graphics);
 
             long finish = System.nanoTime();
 
-            elapsed = (double) (finish - start) / 1_000_000;
+            time = (double) (finish - start) / 1_000_000;
         }
 
         System.exit(0);
