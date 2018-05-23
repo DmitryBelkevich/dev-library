@@ -31,6 +31,12 @@ public class Entity {
     private boolean up;
     private boolean down;
 
+    // collision
+    private boolean leftCollision;
+    private boolean rightCollision;
+    private boolean topCollision;
+    private boolean bottomCollision;
+
     // animation
     private AnimationManager animationManager;
 
@@ -174,6 +180,38 @@ public class Entity {
 
     public void setDown(boolean down) {
         this.down = down;
+    }
+
+    public boolean isLeftCollision() {
+        return leftCollision;
+    }
+
+    public void setLeftCollision(boolean leftCollision) {
+        this.leftCollision = leftCollision;
+    }
+
+    public boolean isRightCollision() {
+        return rightCollision;
+    }
+
+    public void setRightCollision(boolean rightCollision) {
+        this.rightCollision = rightCollision;
+    }
+
+    public boolean isTopCollision() {
+        return topCollision;
+    }
+
+    public void setTopCollision(boolean topCollision) {
+        this.topCollision = topCollision;
+    }
+
+    public boolean isBottomCollision() {
+        return bottomCollision;
+    }
+
+    public void setBottomCollision(boolean bottomCollision) {
+        this.bottomCollision = bottomCollision;
     }
 
     public void update(double time) {
