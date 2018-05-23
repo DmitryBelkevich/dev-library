@@ -75,13 +75,12 @@ public class Animation {
 
         currentFrame += speedFrame * time;
 
-        if (currentFrame >= frames.size())
-            if (looped)
-                currentFrame = 0;
-            else {
-                currentFrame = frames.size() - 1;
+        if (currentFrame >= frames.size()) {
+            currentFrame = 0;
+
+            if (!looped)
                 playing = false;
-            }
+        }
     }
 
     public void draw(Graphics graphics, double x, double y, int w, int h) {
