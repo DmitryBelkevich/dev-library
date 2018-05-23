@@ -422,9 +422,9 @@ class Animation {
     private double speedFrame = 0.145;
 
     // params
+    private boolean playing;
     private boolean loop;
     private boolean flip;
-    private boolean playing;
 
     public Animation() {
         Class<?> clazz = this.getClass();
