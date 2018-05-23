@@ -74,7 +74,11 @@ public class Animation {
             currentFrame += speedFrame * time;
 
             if (currentFrame >= frames.size())
+
+            if (looped)
                 currentFrame = 0;
+            else
+                playing = false;
         }
     }
 
@@ -83,7 +87,7 @@ public class Animation {
 
         if (!flipped)
             graphics.drawImage(frame, (int) x, (int) y, w, h, null);
-        else if (flipped)
+        else
             graphics.drawImage(frame, (int) x + w, (int) y, -w, h, null);
     }
 }
