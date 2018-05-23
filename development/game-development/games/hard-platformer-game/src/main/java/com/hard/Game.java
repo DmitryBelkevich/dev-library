@@ -1,5 +1,7 @@
 package com.hard;
 
+import com.hard.entities.Entity;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;

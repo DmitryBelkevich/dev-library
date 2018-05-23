@@ -1,5 +1,6 @@
-package com.hard;
+package com.hard.entities;
 
+import com.hard.Game;
 import com.hard.animation.Animation;
 import com.hard.animation.AnimationManager;
 import com.hard.animation.AnimationState;
