@@ -60,10 +60,12 @@ public class Entity {
 
         List<BufferedImage> standFrames = new ArrayList<>();
 
+        int x_standFrame = 0;
+        int y_standFrame = 220;
         int w_standFrame = 95;
         int h_standFrame = 75;
 
-        BufferedImage standFrame1 = sprite.getSubimage(0 + w_standFrame * 1, 220, w_standFrame, h_standFrame);
+        BufferedImage standFrame1 = sprite.getSubimage(x_standFrame + w_standFrame * 1, y_standFrame, w_standFrame, h_standFrame);
 
         standFrames.add(standFrame1);
 
@@ -74,12 +76,14 @@ public class Entity {
 
         List<BufferedImage> walkFrames = new ArrayList<>();
 
+        int x_walkFrame = 0;
+        int y_walkFrame = 220;
         int w_walkFrame = 95;
         int h_walkFrame = 75;
 
-        BufferedImage walkFrame1 = sprite.getSubimage(0 + w_walkFrame * 0, 220, w_walkFrame, h_walkFrame);
-        BufferedImage walkFrame2 = sprite.getSubimage(0 + w_walkFrame * 1, 220, w_walkFrame, h_walkFrame);
-        BufferedImage walkFrame3 = sprite.getSubimage(0 + w_walkFrame * 2, 220, w_walkFrame, h_walkFrame);
+        BufferedImage walkFrame1 = sprite.getSubimage(x_walkFrame + w_walkFrame * 0, y_walkFrame, w_walkFrame, h_walkFrame);
+        BufferedImage walkFrame2 = sprite.getSubimage(x_walkFrame + w_walkFrame * 1, y_walkFrame, w_walkFrame, h_walkFrame);
+        BufferedImage walkFrame3 = sprite.getSubimage(x_walkFrame + w_walkFrame * 2, y_walkFrame, w_walkFrame, h_walkFrame);
 
         walkFrames.add(walkFrame1);
         walkFrames.add(walkFrame2);
