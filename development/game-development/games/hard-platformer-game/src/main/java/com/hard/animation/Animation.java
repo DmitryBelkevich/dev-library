@@ -73,6 +73,9 @@ public class Animation {
     public void draw(Graphics graphics, double x, double y, int w, int h) {
         BufferedImage frame = frames.get((int) currentFrame);
 
-        graphics.drawImage(frame, (int) x, (int) y, w, h, null);
+        if (!flipped)
+            graphics.drawImage(frame, (int) x, (int) y, w, h, null);
+        else if (flipped)
+            graphics.drawImage(frame, (int) x + w, (int) y, -w, h, null);
     }
 }
