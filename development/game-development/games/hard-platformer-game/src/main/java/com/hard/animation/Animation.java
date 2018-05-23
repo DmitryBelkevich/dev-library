@@ -7,12 +7,19 @@ import java.util.List;
 public class Animation {
     private List<BufferedImage> frames;
 
-    private double currentFrame = 0;
-    private double speedFrame = 0.145;
+    private double currentFrame;
+    private double speedFrame;
 
     private boolean playing;
     private boolean looped;
     private boolean flipped;
+
+    public Animation() {
+        speedFrame = 0.1;
+
+        playing = true;
+        looped = true;
+    }
 
     public List<BufferedImage> getFrames() {
         return frames;
@@ -20,6 +27,14 @@ public class Animation {
 
     public void setFrames(List<BufferedImage> frames) {
         this.frames = frames;
+    }
+
+    public double getSpeedFrame() {
+        return speedFrame;
+    }
+
+    public void setSpeedFrame(double speedFrame) {
+        this.speedFrame = speedFrame;
     }
 
     public boolean isPlaying() {

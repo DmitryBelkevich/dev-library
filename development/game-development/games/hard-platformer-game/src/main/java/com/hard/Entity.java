@@ -37,7 +37,7 @@ public class Entity {
         animationManager = new AnimationManager();
 
         Animation standAnimation = new Animation();
-        Animation movingAnimation = new Animation();
+        Animation walkAnimation = new Animation();
 
         /**
          * init sprite
@@ -65,6 +65,7 @@ public class Entity {
         standFrames.add(standFrame1);
 
         standAnimation.setFrames(standFrames);
+        standAnimation.setSpeedFrame(0.145);
 
         // walk frames
 
@@ -81,14 +82,15 @@ public class Entity {
         walkFrames.add(walkFrame2);
         walkFrames.add(walkFrame3);
 
-        movingAnimation.setFrames(walkFrames);
+        walkAnimation.setFrames(walkFrames);
+        walkAnimation.setSpeedFrame(0.145);
 
         /**
          * add animations
          */
 
         animationManager.addAnimation(AnimationState.Entity.STAND, standAnimation);
-        animationManager.addAnimation(AnimationState.Entity.WALK, movingAnimation);
+        animationManager.addAnimation(AnimationState.Entity.WALK, walkAnimation);
 
         animationManager.setCurrentAnimation(AnimationState.Entity.STAND);
     }
