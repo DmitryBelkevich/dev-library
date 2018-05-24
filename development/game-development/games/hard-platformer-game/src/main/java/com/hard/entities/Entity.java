@@ -403,8 +403,14 @@ public class Entity {
     }
 
     private void checkCollision(char direction) {
-        for (int i = (int) (y / Game.H_TILE); i < (y + h) / Game.H_TILE; i++) {
-            for (int j = (int) (x / Game.W_TILE); j < (x + w) / Game.W_TILE; j++) {
+        int rowFirst = (int) (y / Game.H_TILE);
+        double rowLast = (y + h) / Game.H_TILE;
+
+        for (int i = rowFirst; i < rowLast; i++) {
+            int columnFirst = (int) (x / Game.W_TILE);
+            double columnLast = (x + w) / Game.W_TILE;
+
+            for (int j = columnFirst; j < columnLast; j++) {
                 String row = Game.tilemap[i];
                 char tile = row.charAt(j);
 
