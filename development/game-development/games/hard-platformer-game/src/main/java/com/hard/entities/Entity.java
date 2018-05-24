@@ -369,14 +369,14 @@ public class Entity {
         if (Game.OFFSET_X < 0)
             Game.OFFSET_X = 0;
 
-        if (Game.OFFSET_X > Game.W_TILE * TileMap.W_MAP - Game.WIDTH)
-            Game.OFFSET_X = Game.W_TILE * TileMap.W_MAP - Game.WIDTH;
+        if (Game.OFFSET_X > Game.W_TILE * TileMap.W - Game.WIDTH)
+            Game.OFFSET_X = Game.W_TILE * TileMap.W - Game.WIDTH;
 
         if (Game.OFFSET_Y < 0)
             Game.OFFSET_Y = 0;
 
-        if (Game.OFFSET_Y > Game.H_TILE * TileMap.H_MAP - Game.HEIGHT)
-            Game.OFFSET_Y = Game.H_TILE * TileMap.H_MAP - Game.HEIGHT;
+        if (Game.OFFSET_Y > Game.H_TILE * TileMap.H - Game.HEIGHT)
+            Game.OFFSET_Y = Game.H_TILE * TileMap.H - Game.HEIGHT;
 
         /**
          * stop moving
