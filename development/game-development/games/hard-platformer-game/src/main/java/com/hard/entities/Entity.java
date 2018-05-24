@@ -64,7 +64,7 @@ public class Entity {
          * init animations
          */
 
-        // standing frames
+        // standing animation
 
         Animation standingAnimation = new Animation();
 
@@ -72,7 +72,7 @@ public class Entity {
 
         int x_standingFrame = 0;
         int y_standingFrame = 190;
-        int w_standingFrame = 45;
+        int w_standingFrame = 135 / 3;
         int h_standingFrame = 48;
 
         for (int i = 0; i < 3; i++) {
@@ -83,7 +83,7 @@ public class Entity {
         standingAnimation.setFrames(standingFrames);
         standingAnimation.setSpeedFrame(0.0800);
 
-        // going frames
+        // going animation
 
         Animation goingAnimation = new Animation();
 
@@ -91,7 +91,7 @@ public class Entity {
 
         int x_goingFrame = 0;
         int y_goingFrame = 245;
-        int w_goingFrame = 40;
+        int w_goingFrame = 240 / 6;
         int h_goingFrame = 48;
 
         for (int i = 0; i < 6; i++) {
@@ -102,7 +102,7 @@ public class Entity {
         goingAnimation.setFrames(goingFrames);
         goingAnimation.setSpeedFrame(0.1000);
 
-        // jumping frames
+        // jumping animation
 
         Animation jumpingAnimation = new Animation();
 
@@ -119,7 +119,27 @@ public class Entity {
         }
 
         jumpingAnimation.setFrames(jumpingFrames);
-        goingAnimation.setSpeedFrame(0.1000);
+        jumpingAnimation.setSpeedFrame(0.1000);
+
+        // sitting animation
+
+        Animation sittingAnimation = new Animation();
+
+        List<BufferedImage> sittingFrames = new ArrayList<>();
+
+        int x_sittingFrame = 0;
+        int y_sittingFrame = 437;
+        int w_sittingFrame = 66 / 1;
+        int h_sittingFrame = 18;
+
+        for (int i = 0; i < 4; i++) {
+            BufferedImage frame = sprite.getSubimage(x_sittingFrame + w_sittingFrame * i, y_sittingFrame, w_sittingFrame, h_sittingFrame);
+            sittingFrames.add(frame);
+        }
+
+        sittingAnimation.setFrames(sittingFrames);
+        sittingAnimation.setSpeedFrame(0.0000);
+        sittingAnimation.setPlaying(false);
 
         /**
          * add animations
@@ -128,10 +148,13 @@ public class Entity {
         animationManager.addAnimation(AnimationState.Entity.STANDING, standingAnimation);
         animationManager.addAnimation(AnimationState.Entity.GOING, goingAnimation);
         animationManager.addAnimation(AnimationState.Entity.JUMPING, jumpingAnimation);
+        animationManager.addAnimation(AnimationState.Entity.SITTING, sittingAnimation);
 
         animationManager.setCurrentAnimation(AnimationState.Entity.STANDING);
 
-        // console
+        /**
+         * console
+         */
         console = new Console();
     }
 
