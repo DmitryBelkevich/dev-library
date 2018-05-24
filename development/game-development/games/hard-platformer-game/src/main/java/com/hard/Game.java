@@ -12,10 +12,18 @@ public class Game {
     private volatile boolean running;
     private JPanel panel;
 
+    // tiles
+    private static final int H_TILE = 32;
+    private static final int W_TILE = H_TILE;
+
+    private static final int H_MAP = 12;
+    private static final int W_MAP = 40;
+
+    // screen
     private static final String TITLE = "Game";
-    private static final double SCALE = 1;
-    public static final int WIDTH = (int) (640 * SCALE);
-    public static final int HEIGHT = (int) (480 * SCALE);
+    private static final double SCALE = 0.7;
+    public static final int WIDTH = (int) (H_TILE * 20 * SCALE);
+    public static final int HEIGHT = (int) (W_TILE * 15 * SCALE);
 
     public static final double GRAVITY = 1.2;
 
@@ -28,6 +36,22 @@ public class Game {
 
     // entities
     private Entity entity;
+
+    // tilemap
+    public static final String[] tilemap = {
+            "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+            "B                                B     B",
+            "B                                B     B",
+            "B                                B     B",
+            "B                                B     B",
+            "B         0000                BBBB     B",
+            "B                   BBB          B     B",
+            "BBB                       B      B     B",
+            "B              BB                BB    B",
+            "B              BB                      B",
+            "B    B         BB         BB           B",
+            "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+    };
 
     /**
      * Game loop
@@ -91,6 +115,24 @@ public class Game {
     }
 
     private void draw() {
+        for (int i = 0; i < H_MAP; i++) {
+            for (int j = 0; j < W_MAP; j++) {
+                String row = tilemap[i];
+                char tile = row.charAt(j);
+
+                if (tile == 'B')
+                    graphics.setColor(new Color(100, 100, 100, 255));
+
+                if (tile == '0')
+                    graphics.setColor(new Color(0, 255, 0, 255));
+
+                if (tile == ' ')
+                    continue;
+
+                graphics.fillRect(j * 32, i * 32, 32, 32);
+            }
+        }
+
         entity.draw(graphics);
     }
 
