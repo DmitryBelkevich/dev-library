@@ -288,7 +288,7 @@ public class Entity {
          */
 
         if (!bottomCollision)
-            dy = dy + Game.GRAVITY * time;
+            dy += Game.GRAVITY * time;
 
         x += dx * time;
         y += dy * time;
