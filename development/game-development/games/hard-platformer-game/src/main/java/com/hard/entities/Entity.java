@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Entity {
-    private int w = 64;
-    private int h = 64;
+    private int w;
+    private int h;
 
     private double x = Game.WIDTH / 2 - w / 2;
     private double y = Game.HEIGHT / 2 - h / 2;
@@ -358,6 +358,9 @@ public class Entity {
          * animation
          */
         animationManager.update(time);
+
+        w = animationManager.getWidth();
+        h = animationManager.getHeight();
     }
 
     public void draw(Graphics graphics) {
