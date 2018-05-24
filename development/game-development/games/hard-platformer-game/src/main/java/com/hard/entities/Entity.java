@@ -327,16 +327,17 @@ public class Entity {
          */
 
         x += dx * time;
-
-        // check collision on X
-
         y += dy * time;
-
-        // check collision on Y
 
         /**
          * check collision
          */
+
+        // check collisions with map
+        checkCollision('x');
+        checkCollision('y');
+
+        // check collisions with global
 
         if (x < 0)
             x = 0;
@@ -386,5 +387,9 @@ public class Entity {
         animationManager.draw(graphics, x, y, w, h);
 
         console.draw(graphics, this);
+    }
+
+    private void checkCollision(char direction) {
+
     }
 }
