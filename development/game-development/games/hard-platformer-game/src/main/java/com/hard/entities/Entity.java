@@ -363,6 +363,16 @@ public class Entity {
         Game.OFFSET_Y = y - Game.HEIGHT / 2 + (h / 2);
 
         /**
+         * hide behind-the-scenes
+         */
+
+        if (Game.OFFSET_X < 0)
+            Game.OFFSET_X = 0;
+
+        if (Game.OFFSET_X > Game.W_TILE * Game.W_MAP - Game.WIDTH)
+            Game.OFFSET_X = Game.W_TILE * Game.W_MAP - Game.WIDTH;
+
+        /**
          * stop moving
          */
 

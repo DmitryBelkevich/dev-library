@@ -38,22 +38,22 @@ public class Game {
     public static double OFFSET_X = 0;
     public static double OFFSET_Y = 0;
 
-    private static final int H_MAP = 12;
-    private static final int W_MAP = 40;
+    public static final int H_MAP = 12;
+    public static final int W_MAP = 50;
 
     public static final String[] tilemap = {
-            "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-            "B                                B     B",
-            "B                                B     B",
-            "B                                B     B",
-            "B                                B     B",
-            "B         0000                BBBB     B",
-            "B                   BBB          B     B",
-            "BBB                       B      B     B",
-            "B              BB                BB    B",
-            "B              BB                      B",
-            "B    B         BB         BB           B",
-            "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+            "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+            "B                                B               B",
+            "B                                B               B",
+            "B                                B               B",
+            "B                                B               B",
+            "B         0000                BBBB               B",
+            "B                   BBB          B               B",
+            "BBB                       B      B               B",
+            "B              BB                BB              B",
+            "B              BB                                B",
+            "B    B         BB         BB                     B",
+            "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
     };
 
     /**
