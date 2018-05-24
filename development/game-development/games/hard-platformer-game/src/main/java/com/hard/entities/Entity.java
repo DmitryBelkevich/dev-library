@@ -320,7 +320,7 @@ public class Entity {
         if (!bottomCollision)
             dy += Game.GRAVITY * time;
 
-        bottomCollision = false;
+//        bottomCollision = false;
 
         /**
          * moving
@@ -336,17 +336,17 @@ public class Entity {
          * check collision with global
          */
 
-        if (x < 0)
-            x = 0;
-
-        if (y < 0)
-            y = 0;
-
-        if (x > Game.WIDTH - w)
-            x = Game.WIDTH - w;
-
-        if (y > Game.HEIGHT - h)
-            y = Game.HEIGHT - h;
+//        if (x < 0)
+//            x = 0;
+//
+//        if (y < 0)
+//            y = 0;
+//
+//        if (x > Game.WIDTH - w)
+//            x = Game.WIDTH - w;
+//
+//        if (y > Game.HEIGHT - h)
+//            y = Game.HEIGHT - h;
 
         // check collision 2
 
@@ -381,7 +381,7 @@ public class Entity {
         graphics.fillRect((int) x, (int) y, w, h);
 
         // drawing entity
-        animationManager.draw(graphics, x, y, w, h);
+        animationManager.draw(graphics, x - Game.OFFSET_X, y - Game.OFFSET_Y, w, h);
 
         console.draw(graphics, this);
     }
