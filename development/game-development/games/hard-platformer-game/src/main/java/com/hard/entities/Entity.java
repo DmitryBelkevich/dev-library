@@ -372,6 +372,9 @@ public class Entity {
         if (Game.OFFSET_X > Game.W_TILE * Game.W_MAP - Game.WIDTH)
             Game.OFFSET_X = Game.W_TILE * Game.W_MAP - Game.WIDTH;
 
+        if (Game.OFFSET_Y < 0)
+            Game.OFFSET_Y = 0;
+
         /**
          * stop moving
          */
