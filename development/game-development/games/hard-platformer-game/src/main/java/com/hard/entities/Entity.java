@@ -272,7 +272,9 @@ public class Entity {
             dx = -speed;
 
             animationManager.setFlipped(true);
-            animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
+            if (bottomCollision) {
+                animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
+            }
         }
 
         if (right) {
@@ -280,7 +282,9 @@ public class Entity {
             dx = speed;
 
             animationManager.setFlipped(false);
-            animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
+            if (bottomCollision) {
+                animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
+            }
         }
 
         if (jumping) {
