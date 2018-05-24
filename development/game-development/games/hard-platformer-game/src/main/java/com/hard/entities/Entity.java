@@ -324,20 +324,17 @@ public class Entity {
 
         /**
          * moving
+         * check collisions with map
          */
 
         x += dx * time;
-        y += dy * time;
-
-        /**
-         * check collision
-         */
-
-        // check collisions with map
         checkCollision('x');
+        y += dy * time;
         checkCollision('y');
 
-        // check collisions with global
+        /**
+         * check collision with global
+         */
 
         if (x < 0)
             x = 0;
@@ -362,8 +359,8 @@ public class Entity {
          * map moving
          */
 
-        Game.OFFSET_X += x * 0.00001;
-        Game.OFFSET_Y += y * 0.00001;
+//        Game.OFFSET_X += x * 0.0001;
+//        Game.OFFSET_Y += y * 0.0001;
 
         /**
          * stop moving
@@ -390,6 +387,34 @@ public class Entity {
     }
 
     private void checkCollision(char direction) {
+        for (int i = (int) (y / Game.H_TILE); i < (y + h) / Game.H_TILE; i++) {
+            for (int j = (int) (x / Game.W_TILE); j < (x + w) / Game.W_TILE; j++) {
+                String row = Game.tilemap[i];
+                char tile = row.charAt(j);
 
+                if (tile == 'B') {
+                    if ((dx > 0) && (direction == 'x'))
+                        x = j * Game.W_TILE - w;
+
+                    if ((dx < 0) && (direction == 'x'))
+                        x = j * Game.W_TILE + Game.W_TILE;
+
+                    if ((dy > 0) && (direction == 'y')) {
+                        y = i * Game.H_TILE - h;
+                        dy = 0;
+                        bottomCollision = true;
+                    }
+
+                    if ((dy < 0) && (direction == 'y')) {
+                        y = i * Game.H_TILE + Game.H_TILE;
+                        dy = 0;
+                    }
+                }
+
+                if (tile == '0') {
+//                    Game.tilemap[i][j] = ' ';
+                }
+            }
+        }
     }
 }
