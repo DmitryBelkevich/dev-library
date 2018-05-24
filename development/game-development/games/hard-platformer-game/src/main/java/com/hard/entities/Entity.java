@@ -358,6 +358,12 @@ public class Entity {
         }
 
         /**
+         * map moving
+         */
+
+
+
+        /**
          * stop moving
          */
 

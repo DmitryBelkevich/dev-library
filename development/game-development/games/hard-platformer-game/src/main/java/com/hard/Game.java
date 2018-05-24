@@ -16,9 +16,6 @@ public class Game {
     private static final int H_TILE = 32;
     private static final int W_TILE = H_TILE;
 
-    private static final int H_MAP = 12;
-    private static final int W_MAP = 40;
-
     // screen
     private static final String TITLE = "Game";
     private static final double SCALE = 0.7;
@@ -38,6 +35,12 @@ public class Game {
     private Entity entity;
 
     // tilemap
+    public static final double OFFSET_X = 0;
+    public static final double OFFSET_Y = 0;
+
+    private static final int H_MAP = 12;
+    private static final int W_MAP = 40;
+
     public static final String[] tilemap = {
             "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
             "B                                B     B",
