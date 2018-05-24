@@ -1,6 +1,7 @@
 package com.hard;
 
 import com.hard.entities.Entity;
+import com.hard.entities.TileMap;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,9 +34,6 @@ public class Game {
     // time
     private double time;
 
-    // entities
-    private Entity entity;
-
     // tilemap
     public static double OFFSET_X = 0;
     public static double OFFSET_Y = 0;
@@ -43,28 +41,10 @@ public class Game {
     public static final int H_MAP = 20;
     public static final int W_MAP = 50;
 
-    public static final String[] tilemap = {
-            "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-            "B                                                B",
-            "B                                                B",
-            "B                                                B",
-            "B                                      00000     B",
-            "B                     BBBBB                      B",
-            "B                                                B",
-            "B                                                B",
-            "B                                                B",
-            "B         0000000             BBBBBBB            B",
-            "B                                B          BBBBBB",
-            "B                    BBBBBB      B               B",
-            "B                                B               B",
-            "B                                B               B",
-            "B                                B    BBBB       B",
-            "BBB             BBBBB            B               B",
-            "B                                BB           BBBB",
-            "B                                                B",
-            "B                         BB                     B",
-            "BBBBBBBBBBBBBBBB     BBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-    };
+    private TileMap tileMap;
+
+    // entities
+    private Entity entity;
 
     /**
      * Game loop
@@ -123,6 +103,8 @@ public class Game {
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
+        tileMap = new TileMap();
+
         entity = new Entity();
     }
 
@@ -131,23 +113,7 @@ public class Game {
     }
 
     private void draw() {
-        for (int i = 0; i < H_MAP; i++) {
-            for (int j = 0; j < W_MAP; j++) {
-                String row = tilemap[i];
-                char tile = row.charAt(j);
-
-                if (tile == 'B')
-                    graphics.setColor(new Color(100, 100, 100, 255));
-
-                if (tile == '0')
-                    graphics.setColor(new Color(0, 255, 0, 255));
-
-                if (tile == ' ')
-                    continue;
-
-                graphics.fillRect((int) (j * Game.W_TILE - OFFSET_X), (int) (i * Game.H_TILE - OFFSET_Y), Game.W_TILE, Game.H_TILE);
-            }
-        }
+        tileMap.draw(graphics);
 
         entity.draw(graphics);
     }

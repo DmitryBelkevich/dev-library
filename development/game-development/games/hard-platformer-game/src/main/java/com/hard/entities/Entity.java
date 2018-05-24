@@ -411,7 +411,7 @@ public class Entity {
             double columnLast = (x + w) / Game.W_TILE;
 
             for (int j = columnFirst; j < columnLast; j++) {
-                String row = Game.tilemap[i];
+                String row = TileMap.tilemap[i];
                 char tile = row.charAt(j);
 
                 if (tile == 'B') {
@@ -433,14 +433,13 @@ public class Entity {
                     }
                 }
 
-                // TODO
                 if (tile == '0') {
                     char newTile = ' ';
 
-                    String oldRow = Game.tilemap[i];
+                    String oldRow = TileMap.tilemap[i];
                     String newRow = oldRow.substring(0, j) + newTile + oldRow.substring(j + 1);
 
-                    Game.tilemap[i] = newRow;
+                    TileMap.tilemap[i] = newRow;
                 }
             }
         }
