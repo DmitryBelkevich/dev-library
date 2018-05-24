@@ -13,8 +13,8 @@ public class Game {
     private JPanel panel;
 
     // tiles
-    private static final int H_TILE = 32;
-    private static final int W_TILE = H_TILE;
+    public static final int H_TILE = 32;
+    public static final int W_TILE = H_TILE;
 
     // screen
     private static final String TITLE = "Game";
