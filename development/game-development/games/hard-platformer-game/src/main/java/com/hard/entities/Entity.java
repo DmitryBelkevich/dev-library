@@ -361,7 +361,8 @@ public class Entity {
          * map moving
          */
 
-
+        Game.OFFSET_X = x;
+        Game.OFFSET_Y = y;
 
         /**
          * stop moving

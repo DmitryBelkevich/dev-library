@@ -35,8 +35,8 @@ public class Game {
     private Entity entity;
 
     // tilemap
-    public static final double OFFSET_X = 0;
-    public static final double OFFSET_Y = 0;
+    public static double OFFSET_X = 0;
+    public static double OFFSET_Y = 0;
 
     private static final int H_MAP = 12;
     private static final int W_MAP = 40;
@@ -132,7 +132,7 @@ public class Game {
                 if (tile == ' ')
                     continue;
 
-                graphics.fillRect(j * 32, i * 32, 32, 32);
+                graphics.fillRect((int) (j * 32 - OFFSET_X), (int) (i * 32 - OFFSET_Y), 32, 32);
             }
         }
 
