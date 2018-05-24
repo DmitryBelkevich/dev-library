@@ -60,6 +60,10 @@ public class Entity {
             e.printStackTrace();
         }
 
+        /**
+         * init animations
+         */
+
         // standing frames
 
         Animation standingAnimation = new Animation();
