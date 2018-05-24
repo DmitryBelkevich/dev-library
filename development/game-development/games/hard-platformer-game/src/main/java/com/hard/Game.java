@@ -34,10 +34,11 @@ public class Game {
     // time
     private double time;
 
-    // tilemap
+    // camera
     public static double OFFSET_X = 0;
     public static double OFFSET_Y = 0;
 
+    // tilemap
     private TileMap tileMap;
 
     // entities
