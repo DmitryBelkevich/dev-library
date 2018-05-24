@@ -31,6 +31,10 @@ public class TileMap {
             "BBBBBBBBBBBBBBBB     BBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
     };
 
+    public void update() {
+
+    }
+
     public void draw(Graphics graphics) {
         for (int i = 0; i < TileMap.H; i++) {
             for (int j = 0; j < TileMap.W; j++) {

@@ -106,6 +106,8 @@ public class Game {
     }
 
     private void update(double time) {
+        tileMap.update();
+
         entity.update(time);
     }
 
