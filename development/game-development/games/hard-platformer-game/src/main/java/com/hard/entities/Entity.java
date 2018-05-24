@@ -284,11 +284,15 @@ public class Entity {
         }
 
         /**
-         * moving
+         * speed-up
          */
 
         if (!bottomCollision)
             dy += Game.GRAVITY * time;
+
+        /**
+         * moving
+         */
 
         x += dx * time;
         y += dy * time;
