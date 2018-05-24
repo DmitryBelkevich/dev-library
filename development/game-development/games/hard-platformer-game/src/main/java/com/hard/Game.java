@@ -38,19 +38,27 @@ public class Game {
     public static double OFFSET_X = 0;
     public static double OFFSET_Y = 0;
 
-    public static final int H_MAP = 12;
+    public static final int H_MAP = 20;
     public static final int W_MAP = 50;
 
     public static final String[] tilemap = {
             "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+            "B                                                B",
+            "B                                                B",
+            "B                                                B",
+            "B                                      00000     B",
+            "B                     BBBBB                      B",
+            "B                                                B",
+            "B                                                B",
+            "B                                                B",
+            "B         0000                BBBBBBB            B",
+            "B                                B          BBBBBB",
+            "B               BB               B               B",
             "B                                B               B",
             "B                                B               B",
-            "B                                B               B",
-            "B                                B               B",
-            "B         0000                BBBB               B",
-            "B                   BBB          B               B",
+            "B                   BBB          B    BBBB       B",
             "BBB                       B      B               B",
-            "B              BB                BB              B",
+            "B              BB                BB           BBBB",
             "B              BB                                B",
             "B    B         BB         BB                     B",
             "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
@@ -67,7 +75,7 @@ public class Game {
         while (running) {
             long start = System.nanoTime();
 
-            time /= 20;
+            time *= 0.045;
 
             update(time);
             draw();
