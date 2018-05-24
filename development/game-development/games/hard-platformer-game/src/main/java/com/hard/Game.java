@@ -10,8 +10,6 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 public class Game {
-    private JPanel panel;
-
     private volatile boolean running;
     private volatile boolean pause;
 
@@ -29,6 +27,7 @@ public class Game {
     public static final double GRAVITY = 1.2;
 
     // graphics
+    private JPanel panel;
     private BufferedImage image;
     private Graphics2D graphics;
 
