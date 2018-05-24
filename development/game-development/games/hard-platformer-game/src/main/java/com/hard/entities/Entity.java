@@ -293,10 +293,9 @@ public class Entity {
         }
 
         if (sitting) {
-            speed = 5;
-            dy = speed;
-
-            animationManager.setCurrentAnimation(AnimationState.Entity.GOING);
+            if (bottomCollision) {
+                animationManager.setCurrentAnimation(AnimationState.Entity.SITTING);
+            }
         }
 
         if (!left && !right) {
