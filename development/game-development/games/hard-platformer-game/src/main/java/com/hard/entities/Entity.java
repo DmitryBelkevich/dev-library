@@ -350,10 +350,10 @@ public class Entity {
 
         // check collision 2
 
-        if (y >= Game.HEIGHT - h) {
-            bottomCollision = true;
-            dy = 0;
-        }
+//        if (y >= Game.HEIGHT - h) {
+//            bottomCollision = true;
+//            dy = 0;
+//        }
 
         /**
          * map moving
@@ -427,6 +427,7 @@ public class Entity {
                     }
                 }
 
+                // TODO
 //                if (tile == '0') {
 //                    Game.tilemap[i][j] = ' ';
 //                }
