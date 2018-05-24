@@ -264,7 +264,7 @@ public class Entity {
 
     public void update(double time) {
         /**
-         * check moving
+         * check states
          */
 
         if (left) {
