@@ -18,7 +18,7 @@ public class Game {
 
     // screen
     private static final String TITLE = "Game";
-    private static final double SCALE = 0.7;
+    private static final double SCALE = 1.0;
     public static final int WIDTH = (int) (H_TILE * 20 * SCALE);
     public static final int HEIGHT = (int) (W_TILE * 15 * SCALE);
 

@@ -359,14 +359,12 @@ public class Entity {
          * map moving
          */
 
-        Game.OFFSET_X += x * 0.00001;
-        Game.OFFSET_Y += y * 0.00001;
+        Game.OFFSET_X = x - Game.WIDTH / 2 + (w / 2);
+        Game.OFFSET_Y = y - Game.HEIGHT / 2 + (h / 2);
 
         /**
          * stop moving
          */
-
-//        dx = 0;
 
         /**
          * animation
