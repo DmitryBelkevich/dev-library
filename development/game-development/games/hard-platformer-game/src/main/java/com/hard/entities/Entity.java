@@ -320,6 +320,8 @@ public class Entity {
         if (!bottomCollision)
             dy += Game.GRAVITY * time;
 
+        bottomCollision = false;
+
         /**
          * moving
          */
