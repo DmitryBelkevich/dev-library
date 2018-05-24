@@ -327,7 +327,12 @@ public class Entity {
          */
 
         x += dx * time;
+
+        // check collision on X
+
         y += dy * time;
+
+        // check collision on Y
 
         /**
          * check collision
