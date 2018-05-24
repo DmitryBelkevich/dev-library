@@ -320,7 +320,7 @@ public class Entity {
         if (!bottomCollision)
             dy += Game.GRAVITY * time;
 
-//        bottomCollision = false;
+        bottomCollision = false;
 
         /**
          * moving
@@ -359,12 +359,14 @@ public class Entity {
          * map moving
          */
 
-//        Game.OFFSET_X += x * 0.0001;
-//        Game.OFFSET_Y += y * 0.0001;
+        Game.OFFSET_X += x * 0.00001;
+        Game.OFFSET_Y += y * 0.00001;
 
         /**
          * stop moving
          */
+
+//        dx = 0;
 
         /**
          * animation
@@ -378,7 +380,7 @@ public class Entity {
     public void draw(Graphics graphics) {
         // drawing background
         graphics.setColor(new Color(255, 0, 0, 255));
-        graphics.fillRect((int) x, (int) y, w, h);
+        graphics.fillRect((int) (x - Game.OFFSET_X), (int) (y - Game.OFFSET_Y), w, h);
 
         // drawing entity
         animationManager.draw(graphics, x - Game.OFFSET_X, y - Game.OFFSET_Y, w, h);
