@@ -132,7 +132,7 @@ public class Game {
                 if (tile == ' ')
                     continue;
 
-                graphics.fillRect((int) (j * 32 - OFFSET_X), (int) (i * 32 - OFFSET_Y), 32, 32);
+                graphics.fillRect((int) (j * Game.W_TILE - OFFSET_X), (int) (i * Game.H_TILE - OFFSET_Y), Game.W_TILE, Game.H_TILE);
             }
         }
 
