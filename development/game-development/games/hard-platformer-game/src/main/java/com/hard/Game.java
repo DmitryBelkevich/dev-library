@@ -25,6 +25,7 @@ public class Game {
     public static final int WIDTH = (int) (H_TILE * 20 * SCALE);
     public static final int HEIGHT = (int) (W_TILE * 15 * SCALE);
 
+    // physic
     public static final double GRAVITY = 1.2;
 
     // graphics
