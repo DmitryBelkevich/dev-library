@@ -9,8 +9,10 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 public class Game {
-    private volatile boolean running;
     private JPanel panel;
+
+    private volatile boolean running;
+    private volatile boolean pause;
 
     // tiles
     public static final int H_TILE = 32;
@@ -73,6 +75,9 @@ public class Game {
         init();
 
         while (running) {
+            while (pause) {
+            }
+
             long start = System.nanoTime();
 
             time *= 0.045;
@@ -170,6 +175,13 @@ public class Game {
 
             if (keyCode == KeyEvent.VK_ESCAPE)
                 running = false;
+
+            if (keyCode == KeyEvent.VK_P) {
+                if (pause)
+                    pause = false;
+                else
+                    pause = true;
+            }
 
             if (keyCode == KeyEvent.VK_LEFT)
                 entity.setLeft(true);
