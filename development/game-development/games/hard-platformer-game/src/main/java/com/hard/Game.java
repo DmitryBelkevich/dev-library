@@ -38,9 +38,6 @@ public class Game {
     public static double OFFSET_X = 0;
     public static double OFFSET_Y = 0;
 
-    public static final int H_MAP = 20;
-    public static final int W_MAP = 50;
-
     private TileMap tileMap;
 
     // entities

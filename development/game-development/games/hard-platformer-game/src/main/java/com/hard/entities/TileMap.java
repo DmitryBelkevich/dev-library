@@ -5,6 +5,9 @@ import com.hard.Game;
 import java.awt.*;
 
 public class TileMap {
+    public static final int H_MAP = 20;
+    public static final int W_MAP = 50;
+
     public static final String[] tilemap = {
             "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
             "B                                                B",
@@ -29,8 +32,8 @@ public class TileMap {
     };
 
     public void draw(Graphics graphics) {
-        for (int i = 0; i < Game.H_MAP; i++) {
-            for (int j = 0; j < Game.W_MAP; j++) {
+        for (int i = 0; i < TileMap.H_MAP; i++) {
+            for (int j = 0; j < TileMap.W_MAP; j++) {
                 String row = tilemap[i];
                 char tile = row.charAt(j);
 
