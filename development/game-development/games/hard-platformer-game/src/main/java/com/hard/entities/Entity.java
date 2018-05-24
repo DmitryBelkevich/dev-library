@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Entity {
-    private int w;
-    private int h;
+    private int w = 32 * 2;
+    private int h = 32 * 2;
 
     private double x = Game.WIDTH / 2 - w / 2;
     private double y = Game.HEIGHT / 2 - h / 2;
@@ -371,8 +371,8 @@ public class Entity {
          */
         animationManager.update(time);
 
-        w = animationManager.getWidth();
-        h = animationManager.getHeight();
+//        w = animationManager.getWidth();
+//        h = animationManager.getHeight();
     }
 
     public void draw(Graphics graphics) {
@@ -411,9 +411,9 @@ public class Entity {
                     }
                 }
 
-                if (tile == '0') {
+//                if (tile == '0') {
 //                    Game.tilemap[i][j] = ' ';
-                }
+//                }
             }
         }
     }
