@@ -96,12 +96,12 @@ public class Console {
         double offsetX = Game.OFFSET_X;
         double offsetY = Game.OFFSET_Y;
 
-        if (offsetX != 0) graphics.setColor(new Color(225, 0, 0, 255));
+//        if (offsetX != 0) graphics.setColor(new Color(225, 0, 0, 255));
         graphics.drawString("offset x=" + offsetX, 50 * stepX, 1 * stepY);
-        graphics.setColor(new Color(0, 255, 0, 255));
+//        graphics.setColor(new Color(0, 255, 0, 255));
 
-        if (offsetY != 0) graphics.setColor(new Color(225, 0, 0, 255));
+//        if (offsetY != 0) graphics.setColor(new Color(225, 0, 0, 255));
         graphics.drawString("offset y=" + offsetY, 50 * stepX, 2 * stepY);
-        graphics.setColor(new Color(0, 255, 0, 255));
+//        graphics.setColor(new Color(0, 255, 0, 255));
     }
 }
