@@ -434,9 +434,14 @@ public class Entity {
                 }
 
                 // TODO
-//                if (tile == '0') {
-//                    Game.tilemap[i][j] = ' ';
-//                }
+                if (tile == '0') {
+                    char newTile = ' ';
+
+                    String oldRow = Game.tilemap[i];
+                    String newRow = oldRow.substring(0, j) + newTile + oldRow.substring(j + 1);
+
+                    Game.tilemap[i] = newRow;
+                }
             }
         }
     }

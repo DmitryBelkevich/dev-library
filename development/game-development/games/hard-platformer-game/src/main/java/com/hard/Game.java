@@ -53,7 +53,7 @@ public class Game {
             "B                                                B",
             "B                                                B",
             "B                                                B",
-            "B         0000                BBBBBBB            B",
+            "B         0000000             BBBBBBB            B",
             "B                                B          BBBBBB",
             "B                    BBBBBB      B               B",
             "B                                B               B",
