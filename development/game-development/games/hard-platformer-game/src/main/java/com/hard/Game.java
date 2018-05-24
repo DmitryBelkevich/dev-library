@@ -53,15 +53,15 @@ public class Game {
             "B                                                B",
             "B         0000                BBBBBBB            B",
             "B                                B          BBBBBB",
-            "B               BB               B               B",
+            "B                    BBBBBB      B               B",
             "B                                B               B",
             "B                                B               B",
-            "B                   BBB          B    BBBB       B",
-            "BBB                       B      B               B",
-            "B              BB                BB           BBBB",
-            "B              BB                                B",
-            "B    B         BB         BB                     B",
-            "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+            "B                                B    BBBB       B",
+            "BBB             BBBBB            B               B",
+            "B                                BB           BBBB",
+            "B                                                B",
+            "B                         BB                     B",
+            "BBBBBBBBBBBBBBBB     BBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
     };
 
     /**
