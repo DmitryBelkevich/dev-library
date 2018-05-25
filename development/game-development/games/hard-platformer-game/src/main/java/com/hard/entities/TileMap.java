@@ -2,6 +2,7 @@ package com.hard.entities;
 
 import com.hard.Camera;
 import com.hard.Tile;
+import com.hard.maps.Maps;
 
 import java.awt.*;
 
@@ -31,6 +32,21 @@ public class TileMap {
             "B                         BB                     B",
             "BBBBBBBBBBBBBBBB     BBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
     };
+
+    private char[][] charsTilemap;
+
+    public TileMap() {
+        String[] tilemap = Maps.stage1.level1;
+
+        // create
+        charsTilemap = new char[50][20];
+
+        // fill
+        for (int i = 0; i < tilemap.length; i++) {
+            String row = tilemap[i];
+            charsTilemap[i] = row.toCharArray();
+        }
+    }
 
     public void update(double time) {
 
