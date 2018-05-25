@@ -1,6 +1,6 @@
 package com.hard.game_states;
 
-import com.hard.Camera;
+import com.hard.entities.Camera;
 import com.hard.entities.Entity;
 import com.hard.entities.TileMap;
 import com.hard.maps.Maps;
@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 public class Level1State implements GameState {
     private TileMap tileMap;
     private Entity entity;
+    private Camera camera;
 
     public Level1State() {
         /**
@@ -34,20 +35,26 @@ public class Level1State implements GameState {
 
         entity = new Entity();
         entity.setTileMap(tileMap);
+
+        /**
+         * camera
+         */
+
+        camera = new Camera();
     }
 
     @Override
     public void update(double time) {
         tileMap.update(time);
-
         entity.update(time);
+        camera.update(time);
     }
 
     @Override
     public void draw(Graphics graphics) {
         tileMap.draw(graphics);
-
         entity.draw(graphics);
+        camera.draw(graphics);
     }
 
     /**
@@ -78,20 +85,22 @@ public class Level1State implements GameState {
          * camera
          */
 
+        int step = 5;
+
         if (keyCode == KeyEvent.VK_A) {
-            Camera.x -= 5;
+            camera.setX(camera.getX() - step);
         }
 
         if (keyCode == KeyEvent.VK_D) {
-            Camera.x += 5;
+            camera.setX(camera.getX() + step);
         }
 
         if (keyCode == KeyEvent.VK_W) {
-            Camera.y -= 5;
+            camera.setY(camera.getY() - step);
         }
 
         if (keyCode == KeyEvent.VK_S) {
-            Camera.y += 5;
+            camera.setY(camera.getY() + step);
         }
     }
 
