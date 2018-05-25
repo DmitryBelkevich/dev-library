@@ -47,8 +47,8 @@ public class Entity extends AbstractEntity {
         x = Screen.WIDTH / 2 - 100;
         y = Screen.HEIGHT / 2 - 100;
 
-        w = 32 * 2;
-        h = 32 * 2;
+        w = Tile.W * 2;
+        h = Tile.H * 2;
 
         animationManager = new AnimationManager();
 
