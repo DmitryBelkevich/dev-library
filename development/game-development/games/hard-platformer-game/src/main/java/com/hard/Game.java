@@ -3,6 +3,8 @@ package com.hard;
 import com.hard.config.Screen;
 import com.hard.entities.Entity;
 import com.hard.entities.TileMap;
+import com.hard.game_states.GameState;
+import com.hard.game_states.Level1State;
 import com.hard.maps.Maps;
 
 import javax.swing.*;
@@ -29,11 +31,8 @@ public class Game {
     // time
     private double time;
 
-    // tilemap
-    private TileMap tileMap;
-
-    // entities
-    private Entity entity;
+    // states
+    private GameState gameState;
 
     /**
      * Game loop
@@ -92,38 +91,15 @@ public class Game {
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-        /**
-         * tile map
-         */
-        tileMap = new TileMap();
-
-        MapLoader mapLoader = new MapLoader();
-
-        char[][] charsTilemap = mapLoader.loadStringArray(Maps.stage1.level1);
-
-        tileMap.setW(mapLoader.getW());
-        tileMap.setH(mapLoader.getH());
-
-        tileMap.setCharsTilemap(charsTilemap);
-
-        /**
-         * entity
-         */
-
-        entity = new Entity();
-        entity.setTileMap(tileMap);
+        gameState = new Level1State();
     }
 
     private void update(double time) {
-        tileMap.update(time);
-
-        entity.update(time);
+        gameState.update(time);
     }
 
     private void draw() {
-        tileMap.draw(graphics);
-
-        entity.draw(graphics);
+        gameState.draw(graphics);
     }
 
     private void display(BufferedImage image) {
@@ -157,34 +133,12 @@ public class Game {
                     pause = true;
             }
 
-            if (keyCode == KeyEvent.VK_LEFT)
-                entity.setLeft(true);
-
-            if (keyCode == KeyEvent.VK_RIGHT)
-                entity.setRight(true);
-
-            if (keyCode == KeyEvent.VK_UP)
-                entity.setJumping(true);
-
-            if (keyCode == KeyEvent.VK_DOWN)
-                entity.setSitting(true);
+            gameState.keyPressed(e);
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-            int keyCode = e.getKeyCode();
-
-            if (keyCode == KeyEvent.VK_LEFT)
-                entity.setLeft(false);
-
-            if (keyCode == KeyEvent.VK_RIGHT)
-                entity.setRight(false);
-
-            if (keyCode == KeyEvent.VK_UP)
-                entity.setJumping(false);
-
-            if (keyCode == KeyEvent.VK_DOWN)
-                entity.setSitting(false);
+            gameState.keyReleased(e);
         }
     };
 }
