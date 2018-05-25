@@ -383,14 +383,14 @@ public class Entity {
         if (Camera.x < 0)
             Camera.x = 0;
 
-        if (Camera.x > Tile.W * TileMap.W - Screen.WIDTH)
-            Camera.x = Tile.W * TileMap.W - Screen.WIDTH;
+        if (Camera.x > Tile.W * tileMap.getW() - Screen.WIDTH)
+            Camera.x = Tile.W * tileMap.getW() - Screen.WIDTH;
 
         if (Camera.y < 0)
             Camera.y = 0;
 
-        if (Camera.y > Tile.H * TileMap.H - Screen.HEIGHT)
-            Camera.y = Tile.H * TileMap.H - Screen.HEIGHT;
+        if (Camera.y > Tile.H * tileMap.getH() - Screen.HEIGHT)
+            Camera.y = Tile.H * tileMap.getH() - Screen.HEIGHT;
 
         /**
          * stop moving

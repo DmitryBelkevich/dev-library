@@ -7,8 +7,8 @@ import com.hard.maps.Maps;
 import java.awt.*;
 
 public class TileMap {
-    public static final int H = 20;
-    public static final int W = 50;
+    private int h;
+    private int w;
 
     private char[][] charsTilemap;
 
@@ -16,13 +16,32 @@ public class TileMap {
         String[] tilemap = Maps.stage1.level1;
 
         // create
-        charsTilemap = new char[50][20];
+        h = tilemap.length;
+        w = tilemap[0].length();
+
+        charsTilemap = new char[w][h];
 
         // fill
         for (int i = 0; i < tilemap.length; i++) {
             String row = tilemap[i];
             charsTilemap[i] = row.toCharArray();
         }
+    }
+
+    public int getH() {
+        return h;
+    }
+
+    public void setH(int h) {
+        this.h = h;
+    }
+
+    public int getW() {
+        return w;
+    }
+
+    public void setW(int w) {
+        this.w = w;
     }
 
     public char[][] getCharsTilemap() {
@@ -34,8 +53,8 @@ public class TileMap {
     }
 
     public void draw(Graphics graphics) {
-        for (int i = 0; i < TileMap.H; i++) {
-            for (int j = 0; j < TileMap.W; j++) {
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
                 char[] row = charsTilemap[i];
                 char tile = row[j];
 
