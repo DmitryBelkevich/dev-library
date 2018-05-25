@@ -72,10 +72,8 @@ public class Level1State implements GameState {
         entity.update(time);
         camera.update(time);
 
-        for (int i = 0; i < consoles.size(); i++) {
-            Console console = consoles.get(i);
+        for (Console console : consoles)
             console.update(time);
-        }
     }
 
     @Override
@@ -84,10 +82,8 @@ public class Level1State implements GameState {
         entity.draw(graphics);
         camera.draw(graphics);
 
-        for (int i = 0; i < consoles.size(); i++) {
-            Console console = consoles.get(i);
+        for (Console console : consoles)
             console.draw(graphics);
-        }
     }
 
     /**
