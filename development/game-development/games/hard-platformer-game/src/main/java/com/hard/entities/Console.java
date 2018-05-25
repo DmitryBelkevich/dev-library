@@ -1,6 +1,6 @@
 package com.hard.entities;
 
-import com.hard.Game;
+import com.hard.Camera;
 
 import java.awt.*;
 
@@ -93,15 +93,15 @@ public class Console {
          * offset
          */
 
-        double offsetX = Game.OFFSET_X;
-        double offsetY = Game.OFFSET_Y;
+        double offsetX = Camera.x;
+        double offsetY = Camera.y;
 
 //        if (offsetX != 0) graphics.setColor(new Color(225, 0, 0, 255));
-        graphics.drawString("offset x=" + offsetX, 50 * stepX, 1 * stepY);
+        graphics.drawString("camera x=" + offsetX, 50 * stepX, 1 * stepY);
 //        graphics.setColor(new Color(0, 255, 0, 255));
 
 //        if (offsetY != 0) graphics.setColor(new Color(225, 0, 0, 255));
-        graphics.drawString("offset y=" + offsetY, 50 * stepX, 2 * stepY);
+        graphics.drawString("camera y=" + offsetY, 50 * stepX, 2 * stepY);
 //        graphics.setColor(new Color(0, 255, 0, 255));
     }
 }

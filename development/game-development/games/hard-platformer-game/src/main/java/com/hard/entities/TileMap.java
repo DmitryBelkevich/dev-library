@@ -1,6 +1,6 @@
 package com.hard.entities;
 
-import com.hard.Game;
+import com.hard.Camera;
 import com.hard.Tile;
 
 import java.awt.*;
@@ -51,7 +51,7 @@ public class TileMap {
                 if (tile == ' ')
                     continue;
 
-                graphics.fillRect((int) (j * Tile.W - Game.OFFSET_X), (int) (i * Tile.H - Game.OFFSET_Y), Tile.W, Tile.H);
+                graphics.fillRect((int) (j * Tile.W - Camera.x), (int) (i * Tile.H - Camera.y), Tile.W, Tile.H);
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.hard.entities;
 
+import com.hard.Camera;
 import com.hard.Game;
 import com.hard.Tile;
 import com.hard.animation.Animation;
@@ -358,27 +359,27 @@ public class Entity {
 //        }
 
         /**
-         * map moving
+         * camera moving
          */
 
-        Game.OFFSET_X = x - Screen.WIDTH / 2 + (w / 2);
-        Game.OFFSET_Y = y - Screen.HEIGHT / 2 + (h / 2);
+        Camera.x = x - Screen.WIDTH / 2 + (w / 2);
+        Camera.y = y - Screen.HEIGHT / 2 + (h / 2);
 
         /**
          * hide behind-the-scenes
          */
 
-        if (Game.OFFSET_X < 0)
-            Game.OFFSET_X = 0;
+        if (Camera.x < 0)
+            Camera.x = 0;
 
-        if (Game.OFFSET_X > Tile.W * TileMap.W - Screen.WIDTH)
-            Game.OFFSET_X = Tile.W * TileMap.W - Screen.WIDTH;
+        if (Camera.x > Tile.W * TileMap.W - Screen.WIDTH)
+            Camera.x = Tile.W * TileMap.W - Screen.WIDTH;
 
-        if (Game.OFFSET_Y < 0)
-            Game.OFFSET_Y = 0;
+        if (Camera.y < 0)
+            Camera.y = 0;
 
-        if (Game.OFFSET_Y > Tile.H * TileMap.H - Screen.HEIGHT)
-            Game.OFFSET_Y = Tile.H * TileMap.H - Screen.HEIGHT;
+        if (Camera.y > Tile.H * TileMap.H - Screen.HEIGHT)
+            Camera.y = Tile.H * TileMap.H - Screen.HEIGHT;
 
         /**
          * stop moving
@@ -396,10 +397,10 @@ public class Entity {
     public void draw(Graphics graphics) {
         // drawing background
         graphics.setColor(new Color(255, 0, 0, 255));
-        graphics.fillRect((int) (x - Game.OFFSET_X), (int) (y - Game.OFFSET_Y), w, h);
+        graphics.fillRect((int) (x - Camera.x), (int) (y - Camera.y), w, h);
 
         // drawing entity
-        animationManager.draw(graphics, x - Game.OFFSET_X, y - Game.OFFSET_Y, w, h);
+        animationManager.draw(graphics, x - Camera.x, y - Camera.y, w, h);
 
         console.draw(graphics, this);
     }
