@@ -1,37 +1,38 @@
 package com.hard.entities;
 
 import com.hard.Camera;
-import com.hard.MapLoader;
 import com.hard.Tile;
-import com.hard.maps.Maps;
 
 import java.awt.*;
 
 public class TileMap {
-    private final int h;
-    private final int w;
+    private int h;
+    private int w;
 
     private char[][] charsTilemap;
 
-    public TileMap() {
-        MapLoader mapLoader = new MapLoader();
-
-        charsTilemap = mapLoader.loadStringArray(Maps.stage1.level1);
-
-        h = mapLoader.getH();
-        w = mapLoader.getW();
-    }
-
     public int getH() {
         return h;
+    }
+
+    public void setH(int h) {
+        this.h = h;
     }
 
     public int getW() {
         return w;
     }
 
+    public void setW(int w) {
+        this.w = w;
+    }
+
     public char[][] getCharsTilemap() {
         return charsTilemap;
+    }
+
+    public void setCharsTilemap(char[][] charsTilemap) {
+        this.charsTilemap = charsTilemap;
     }
 
     public void update(double time) {

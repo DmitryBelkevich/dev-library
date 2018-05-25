@@ -3,6 +3,7 @@ package com.hard;
 import com.hard.config.Screen;
 import com.hard.entities.Entity;
 import com.hard.entities.TileMap;
+import com.hard.maps.Maps;
 
 import javax.swing.*;
 import java.awt.*;
@@ -91,7 +92,23 @@ public class Game {
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
+        /**
+         * tile map
+         */
         tileMap = new TileMap();
+
+        MapLoader mapLoader = new MapLoader();
+
+        char[][] charsTilemap = mapLoader.loadStringArray(Maps.stage1.level1);
+
+        tileMap.setW(mapLoader.getW());
+        tileMap.setH(mapLoader.getH());
+
+        tileMap.setCharsTilemap(charsTilemap);
+
+        /**
+         * entity
+         */
 
         entity = new Entity();
         entity.setTileMap(tileMap);
