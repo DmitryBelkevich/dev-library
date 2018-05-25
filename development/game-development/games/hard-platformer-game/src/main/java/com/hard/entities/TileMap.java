@@ -7,8 +7,8 @@ import com.hard.maps.Maps;
 import java.awt.*;
 
 public class TileMap {
-    private int h;
-    private int w;
+    private final int h;
+    private final int w;
 
     private char[][] charsTilemap;
 
@@ -32,16 +32,8 @@ public class TileMap {
         return h;
     }
 
-    public void setH(int h) {
-        this.h = h;
-    }
-
     public int getW() {
         return w;
-    }
-
-    public void setW(int w) {
-        this.w = w;
     }
 
     public char[][] getCharsTilemap() {
