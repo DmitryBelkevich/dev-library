@@ -14,18 +14,18 @@ public class Camera extends AbstractEntity {
     }
 
     public void moveLeft() {
-        x += 0.1;
+        x += 1.0;
     }
 
     public void moveRight() {
-        x -= 0.1;
+        x -= 1.0 ;
     }
 
     public void moveUp() {
-        y += 0.1;
+        y += 1.0 ;
     }
 
     public void moveDown() {
-        y -= 0.1;
+        y -= 1.0;
     }
 }
