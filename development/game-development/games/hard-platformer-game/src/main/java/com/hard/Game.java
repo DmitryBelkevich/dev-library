@@ -1,5 +1,6 @@
 package com.hard;
 
+import com.hard.config.Screen;
 import com.hard.entities.Entity;
 import com.hard.entities.TileMap;
 
@@ -15,9 +16,6 @@ public class Game {
 
     // screen
     private static final String TITLE = "Game";
-    private static final double SCALE = 1.0;
-    public static final int WIDTH = (int) (Tile.H * 20 * SCALE);
-    public static final int HEIGHT = (int) (Tile.W * 15 * SCALE);
 
     // physic
     public static final double GRAVITY = 1.2;
@@ -72,14 +70,14 @@ public class Game {
     private void createGui() {
         JFrame frame = new JFrame(TITLE);
 
-        frame.setSize(WIDTH, HEIGHT);
+        frame.setSize(Screen.WIDTH, Screen.HEIGHT);
 
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
         panel = new JPanel();
-        panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        panel.setPreferredSize(new Dimension(Screen.WIDTH, Screen.HEIGHT));
         frame.setContentPane(panel);
 
         frame.pack();
@@ -91,7 +89,7 @@ public class Game {
     private void init() {
         running = true;
 
-        image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+        image = new BufferedImage(Screen.WIDTH, Screen.HEIGHT, BufferedImage.TYPE_INT_RGB);
         graphics = (Graphics2D) image.getGraphics();
 
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -122,7 +120,7 @@ public class Game {
 
     private void clearScreen(Graphics graphics) {
         graphics.setColor(new Color(0, 0, 0, 255));
-        graphics.fillRect(0, 0, WIDTH, HEIGHT);
+        graphics.fillRect(0, 0, Screen.WIDTH, Screen.HEIGHT);
     }
 
     private KeyListener keyListener = new KeyListener() {

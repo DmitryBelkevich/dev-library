@@ -5,6 +5,7 @@ import com.hard.Tile;
 import com.hard.animation.Animation;
 import com.hard.animation.AnimationManager;
 import com.hard.animation.AnimationState;
+import com.hard.config.Screen;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -18,8 +19,8 @@ public class Entity {
     private int w = 32 * 2;
     private int h = 32 * 2;
 
-    private double x = Game.WIDTH / 2 - w / 2;
-    private double y = Game.HEIGHT / 2 - h / 2;
+    private double x = Screen.WIDTH / 2 - w / 2;
+    private double y = Screen.HEIGHT / 2 - h / 2;
 
     private double speed;
 
@@ -360,8 +361,8 @@ public class Entity {
          * map moving
          */
 
-        Game.OFFSET_X = x - Game.WIDTH / 2 + (w / 2);
-        Game.OFFSET_Y = y - Game.HEIGHT / 2 + (h / 2);
+        Game.OFFSET_X = x - Screen.WIDTH / 2 + (w / 2);
+        Game.OFFSET_Y = y - Screen.HEIGHT / 2 + (h / 2);
 
         /**
          * hide behind-the-scenes
@@ -370,14 +371,14 @@ public class Entity {
         if (Game.OFFSET_X < 0)
             Game.OFFSET_X = 0;
 
-        if (Game.OFFSET_X > Tile.W * TileMap.W - Game.WIDTH)
-            Game.OFFSET_X = Tile.W * TileMap.W - Game.WIDTH;
+        if (Game.OFFSET_X > Tile.W * TileMap.W - Screen.WIDTH)
+            Game.OFFSET_X = Tile.W * TileMap.W - Screen.WIDTH;
 
         if (Game.OFFSET_Y < 0)
             Game.OFFSET_Y = 0;
 
-        if (Game.OFFSET_Y > Tile.H * TileMap.H - Game.HEIGHT)
-            Game.OFFSET_Y = Tile.H * TileMap.H - Game.HEIGHT;
+        if (Game.OFFSET_Y > Tile.H * TileMap.H - Screen.HEIGHT)
+            Game.OFFSET_Y = Tile.H * TileMap.H - Screen.HEIGHT;
 
         /**
          * stop moving
