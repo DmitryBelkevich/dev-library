@@ -15,7 +15,6 @@ public class TileMap {
     private char[][] chars;
     private Tile[][] tiles;
 
-
     public double getX() {
         return x;
     }
@@ -56,6 +55,14 @@ public class TileMap {
         this.chars = chars;
     }
 
+    public int getColumnNumber(int x) {
+        return (int) ((x - this.x) / Tile.W);
+    }
+
+    public int getRowNumber(int y) {
+        return (int) ((y - this.y) / Tile.H);
+    }
+
     public void update(double time) {
 
     }
@@ -75,7 +82,7 @@ public class TileMap {
                 if (tile == ' ')
                     continue;
 
-                graphics.fillRect((int) (j * Tile.W - Camera.x), (int) (i * Tile.H - Camera.y), Tile.W, Tile.H);
+                graphics.fillRect((int) (x + j * Tile.W/* - Camera.x*/), (int) (y + i * Tile.H/* - Camera.y*/), Tile.W, Tile.H);
             }
         }
     }
