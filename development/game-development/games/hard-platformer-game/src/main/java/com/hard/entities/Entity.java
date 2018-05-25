@@ -14,12 +14,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Entity {
-    private double x = Screen.WIDTH / 2 - 100;
-    private double y = Screen.HEIGHT / 2 - 100;
-
-    private int w = 32 * 2;
-    private int h = 32 * 2;
+public class Entity extends AbstractEntity {
+    private int w;
+    private int h;
 
     private double speed;
 
@@ -48,6 +45,12 @@ public class Entity {
     private Console console;
 
     public Entity() {
+        x = Screen.WIDTH / 2 - 100;
+        y = Screen.HEIGHT / 2 - 100;
+
+        w = 32 * 2;
+        h = 32 * 2;
+
         animationManager = new AnimationManager();
 
         /**
@@ -166,22 +169,6 @@ public class Entity {
         console.setEntity(this);
     }
 
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
-
     public double getSpeed() {
         return speed;
     }
@@ -278,6 +265,7 @@ public class Entity {
         this.tileMap = tileMap;
     }
 
+    @Override
     public void update(double time) {
         /**
          * check states
@@ -407,6 +395,7 @@ public class Entity {
 //        h = animationManager.getHeight();
     }
 
+    @Override
     public void draw(Graphics graphics) {
         // drawing background
         graphics.setColor(new Color(255, 0, 0, 255));
