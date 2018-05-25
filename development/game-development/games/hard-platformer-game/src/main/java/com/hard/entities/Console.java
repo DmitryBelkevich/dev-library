@@ -2,30 +2,11 @@ package com.hard.entities;
 
 import java.awt.*;
 
-public class Console {
-    private double x;
-    private double y;
-
+public class Console extends AbstractEntity {
     private int stepX = 5;
     private int stepY = 20;
 
     private Object entity;
-
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
 
     public void setEntity(Object entity) {
         this.entity = entity;
