@@ -94,6 +94,7 @@ public class Game {
         tileMap = new TileMap();
 
         entity = new Entity();
+        entity.setTileMap(tileMap);
     }
 
     private void update(double time) {

@@ -43,6 +43,9 @@ public class Entity {
     // animation
     private AnimationManager animationManager;
 
+    // entities
+    private TileMap tileMap;
+
     // console
     private Console console;
 
@@ -265,6 +268,14 @@ public class Entity {
         this.bottomCollision = bottomCollision;
     }
 
+    public TileMap getTileMap() {
+        return tileMap;
+    }
+
+    public void setTileMap(TileMap tileMap) {
+        this.tileMap = tileMap;
+    }
+
     public void update(double time) {
         /**
          * check states
@@ -409,13 +420,16 @@ public class Entity {
         int rowFirst = (int) (y / Tile.H);
         double rowLast = (y + h) / Tile.H;
 
+        char[][] charsTilemap = tileMap.getCharsTilemap();
+
         for (int i = rowFirst; i < rowLast; i++) {
             int columnFirst = (int) (x / Tile.W);
             double columnLast = (x + w) / Tile.W;
 
             for (int j = columnFirst; j < columnLast; j++) {
-                String row = TileMap.tilemap[i];
-                char tile = row.charAt(j);
+                char[] row = charsTilemap[i];
+
+                char tile = row[j];
 
                 if (tile == 'B') {
                     if ((dx > 0) && (direction == 'x'))
@@ -437,12 +451,7 @@ public class Entity {
                 }
 
                 if (tile == '0') {
-                    char newTile = ' ';
-
-                    String oldRow = TileMap.tilemap[i];
-                    String newRow = oldRow.substring(0, j) + newTile + oldRow.substring(j + 1);
-
-                    TileMap.tilemap[i] = newRow;
+                    row[j] = ' ';
                 }
             }
         }
