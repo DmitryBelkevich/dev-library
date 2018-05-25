@@ -12,10 +12,12 @@ public class Console extends AbstractEntity {
         this.entity = entity;
     }
 
+    @Override
     public void update(double time) {
 
     }
 
+    @Override
     public void draw(Graphics graphics) {
         Entity entity = (Entity) this.entity;
 
