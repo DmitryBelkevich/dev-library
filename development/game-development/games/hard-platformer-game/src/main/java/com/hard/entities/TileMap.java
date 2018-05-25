@@ -75,7 +75,7 @@ public class TileMap extends AbstractEntity {
                 if (tile == ' ')
                     continue;
 
-                graphics.fillRect((int) (x + j * Tile.W + camera.getX()), (int) (y + i * Tile.H + camera.getY()), Tile.W, Tile.H);
+                graphics.fillRect((int) (x + j * Tile.W - camera.getX()), (int) (y + i * Tile.H - camera.getY()), Tile.W, Tile.H);
             }
         }
     }
