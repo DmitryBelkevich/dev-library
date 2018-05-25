@@ -3,6 +3,7 @@ package com.hard;
 import com.hard.config.Screen;
 import com.hard.config.Settings;
 import com.hard.game_states.GameState;
+import com.hard.game_states.GameStateManager;
 import com.hard.game_states.Level1State;
 
 import javax.swing.*;
@@ -12,20 +13,21 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 public class Game {
-    private volatile boolean running;
-    private volatile boolean pause;
-
     // gui
     private String TITLE = "Game";
     private JPanel panel;
     private BufferedImage image;
     private Graphics2D graphics;
 
+    // game state
+    private volatile boolean running;
+    private volatile boolean pause;
+
     // time
     private double time;
 
-    // states
-    private GameState gameState;
+    // game states
+    private GameStateManager gameStateManager;
 
     /**
      * Game loop
@@ -84,15 +86,24 @@ public class Game {
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-        gameState = new Level1State();
+        /**
+         * game states
+         */
+        gameStateManager = new GameStateManager();
+
+        GameState level1State = new Level1State();
+
+        gameStateManager.addGameState(level1State);
+
+        gameStateManager.setCurrentGameState(level1State);
     }
 
     private void update(double time) {
-        gameState.update(time);
+        gameStateManager.update(time);
     }
 
     private void draw() {
-        gameState.draw(graphics);
+        gameStateManager.draw(graphics);
     }
 
     private void display(BufferedImage image) {
@@ -126,12 +137,12 @@ public class Game {
                     pause = true;
             }
 
-            gameState.keyPressed(e);
+            gameStateManager.keyPressed(e);
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-            gameState.keyReleased(e);
+            gameStateManager.keyReleased(e);
         }
     };
 }
