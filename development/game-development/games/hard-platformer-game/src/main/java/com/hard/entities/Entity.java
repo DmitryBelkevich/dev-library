@@ -1,12 +1,10 @@
 package com.hard.entities;
 
-import com.hard.Camera;
 import com.hard.Tile;
 import com.hard.animation.Animation;
 import com.hard.animation.AnimationManager;
 import com.hard.animation.AnimationState;
 import com.hard.config.Screen;
-import com.hard.config.Settings;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -17,11 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Entity {
+    private double x = Screen.WIDTH / 2 - 100;
+    private double y = Screen.HEIGHT / 2 - 100;
+
     private int w = 32 * 2;
     private int h = 32 * 2;
-
-    private double x = Screen.WIDTH / 2 - w / 2;
-    private double y = Screen.HEIGHT / 2 - h / 2;
 
     private double speed;
 
@@ -161,7 +159,11 @@ public class Entity {
         /**
          * console
          */
+
         console = new Console();
+        console.setX(0);
+        console.setY(10);
+        console.setEntity(this);
     }
 
     public double getX() {
@@ -331,10 +333,10 @@ public class Entity {
          * speed-up
          */
 
-        if (!bottomCollision)
-            dy += Settings.GRAVITY * time;
+//        if (!bottomCollision)
+//            dy += Settings.GRAVITY * time;
 
-        bottomCollision = false;
+//        bottomCollision = false;
 
         /**
          * moving
@@ -342,9 +344,9 @@ public class Entity {
          */
 
         x += dx * time;
-        checkCollision('x');
+//        checkCollision('x');
         y += dy * time;
-        checkCollision('y');
+//        checkCollision('y');
 
         /**
          * check collision with global
@@ -373,8 +375,8 @@ public class Entity {
          * camera moving
          */
 
-        Camera.x = x - Screen.WIDTH / 2 + (w / 2);
-        Camera.y = y - Screen.HEIGHT / 2 + (h / 2);
+//        Camera.x = x - Screen.WIDTH / 2 + (w / 2);
+//        Camera.y = y - Screen.HEIGHT / 2 + (h / 2);
 
         /**
          * hide behind-the-scenes
@@ -408,12 +410,12 @@ public class Entity {
     public void draw(Graphics graphics) {
         // drawing background
         graphics.setColor(new Color(255, 0, 0, 255));
-        graphics.fillRect((int) (x - Camera.x), (int) (y - Camera.y), w, h);
+        graphics.fillRect((int) (x/* - Camera.x*/), (int) (y/* - Camera.y*/), w, h);
 
         // drawing entity
-        animationManager.draw(graphics, x - Camera.x, y - Camera.y, w, h);
+        animationManager.draw(graphics, x/* - Camera.x*/, y/* - Camera.y*/, w, h);
 
-        console.draw(graphics, this);
+        console.draw(graphics);
     }
 
     private void checkCollision(char direction) {
