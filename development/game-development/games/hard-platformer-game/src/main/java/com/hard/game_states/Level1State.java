@@ -1,5 +1,6 @@
 package com.hard.game_states;
 
+import com.hard.Camera;
 import com.hard.entities.Entity;
 import com.hard.entities.TileMap;
 import com.hard.maps.Maps;
@@ -57,6 +58,10 @@ public class Level1State implements GameState {
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
 
+        /**
+         * entity
+         */
+
         if (keyCode == KeyEvent.VK_LEFT)
             entity.setLeft(true);
 
@@ -68,11 +73,35 @@ public class Level1State implements GameState {
 
         if (keyCode == KeyEvent.VK_DOWN)
             entity.setSitting(true);
+
+        /**
+         * camera
+         */
+
+        if (keyCode == KeyEvent.VK_A) {
+            Camera.x -= 5;
+        }
+
+        if (keyCode == KeyEvent.VK_D) {
+            Camera.x += 5;
+        }
+
+        if (keyCode == KeyEvent.VK_W) {
+            Camera.y -= 5;
+        }
+
+        if (keyCode == KeyEvent.VK_S) {
+            Camera.y += 5;
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         int keyCode = e.getKeyCode();
+
+        /**
+         * entity
+         */
 
         if (keyCode == KeyEvent.VK_LEFT)
             entity.setLeft(false);
