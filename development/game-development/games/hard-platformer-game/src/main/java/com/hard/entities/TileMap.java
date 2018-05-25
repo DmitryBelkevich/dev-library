@@ -4,31 +4,12 @@ import com.hard.Tile;
 
 import java.awt.*;
 
-public class TileMap {
-    private double x;
-    private double y;
-
+public class TileMap extends AbstractEntity {
     private int h;
     private int w;
 
     private char[][] chars;
     private Tile[][] tiles;
-
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
 
     public int getH() {
         return h;
@@ -62,10 +43,12 @@ public class TileMap {
         return (int) ((y - this.y) / Tile.H);
     }
 
+    @Override
     public void update(double time) {
 
     }
 
+    @Override
     public void draw(Graphics graphics) {
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
