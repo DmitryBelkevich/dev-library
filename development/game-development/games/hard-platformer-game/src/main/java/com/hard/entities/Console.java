@@ -6,9 +6,9 @@ public class Console extends AbstractEntity {
     private int stepX = 5;
     private int stepY = 20;
 
-    private Object entity;
+    private AbstractEntity entity;
 
-    public void setEntity(Object entity) {
+    public void setEntity(AbstractEntity entity) {
         this.entity = entity;
     }
 
@@ -19,8 +19,6 @@ public class Console extends AbstractEntity {
 
     @Override
     public void draw(Graphics graphics) {
-        Entity entity = (Entity) this.entity;
-
         //
 
         graphics.setColor(new Color(0, 255, 255, 255));
