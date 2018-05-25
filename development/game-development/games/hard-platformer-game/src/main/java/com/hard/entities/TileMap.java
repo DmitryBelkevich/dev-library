@@ -1,6 +1,5 @@
 package com.hard.entities;
 
-import com.hard.Camera;
 import com.hard.Tile;
 
 import java.awt.*;
