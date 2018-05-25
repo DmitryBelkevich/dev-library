@@ -1,6 +1,7 @@
 package com.hard.game_states;
 
 import com.hard.entities.Camera;
+import com.hard.entities.Console;
 import com.hard.entities.Entity;
 import com.hard.entities.TileMap;
 import com.hard.maps.Maps;
@@ -8,11 +9,14 @@ import com.hard.utils.MapLoader;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Level1State implements GameState {
     private TileMap tileMap;
     private Entity entity;
     private Camera camera;
+    private List<Console> consoles;
 
     public Level1State() {
         /**
@@ -41,6 +45,25 @@ public class Level1State implements GameState {
          */
 
         camera = new Camera();
+
+        /**
+         * console
+         */
+
+        consoles = new ArrayList<>();
+
+        Console entityConsole = new Console();
+        entityConsole.setX(0);
+        entityConsole.setY(10);
+        entityConsole.setEntity(entity);
+
+        Console cameraConsole = new Console();
+        cameraConsole.setX(200);
+        cameraConsole.setY(10);
+        cameraConsole.setEntity(camera);
+
+        consoles.add(entityConsole);
+        consoles.add(cameraConsole);
     }
 
     @Override
@@ -48,6 +71,11 @@ public class Level1State implements GameState {
         tileMap.update(time);
         entity.update(time);
         camera.update(time);
+
+        for (int i = 0; i < consoles.size(); i++) {
+            Console console = consoles.get(i);
+            console.update(time);
+        }
     }
 
     @Override
@@ -55,6 +83,11 @@ public class Level1State implements GameState {
         tileMap.draw(graphics);
         entity.draw(graphics);
         camera.draw(graphics);
+
+        for (int i = 0; i < consoles.size(); i++) {
+            Console console = consoles.get(i);
+            console.draw(graphics);
+        }
     }
 
     /**

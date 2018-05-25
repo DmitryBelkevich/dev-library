@@ -41,9 +41,6 @@ public class Entity extends AbstractEntity {
     // entities
     private TileMap tileMap;
 
-    // console
-    private Console console;
-
     public Entity() {
         x = Screen.WIDTH / 2 - 100;
         y = Screen.HEIGHT / 2 - 100;
@@ -158,15 +155,6 @@ public class Entity extends AbstractEntity {
         animationManager.addAnimation(AnimationState.Entity.SITTING, sittingAnimation);
 
         animationManager.setCurrentAnimation(AnimationState.Entity.STANDING);
-
-        /**
-         * console
-         */
-
-        console = new Console();
-        console.setX(0);
-        console.setY(10);
-        console.setEntity(this);
     }
 
     public double getSpeed() {
@@ -336,6 +324,9 @@ public class Entity extends AbstractEntity {
         y += dy * time;
 //        checkCollision('y');
 
+        int columnNumber = tileMap.getColumnNumber((int) x);
+        int rowNumber = tileMap.getRowNumber((int) y);
+
         /**
          * check collision with global
          */
@@ -403,8 +394,6 @@ public class Entity extends AbstractEntity {
 
         // drawing entity
         animationManager.draw(graphics, x/* - Camera.x*/, y/* - Camera.y*/, w, h);
-
-        console.draw(graphics);
     }
 
     private void checkCollision(char direction) {
