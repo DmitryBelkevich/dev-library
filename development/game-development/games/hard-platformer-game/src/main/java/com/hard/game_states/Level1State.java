@@ -114,22 +114,20 @@ public class Level1State implements GameState {
          * camera
          */
 
-        int step = 5;
-
         if (keyCode == KeyEvent.VK_A) {
-            camera.setX(camera.getX() - step);
+            camera.moveLeft();
         }
 
         if (keyCode == KeyEvent.VK_D) {
-            camera.setX(camera.getX() + step);
+            camera.moveRight();
         }
 
         if (keyCode == KeyEvent.VK_W) {
-            camera.setY(camera.getY() - step);
+            camera.moveUp();
         }
 
         if (keyCode == KeyEvent.VK_S) {
-            camera.setY(camera.getY() + step);
+            camera.moveDown();
         }
     }
 

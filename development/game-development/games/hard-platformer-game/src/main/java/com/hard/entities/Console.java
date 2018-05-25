@@ -41,7 +41,7 @@ public class Console extends AbstractEntity {
         else if (entity.getX() == 0)
             graphics.setColor(new Color(0, 255, 0, 255));
 
-        graphics.drawString("x=" + entity.getX(), (int) x, (int) (y + 2 * stepY));
+        graphics.drawString("y=" + entity.getY(), (int) x, (int) (y + 2 * stepY));
 
 ////        if (x != 0) graphics.setColor(new Color(225, 0, 0, 255));
 //        graphics.drawString("x=" + x, 50, 1 * stepY);
