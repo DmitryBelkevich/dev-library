@@ -5,6 +5,7 @@ import com.hard.animation.Animation;
 import com.hard.animation.AnimationManager;
 import com.hard.animation.AnimationState;
 import com.hard.config.Screen;
+import com.hard.config.Settings;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -318,10 +319,10 @@ public class Entity extends AbstractEntity {
          * speed-up
          */
 
-//        if (!bottomCollision)
-//            dy += Settings.GRAVITY * time;
+        if (!bottomCollision)
+            dy += Settings.GRAVITY * time;
 
-//        bottomCollision = false;
+        bottomCollision = false;
 
         /**
          * moving
@@ -329,9 +330,9 @@ public class Entity extends AbstractEntity {
          */
 
         x += dx * time;
-//        checkCollision('x');
+        checkCollision('x');
         y += dy * time;
-//        checkCollision('y');
+        checkCollision('y');
 
         int columnNumber = tileMap.getColumnNumber((int) x);
         int rowNumber = tileMap.getRowNumber((int) y);
@@ -363,24 +364,24 @@ public class Entity extends AbstractEntity {
          * camera moving
          */
 
-//        Camera.x = x - Screen.WIDTH / 2 + (w / 2);
-//        Camera.y = y - Screen.HEIGHT / 2 + (h / 2);
+        camera.setX(x - Screen.WIDTH / 2 + (w / 2));
+        camera.setY(y - Screen.HEIGHT / 2 + (h / 2));
 
         /**
          * hide behind-the-scenes
          */
 
-//        if (Camera.x < 0)
-//            Camera.x = 0;
-//
-//        if (Camera.x > Tile.W * tileMap.getW() - Screen.WIDTH)
-//            Camera.x = Tile.W * tileMap.getW() - Screen.WIDTH;
-//
-//        if (Camera.y < 0)
-//            Camera.y = 0;
-//
-//        if (Camera.y > Tile.H * tileMap.getH() - Screen.HEIGHT)
-//            Camera.y = Tile.H * tileMap.getH() - Screen.HEIGHT;
+        if (camera.getX() < 0)
+            camera.setX(0);
+
+        if (camera.getX() > Tile.W * tileMap.getW() - Screen.WIDTH)
+            camera.setX(Tile.W * tileMap.getW() - Screen.WIDTH);
+
+        if (camera.getY() < 0)
+            camera.setY(0);
+
+        if (camera.getY() > Tile.H * tileMap.getH() - Screen.HEIGHT)
+            camera.setY(Tile.H * tileMap.getH() - Screen.HEIGHT);
 
         /**
          * stop moving

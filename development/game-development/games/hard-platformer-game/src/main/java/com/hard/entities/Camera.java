@@ -13,6 +13,11 @@ public class Camera extends AbstractEntity {
 
     }
 
+    public void setPosition(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
     public void moveLeft() {
         x -= 5.0;
     }
