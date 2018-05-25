@@ -2,11 +2,8 @@ package com.hard;
 
 import com.hard.config.Screen;
 import com.hard.config.Settings;
-import com.hard.entities.Entity;
-import com.hard.entities.TileMap;
 import com.hard.game_states.GameState;
 import com.hard.game_states.Level1State;
-import com.hard.maps.Maps;
 
 import javax.swing.*;
 import java.awt.*;
@@ -127,26 +124,6 @@ public class Game {
                     pause = false;
                 else
                     pause = true;
-            }
-
-            /**
-             * camera
-             */
-
-            if (keyCode == KeyEvent.VK_A) {
-                Camera.x -= 5;
-            }
-
-            if (keyCode == KeyEvent.VK_D) {
-                Camera.x += 5;
-            }
-
-            if (keyCode == KeyEvent.VK_W) {
-                Camera.y -= 5;
-            }
-
-            if (keyCode == KeyEvent.VK_S) {
-                Camera.y += 5;
             }
 
             gameState.keyPressed(e);
