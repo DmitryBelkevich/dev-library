@@ -1,6 +1,7 @@
 package com.hard.entities;
 
 import com.hard.Camera;
+import com.hard.config.Settings;
 
 import java.awt.*;
 
@@ -102,6 +103,18 @@ public class Console {
 
 //        if (offsetY != 0) graphics.setColor(new Color(225, 0, 0, 255));
         graphics.drawString("camera y=" + offsetY, 50 * stepX, 2 * stepY);
+//        graphics.setColor(new Color(0, 255, 0, 255));
+
+        /**
+         * Game settings
+         */
+
+//        if (offsetX != 0) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("game speed=" + Settings.GAME_SPEED, 50 * stepX, 3 * stepY);
+//        graphics.setColor(new Color(0, 255, 0, 255));
+
+//        if (offsetY != 0) graphics.setColor(new Color(225, 0, 0, 255));
+        graphics.drawString("gravity=" + Settings.GRAVITY, 50 * stepX, 4 * stepY);
 //        graphics.setColor(new Color(0, 255, 0, 255));
     }
 }
