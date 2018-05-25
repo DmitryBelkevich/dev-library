@@ -23,12 +23,12 @@ public class Level1State implements GameState {
 
         MapLoader mapLoader = new MapLoader();
 
-        char[][] charsTilemap = mapLoader.loadStringArray(Maps.stage1.level1);
+        char[][] chars = mapLoader.loadStringArray(Maps.stage1.level1);
 
         tileMap.setW(mapLoader.getW());
         tileMap.setH(mapLoader.getH());
 
-        tileMap.setCharsTilemap(charsTilemap);
+        tileMap.setChars(chars);
 
         /**
          * entity

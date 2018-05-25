@@ -6,10 +6,31 @@ import com.hard.Tile;
 import java.awt.*;
 
 public class TileMap {
+    private double x;
+    private double y;
+
     private int h;
     private int w;
 
-    private char[][] charsTilemap;
+    private char[][] chars;
+    private Tile[][] tiles;
+
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
 
     public int getH() {
         return h;
@@ -27,12 +48,12 @@ public class TileMap {
         this.w = w;
     }
 
-    public char[][] getCharsTilemap() {
-        return charsTilemap;
+    public char[][] getChars() {
+        return chars;
     }
 
-    public void setCharsTilemap(char[][] charsTilemap) {
-        this.charsTilemap = charsTilemap;
+    public void setChars(char[][] chars) {
+        this.chars = chars;
     }
 
     public void update(double time) {
@@ -42,7 +63,7 @@ public class TileMap {
     public void draw(Graphics graphics) {
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
-                char[] row = charsTilemap[i];
+                char[] row = chars[i];
                 char tile = row[j];
 
                 if (tile == 'B')

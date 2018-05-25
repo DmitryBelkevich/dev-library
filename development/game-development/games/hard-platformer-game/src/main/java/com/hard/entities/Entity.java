@@ -1,7 +1,6 @@
 package com.hard.entities;
 
 import com.hard.Camera;
-import com.hard.Game;
 import com.hard.Tile;
 import com.hard.animation.Animation;
 import com.hard.animation.AnimationManager;
@@ -421,14 +420,14 @@ public class Entity {
         int rowFirst = (int) (y / Tile.H);
         double rowLast = (y + h) / Tile.H;
 
-        char[][] charsTilemap = tileMap.getCharsTilemap();
+        char[][] chars = tileMap.getChars();
 
         for (int i = rowFirst; i < rowLast; i++) {
             int columnFirst = (int) (x / Tile.W);
             double columnLast = (x + w) / Tile.W;
 
             for (int j = columnFirst; j < columnLast; j++) {
-                char[] row = charsTilemap[i];
+                char[] row = chars[i];
 
                 char tile = row[j];
 
