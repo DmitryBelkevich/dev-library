@@ -2,30 +2,13 @@ package com.hard.entities;
 
 import java.awt.*;
 
-public class Camera {
-    private double x;
-    private double y;
-
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
-
+public class Camera extends AbstractEntity {
+    @Override
     public void update(double time) {
 
     }
 
+    @Override
     public void draw(Graphics graphics) {
 
     }
