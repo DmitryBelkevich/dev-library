@@ -31,7 +31,7 @@ public class TileMap {
             "BBBBBBBBBBBBBBBB     BBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
     };
 
-    public void update() {
+    public void update(double time) {
 
     }
 
