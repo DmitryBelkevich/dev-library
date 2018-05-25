@@ -1,9 +1,9 @@
 package com.hard.game_states;
 
-import com.hard.MapLoader;
 import com.hard.entities.Entity;
 import com.hard.entities.TileMap;
 import com.hard.maps.Maps;
+import com.hard.utils.MapLoader;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

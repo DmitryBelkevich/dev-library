@@ -18,11 +18,8 @@ public class Game {
     private volatile boolean running;
     private volatile boolean pause;
 
-    // physic
-
-
     // gui
-    private static final String TITLE = "Game";
+    private String TITLE = "Game";
     private JPanel panel;
     private BufferedImage image;
     private Graphics2D graphics;
@@ -130,6 +127,26 @@ public class Game {
                     pause = false;
                 else
                     pause = true;
+            }
+
+            /**
+             * camera
+             */
+
+            if (keyCode == KeyEvent.VK_A) {
+                Camera.x -= 5;
+            }
+
+            if (keyCode == KeyEvent.VK_D) {
+                Camera.x += 5;
+            }
+
+            if (keyCode == KeyEvent.VK_W) {
+                Camera.y -= 5;
+            }
+
+            if (keyCode == KeyEvent.VK_S) {
+                Camera.y += 5;
             }
 
             gameState.keyPressed(e);
