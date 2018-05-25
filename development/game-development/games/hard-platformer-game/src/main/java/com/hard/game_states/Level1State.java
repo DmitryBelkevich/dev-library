@@ -9,10 +9,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class Level1State implements GameState {
-    // tilemap
     private TileMap tileMap;
-
-    // entities
     private Entity entity;
 
     public Level1State() {
