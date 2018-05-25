@@ -13,15 +13,11 @@ public class Game {
     private volatile boolean running;
     private volatile boolean pause;
 
-    // tiles
-    public static final int H_TILE = 32;
-    public static final int W_TILE = H_TILE;
-
     // screen
     private static final String TITLE = "Game";
     private static final double SCALE = 1.0;
-    public static final int WIDTH = (int) (H_TILE * 20 * SCALE);
-    public static final int HEIGHT = (int) (W_TILE * 15 * SCALE);
+    public static final int WIDTH = (int) (Tile.H * 20 * SCALE);
+    public static final int HEIGHT = (int) (Tile.W * 15 * SCALE);
 
     // physic
     public static final double GRAVITY = 1.2;

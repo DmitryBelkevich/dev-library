@@ -1,6 +1,7 @@
 package com.hard.entities;
 
 import com.hard.Game;
+import com.hard.Tile;
 import com.hard.animation.Animation;
 import com.hard.animation.AnimationManager;
 import com.hard.animation.AnimationState;
@@ -369,14 +370,14 @@ public class Entity {
         if (Game.OFFSET_X < 0)
             Game.OFFSET_X = 0;
 
-        if (Game.OFFSET_X > Game.W_TILE * TileMap.W - Game.WIDTH)
-            Game.OFFSET_X = Game.W_TILE * TileMap.W - Game.WIDTH;
+        if (Game.OFFSET_X > Tile.W * TileMap.W - Game.WIDTH)
+            Game.OFFSET_X = Tile.W * TileMap.W - Game.WIDTH;
 
         if (Game.OFFSET_Y < 0)
             Game.OFFSET_Y = 0;
 
-        if (Game.OFFSET_Y > Game.H_TILE * TileMap.H - Game.HEIGHT)
-            Game.OFFSET_Y = Game.H_TILE * TileMap.H - Game.HEIGHT;
+        if (Game.OFFSET_Y > Tile.H * TileMap.H - Game.HEIGHT)
+            Game.OFFSET_Y = Tile.H * TileMap.H - Game.HEIGHT;
 
         /**
          * stop moving
@@ -403,12 +404,12 @@ public class Entity {
     }
 
     private void checkCollision(char direction) {
-        int rowFirst = (int) (y / Game.H_TILE);
-        double rowLast = (y + h) / Game.H_TILE;
+        int rowFirst = (int) (y / Tile.H);
+        double rowLast = (y + h) / Tile.H;
 
         for (int i = rowFirst; i < rowLast; i++) {
-            int columnFirst = (int) (x / Game.W_TILE);
-            double columnLast = (x + w) / Game.W_TILE;
+            int columnFirst = (int) (x / Tile.W);
+            double columnLast = (x + w) / Tile.W;
 
             for (int j = columnFirst; j < columnLast; j++) {
                 String row = TileMap.tilemap[i];
@@ -416,19 +417,19 @@ public class Entity {
 
                 if (tile == 'B') {
                     if ((dx > 0) && (direction == 'x'))
-                        x = j * Game.W_TILE - w;
+                        x = j * Tile.W - w;
 
                     if ((dx < 0) && (direction == 'x'))
-                        x = j * Game.W_TILE + Game.W_TILE;
+                        x = j * Tile.W + Tile.W;
 
                     if ((dy > 0) && (direction == 'y')) {
-                        y = i * Game.H_TILE - h;
+                        y = i * Tile.H - h;
                         dy = 0;
                         bottomCollision = true;
                     }
 
                     if ((dy < 0) && (direction == 'y')) {
-                        y = i * Game.H_TILE + Game.H_TILE;
+                        y = i * Tile.H + Tile.H;
                         dy = 0;
                     }
                 }
