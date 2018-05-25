@@ -1,6 +1,7 @@
 package com.hard;
 
 import com.hard.config.Screen;
+import com.hard.config.Settings;
 import com.hard.entities.Entity;
 import com.hard.entities.TileMap;
 import com.hard.game_states.GameState;
@@ -17,13 +18,11 @@ public class Game {
     private volatile boolean running;
     private volatile boolean pause;
 
-    // screen
-    private static final String TITLE = "Game";
-
     // physic
-    public static final double GRAVITY = 1.2;
 
-    // graphics
+
+    // gui
+    private static final String TITLE = "Game";
     private JPanel panel;
     private BufferedImage image;
     private Graphics2D graphics;
@@ -48,7 +47,7 @@ public class Game {
 
             long start = System.nanoTime();
 
-            time *= 0.045;
+            time *= Settings.GAME_SPEED;
 
             update(time);
             draw();

@@ -7,6 +7,7 @@ import com.hard.animation.Animation;
 import com.hard.animation.AnimationManager;
 import com.hard.animation.AnimationState;
 import com.hard.config.Screen;
+import com.hard.config.Settings;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -332,7 +333,7 @@ public class Entity {
          */
 
         if (!bottomCollision)
-            dy += Game.GRAVITY * time;
+            dy += Settings.GRAVITY * time;
 
         bottomCollision = false;
 
