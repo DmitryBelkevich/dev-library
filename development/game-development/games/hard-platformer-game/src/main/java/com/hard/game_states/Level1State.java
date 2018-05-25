@@ -10,13 +10,13 @@ import com.hard.utils.MapLoader;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class Level1State implements GameState {
     private TileMap tileMap;
     private Entity entity;
     private Camera camera;
-    private List<Console> consoles;
+    private Collection<Console> consoles;
 
     public Level1State() {
         /**
