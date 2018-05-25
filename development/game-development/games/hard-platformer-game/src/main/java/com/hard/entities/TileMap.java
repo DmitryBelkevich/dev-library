@@ -1,6 +1,7 @@
 package com.hard.entities;
 
 import com.hard.Camera;
+import com.hard.MapLoader;
 import com.hard.Tile;
 import com.hard.maps.Maps;
 
@@ -13,19 +14,12 @@ public class TileMap {
     private char[][] charsTilemap;
 
     public TileMap() {
-        String[] tilemap = Maps.stage1.level1;
+        MapLoader mapLoader = new MapLoader();
 
-        // create
-        h = tilemap.length;
-        w = tilemap[0].length();
+        charsTilemap = mapLoader.loadStringArray(Maps.stage1.level1);
 
-        charsTilemap = new char[w][h];
-
-        // fill
-        for (int i = 0; i < tilemap.length; i++) {
-            String row = tilemap[i];
-            charsTilemap[i] = row.toCharArray();
-        }
+        h = mapLoader.getH();
+        w = mapLoader.getW();
     }
 
     public int getH() {
