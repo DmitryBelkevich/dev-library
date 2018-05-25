@@ -1,4 +1,4 @@
-package com.hard;
+package com.hard.utils;
 
 public class MapLoader {
     private int h;
