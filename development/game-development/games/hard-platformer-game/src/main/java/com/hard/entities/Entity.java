@@ -40,6 +40,7 @@ public class Entity extends AbstractEntity {
 
     // entities
     private TileMap tileMap;
+    private Camera camera;
 
     public Entity() {
         x = Screen.WIDTH / 2 - 100;
@@ -249,6 +250,14 @@ public class Entity extends AbstractEntity {
         return tileMap;
     }
 
+    public Camera getCamera() {
+        return camera;
+    }
+
+    public void setCamera(Camera camera) {
+        this.camera = camera;
+    }
+
     public void setTileMap(TileMap tileMap) {
         this.tileMap = tileMap;
     }
@@ -390,10 +399,10 @@ public class Entity extends AbstractEntity {
     public void draw(Graphics graphics) {
         // drawing background
         graphics.setColor(new Color(255, 0, 0, 255));
-        graphics.fillRect((int) (x/* - Camera.x*/), (int) (y/* - Camera.y*/), w, h);
+        graphics.fillRect((int) (x + camera.getX()), (int) (y + camera.getY()), w, h);
 
         // drawing entity
-        animationManager.draw(graphics, x/* - Camera.x*/, y/* - Camera.y*/, w, h);
+        animationManager.draw(graphics, x + camera.getX(), y + camera.getY(), w, h);
     }
 
     private void checkCollision(char direction) {

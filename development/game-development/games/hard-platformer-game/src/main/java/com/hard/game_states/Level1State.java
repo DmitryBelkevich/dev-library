@@ -48,6 +48,8 @@ public class Level1State implements GameState {
          */
 
         camera = new Camera();
+        entity.setCamera(camera);
+        tileMap.setCamera(camera);
 
         /**
          * console

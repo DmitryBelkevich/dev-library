@@ -11,6 +11,9 @@ public class TileMap extends AbstractEntity {
     private char[][] chars;
     private Tile[][] tiles;
 
+    // entities
+    private Camera camera;
+
     public int getH() {
         return h;
     }
@@ -43,6 +46,14 @@ public class TileMap extends AbstractEntity {
         return (int) ((y - this.y) / Tile.H);
     }
 
+    public Camera getCamera() {
+        return camera;
+    }
+
+    public void setCamera(Camera camera) {
+        this.camera = camera;
+    }
+
     @Override
     public void update(double time) {
 
@@ -64,7 +75,7 @@ public class TileMap extends AbstractEntity {
                 if (tile == ' ')
                     continue;
 
-                graphics.fillRect((int) (x + j * Tile.W/* - Camera.x*/), (int) (y + i * Tile.H/* - Camera.y*/), Tile.W, Tile.H);
+                graphics.fillRect((int) (x + j * Tile.W + camera.getX()), (int) (y + i * Tile.H + camera.getY()), Tile.W, Tile.H);
             }
         }
     }
