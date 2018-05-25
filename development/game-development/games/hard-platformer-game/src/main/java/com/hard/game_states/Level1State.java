@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Level1State implements GameState {
+    // states
+
+    // entities
     private TileMap tileMap;
     private Entity entity;
     private Camera camera;
