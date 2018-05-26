@@ -19,6 +19,7 @@
     <modules>
         <module>hibernate</module>
         <module>springframework</module>
+        <module>lib-gdx</module>
     </modules>
 
     <properties>
