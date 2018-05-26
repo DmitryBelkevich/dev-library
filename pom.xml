@@ -21,6 +21,7 @@
         <module>frameworks</module>
         <module>tasks</module>
         <module>development</module>
+        <module>testing</module>
     </modules>
 
     <properties>
