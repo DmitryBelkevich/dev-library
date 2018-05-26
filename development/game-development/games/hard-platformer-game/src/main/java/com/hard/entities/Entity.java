@@ -159,6 +159,22 @@ public class Entity extends AbstractEntity {
         animationManager.setCurrentAnimation(AnimationState.Entity.STANDING);
     }
 
+    public int getW() {
+        return w;
+    }
+
+    public void setW(int w) {
+        this.w = w;
+    }
+
+    public int getH() {
+        return h;
+    }
+
+    public void setH(int h) {
+        this.h = h;
+    }
+
     public double getSpeed() {
         return speed;
     }
