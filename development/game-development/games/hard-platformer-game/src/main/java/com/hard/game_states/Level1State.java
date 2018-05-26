@@ -126,19 +126,19 @@ public class Level1State implements GameState {
          */
 
         if (keyCode == KeyEvent.VK_A) {
-            camera.moveLeft();
+            camera.setLeft(true);
         }
 
         if (keyCode == KeyEvent.VK_D) {
-            camera.moveRight();
+            camera.setRight(true);
         }
 
         if (keyCode == KeyEvent.VK_W) {
-            camera.moveUp();
+            camera.setUp(true);
         }
 
         if (keyCode == KeyEvent.VK_S) {
-            camera.moveDown();
+            camera.setDown(true);
         }
     }
 
@@ -161,5 +161,25 @@ public class Level1State implements GameState {
 
         if (keyCode == KeyEvent.VK_DOWN)
             entity.setSitting(false);
+
+        /**
+         * camera
+         */
+
+        if (keyCode == KeyEvent.VK_A) {
+            camera.setLeft(false);
+        }
+
+        if (keyCode == KeyEvent.VK_D) {
+            camera.setRight(false);
+        }
+
+        if (keyCode == KeyEvent.VK_W) {
+            camera.setUp(false);
+        }
+
+        if (keyCode == KeyEvent.VK_S) {
+            camera.setDown(false);
+        }
     }
 }

@@ -3,9 +3,37 @@ package com.hard.entities;
 import java.awt.*;
 
 public class Camera extends AbstractEntity {
+    private int dx;
+    private int dy;
+
+    private boolean left;
+    private boolean right;
+    private boolean up;
+    private boolean down;
+
     @Override
     public void update(double time) {
+        if (left) {
+            dx = -5;
+        }
 
+        if (right) {
+            dx = 5;
+        }
+
+        if (up) {
+            dy = -5;
+        }
+
+        if (down) {
+            dy = 5;
+        }
+
+        x += dx * time;
+        y += dy * time;
+
+        dx = 0;
+        dy = 0;
     }
 
     @Override
@@ -18,19 +46,35 @@ public class Camera extends AbstractEntity {
         this.y = y;
     }
 
-    public void moveLeft() {
-        x -= 5.0;
+    public boolean isLeft() {
+        return left;
     }
 
-    public void moveRight() {
-        x += 5.0;
+    public void setLeft(boolean left) {
+        this.left = left;
     }
 
-    public void moveUp() {
-        y -= 5.0;
+    public boolean isRight() {
+        return right;
     }
 
-    public void moveDown() {
-        y += 5.0;
+    public void setRight(boolean right) {
+        this.right = right;
+    }
+
+    public boolean isUp() {
+        return up;
+    }
+
+    public void setUp(boolean up) {
+        this.up = up;
+    }
+
+    public boolean isDown() {
+        return down;
+    }
+
+    public void setDown(boolean down) {
+        this.down = down;
     }
 }

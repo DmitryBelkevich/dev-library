@@ -364,8 +364,8 @@ public class Entity extends AbstractEntity {
          * camera moving
          */
 
-        camera.setX(x - Screen.WIDTH / 2 + (w / 2));
-        camera.setY(y - Screen.HEIGHT / 2 + (h / 2));
+//        camera.setX(x - Screen.WIDTH / 2 + (w / 2));
+//        camera.setY(y - Screen.HEIGHT / 2 + (h / 2));
 
         /**
          * hide behind-the-scenes
