@@ -62,12 +62,18 @@ public class Level1State implements GameState {
         entityConsole.setY(10);
         entityConsole.setEntity(entity);
 
+        Console tilemapConsole = new Console();
+        tilemapConsole.setX(250);
+        tilemapConsole.setY(10);
+        tilemapConsole.setEntity(tileMap);
+
         Console cameraConsole = new Console();
-        cameraConsole.setX(200);
+        cameraConsole.setX(500);
         cameraConsole.setY(10);
         cameraConsole.setEntity(camera);
 
         consoles.add(entityConsole);
+        consoles.add(tilemapConsole);
         consoles.add(cameraConsole);
     }
 
