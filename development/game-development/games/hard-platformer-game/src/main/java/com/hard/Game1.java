@@ -12,9 +12,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
-public class Game {
+public class Game1 {
     // gui
-    private String TITLE = "Game";
+    private String TITLE = "Game1";
     private JPanel panel;
     private BufferedImage image;
     private Graphics2D graphics;

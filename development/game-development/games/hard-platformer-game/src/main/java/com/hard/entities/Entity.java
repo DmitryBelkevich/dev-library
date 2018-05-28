@@ -363,15 +363,15 @@ public class Entity extends AbstractEntity {
 //        if (y < 0)
 //            y = 0;
 //
-//        if (x > Game.WIDTH - w)
-//            x = Game.WIDTH - w;
+//        if (x > Game1.WIDTH - w)
+//            x = Game1.WIDTH - w;
 //
-//        if (y > Game.HEIGHT - h)
-//            y = Game.HEIGHT - h;
+//        if (y > Game1.HEIGHT - h)
+//            y = Game1.HEIGHT - h;
 
         // check collision 2
 
-//        if (y >= Game.HEIGHT - h) {
+//        if (y >= Game1.HEIGHT - h) {
 //            bottomCollision = true;
 //            dy = 0;
 //        }
