@@ -14,6 +14,8 @@ public class Game1 {
     // gui
     private String TITLE = "Game1";
     private JPanel panel;
+
+    // graphics
     private BufferedImage image;
     private Graphics2D graphics;
 
