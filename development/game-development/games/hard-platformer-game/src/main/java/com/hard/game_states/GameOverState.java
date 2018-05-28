@@ -19,7 +19,12 @@ public class GameOverState extends GameState {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        int keyCode = e.getKeyCode();
 
+        if (keyCode == KeyEvent.VK_ENTER) {
+            GameState gameState = gameStateManager.getGameState(0);
+            gameStateManager.setCurrentGameState(gameState);
+        }
     }
 
     @Override
