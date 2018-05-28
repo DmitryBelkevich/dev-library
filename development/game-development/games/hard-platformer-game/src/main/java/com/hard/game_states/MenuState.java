@@ -75,7 +75,7 @@ public class MenuState extends GameState {
                 graphics.setColor(new Color(0, 255, 0, 255));
 
             String option = options[i];
-            graphics.drawString(option, Screen.WIDTH / 2, Screen.HEIGHT / 2 - 40 * i);
+            graphics.drawString(option, Screen.WIDTH / 2, Screen.HEIGHT / 2 + 40 * i);
         }
     }
 }

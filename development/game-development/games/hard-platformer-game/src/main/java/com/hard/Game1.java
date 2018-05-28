@@ -2,9 +2,7 @@ package com.hard;
 
 import com.hard.config.Screen;
 import com.hard.config.Settings;
-import com.hard.game_states.GameState;
-import com.hard.game_states.GameStateManager;
-import com.hard.game_states.Level1State;
+import com.hard.game_states.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -120,11 +118,15 @@ public class Game1 {
          */
         gameStateManager = new GameStateManager();
 
-        GameState level1State = new Level1State();
+        GameState menuState = new MenuState(gameStateManager);
+        GameState level1State = new Level1State(gameStateManager);
+        GameState gameOverState = new GameOverState(gameStateManager);
 
+        gameStateManager.addGameState(menuState);
         gameStateManager.addGameState(level1State);
+        gameStateManager.addGameState(gameOverState);
 
-        gameStateManager.setCurrentGameState(level1State);
+        gameStateManager.setCurrentGameState(menuState);
     }
 
     private void update(double time) {
