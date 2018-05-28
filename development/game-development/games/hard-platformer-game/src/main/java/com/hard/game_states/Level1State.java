@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Level1State implements GameState {
+public class Level1State extends GameState {
     // states
 
     // entities
@@ -21,7 +21,9 @@ public class Level1State implements GameState {
     private Camera camera;
     private Collection<Console> consoles;
 
-    public Level1State() {
+    public Level1State(GameStateManager gameStateManager) {
+        super(gameStateManager);
+
         /**
          * tile map
          */

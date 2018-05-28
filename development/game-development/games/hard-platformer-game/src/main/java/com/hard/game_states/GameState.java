@@ -3,12 +3,21 @@ package com.hard.game_states;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public interface GameState {
-    void keyPressed(KeyEvent e);
+public abstract class GameState {
+    // game states
+    protected GameStateManager gameStateManager;
 
-    void keyReleased(KeyEvent e);
+    // entities
 
-    void update(double time);
+    public GameState(GameStateManager gameStateManager) {
+        this.gameStateManager = gameStateManager;
+    }
 
-    void draw(Graphics graphics);
+    public abstract void keyPressed(KeyEvent e);
+
+    public abstract void keyReleased(KeyEvent e);
+
+    public abstract void update(double time);
+
+    public abstract void draw(Graphics graphics);
 }

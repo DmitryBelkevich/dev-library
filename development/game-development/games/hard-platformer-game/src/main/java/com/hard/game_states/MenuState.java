@@ -3,7 +3,11 @@ package com.hard.game_states;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class MenuState implements GameState {
+public class MenuState extends GameState {
+    public MenuState(GameStateManager gameStateManager) {
+        super(gameStateManager);
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
 
