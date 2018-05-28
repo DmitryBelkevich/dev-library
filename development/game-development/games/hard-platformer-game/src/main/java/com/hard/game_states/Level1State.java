@@ -77,26 +77,6 @@ public class Level1State implements GameState {
         consoles.add(cameraConsole);
     }
 
-    @Override
-    public void update(double time) {
-        tileMap.update(time);
-        entity.update(time);
-        camera.update(time);
-
-        for (Console console : consoles)
-            console.update(time);
-    }
-
-    @Override
-    public void draw(Graphics graphics) {
-        tileMap.draw(graphics);
-        entity.draw(graphics);
-        camera.draw(graphics);
-
-        for (Console console : consoles)
-            console.draw(graphics);
-    }
-
     /**
      * KeyListener
      */
@@ -181,5 +161,25 @@ public class Level1State implements GameState {
         if (keyCode == KeyEvent.VK_S) {
             camera.setDown(false);
         }
+    }
+
+    @Override
+    public void update(double time) {
+        tileMap.update(time);
+        entity.update(time);
+        camera.update(time);
+
+        for (Console console : consoles)
+            console.update(time);
+    }
+
+    @Override
+    public void draw(Graphics graphics) {
+        tileMap.draw(graphics);
+        entity.draw(graphics);
+        camera.draw(graphics);
+
+        for (Console console : consoles)
+            console.draw(graphics);
     }
 }

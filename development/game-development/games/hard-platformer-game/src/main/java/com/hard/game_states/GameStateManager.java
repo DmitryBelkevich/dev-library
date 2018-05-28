@@ -17,6 +17,10 @@ public class GameStateManager {
         gameStates.add(gameState);
     }
 
+    public GameState getGameState(int i) {
+        return gameStates.get(i);
+    }
+
     public GameState getCurrentGameState() {
         return currentGameState;
     }
@@ -25,19 +29,19 @@ public class GameStateManager {
         this.currentGameState = currentGameState;
     }
 
-    public void update(double time) {
-        currentGameState.update(time);
-    }
-
-    public void draw(Graphics graphics) {
-        currentGameState.draw(graphics);
-    }
-
     public void keyPressed(KeyEvent e) {
         currentGameState.keyPressed(e);
     }
 
     public void keyReleased(KeyEvent e) {
         currentGameState.keyReleased(e);
+    }
+
+    public void update(double time) {
+        currentGameState.update(time);
+    }
+
+    public void draw(Graphics graphics) {
+        currentGameState.draw(graphics);
     }
 }

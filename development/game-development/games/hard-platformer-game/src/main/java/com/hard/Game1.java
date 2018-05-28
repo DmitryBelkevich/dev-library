@@ -29,6 +29,35 @@ public class Game1 {
     // game states
     private GameStateManager gameStateManager;
 
+    private KeyListener keyListener = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            int keyCode = e.getKeyCode();
+
+            if (keyCode == KeyEvent.VK_ESCAPE)
+                running = false;
+
+            if (keyCode == KeyEvent.VK_P) {
+                if (pause)
+                    pause = false;
+                else
+                    pause = true;
+            }
+
+            gameStateManager.keyPressed(e);
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            gameStateManager.keyReleased(e);
+        }
+    };
+
     /**
      * Game loop
      */
@@ -116,33 +145,4 @@ public class Game1 {
         graphics.setColor(new Color(0, 0, 0, 255));
         graphics.fillRect(0, 0, Screen.WIDTH, Screen.HEIGHT);
     }
-
-    private KeyListener keyListener = new KeyListener() {
-        @Override
-        public void keyTyped(KeyEvent e) {
-
-        }
-
-        @Override
-        public void keyPressed(KeyEvent e) {
-            int keyCode = e.getKeyCode();
-
-            if (keyCode == KeyEvent.VK_ESCAPE)
-                running = false;
-
-            if (keyCode == KeyEvent.VK_P) {
-                if (pause)
-                    pause = false;
-                else
-                    pause = true;
-            }
-
-            gameStateManager.keyPressed(e);
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-            gameStateManager.keyReleased(e);
-        }
-    };
 }
