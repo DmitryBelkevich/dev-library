@@ -25,7 +25,6 @@
         <module>collections-map</module>
         <module>class-loading</module>
         <module>inner-classes</module>
-        <module>reflection</module>
         <module>multithreading</module>
         <module>class-loaders</module>
         <module>exceptions</module>
@@ -35,6 +34,8 @@
         <module>override</module>
         <module>cast</module>
         <module>autoboxing-unboxing</module>
+        <module>reflection</module>
+        <module>serialization-deserialization</module>
         <module>annotations</module>
         <module>java-2-core</module>
         <module>java-5-core</module>
