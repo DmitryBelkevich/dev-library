@@ -22,17 +22,15 @@ public class Main {
             e.printStackTrace();
         } finally {
             try {
-                if (objectOutputStream != null)
+                if (objectOutputStream != null) {
                     objectOutputStream.flush();
-
-                if (byteArrayOutputStream != null)
-                    byteArrayOutputStream.flush();
-
-                if (objectOutputStream != null)
                     objectOutputStream.close();
+                }
 
-                if (byteArrayOutputStream != null)
+                if (byteArrayOutputStream != null) {
+                    byteArrayOutputStream.flush();
                     byteArrayOutputStream.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
