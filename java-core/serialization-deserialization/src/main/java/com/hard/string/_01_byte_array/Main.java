@@ -38,6 +38,7 @@ public class Main {
             }
         }
 
+        System.out.println(byteArrayOutputStream.toString());
         byte[] bytes = byteArrayOutputStream.toByteArray();
 
         // decode (deserialization) from byte[] to Object
