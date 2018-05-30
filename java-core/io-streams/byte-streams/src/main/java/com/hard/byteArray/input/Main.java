@@ -9,11 +9,17 @@ public class Main {
                 ;
         byte[] bytes = s.getBytes();
 
+        // read from byte[]
+
         InputStream inputStream = new ByteArrayInputStream(bytes);
+
+        // init reader
 
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+        // write to console
 
         String str = null;
         try {
