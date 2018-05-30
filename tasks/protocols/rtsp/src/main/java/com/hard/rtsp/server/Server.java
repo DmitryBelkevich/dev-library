@@ -189,6 +189,7 @@ public class Server extends JFrame implements ActionListener {
     /**
      * Handler for timer
      */
+    @Override
     public void actionPerformed(ActionEvent e) {
 
         //if the current image nb is less than the length of the video
