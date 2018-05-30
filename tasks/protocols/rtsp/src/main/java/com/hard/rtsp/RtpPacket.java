@@ -16,7 +16,7 @@ public class RtpPacket {
     public int Ssrc;
 
     // Bitstream of the RTP header
-    public byte[] header;
+    public byte[] headers;
 
     // size of the RTP payload
     public int payload_size;
@@ -44,18 +44,18 @@ public class RtpPacket {
 
         // build the header bistream:
         // --------------------------
-        header = new byte[HEADER_SIZE];
+        headers = new byte[HEADER_SIZE];
 
-        header[1] = (byte) ((Marker << 7) | PayloadType);
+        headers[1] = (byte) ((Marker << 7) | PayloadType);
 
-        header[2] = (byte) (SequenceNumber >> 8);
-        header[3] = (byte) (SequenceNumber);
-
-        for (int i = 0; i < 4; i++)
-            header[7 - i] = (byte) (TimeStamp >> (8 * i));
+        headers[2] = (byte) (SequenceNumber >> 8);
+        headers[3] = (byte) (SequenceNumber);
 
         for (int i = 0; i < 4; i++)
-            header[11 - i] = (byte) (Ssrc >> (8 * i));
+            headers[7 - i] = (byte) (TimeStamp >> (8 * i));
+
+        for (int i = 0; i < 4; i++)
+            headers[11 - i] = (byte) (Ssrc >> (8 * i));
 
         payload_size = data_length;
         payload = new byte[data_length];
@@ -80,9 +80,9 @@ public class RtpPacket {
         // check if total packet size is lower than the header size
         if (packet_size >= HEADER_SIZE) {
             // get the header bitsream:
-            header = new byte[HEADER_SIZE];
+            headers = new byte[HEADER_SIZE];
             for (int i = 0; i < HEADER_SIZE; i++)
-                header[i] = packet[i];
+                headers[i] = packet[i];
 
             // get the payload bitstream:
             payload_size = packet_size - HEADER_SIZE;
@@ -91,12 +91,12 @@ public class RtpPacket {
                 payload[i - HEADER_SIZE] = packet[i];
 
             // interpret the changing fields of the header:
-            PayloadType = header[1] & 127;
-            SequenceNumber = unsigned_int(header[3]) + 256
-                    * unsigned_int(header[2]);
-            TimeStamp = unsigned_int(header[7]) + 256 * unsigned_int(header[6])
-                    + 65536 * unsigned_int(header[5]) + 16777216
-                    * unsigned_int(header[4]);
+            PayloadType = headers[1] & 127;
+            SequenceNumber = unsigned_int(headers[3]) + 256
+                    * unsigned_int(headers[2]);
+            TimeStamp = unsigned_int(headers[7]) + 256 * unsigned_int(headers[6])
+                    + 65536 * unsigned_int(headers[5]) + 16777216
+                    * unsigned_int(headers[4]);
         }
     }
 
@@ -131,7 +131,7 @@ public class RtpPacket {
     public int getPacket(byte[] packet) {
         // construct the packet = header + payload
         for (int i = 0; i < HEADER_SIZE; i++)
-            packet[i] = header[i];
+            packet[i] = headers[i];
         for (int i = 0; i < payload_size; i++)
             packet[i + HEADER_SIZE] = payload[i];
 
@@ -168,7 +168,7 @@ public class RtpPacket {
 
         for (int i = 0; i < (HEADER_SIZE - 4); i++) {
             for (int j = 7; j >= 0; j--)
-                if (((1 << j) & header[i]) != 0)
+                if (((1 << j) & headers[i]) != 0)
                     System.out.print("1");
                 else
                     System.out.print("0");
