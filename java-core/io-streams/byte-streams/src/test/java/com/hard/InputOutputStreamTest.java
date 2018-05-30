@@ -97,8 +97,10 @@ public class InputOutputStreamTest {
                 e.printStackTrace();
             } finally {
                 try {
-                    if (byteArrayOutputStream != null)
+                    if (byteArrayOutputStream != null) {
+                        byteArrayOutputStream.flush();
                         byteArrayOutputStream.close();
+                    }
 
                     if (fileInputStream != null)
                         fileInputStream.close();
