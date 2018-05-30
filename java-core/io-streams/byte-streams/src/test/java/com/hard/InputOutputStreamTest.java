@@ -98,7 +98,7 @@ public class InputOutputStreamTest {
             } finally {
                 try {
                     if (byteArrayOutputStream != null) {
-                        byteArrayOutputStream.flush();
+//                        byteArrayOutputStream.flush();
                         byteArrayOutputStream.close();
                     }
 
