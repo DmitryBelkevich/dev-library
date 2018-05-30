@@ -1,6 +1,8 @@
 package com.hard.string._02_Base64;
 
-public class Entity {
+import java.io.Serializable;
+
+public class Entity implements Serializable {
     private int id;
     private String str;
 

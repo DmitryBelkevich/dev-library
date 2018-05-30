@@ -1,7 +1,5 @@
 package com.hard.string._02_Base64;
 
-import com.hard.string._01_byte_array.Entity;
-
 import java.io.*;
 import java.util.Base64;
 
