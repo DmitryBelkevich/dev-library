@@ -208,7 +208,7 @@ public class Server extends JFrame implements ActionListener {
 
                 //retrieve the packet bitstream and store it in an array of bytes
                 byte[] packet_bits = new byte[packet_length];
-                rtp_packet.getpacket(packet_bits);
+                rtp_packet.getPacket(packet_bits);
 
                 //send the packet as a DatagramPacket over the UDP socket
                 senddp = new DatagramPacket(packet_bits, packet_length, clientIpAddress, rtp_dest_port);
