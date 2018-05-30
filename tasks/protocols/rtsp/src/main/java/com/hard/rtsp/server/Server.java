@@ -218,7 +218,7 @@ public class Server extends JFrame implements ActionListener {
 
                 //System.out.println("Send frame #"+imagenb);
                 //print the header bitstream
-                rtp_packet.printheader();
+                rtp_packet.printHeader();
 
                 //update GUI
                 label.setText("Send frame #" + imageNb);

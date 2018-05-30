@@ -164,7 +164,7 @@ public class RtpPacket {
     // --------------------------
     // print headers without the SSRC
     // --------------------------
-    public void printheader() {
+    public void printHeader() {
 
         for (int i = 0; i < (HEADER_SIZE - 4); i++) {
             for (int j = 7; j >= 0; j--)
