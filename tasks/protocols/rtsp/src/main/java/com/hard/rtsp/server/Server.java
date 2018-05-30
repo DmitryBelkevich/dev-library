@@ -24,7 +24,7 @@ public class Server extends JFrame implements ActionListener {
     private DatagramPacket senddp; //UDP packet containing the video frames
 
     private InetAddress clientIpAddress; //Client IP address
-    private int rtp_dest_port = 0; //destination port for RTP packets  (given by the RTSP Client)
+    private int rtpDestinationPort = 0; //destination port for RTP packets  (given by the RTSP Client)
 
     /**
      * GUI
@@ -190,8 +190,7 @@ public class Server extends JFrame implements ActionListener {
      * Handler for timer
      */
     @Override
-    public void actionPerformed(ActionEvent e) {
-
+    public void actionPerformed(ActionEvent actionEvent) {
         //if the current image nb is less than the length of the video
         if (imageNb < VIDEO_LENGTH) {
             //update current imageNb
@@ -202,29 +201,29 @@ public class Server extends JFrame implements ActionListener {
                 int image_length = video.getNextFrame(buffer);
                 System.out.print("\n" + image_length);
                 //Builds an RtpPacket object containing the frame
-                RtpPacket rtp_packet = new RtpPacket(MJPEG_TYPE, imageNb, imageNb * FRAME_PERIOD, buffer, image_length);
+                RtpPacket rtpPacket = new RtpPacket(MJPEG_TYPE, imageNb, imageNb * FRAME_PERIOD, buffer, image_length);
 
                 //get to total length of the full rtp packet to send
-                int packet_length = rtp_packet.getlength();
+                int packetLength = rtpPacket.getlength();
 
                 //retrieve the packet bitstream and store it in an array of bytes
-                byte[] packet_bits = new byte[packet_length];
-                rtp_packet.getPacket(packet_bits);
+                byte[] packet_bits = new byte[packetLength];
+                rtpPacket.getPacket(packet_bits);
 
                 //send the packet as a DatagramPacket over the UDP socket
-                senddp = new DatagramPacket(packet_bits, packet_length, clientIpAddress, rtp_dest_port);
-                System.out.print("rtp_dest_port =" + rtp_dest_port + "\n");
+                senddp = new DatagramPacket(packet_bits, packetLength, clientIpAddress, rtpDestinationPort);
+                System.out.print("rtpDestinationPort =" + rtpDestinationPort + "\n");
 
                 rtpSocket.send(senddp);
 
                 //System.out.println("Send frame #"+imagenb);
                 //print the header bitstream
-                rtp_packet.printHeader();
+                rtpPacket.printHeader();
 
                 //update GUI
                 label.setText("Send frame #" + imageNb);
-            } catch (Exception ex) {
-                System.out.println("Exception caught: " + ex);
+            } catch (Exception e) {
+                System.out.println("Exception caught: " + e);
                 System.exit(0);
             }
         } else {
@@ -274,11 +273,11 @@ public class Server extends JFrame implements ActionListener {
             System.out.println(LastLine);
 
             if (request_type == SETUP) {
-                //extract rtp_dest_port from LastLine
+                //extract rtpDestinationPort from LastLine
                 tokens = new StringTokenizer(LastLine);
                 for (int i = 0; i < 3; i++)
                     tokens.nextToken(); //skip unused stuff
-                rtp_dest_port = Integer.parseInt(tokens.nextToken());
+                rtpDestinationPort = Integer.parseInt(tokens.nextToken());
             }
             //else LastLine will be the SessionId line ... do not check for now.
         } catch (Exception ex) {
