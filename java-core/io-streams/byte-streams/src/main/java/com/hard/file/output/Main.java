@@ -22,11 +22,18 @@ public class Main {
 
         try {
             outputStream.write(bytes);
-
-            outputStream.flush();
-            outputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (outputStream != null)
+                    outputStream.flush();
+
+                if (outputStream != null)
+                    outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
