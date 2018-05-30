@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Entity entity = new Entity(1, "Hello World");
 
-        // encode (serialization) from Object to byte[]
+        // encode (serialization) from Object to file
 
         FileOutputStream fileOutputStream = null;
         try {
@@ -42,7 +42,7 @@ public class Main {
             }
         }
 
-        // decode (deserialization) from byte[] to Object
+        // decode (deserialization) from file to Object
 
         FileInputStream fileInputStream = null;
         try {
