@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Entity entity = new Entity(1, "Hello World");
 
-        // encode
+        // encode (serialization) from Object to byte[]
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream = null;
@@ -40,7 +40,7 @@ public class Main {
 
         byte[] bytes = byteArrayOutputStream.toByteArray();
 
-        // decode
+        // decode (deserialization) from byte[] to Object
 
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         ObjectInputStream objectInputStream = null;
