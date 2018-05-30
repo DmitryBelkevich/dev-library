@@ -1,4 +1,4 @@
-package com.hard.string._01_byte_array;
+package com.hard._01_string._01_byte_array;
 
 import java.io.*;
 

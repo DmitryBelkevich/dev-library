@@ -1,4 +1,4 @@
-package com.hard.string._02_Base64;
+package com.hard._01_string._02_Base64;
 
 import java.io.Serializable;
 
