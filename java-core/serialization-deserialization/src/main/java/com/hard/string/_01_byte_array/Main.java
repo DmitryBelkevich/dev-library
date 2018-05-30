@@ -1,7 +1,5 @@
 package com.hard.string._01_byte_array;
 
-import com.hard.string._01_byte_array.Entity;
-
 import java.io.*;
 
 public class Main {
@@ -22,15 +20,22 @@ public class Main {
             objectOutputStream.writeObject(entity);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        } finally {
+            try {
+                if (objectOutputStream != null)
+                    objectOutputStream.flush();
 
-        try {
-            objectOutputStream.flush();
-            byteArrayOutputStream.flush();
-            objectOutputStream.close();
-            byteArrayOutputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+                if (byteArrayOutputStream != null)
+                    byteArrayOutputStream.flush();
+
+                if (objectOutputStream != null)
+                    objectOutputStream.close();
+
+                if (byteArrayOutputStream != null)
+                    byteArrayOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         byte[] bytes = byteArrayOutputStream.toByteArray();
@@ -52,13 +57,16 @@ public class Main {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
+        } finally {
+            try {
+                if (objectInputStream != null)
+                    objectInputStream.close();
 
-        try {
-            objectInputStream.close();
-            byteArrayInputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+                if (byteArrayInputStream != null)
+                    byteArrayInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println(entity2);
