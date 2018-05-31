@@ -32,8 +32,6 @@ public class Server {
             ClientThread clientThread = new ClientThread(socket);
             clientThreads.add(clientThread);
             new Thread(clientThread).start();
-
-            System.out.println(clientThreads.size());
         }
     }
 

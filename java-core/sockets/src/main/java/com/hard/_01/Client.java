@@ -31,8 +31,10 @@ public class Client {
             write(bytes);
             byte[] bytes2 = read();
 
+            System.out.println(new String(bytes2));
+
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
