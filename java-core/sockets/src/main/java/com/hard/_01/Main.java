@@ -5,3 +5,17 @@ public class Main {
 
     }
 }
+
+class ServerLoader {
+    public static void main(String[] args) {
+        Server server = new Server();
+        server.run();
+    }
+}
+
+class ClientLoader {
+    public static void main(String[] args) {
+        Client client = new Client();
+        client.run();
+    }
+}

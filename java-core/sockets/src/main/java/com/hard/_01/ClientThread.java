@@ -6,40 +6,23 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public class Client {
-    private String host = "localhost";
-    private int port = 9999;
-
+public class ClientThread implements Runnable {
     private Socket socket;
 
     private InputStream inputStream;
     private OutputStream outputStream;
 
-    public void run() {
-        init();
-        initStreams();
-
-        String str = this.toString() + Constants.CRLF;
-        byte[] bytes = str.getBytes();
-
-        while (true) {
-            write(bytes);
-            byte[] bytes2 = read();
-//            System.out.println(new String(bytes2));
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+    public ClientThread(Socket socket) {
+        this.socket = socket;
     }
 
-    private void init() {
-        try {
-            socket = new Socket(host, port);
-        } catch (IOException e) {
-            e.printStackTrace();
+    @Override
+    public void run() {
+        initStreams();
+
+        while (true) {
+            byte[] bytes = read();
+            write(bytes);
         }
     }
 
@@ -100,7 +83,7 @@ public class Client {
         }
     }
 
-    public void close() {
+    public void stop() {
         try {
             inputStream.close();
         } catch (IOException e) {
@@ -119,12 +102,4 @@ public class Client {
             e.printStackTrace();
         }
     }
-
-    /**
-     * interface Observer
-     *
-     * Client impl Observer
-     * - Server
-     * + update(String str) // getMessage
-     */
 }
