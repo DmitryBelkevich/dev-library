@@ -14,8 +14,12 @@ public class Server {
     private Collection<ClientThread> clientThreads;
 
     public Server() {
-        port = 9999;
+        this(9999);
         clientThreads = new LinkedList<>();
+    }
+
+    public Server(int port) {
+        this.port = port;
     }
 
     public void run() {

@@ -16,8 +16,12 @@ public class Client {
     private OutputStream outputStream;
 
     public Client() {
-        host = "localhost";
-        port = 9999;
+        this("localhost", 9999);
+    }
+
+    public Client(String host, int port) {
+        this.host = host;
+        this.port = port;
     }
 
     public void run() {
@@ -34,7 +38,7 @@ public class Client {
             System.out.println(new String(bytes2));
 
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
