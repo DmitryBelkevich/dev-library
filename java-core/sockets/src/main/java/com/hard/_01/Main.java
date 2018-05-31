@@ -8,14 +8,14 @@ public class Main {
 
 class ServerLoader {
     public static void main(String[] args) {
-        Server server = new Server(9999);
+        Server server = new Server();
         server.run();
     }
 }
 
 class ClientLoader {
     public static void main(String[] args) {
-        Client client = new Client("localhost", 9999);
+        Client client = new Client();
         client.run();
     }
 }
