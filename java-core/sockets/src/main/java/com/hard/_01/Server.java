@@ -7,13 +7,14 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 public class Server {
-    private int port = 9999;
+    private int port;
 
     private ServerSocket serverSocket;
 
     private Collection<ClientThread> clientThreads;
 
     public Server() {
+        port = 9999;
         clientThreads = new LinkedList<>();
     }
 

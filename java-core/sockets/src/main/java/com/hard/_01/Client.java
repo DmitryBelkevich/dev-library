@@ -7,13 +7,18 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 public class Client {
-    private String host = "localhost";
-    private int port = 9999;
+    private String host;
+    private int port;
 
     private Socket socket;
 
     private InputStream inputStream;
     private OutputStream outputStream;
+
+    public Client() {
+        host = "localhost";
+        port = 9999;
+    }
 
     public void run() {
         init();
@@ -25,7 +30,6 @@ public class Client {
         while (true) {
             write(bytes);
             byte[] bytes2 = read();
-//            System.out.println(new String(bytes2));
 
             try {
                 Thread.sleep(1000);
