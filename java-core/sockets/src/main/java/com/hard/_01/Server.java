@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-class Server {
+public class Server {
     private int port = 9999;
 
     private ServerSocket serverSocket;
