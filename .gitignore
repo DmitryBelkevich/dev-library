@@ -14,3 +14,7 @@ target/
 .gradle/
 build/
 out/
+
+## Android
+
+local.properties
