@@ -76,8 +76,8 @@ public class Game1 {
 
             update(time);
             draw();
-            display(image);
-            clearScreen(graphics);
+            display();
+            clearScreen();
 
             long finish = System.nanoTime();
 
@@ -139,13 +139,13 @@ public class Game1 {
         gameStateManager.draw(graphics);
     }
 
-    private void display(BufferedImage image) {
+    private void display() {
         Graphics graphics = panel.getGraphics();
         graphics.drawImage(image, 0, 0, null);
         graphics.dispose();
     }
 
-    private void clearScreen(Graphics graphics) {
+    private void clearScreen() {
         graphics.setColor(new Color(0, 0, 0, 255));
         graphics.fillRect(0, 0, Screen.WIDTH, Screen.HEIGHT);
     }
