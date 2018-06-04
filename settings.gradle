@@ -1,4 +1,4 @@
-rootProject.name = 'dev-library'
+rootProject.name = 'dev-library-java'
 include 'java-core'
 include 'jre-jdk-jvm'
 include 'runtime'

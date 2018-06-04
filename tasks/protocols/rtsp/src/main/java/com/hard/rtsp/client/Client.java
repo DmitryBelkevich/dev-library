@@ -125,7 +125,7 @@ public class Client {
         InetAddress serverIpAddress = InetAddress.getByName(serverHost);
 
         //get video filename to request:
-        videoFileName = "c:/0/dev-library/tasks/protocols/rtsp/src/main/resources/server/movie.mjpeg"; //argv[2];
+        videoFileName = "c:/0/dev-library-java/tasks/protocols/rtsp/src/main/resources/server/movie.mjpeg"; //argv[2];
 
         //Establish a TCP connection with the server to exchange RTSP messages
         //------------------
