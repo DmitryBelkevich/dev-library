@@ -1,8 +1,7 @@
 package com.hard.controllers;
 
 import com.hard.models.Shape;
-import com.hard.tools.ScaleTool;
-import com.hard.tools.Tool;
+import com.hard.tools.ToolManager;
 import com.hard.views.EditorView;
 
 import java.awt.event.MouseEvent;
@@ -10,12 +9,13 @@ import java.util.Collection;
 
 public class Editor {
     private EditorView editorView;
-    private Tool tool;
+    private ToolManager toolManager;
 
     public Editor(Collection<Shape> shapes) {
         editorView = new EditorView(this, shapes);
 
-        tool = new ScaleTool(shapes);
+        toolManager = new ToolManager(shapes);
+        toolManager.setCurrentTool(0);
     }
 
     public void run() {
@@ -27,7 +27,7 @@ public class Editor {
     }
 
     public void update() {
-        tool.update();
+        toolManager.update();
     }
 
     /**
@@ -35,18 +35,18 @@ public class Editor {
      */
 
     public void mousePressed(MouseEvent e) {
-        tool.mousePressed(e);
+        toolManager.mousePressed(e);
     }
 
     public void mouseReleased(MouseEvent e) {
-        tool.mouseReleased(e);
+        toolManager.mouseReleased(e);
     }
 
     public void mouseMoved(MouseEvent e) {
-        tool.mouseMoved(e);
+        toolManager.mouseMoved(e);
     }
 
     public void mouseDragged(MouseEvent e) {
-        tool.mouseDragged(e);
+        toolManager.mouseDragged(e);
     }
 }
