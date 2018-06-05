@@ -16,6 +16,10 @@ public class Tool {
 
     }
 
+    public void draw() {
+
+    }
+
     /**
      * Handle input
      */
