@@ -4,6 +4,7 @@ import com.hard.models.Circle;
 import com.hard.models.Rectangle;
 import com.hard.models.Shape;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Collection;
 
@@ -73,5 +74,15 @@ public class ScaleTool extends Tool {
                 }
             }
         }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

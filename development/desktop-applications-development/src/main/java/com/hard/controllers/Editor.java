@@ -4,6 +4,7 @@ import com.hard.models.Shape;
 import com.hard.tools.ToolManager;
 import com.hard.views.EditorView;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Collection;
 
@@ -48,5 +49,13 @@ public class Editor {
 
     public void mouseDragged(MouseEvent e) {
         toolManager.mouseDragged(e);
+    }
+
+    public void keyPressed(KeyEvent e) {
+        toolManager.keyPressed(e);
+    }
+
+    public void keyReleased(KeyEvent e) {
+        toolManager.keyReleased(e);
     }
 }

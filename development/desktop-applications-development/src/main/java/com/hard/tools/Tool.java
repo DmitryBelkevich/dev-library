@@ -2,6 +2,7 @@ package com.hard.tools;
 
 import com.hard.models.Shape;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Collection;
 
@@ -27,4 +28,8 @@ public abstract class Tool {
     public abstract void mouseMoved(MouseEvent e);
 
     public abstract void mouseDragged(MouseEvent e);
+
+    public abstract void keyPressed(KeyEvent e);
+
+    public abstract void keyReleased(KeyEvent e);
 }

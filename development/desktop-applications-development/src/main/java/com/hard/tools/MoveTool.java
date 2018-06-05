@@ -2,6 +2,7 @@ package com.hard.tools;
 
 import com.hard.models.Shape;
 
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Collection;
 
@@ -61,5 +62,15 @@ public class MoveTool extends Tool {
                 shape.setY(e.getY() /*- shape.getH() / 2*/);
             }
         }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

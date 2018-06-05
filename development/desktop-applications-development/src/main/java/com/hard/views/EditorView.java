@@ -7,9 +7,7 @@ import com.hard.models.Shape;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.util.Collection;
 
@@ -132,6 +130,23 @@ public class EditorView {
             @Override
             public void mouseDragged(MouseEvent e) {
                 editor.mouseDragged(e);
+            }
+        });
+
+        panel.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                editor.keyPressed(e);
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                editor.keyReleased(e);
             }
         });
     }
