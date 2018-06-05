@@ -13,7 +13,7 @@ public class Editor {
     public Editor(Collection<Shape> shapes) {
         editorView = new EditorView(this, shapes);
 
-        tool = new Tool(shapes);
+        tool = new MoveTool(shapes);
     }
 
     public void run() {
