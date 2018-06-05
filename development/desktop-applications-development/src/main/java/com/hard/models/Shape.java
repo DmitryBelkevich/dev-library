@@ -1,6 +1,6 @@
 package com.hard.models;
 
-public class Model {
+public abstract class Shape {
     public double x;
     public double y;
     private int w;

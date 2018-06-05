@@ -1,14 +1,14 @@
 package com.hard.controllers;
 
-import com.hard.models.Model;
+import com.hard.models.Shape;
 
 import java.awt.event.MouseEvent;
 
 public class Tool {
-    private Model model;
+    private Shape shape;
 
-    public Tool(Model model) {
-        this.model = model;
+    public Tool(Shape shape) {
+        this.shape = shape;
     }
 
     public void update() {
@@ -20,17 +20,17 @@ public class Tool {
      */
 
     public void mousePressed(MouseEvent e) {
-        model.setSelected(true);
+        shape.setSelected(true);
     }
 
     public void mouseReleased(MouseEvent e) {
-        model.setSelected(false);
+        shape.setSelected(false);
     }
 
     public void mouseDragged(MouseEvent e) {
-        if (model.isSelected()) {
-            model.setX(e.getX() - model.getW() / 2);
-            model.setY(e.getY() - model.getH() / 2);
+        if (shape.isSelected()) {
+            shape.setX(e.getX() - shape.getW() / 2);
+            shape.setY(e.getY() - shape.getH() / 2);
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.hard.controllers;
 
-import com.hard.models.Model;
+import com.hard.models.Shape;
 import com.hard.views.EditorView;
 
 import java.awt.event.MouseEvent;
@@ -9,10 +9,10 @@ public class Editor {
     private EditorView editorView;
     private Tool tool;
 
-    public Editor(Model model) {
-        editorView = new EditorView(this, model);
+    public Editor(Shape shape) {
+        editorView = new EditorView(this, shape);
 
-        tool = new Tool(model);
+        tool = new Tool(shape);
     }
 
     public void run() {

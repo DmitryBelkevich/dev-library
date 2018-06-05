@@ -1,25 +1,21 @@
 package com.hard;
 
 import com.hard.controllers.Editor;
-import com.hard.models.Model;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.BufferedImage;
+import com.hard.models.Circle;
+import com.hard.models.Shape;
 
 public class Main {
     public static void main(String[] args) {
         // load from file
-        Model model = new Model();
+        Shape circle = new Circle();
 
-        model.setX(0);
-        model.setY(0);
-        model.setW(100);
-        model.setH(100);
+        circle.setX(0);
+        circle.setY(0);
+        circle.setW(100);
+        circle.setH(100);
 
         // controller
-        Editor editor = new Editor(model);
+        Editor editor = new Editor(circle);
         editor.run();
     }
 }

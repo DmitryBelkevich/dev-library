@@ -1,7 +1,7 @@
 package com.hard.views;
 
 import com.hard.controllers.Editor;
-import com.hard.models.Model;
+import com.hard.models.Shape;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,11 +45,11 @@ public class EditorView {
      * Model
      */
 
-    private Model model;
+    private Shape shape;
 
-    public EditorView(Editor editor, Model model) {
+    public EditorView(Editor editor, Shape shape) {
         this.editor = editor;
-        this.model = model;
+        this.shape = shape;
     }
 
     public void run() {
@@ -145,12 +145,12 @@ public class EditorView {
     }
 
     public void drawCanvas() {
-        if (model.isSelected())
+        if (shape.isSelected())
             canvasGraphics.setColor(new Color(0, 255, 0, 255));
         else
             canvasGraphics.setColor(new Color(255, 0, 0, 255));
 
-        canvasGraphics.fillOval((int) model.getX(), (int) model.getY(), model.getW(), model.getH());
+        canvasGraphics.fillOval((int) shape.getX(), (int) shape.getY(), shape.getW(), shape.getH());
     }
 
     public void drawCanvasToPanel() {
