@@ -38,6 +38,18 @@ public class Tool {
         }
     }
 
+    public void mouseMoved(MouseEvent e) {
+        for (Shape shape : shapes) {
+            if (!shape.isSelected()) {
+                if (shape.intersected(e.getX(), e.getY())) {
+                    shape.setOver(true);
+                } else {
+                    shape.setOver(false);
+                }
+            }
+        }
+    }
+
     public void mouseDragged(MouseEvent e) {
         for (Shape shape : shapes) {
             if (shape.isSelected()) {

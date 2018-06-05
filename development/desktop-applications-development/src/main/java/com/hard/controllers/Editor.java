@@ -40,6 +40,10 @@ public class Editor {
         tool.mouseReleased(e);
     }
 
+    public void mouseMoved(MouseEvent e) {
+        tool.mouseMoved(e);
+    }
+
     public void mouseDragged(MouseEvent e) {
         tool.mouseDragged(e);
     }

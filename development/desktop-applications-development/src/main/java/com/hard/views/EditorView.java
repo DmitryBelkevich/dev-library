@@ -126,7 +126,7 @@ public class EditorView {
         panel.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseMoved(MouseEvent e) {
-
+                editor.mouseMoved(e);
             }
 
             @Override
