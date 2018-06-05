@@ -12,14 +12,7 @@ public class Tool {
     }
 
     public void update() {
-//        model.x++;
-//        model.y++;
-//
-//        try {
-//            Thread.sleep(20);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+
     }
 
     /**
