@@ -1,8 +1,8 @@
 package com.hard.models;
 
 public class Model {
-    private double x;
-    private double y;
+    public double x;
+    public double y;
     private int w;
     private int h;
     private boolean isSelected;

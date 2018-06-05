@@ -12,7 +12,7 @@ public class Editor {
     public Editor(Model model) {
         this.model = model;
 
-        editorView = new EditorView(this);
+        editorView = new EditorView(this, model);
     }
 
     public void run() {
@@ -20,12 +20,18 @@ public class Editor {
 
         while (true) {
             update();
-            editorView.draw(model);
         }
     }
 
     public void update() {
-
+//        model.x++;
+//        model.y++;
+//
+//        try {
+//            Thread.sleep(20);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**

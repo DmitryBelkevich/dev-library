@@ -41,14 +41,27 @@ public class EditorView {
 
     private Editor editor;
 
-    public EditorView(Editor editor) {
+    /**
+     * Model
+     */
+
+    private Model model;
+
+    public EditorView(Editor editor, Model model) {
         this.editor = editor;
+        this.model = model;
     }
 
     public void run() {
         createGui();
         initGraphic();
         initListeners();
+
+        new Thread(() -> {
+            while (true) {
+                draw();
+            }
+        }).start();
     }
 
     public void createGui() {
@@ -120,9 +133,9 @@ public class EditorView {
         });
     }
 
-    public void draw(Model model) {
+    public void draw() {
         clearCanvas();
-        drawCanvas(model);
+        drawCanvas();
         drawCanvasToPanel();
     }
 
@@ -131,7 +144,7 @@ public class EditorView {
         canvasGraphics.fillRect(EditorView.Canvas.x, EditorView.Canvas.y, EditorView.Canvas.w, EditorView.Canvas.h);
     }
 
-    public void drawCanvas(Model model) {
+    public void drawCanvas() {
         if (model.isSelected())
             canvasGraphics.setColor(new Color(0, 255, 0, 255));
         else
