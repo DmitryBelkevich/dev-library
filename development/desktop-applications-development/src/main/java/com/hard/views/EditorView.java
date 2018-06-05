@@ -47,7 +47,8 @@ public class EditorView {
 
     public void run() {
         createGui();
-        init();
+        initGraphic();
+        initListeners();
     }
 
     public void createGui() {
@@ -63,6 +64,21 @@ public class EditorView {
 
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public void initGraphic() {
+        panelGraphics = (Graphics2D) panel.getGraphics();
+        panelGraphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        panelGraphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        // init canvas
+        canvas = new BufferedImage(EditorView.Canvas.w, EditorView.Canvas.h, BufferedImage.TYPE_INT_RGB);
+
+        canvasGraphics = (Graphics2D) canvas.getGraphics();
+        canvasGraphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        canvasGraphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        // listeners
 
         panel.addMouseListener(new MouseListener() {
             @Override
@@ -104,7 +120,7 @@ public class EditorView {
         });
     }
 
-    public void init() {
+    public void initListeners() {
         panelGraphics = (Graphics2D) panel.getGraphics();
         panelGraphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         panelGraphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
@@ -115,6 +131,47 @@ public class EditorView {
         canvasGraphics = (Graphics2D) canvas.getGraphics();
         canvasGraphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         canvasGraphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        // listeners
+
+        panel.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                editor.mousePressed(e);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                editor.mouseReleased(e);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+        panel.addMouseMotionListener(new MouseMotionListener() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                editor.mouseDragged(e);
+            }
+        });
     }
 
     public void draw(Model model) {
