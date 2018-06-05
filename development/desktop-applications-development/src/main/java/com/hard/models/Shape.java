@@ -5,6 +5,7 @@ import java.awt.*;
 public abstract class Shape {
     protected int x;
     protected int y;
+    private boolean over;
     private boolean selected;
 
     public int getX() {
@@ -21,6 +22,14 @@ public abstract class Shape {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public boolean isOver() {
+        return over;
+    }
+
+    public void setOver(boolean over) {
+        this.over = over;
     }
 
     public boolean isSelected() {
