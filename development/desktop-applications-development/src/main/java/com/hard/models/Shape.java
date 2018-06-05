@@ -1,8 +1,8 @@
 package com.hard.models;
 
 public abstract class Shape {
-    public double x;
-    public double y;
+    private double x;
+    private double y;
     private int w;
     private int h;
     private boolean selected;

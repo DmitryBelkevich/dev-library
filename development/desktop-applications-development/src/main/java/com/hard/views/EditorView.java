@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
+import java.util.Collection;
 
 public class EditorView {
     /**
@@ -45,11 +46,11 @@ public class EditorView {
      * Model
      */
 
-    private Shape shape;
+    private Collection<Shape> shapes;
 
-    public EditorView(Editor editor, Shape shape) {
+    public EditorView(Editor editor, Collection<Shape> shapes) {
         this.editor = editor;
-        this.shape = shape;
+        this.shapes = shapes;
     }
 
     public void run() {
@@ -145,12 +146,14 @@ public class EditorView {
     }
 
     public void drawCanvas() {
-        if (shape.isSelected())
-            canvasGraphics.setColor(new Color(0, 255, 0, 255));
-        else
-            canvasGraphics.setColor(new Color(255, 0, 0, 255));
+        for (Shape shape : shapes) {
+            if (shape.isSelected())
+                canvasGraphics.setColor(new Color(0, 255, 0, 255));
+            else
+                canvasGraphics.setColor(new Color(255, 0, 0, 255));
 
-        canvasGraphics.fillOval((int) shape.getX(), (int) shape.getY(), shape.getW(), shape.getH());
+            canvasGraphics.fillOval((int) shape.getX(), (int) shape.getY(), shape.getW(), shape.getH());
+        }
     }
 
     public void drawCanvasToPanel() {

@@ -31,7 +31,7 @@ public class Main {
         shapes.add(rectangle);
 
         // controller
-        Editor editor = new Editor(rectangle);
+        Editor editor = new Editor(shapes);
         editor.run();
     }
 }

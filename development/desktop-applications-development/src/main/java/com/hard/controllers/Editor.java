@@ -4,15 +4,16 @@ import com.hard.models.Shape;
 import com.hard.views.EditorView;
 
 import java.awt.event.MouseEvent;
+import java.util.Collection;
 
 public class Editor {
     private EditorView editorView;
     private Tool tool;
 
-    public Editor(Shape shape) {
-        editorView = new EditorView(this, shape);
+    public Editor(Collection<Shape> shapes) {
+        editorView = new EditorView(this, shapes);
 
-        tool = new Tool(shape);
+        tool = new Tool(shapes);
     }
 
     public void run() {
