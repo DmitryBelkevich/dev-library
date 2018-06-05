@@ -1,6 +1,8 @@
 package com.hard.controllers;
 
 import com.hard.models.Shape;
+import com.hard.tools.ScaleTool;
+import com.hard.tools.Tool;
 import com.hard.views.EditorView;
 
 import java.awt.event.MouseEvent;
@@ -13,7 +15,7 @@ public class Editor {
     public Editor(Collection<Shape> shapes) {
         editorView = new EditorView(this, shapes);
 
-        tool = new MoveTool(shapes);
+        tool = new ScaleTool(shapes);
     }
 
     public void run() {

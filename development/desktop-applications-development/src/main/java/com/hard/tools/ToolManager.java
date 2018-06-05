@@ -1,4 +1,4 @@
-package com.hard.controllers;
+package com.hard.tools;
 
 public class ToolManager {
 }

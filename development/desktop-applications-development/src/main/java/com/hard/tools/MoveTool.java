@@ -1,4 +1,4 @@
-package com.hard.controllers;
+package com.hard.tools;
 
 import com.hard.models.Shape;
 
