@@ -52,6 +52,12 @@ public class Editor {
     }
 
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_1)
+            toolManager.setCurrentTool(0);
+
+        if (e.getKeyCode() == KeyEvent.VK_2)
+            toolManager.setCurrentTool(1);
+
         toolManager.keyPressed(e);
     }
 
