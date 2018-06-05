@@ -1,5 +1,7 @@
 package com.hard.models;
 
+import java.awt.*;
+
 public class Rectangle extends Shape {
     private int w;
     private int h;
@@ -18,6 +20,11 @@ public class Rectangle extends Shape {
 
     public void setH(int h) {
         this.h = h;
+    }
+
+    @Override
+    public void draw(Graphics graphics) {
+        graphics.fillRect(x, y, w, h);
     }
 
     @Override

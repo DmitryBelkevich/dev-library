@@ -1,5 +1,7 @@
 package com.hard.models;
 
+import java.awt.*;
+
 public class Circle extends Shape {
     private int r;
 
@@ -9,6 +11,11 @@ public class Circle extends Shape {
 
     public void setR(int r) {
         this.r = r;
+    }
+
+    @Override
+    public void draw(Graphics graphics) {
+        graphics.fillOval(x - r, y - r, r * 2, r * 2);
     }
 
     @Override
