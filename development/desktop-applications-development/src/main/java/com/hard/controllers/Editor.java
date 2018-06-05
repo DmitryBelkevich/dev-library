@@ -6,13 +6,13 @@ import com.hard.views.EditorView;
 import java.awt.event.MouseEvent;
 
 public class Editor {
-    private Model model;
     private EditorView editorView;
+    private Tool tool;
 
     public Editor(Model model) {
-        this.model = model;
-
         editorView = new EditorView(this, model);
+
+        tool = new Tool(model);
     }
 
     public void run() {
@@ -24,14 +24,7 @@ public class Editor {
     }
 
     public void update() {
-//        model.x++;
-//        model.y++;
-//
-//        try {
-//            Thread.sleep(20);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        tool.update();
     }
 
     /**
@@ -39,17 +32,14 @@ public class Editor {
      */
 
     public void mousePressed(MouseEvent e) {
-        model.setSelected(true);
+        tool.mousePressed(e);
     }
 
     public void mouseReleased(MouseEvent e) {
-        model.setSelected(false);
+        tool.mouseReleased(e);
     }
 
     public void mouseDragged(MouseEvent e) {
-        if (model.isSelected()) {
-            model.setX(e.getX() - model.getW() / 2);
-            model.setY(e.getY() - model.getH() / 2);
-        }
+        tool.mouseDragged(e);
     }
 }

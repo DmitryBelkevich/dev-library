@@ -5,7 +5,8 @@ public class Model {
     public double y;
     private int w;
     private int h;
-    private boolean isSelected;
+    private boolean selected;
+    private boolean dragged;
 
     public double getX() {
         return x;
@@ -40,10 +41,18 @@ public class Model {
     }
 
     public boolean isSelected() {
-        return isSelected;
+        return selected;
     }
 
     public void setSelected(boolean selected) {
-        isSelected = selected;
+        this.selected = selected;
+    }
+
+    public boolean isDragged() {
+        return dragged;
+    }
+
+    public void setDragged(boolean dragged) {
+        this.dragged = dragged;
     }
 }
