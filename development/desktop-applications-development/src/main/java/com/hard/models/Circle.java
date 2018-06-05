@@ -25,7 +25,12 @@ public class Circle extends Shape {
 
     @Override
     public boolean intersected(int mouseX, int mouseY) {
-        double hypotenuse = Math.pow(Math.abs(x - mouseX), 2) + Math.pow(Math.abs(y - mouseY), 2);
+        int a = Math.abs(x - mouseX);
+        int b = Math.abs(y - mouseY);
+        double aSquare = Math.pow(a, 2);
+        double bSquare = Math.pow(b, 2);
+
+        double hypotenuse = Math.sqrt(aSquare + bSquare);
 
         return hypotenuse <= r;
     }
