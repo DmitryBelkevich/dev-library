@@ -1,6 +1,8 @@
 package com.hard.views;
 
 import com.hard.controllers.Editor;
+import com.hard.models.Circle;
+import com.hard.models.Rectangle;
 import com.hard.models.Shape;
 
 import javax.swing.*;
@@ -152,7 +154,15 @@ public class EditorView {
             else
                 canvasGraphics.setColor(new Color(255, 0, 0, 255));
 
-            canvasGraphics.fillOval((int) shape.getX(), (int) shape.getY(), shape.getW(), shape.getH());
+            if (shape instanceof Rectangle) {
+                Rectangle rectangle = (Rectangle) shape;
+                canvasGraphics.fillRect((int) shape.getX(), (int) shape.getY(), rectangle.getW(), rectangle.getH());
+            }
+
+            if (shape instanceof Circle) {
+                Circle circle = (Circle) shape;
+                canvasGraphics.fillOval((int) shape.getX() - circle.getR(), (int) shape.getY() - circle.getR(), circle.getR() * 2, circle.getR() * 2);
+            }
         }
     }
 

@@ -1,10 +1,8 @@
 package com.hard.models;
 
 public abstract class Shape {
-    private double x;
-    private double y;
-    private int w;
-    private int h;
+    protected double x;
+    protected double y;
     private boolean selected;
 
     public double getX() {
@@ -23,22 +21,6 @@ public abstract class Shape {
         this.y = y;
     }
 
-    public int getW() {
-        return w;
-    }
-
-    public void setW(int w) {
-        this.w = w;
-    }
-
-    public int getH() {
-        return h;
-    }
-
-    public void setH(int h) {
-        this.h = h;
-    }
-
     public boolean isSelected() {
         return selected;
     }
@@ -46,4 +28,6 @@ public abstract class Shape {
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
+
+    public abstract boolean intersected(int mouseX, int mouseY);
 }
