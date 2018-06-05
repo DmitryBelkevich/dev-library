@@ -24,6 +24,11 @@ public class Rectangle extends Shape {
 
     @Override
     public void draw(Graphics graphics) {
+        if (isSelected())
+            graphics.setColor(new Color(0, 255, 0, 255));
+        else
+            graphics.setColor(new Color(255, 0, 0, 255));
+
         graphics.fillRect(x, y, w, h);
     }
 

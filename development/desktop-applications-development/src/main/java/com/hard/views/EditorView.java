@@ -149,11 +149,6 @@ public class EditorView {
 
     public void drawCanvas() {
         for (Shape shape : shapes) {
-            if (shape.isSelected())
-                canvasGraphics.setColor(new Color(0, 255, 0, 255));
-            else
-                canvasGraphics.setColor(new Color(255, 0, 0, 255));
-
             shape.draw(canvasGraphics);
         }
     }

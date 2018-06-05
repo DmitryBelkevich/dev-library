@@ -15,6 +15,11 @@ public class Circle extends Shape {
 
     @Override
     public void draw(Graphics graphics) {
+        if (isSelected())
+            graphics.setColor(new Color(0, 255, 0, 255));
+        else
+            graphics.setColor(new Color(255, 0, 0, 255));
+
         graphics.fillOval(x - r, y - r, r * 2, r * 2);
     }
 
