@@ -1,5 +1,7 @@
 rootProject.name = 'dev-library-java'
-include 'java-core',
+include(
+        'algorithms',
+        'java-core',
         'jre-jdk-jvm',
         'runtime',
         'keywords',
@@ -116,7 +118,6 @@ include 'java-core',
         '2-3-4-tree',
         'red-black-tree',
         'heap',
-        'algorithms',
         'arrays-sorting',
         'matrix',
         'hashing--hash-function',
@@ -197,3 +198,4 @@ include 'java-core',
         'sockets',
         'desktop-applications-development',
         'mvp'
+)
