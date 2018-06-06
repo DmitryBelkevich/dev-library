@@ -3,7 +3,9 @@ package com.hard;
 public class Main {
     public static void main(String[] args) {
         View view = new View();
+
         view.onCreate();
+        view.onClickButton();
     }
 }
 
@@ -28,15 +30,11 @@ class Model {
 }
 
 /**
- * View / Activity
+ * View
  */
 
 interface IView {
-    void showHeader();
-
-    void showContent();
-
-    void showFooter();
+    void setContent();
 
     void setStr(String str);
 }
@@ -53,27 +51,13 @@ class View implements IView {
         presenter.onCreate();
     }
 
-    public void onResume() {
-        presenter.onResume();
-    }
-
-    public void onDestroy() {
-        presenter.onDestroy();
+    public void onClickButton() {
+        presenter.onClickButton();
     }
 
     @Override
-    public void showHeader() {
-        System.out.println("show Header");
-    }
-
-    @Override
-    public void showContent() {
-        System.out.println("show Content");
-    }
-
-    @Override
-    public void showFooter() {
-        System.out.println("show Footer");
+    public void setContent() {
+        System.out.println("set Content");
     }
 
     @Override
@@ -89,9 +73,7 @@ class View implements IView {
 interface IPresenter {
     void onCreate();
 
-    void onResume();
-
-    void onDestroy();
+    void onClickButton();
 }
 
 class Presenter implements IPresenter {
@@ -105,21 +87,12 @@ class Presenter implements IPresenter {
 
     @Override
     public void onCreate() {
-        view.showHeader();
-        view.showContent();
-        view.showFooter();
+        view.setContent();
+    }
 
+    @Override
+    public void onClickButton() {
         String str = model.getStr();
         view.setStr(str);
-    }
-
-    @Override
-    public void onResume() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
     }
 }
