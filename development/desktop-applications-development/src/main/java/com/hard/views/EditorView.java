@@ -16,6 +16,7 @@ public class EditorView {
      * Gui
      */
 
+    private JFrame frame;
     private JPanel panel;
 
     private Graphics2D panelGraphics;
@@ -66,7 +67,7 @@ public class EditorView {
     }
 
     public void createGui() {
-        JFrame frame = new JFrame();
+        frame = new JFrame();
 
         frame.setSize(640, 480);
         frame.setLocationRelativeTo(null);
@@ -133,7 +134,7 @@ public class EditorView {
             }
         });
 
-        panel.addKeyListener(new KeyListener() {
+        frame.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
 
