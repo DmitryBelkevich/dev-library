@@ -197,5 +197,6 @@ include(
         'serialization-deserialization',
         'sockets',
         'desktop-applications-development',
-        'mvp'
+        'mvp',
+        'lwjgl'
 )
