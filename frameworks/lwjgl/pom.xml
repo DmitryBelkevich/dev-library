@@ -16,4 +16,19 @@
 
     <packaging>jar</packaging>
 
+    <properties>
+        <lwjgl.version>3.1.6</lwjgl.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- lwjgl -->
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl</artifactId>
+            <version>${lwjgl.version}</version>
+        </dependency>
+
+    </dependencies>
+
 </project>
