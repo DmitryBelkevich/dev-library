@@ -18,6 +18,7 @@
 
     <properties>
         <lwjgl.version>3.1.6</lwjgl.version>
+        <lwjgl-platform.version>3.0.0</lwjgl-platform.version>
     </properties>
 
     <dependencies>
@@ -27,6 +28,14 @@
             <groupId>org.lwjgl</groupId>
             <artifactId>lwjgl</artifactId>
             <version>${lwjgl.version}</version>
+        </dependency>
+
+        <!-- lwjgl-platform -->
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-platform</artifactId>
+            <version>${lwjgl-platform.version}</version>
+            <classifier>natives-windows</classifier>
         </dependency>
 
     </dependencies>
