@@ -13,9 +13,6 @@ allprojects {
     ext {
         appName = "dev-library-java"
 
-//      app
-        gdxVersion = '1.9.8'
-
 //      tests
         junitVersion = '4.12'
     }
@@ -25,11 +22,6 @@ allprojects {
     }
 
     dependencies {
-//      lib-gdx
-        compile group: 'com.badlogicgames.gdx', name: 'gdx', version: gdxVersion
-        compile group: 'com.badlogicgames.gdx', name: 'gdx-backend-lwjgl', version: gdxVersion
-        compile group: 'com.badlogicgames.gdx', name: 'gdx-platform', version: gdxVersion, classifier: 'natives-desktop'
-
 //      junit
         testCompile group: 'junit', name: 'junit', version: junitVersion
     }
