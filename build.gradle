@@ -10,17 +10,27 @@ allprojects {
 
     sourceCompatibility = 10
 
+    ext {
+        appName = "dev-library-java"
+
+//      app
+        gdxVersion = '1.9.8'
+
+//      tests
+        junitVersion = '4.12'
+    }
+
     repositories {
         mavenCentral()
     }
 
     dependencies {
-//        lib-gdx
-        compile group: 'com.badlogicgames.gdx', name: 'gdx', version: '1.9.8'
-        compile group: 'com.badlogicgames.gdx', name: 'gdx-backend-lwjgl', version: '1.9.8'
-        compile group: 'com.badlogicgames.gdx', name: 'gdx-platform', version: '1.9.8', classifier: 'natives-desktop'
+//      lib-gdx
+        compile group: 'com.badlogicgames.gdx', name: 'gdx', version: gdxVersion
+        compile group: 'com.badlogicgames.gdx', name: 'gdx-backend-lwjgl', version: gdxVersion
+        compile group: 'com.badlogicgames.gdx', name: 'gdx-platform', version: gdxVersion, classifier: 'natives-desktop'
 
-//        junit
-        testCompile group: 'junit', name: 'junit', version: '4.12'
+//      junit
+        testCompile group: 'junit', name: 'junit', version: junitVersion
     }
 }
