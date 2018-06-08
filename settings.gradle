@@ -198,5 +198,6 @@ include(
         'sockets',
         'desktop-applications-development',
         'mvp',
-        'lwjgl'
+        'lwjgl',
+        'java-native-interface--jni'
 )

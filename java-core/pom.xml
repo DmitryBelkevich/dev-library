@@ -38,6 +38,7 @@
         <module>reflection</module>
         <module>serialization-deserialization</module>
         <module>annotations</module>
+        <module>java-native-interface--jni</module>
         <module>java-2-core</module>
         <module>java-5-core</module>
         <module>java-7-core</module>
