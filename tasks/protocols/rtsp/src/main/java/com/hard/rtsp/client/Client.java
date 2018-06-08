@@ -297,15 +297,15 @@ public class Client {
                 RtpPacket rtp_packet = new RtpPacket(rcvdp.getData(), rcvdp.getLength());
 
                 //print important header fields of the RTP packet received:
-                System.out.println("Got RTP packet with SeqNum # " + rtp_packet.getsequencenumber() + " TimeStamp " + rtp_packet.gettimestamp() + " ms, of type " + rtp_packet.getpayloadtype());
+                System.out.println("Got RTP packet with SeqNum # " + rtp_packet.getSequenceNumber() + " TimeStamp " + rtp_packet.getTimestamp() + " ms, of type " + rtp_packet.getPayLoadType());
 
                 //print header bitstream:
                 rtp_packet.printHeader();
 
                 //get the payload bitstream from the RtpPacket object
-                int payload_length = rtp_packet.getpayload_length();
+                int payload_length = rtp_packet.getPayload_length();
                 byte[] payload = new byte[payload_length];
-                rtp_packet.getpayload(payload);
+                rtp_packet.getPayload(payload);
 
                 //get an Image object from the payload bitstream
                 Toolkit toolkit = Toolkit.getDefaultToolkit();

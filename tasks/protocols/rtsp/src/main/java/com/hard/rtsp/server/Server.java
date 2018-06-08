@@ -204,7 +204,7 @@ public class Server extends JFrame implements ActionListener {
                 RtpPacket rtpPacket = new RtpPacket(MJPEG_TYPE, imageNb, imageNb * FRAME_PERIOD, buffer, image_length);
 
                 //get to total length of the full rtp packet to send
-                int packetLength = rtpPacket.getlength();
+                int packetLength = rtpPacket.getLength();
 
                 //retrieve the packet bitstream and store it in an array of bytes
                 byte[] packet_bits = new byte[packetLength];

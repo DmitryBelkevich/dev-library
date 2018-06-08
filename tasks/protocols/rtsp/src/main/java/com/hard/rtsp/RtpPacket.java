@@ -20,6 +20,7 @@ public class RtpPacket {
 
     // size of the RTP payload
     public int payload_size;
+
     // Bitstream of the RTP payload
     public byte[] payload;
 
@@ -46,7 +47,6 @@ public class RtpPacket {
         headers = new byte[HEADER_SIZE];
 
         headers[1] = (byte) ((Marker << 7) | PayloadType);
-
         headers[2] = (byte) (SequenceNumber >> 8);
         headers[3] = (byte) (SequenceNumber);
 
@@ -58,10 +58,7 @@ public class RtpPacket {
 
         payload_size = data_length;
         payload = new byte[data_length];
-
         payload = data;
-
-
     }
 
     // --------------------------
@@ -91,19 +88,20 @@ public class RtpPacket {
 
             // interpret the changing fields of the header:
             PayloadType = headers[1] & 127;
-            SequenceNumber = unsigned_int(headers[3]) + 256
-                    * unsigned_int(headers[2]);
-            TimeStamp = unsigned_int(headers[7]) + 256 * unsigned_int(headers[6])
-                    + 65536 * unsigned_int(headers[5]) + 16777216
-                    * unsigned_int(headers[4]);
+            SequenceNumber = unsigned_int(headers[3])
+                    + 256 * unsigned_int(headers[2]);
+
+            TimeStamp = unsigned_int(headers[7])
+                    + 256 * unsigned_int(headers[6])
+                    + 65536 * unsigned_int(headers[5])
+                    + 16777216 * unsigned_int(headers[4]);
         }
     }
 
     // --------------------------
-    // getpayload: return the payload bistream of the RtpPacket and its size
+    // getPayload: return the payload bistream of the RtpPacket and its size
     // --------------------------
-    public int getpayload(byte[] data) {
-
+    public int getPayload(byte[] data) {
         for (int i = 0; i < payload_size; i++)
             data[i] = payload[i];
 
@@ -111,16 +109,16 @@ public class RtpPacket {
     }
 
     // --------------------------
-    // getpayload_length: return the length of the payload
+    // getPayload_length: return the length of the payload
     // --------------------------
-    public int getpayload_length() {
+    public int getPayload_length() {
         return (payload_size);
     }
 
     // --------------------------
-    // getlength: return the total length of the RTP packet
+    // getLength: return the total length of the RTP packet
     // --------------------------
-    public int getlength() {
+    public int getLength() {
         return (payload_size + HEADER_SIZE);
     }
 
@@ -131,40 +129,40 @@ public class RtpPacket {
         // construct the packet = header + payload
         for (int i = 0; i < HEADER_SIZE; i++)
             packet[i] = headers[i];
+
         for (int i = 0; i < payload_size; i++)
             packet[i + HEADER_SIZE] = payload[i];
 
         // return total size of the packet
-        return (payload_size + HEADER_SIZE);
+        return payload_size + HEADER_SIZE;
     }
 
     // --------------------------
-    // gettimestamp
+    // getTimestamp
     // --------------------------
 
-    public int gettimestamp() {
-        return (TimeStamp);
+    public int getTimestamp() {
+        return TimeStamp;
     }
 
     // --------------------------
-    // getsequencenumber
+    // getSequenceNumber
     // --------------------------
-    public int getsequencenumber() {
-        return (SequenceNumber);
+    public int getSequenceNumber() {
+        return SequenceNumber;
     }
 
     // --------------------------
-    // getpayloadtype
+    // getPayLoadType
     // --------------------------
-    public int getpayloadtype() {
-        return (PayloadType);
+    public int getPayLoadType() {
+        return PayloadType;
     }
 
     // --------------------------
     // print headers without the SSRC
     // --------------------------
     public void printHeader() {
-
         for (int i = 0; i < (HEADER_SIZE - 4); i++) {
             for (int j = 7; j >= 0; j--)
                 if (((1 << j) & headers[i]) != 0)
@@ -184,5 +182,4 @@ public class RtpPacket {
         else
             return (256 + nb);
     }
-
 }
