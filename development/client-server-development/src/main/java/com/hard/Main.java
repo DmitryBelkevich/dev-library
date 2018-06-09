@@ -91,7 +91,7 @@ class Client {
 
     public void run() {
         sendPacket(new AuthorizePacket("aaa"));
-        sendPacket(new LevelUpPacket("aaa", 1));
+        sendPacket(new MessagePacket("aaa", "Hello"));
     }
 
     public void sendPacket(OPacket packet) {
@@ -174,6 +174,40 @@ class AuthorizePacket extends OPacket {
     }
 }
 
+class MessagePacket extends OPacket {
+    private String username;
+    private String message;
+
+    public MessagePacket() {
+    }
+
+    public MessagePacket(String username, String message) {
+        this.username = username;
+        this.message = message;
+    }
+
+    @Override
+    public int getId() {
+        return 2;
+    }
+
+    @Override
+    public void write(DataOutputStream dataOutputStream) throws IOException {
+        dataOutputStream.writeUTF(message);
+    }
+
+    @Override
+    public void read(DataInputStream dataInputStream) throws IOException {
+        username = dataInputStream.readUTF();
+        message = dataInputStream.readUTF();
+    }
+
+    @Override
+    public void handle() {
+
+    }
+}
+
 class LevelUpPacket extends OPacket {
     private String username;
     private int level;
@@ -188,7 +222,7 @@ class LevelUpPacket extends OPacket {
 
     @Override
     public int getId() {
-        return 2;
+        return 3;
     }
 
     @Override
@@ -214,7 +248,8 @@ class PacketManager {
 
     static {
         packets.put(1, AuthorizePacket.class);
-        packets.put(2, LevelUpPacket.class);
+        packets.put(2, MessagePacket.class);
+        packets.put(3, LevelUpPacket.class);
 
         // var2 - fill via reflection
         // scan package
