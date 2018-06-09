@@ -5,10 +5,10 @@ import com.hard.my_chat.client.views.FrameView;
 import com.hard.my_chat.client.views.View;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class Client {
-    private List<View> views;
+    private Collection<View> views;
 
     public Client() {
         views = new ArrayList<>();
