@@ -297,7 +297,7 @@ public class Client {
                 RtpPacket rtp_packet = new RtpPacket(rcvdp.getData(), rcvdp.getLength());
 
                 //print important header fields of the RTP packet received:
-                System.out.println("Got RTP packet with SeqNum # " + rtp_packet.getSequenceNumber() + " TimeStamp " + rtp_packet.getTimestamp() + " ms, of type " + rtp_packet.getPayLoadType());
+                System.out.println("Got RTP packet with SeqNum # " + rtp_packet.getSequenceNumber() + " TimeStamp " + rtp_packet.getTimestamp() + " ms, of type " + rtp_packet.getPayloadType());
 
                 //print header bitstream:
                 rtp_packet.printHeader();

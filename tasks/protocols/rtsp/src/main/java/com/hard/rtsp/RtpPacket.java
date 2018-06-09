@@ -153,9 +153,9 @@ public class RtpPacket {
     }
 
     // --------------------------
-    // getPayLoadType
+    // getPayloadType
     // --------------------------
-    public int getPayLoadType() {
+    public int getPayloadType() {
         return PayloadType;
     }
 
