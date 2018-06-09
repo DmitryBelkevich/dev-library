@@ -13,9 +13,11 @@ public class ConsoleView extends View {
     public void run() {
         Scanner scanner = new Scanner(System.in);
 
-        while (scanner.hasNextLine()) {
-            sendMessage(scanner.nextLine());
-        }
+        new Thread(()->{
+            while (scanner.hasNextLine()) {
+                sendMessage(scanner.nextLine());
+            }
+        }).start();
     }
 
     @Override
