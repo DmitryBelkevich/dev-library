@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class FrameView extends View {
     private JTextArea messagesTextArea;
@@ -53,9 +55,14 @@ public class FrameView extends View {
 
         inputTextField.requestFocus();
 
+        /**
+         * Listeners
+         */
+
         ActionListener actionListener = new SendActionListener();
         inputTextField.addActionListener(actionListener);
         sendButton.addActionListener(actionListener);
+        frame.addWindowListener(new CloseWindowListener());
     }
 
     @Override
@@ -88,6 +95,13 @@ public class FrameView extends View {
                 return;
 
             sendMessage(str);
+        }
+    }
+
+    private class CloseWindowListener extends WindowAdapter {
+        @Override
+        public void windowClosing(WindowEvent e) {
+            client.stop();
         }
     }
 }

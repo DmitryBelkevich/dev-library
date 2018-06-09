@@ -4,9 +4,7 @@ import com.hard.my_chat.client.views.ConsoleView;
 import com.hard.my_chat.client.views.FrameView;
 import com.hard.my_chat.client.views.View;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collection;

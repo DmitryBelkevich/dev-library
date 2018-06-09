@@ -75,4 +75,8 @@ public class Server {
         for (View view : views)
             view.getMessage(str);
     }
+
+    public int clientsSize() {
+        return clientThreads.size();
+    }
 }

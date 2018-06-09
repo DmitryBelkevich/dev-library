@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class FrameView extends View {
+    private JTextArea textArea;
+
     public FrameView(Server server) {
         super(server);
     }
@@ -13,6 +15,10 @@ public class FrameView extends View {
     @Override
     public void run() {
         createGui();
+
+        new Thread(() -> {
+            draw();
+        }).start();
     }
 
     public void createGui() {
@@ -31,7 +37,7 @@ public class FrameView extends View {
          * components
          */
 
-        JTextArea textArea = new JTextArea(20, 50);
+        textArea = new JTextArea(20, 50);
         textArea.setEditable(false);
 
         panel.add(textArea);
@@ -48,5 +54,18 @@ public class FrameView extends View {
     @Override
     public void sendMessage(String str) {
 
+    }
+
+    public void draw() {
+        while (true) {
+            int clientsCount = server.clientsSize();
+            textArea.setText(String.valueOf(clientsCount));
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
