@@ -6,21 +6,17 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library-java</artifactId>
+        <artifactId>development</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>development</artifactId>
+    <artifactId>client-server-development</artifactId>
 
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>webapp-development</module>
-        <module>client-server-development</module>
-        <module>desktop-applications-development</module>
-        <module>game-development</module>
     </modules>
 
 </project>
