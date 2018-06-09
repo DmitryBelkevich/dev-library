@@ -2,7 +2,7 @@ package com.hard.rtsp;
 
 public class RtpPacket {
     // size of the RTP header:
-    static int HEADER_SIZE = 12;
+    private static int HEADER_SIZE = 12;
 
     // Fields that compose the RTP header
     public int Version;
@@ -140,7 +140,6 @@ public class RtpPacket {
     // --------------------------
     // getTimestamp
     // --------------------------
-
     public int getTimestamp() {
         return TimeStamp;
     }
@@ -176,7 +175,7 @@ public class RtpPacket {
     }
 
     // return the unsigned value of 8-bit integer nb
-    static int unsigned_int(int nb) {
+    public static int unsigned_int(int nb) {
         if (nb >= 0)
             return (nb);
         else
