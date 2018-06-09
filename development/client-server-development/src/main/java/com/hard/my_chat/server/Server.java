@@ -1,5 +1,6 @@
 package com.hard.my_chat.server;
 
+import com.hard.my_chat.server.views.ConsoleView;
 import com.hard.my_chat.server.views.FrameView;
 import com.hard.my_chat.server.views.View;
 
@@ -12,6 +13,7 @@ public class Server {
     public Server() {
         views = new ArrayList<>();
 
+        views.add(new ConsoleView(this));
         views.add(new FrameView(this));
     }
 

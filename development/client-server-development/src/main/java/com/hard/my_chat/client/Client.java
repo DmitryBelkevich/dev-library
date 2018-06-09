@@ -13,8 +13,8 @@ public class Client {
     public Client() {
         views = new ArrayList<>();
 
-        views.add(new FrameView(this));
         views.add(new ConsoleView(this));
+        views.add(new FrameView(this));
     }
 
     public void run() {
