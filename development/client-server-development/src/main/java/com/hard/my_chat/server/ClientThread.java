@@ -114,5 +114,6 @@ public class ClientThread implements Runnable {
         }
 
         packet.read(dataInputStream);
+        packet.execute();
     }
 }

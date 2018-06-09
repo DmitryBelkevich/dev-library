@@ -46,7 +46,7 @@ public class Client {
         write(new AuthorizationPacket(this.toString()));
 
         while (launched) {
-            write(new MessagePacket("Hello World"));
+//            write(new MessagePacket("Hello World"));
         }
 
         stop();

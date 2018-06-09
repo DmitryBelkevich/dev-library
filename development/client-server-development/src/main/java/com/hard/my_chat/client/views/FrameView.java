@@ -1,6 +1,7 @@
 package com.hard.my_chat.client.views;
 
 import com.hard.my_chat.client.Client;
+import com.hard.my_chat.client.packets.MessagePacket;
 
 import javax.swing.*;
 import java.awt.*;
@@ -77,7 +78,8 @@ public class FrameView extends View {
 
     @Override
     public void sendMessage(String str) {
-        client.notifyAllViews(str);
+//        client.notifyAllViews(str);
+        client.write(new MessagePacket(str));
 
         inputTextField.requestFocus();
         inputTextField.setText(null);
