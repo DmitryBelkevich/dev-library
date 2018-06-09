@@ -1,9 +1,17 @@
 package com.hard.my_chat.client.views;
 
-public interface View {
-    void run();
+import com.hard.my_chat.client.Client;
 
-    void getMessage(String str);
+public abstract class View {
+    protected Client client;
 
-    void sendMessage(String str);
+    public View(Client client) {
+        this.client = client;
+    }
+
+    public abstract void run();
+
+    public abstract void getMessage(String str);
+
+    public abstract void sendMessage(String str);
 }

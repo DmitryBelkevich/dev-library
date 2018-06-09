@@ -4,11 +4,9 @@ import com.hard.my_chat.client.Client;
 
 import java.util.Scanner;
 
-public class ConsoleView implements View {
-    private Client client;
-
+public class ConsoleView extends View {
     public ConsoleView(Client client) {
-        this.client = client;
+        super(client);
     }
 
     @Override
@@ -27,6 +25,6 @@ public class ConsoleView implements View {
 
     @Override
     public void sendMessage(String str) {
-        client.notifyAll(str);
+        client.notifyAllViews(str);
     }
 }

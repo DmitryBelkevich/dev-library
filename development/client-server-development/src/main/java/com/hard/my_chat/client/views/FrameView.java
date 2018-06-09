@@ -7,15 +7,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FrameView implements View {
-    private Client client;
-
+public class FrameView extends View {
     private JTextArea messagesTextArea;
     private JScrollPane scrollPane;
     private JTextField inputTextField;
 
     public FrameView(Client client) {
-        this.client = client;
+        super(client);
     }
 
     @Override
@@ -72,7 +70,7 @@ public class FrameView implements View {
 
     @Override
     public void sendMessage(String str) {
-        client.notifyAll(str);
+        client.notifyAllViews(str);
 
         inputTextField.requestFocus();
         inputTextField.setText(null);

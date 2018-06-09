@@ -1,9 +1,15 @@
 package com.hard.my_chat.server.views;
 
+import com.hard.my_chat.server.Server;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class FrameView implements View {
+public class FrameView extends View {
+    public FrameView(Server server) {
+        super(server);
+    }
+
     @Override
     public void run() {
         createGui();
@@ -32,5 +38,10 @@ public class FrameView implements View {
 
         frame.pack();
         frame.setVisible(true);
+    }
+
+    @Override
+    public void getMessage(String str) {
+
     }
 }

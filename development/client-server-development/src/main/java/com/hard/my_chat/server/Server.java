@@ -12,11 +12,16 @@ public class Server {
     public Server() {
         views = new ArrayList<>();
 
-        views.add(new FrameView());
+        views.add(new FrameView(this));
     }
 
     public void run() {
         for (View view : views)
             view.run();
+    }
+
+    public void notifyAllViews(String str) {
+        for (View view : views)
+            view.getMessage(str);
     }
 }

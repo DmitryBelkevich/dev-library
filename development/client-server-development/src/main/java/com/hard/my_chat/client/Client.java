@@ -22,7 +22,7 @@ public class Client {
             view.run();
     }
 
-    public void notifyAll(String str) {
+    public void notifyAllViews(String str) {
         for (View view : views)
             view.getMessage(str);
     }
