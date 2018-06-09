@@ -32,7 +32,8 @@ public class ClientThread implements Runnable {
         initStreams();
 
         while (launched) {
-
+            if (socket.isClosed())
+                launched = false;
         }
 
         stop();
@@ -67,7 +68,6 @@ public class ClientThread implements Runnable {
 
         try {
             socket.close();
-            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }
