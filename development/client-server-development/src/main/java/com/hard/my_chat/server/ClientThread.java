@@ -1,5 +1,6 @@
 package com.hard.my_chat.server;
 
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -34,6 +35,23 @@ public class ClientThread implements Runnable {
         while (launched) {
             if (socket.isClosed())
                 launched = false;
+
+            try {
+                if (inputStream.available() > 0) {
+                    DataInputStream dataInputStream = new DataInputStream(inputStream);
+
+                    String str = dataInputStream.readUTF();
+                    System.out.println(str);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         stop();
