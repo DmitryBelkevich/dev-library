@@ -44,6 +44,18 @@ public class ClientThread implements Runnable {
 
     public void stop() {
         try {
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
