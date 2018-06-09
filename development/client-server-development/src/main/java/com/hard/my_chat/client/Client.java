@@ -28,6 +28,14 @@ public class Client {
         launched = true;
     }
 
+    public boolean isLaunched() {
+        return launched;
+    }
+
+    public void setLaunched(boolean launched) {
+        this.launched = launched;
+    }
+
     public void run() {
         init();
         initStreams();

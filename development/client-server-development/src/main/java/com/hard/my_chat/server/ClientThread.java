@@ -19,6 +19,14 @@ public class ClientThread implements Runnable {
         launched = true;
     }
 
+    public boolean isLaunched() {
+        return launched;
+    }
+
+    public void setLaunched(boolean launched) {
+        this.launched = launched;
+    }
+
     @Override
     public void run() {
         initStreams();
@@ -26,6 +34,8 @@ public class ClientThread implements Runnable {
         while (launched) {
 
         }
+
+        stop();
     }
 
     public void initStreams() {
