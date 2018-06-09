@@ -105,21 +105,21 @@ public class RtpPacket {
         for (int i = 0; i < payload_size; i++)
             data[i] = payload[i];
 
-        return (payload_size);
+        return payload_size;
     }
 
     // --------------------------
     // getPayload_length: return the length of the payload
     // --------------------------
     public int getPayload_length() {
-        return (payload_size);
+        return payload_size;
     }
 
     // --------------------------
     // getLength: return the total length of the RTP packet
     // --------------------------
     public int getLength() {
-        return (payload_size + HEADER_SIZE);
+        return payload_size + HEADER_SIZE;
     }
 
     // --------------------------
@@ -177,8 +177,8 @@ public class RtpPacket {
     // return the unsigned value of 8-bit integer nb
     public static int unsigned_int(int nb) {
         if (nb >= 0)
-            return (nb);
+            return nb;
         else
-            return (256 + nb);
+            return 256 + nb;
     }
 }
