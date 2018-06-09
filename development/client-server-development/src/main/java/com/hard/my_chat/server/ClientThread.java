@@ -1,5 +1,9 @@
 package com.hard.my_chat.server;
 
+import com.hard.my_chat.server.packets.AuthorizationPacket;
+import com.hard.my_chat.server.packets.MessagePacket;
+import com.hard.my_chat.server.packets.Packet;
+
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -110,55 +114,5 @@ public class ClientThread implements Runnable {
         }
 
         packet.read(dataInputStream);
-    }
-}
-
-interface Packet {
-    void read(DataInputStream dataInputStream);
-
-    void execute();
-}
-
-class AuthorizationPacket implements Packet {
-    private String username;
-
-    public AuthorizationPacket(String username) {
-        this.username = username;
-    }
-
-    @Override
-    public void read(DataInputStream dataInputStream) {
-        try {
-            username = dataInputStream.readUTF();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void execute() {
-
-    }
-}
-
-class MessagePacket implements Packet {
-    private String text;
-
-    public MessagePacket(String text) {
-        this.text = text;
-    }
-
-    @Override
-    public void read(DataInputStream dataInputStream) {
-        try {
-            text = dataInputStream.readUTF();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void execute() {
-
     }
 }
