@@ -17,7 +17,7 @@ public class Server {
     private ServerSocket serverSocket;
     private Collection<ClientThread> clientThreads;
 
-    private boolean launched;
+    private volatile boolean launched;
 
     public Server() {
         views = new ArrayList<>();

@@ -17,7 +17,7 @@ public class Client {
 
     private Socket socket;
 
-    private boolean launched;
+    private volatile boolean launched;
 
     public Client() {
         views = new ArrayList<>();

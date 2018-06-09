@@ -11,7 +11,7 @@ public class ClientThread implements Runnable {
 
     private Socket socket;
 
-    private boolean launched;
+    private volatile boolean launched;
 
     public ClientThread(Socket socket) {
         this.socket = socket;
@@ -67,6 +67,7 @@ public class ClientThread implements Runnable {
 
         try {
             socket.close();
+            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }
