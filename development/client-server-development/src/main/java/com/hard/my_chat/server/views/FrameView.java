@@ -44,4 +44,9 @@ public class FrameView extends View {
     public void getMessage(String str) {
 
     }
+
+    @Override
+    public void sendMessage(String str) {
+
+    }
 }
