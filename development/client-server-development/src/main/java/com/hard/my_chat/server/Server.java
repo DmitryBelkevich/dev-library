@@ -70,7 +70,7 @@ public class Server {
 
     public void stop() {
         for (ClientThread clientThread : clientThreads)
-            clientThread.stop();
+            clientThread.setLaunched(false);
 
         try {
             serverSocket.close();

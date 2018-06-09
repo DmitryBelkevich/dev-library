@@ -4,6 +4,8 @@ import com.hard.my_chat.server.Server;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class FrameView extends View {
     private JTextArea textArea;
@@ -44,6 +46,12 @@ public class FrameView extends View {
 
         frame.pack();
         frame.setVisible(true);
+
+        /**
+         * Listeners
+         */
+
+        frame.addWindowListener(new CloseWindowListener());
     }
 
     @Override
@@ -66,6 +74,13 @@ public class FrameView extends View {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private class CloseWindowListener extends WindowAdapter {
+        @Override
+        public void windowClosing(WindowEvent e) {
+            server.setLaunched(false);
         }
     }
 }
