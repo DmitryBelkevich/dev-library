@@ -104,6 +104,8 @@ public class Client {
 
     public void write(Packet packet) {
         DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+
+        packet.writeId(dataOutputStream);
         packet.write(dataOutputStream);
     }
 }

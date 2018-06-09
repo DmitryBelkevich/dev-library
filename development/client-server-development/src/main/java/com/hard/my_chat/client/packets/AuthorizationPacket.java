@@ -11,6 +11,15 @@ public class AuthorizationPacket implements Packet {
     }
 
     @Override
+    public void writeId(DataOutputStream dataOutputStream) {
+        try {
+            dataOutputStream.writeInt(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void write(DataOutputStream dataOutputStream) {
         try {
             dataOutputStream.writeUTF(username);

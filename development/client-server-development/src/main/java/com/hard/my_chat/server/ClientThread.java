@@ -38,10 +38,7 @@ public class ClientThread implements Runnable {
 
             try {
                 if (inputStream.available() > 0) {
-                    DataInputStream dataInputStream = new DataInputStream(inputStream);
-
-                    String str = dataInputStream.readUTF();
-                    System.out.println(str);
+                    read();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -89,5 +86,79 @@ public class ClientThread implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void read() {
+        DataInputStream dataInputStream = new DataInputStream(inputStream);
+
+        int id = 0;
+        try {
+            id = dataInputStream.readInt();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Packet packet = null;
+
+        switch (id) {
+            case 1:
+                packet = new AuthorizationPacket(null);
+                break;
+            case 2:
+                packet = new MessagePacket(null);
+                break;
+        }
+
+        packet.read(dataInputStream);
+    }
+}
+
+interface Packet {
+    void read(DataInputStream dataInputStream);
+
+    void execute();
+}
+
+class AuthorizationPacket implements Packet {
+    private String username;
+
+    public AuthorizationPacket(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public void read(DataInputStream dataInputStream) {
+        try {
+            username = dataInputStream.readUTF();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void execute() {
+
+    }
+}
+
+class MessagePacket implements Packet {
+    private String text;
+
+    public MessagePacket(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public void read(DataInputStream dataInputStream) {
+        try {
+            text = dataInputStream.readUTF();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void execute() {
+
     }
 }

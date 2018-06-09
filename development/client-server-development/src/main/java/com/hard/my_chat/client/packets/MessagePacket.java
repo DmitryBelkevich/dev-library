@@ -11,6 +11,15 @@ public class MessagePacket implements Packet {
     }
 
     @Override
+    public void writeId(DataOutputStream dataOutputStream) {
+        try {
+            dataOutputStream.writeInt(2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void write(DataOutputStream dataOutputStream) {
         try {
             dataOutputStream.writeUTF(text);
