@@ -16,7 +16,9 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+
         session.beginTransaction();
 
         // Check database version
@@ -27,6 +29,7 @@ public class Main {
         System.out.println(result);
 
         session.getTransaction().commit();
+
         session.close();
 
         HibernateUtil.shutdown();
