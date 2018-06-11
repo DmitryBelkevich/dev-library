@@ -12,6 +12,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
 import org.hibernate.query.NativeQuery;
 
+import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +34,12 @@ public class Main {
             NativeQuery nativeQuery = session.createNativeQuery(sql);
             String result = (String) nativeQuery.getSingleResult();
             System.out.println(result);
+
+            // save Entity into database
+            Category category = new Category();
+            category.setTitle("category1");
+
+            session.save(category);
 
             transaction.commit();
         } catch (Exception e) {
@@ -82,6 +89,7 @@ class HibernateUtil {
 
                 // Create MetadataSources
                 MetadataSources metadataSources = new MetadataSources(serviceRegistry);
+                metadataSources.addAnnotatedClass(Category.class);
 
                 // Create Metadata
                 MetadataBuilder metadataBuilder = metadataSources.getMetadataBuilder();
@@ -106,5 +114,31 @@ class HibernateUtil {
         if (serviceRegistry != null) {
             StandardServiceRegistryBuilder.destroy(serviceRegistry);
         }
+    }
+}
+
+@Entity
+@Table(name = "categories")
+class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private String title;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
