@@ -201,5 +201,5 @@ include(
         'mvp',
         'lwjgl',
         'java-native-interface--jni',
-        'hiberane-5',
+        'hibernate-5',
 )

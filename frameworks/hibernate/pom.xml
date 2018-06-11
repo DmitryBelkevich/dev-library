@@ -18,7 +18,7 @@
 
     <modules>
         <module>hibernate-init</module>
-        <module>hiberane-5</module>
+        <module>hibernate-5</module>
     </modules>
 
 </project>
