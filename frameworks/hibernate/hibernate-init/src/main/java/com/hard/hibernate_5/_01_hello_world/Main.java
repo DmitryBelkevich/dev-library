@@ -1,4 +1,4 @@
-package com.hard._01_hello_world;
+package com.hard.hibernate_5._01_hello_world;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
