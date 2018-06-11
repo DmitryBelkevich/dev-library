@@ -2,6 +2,7 @@ package com.hard.hibernate_5._01_hello_world;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataBuilder;
 import org.hibernate.boot.MetadataSources;
@@ -16,21 +17,35 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
+        Session session = null;
+        Transaction transaction = null;
 
-        session.beginTransaction();
+        try {
+            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
-        // Check database version
-        String sql = "SELECT version()";
+            session = sessionFactory.openSession();
 
-        NativeQuery nativeQuery = session.createNativeQuery(sql);
-        String result = (String) nativeQuery.getSingleResult();
-        System.out.println(result);
+            transaction = session.beginTransaction();
 
-        session.getTransaction().commit();
+            // Check database version
+            String sql = "SELECT version()";
 
-        session.close();
+            NativeQuery nativeQuery = session.createNativeQuery(sql);
+            String result = (String) nativeQuery.getSingleResult();
+            System.out.println(result);
+
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
 
         HibernateUtil.shutdown();
     }
@@ -53,7 +68,11 @@ class HibernateUtil {
                 settings.put(Environment.URL, "jdbc:postgresql://localhost:5432/database1");
                 settings.put(Environment.USER, "postgres");
                 settings.put(Environment.PASS, "1234");
+
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL95Dialect");
+
+                settings.put("hibernate.show_sql", "true");
+                settings.put("hibernate.hbm2ddl.auto", "update");
 
                 // Apply settings
                 registryBuilder.applySettings(settings);
