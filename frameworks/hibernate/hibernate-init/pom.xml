@@ -16,4 +16,38 @@
 
     <packaging>jar</packaging>
 
+    <properties>
+        <!-- app -->
+        <postgresql.version>42.2.2</postgresql.version>
+        <hibernate.version>4.3.11.Final</hibernate.version>
+        <jaxb-api.version>2.3.0</jaxb-api.version>
+
+        <!-- tests -->
+    </properties>
+
+    <dependencies>
+
+        <!-- postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+        <!-- hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- jaxb-api -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api.version}</version>
+        </dependency>
+
+    </dependencies>
+
 </project>
