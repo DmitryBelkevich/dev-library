@@ -56,6 +56,7 @@ public class HibernateUtil {
                 sessionFactory = sessionFactoryBuilder.build();
             } catch (Exception e) {
                 e.printStackTrace();
+
                 if (serviceRegistry != null) {
                     StandardServiceRegistryBuilder.destroy(serviceRegistry);
                 }
