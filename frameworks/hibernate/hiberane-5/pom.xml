@@ -6,19 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>frameworks</artifactId>
+        <artifactId>hibernate</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>hibernate</artifactId>
+    <artifactId>hiberane-5</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>hibernate-init</module>
-        <module>hiberane-5</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
