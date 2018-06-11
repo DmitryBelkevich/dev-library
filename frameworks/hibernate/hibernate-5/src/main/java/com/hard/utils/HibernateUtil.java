@@ -15,9 +15,9 @@ import java.util.Map;
 
 public class HibernateUtil {
     private static StandardServiceRegistry serviceRegistry;
-    private static SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory = null;
 
-    public static SessionFactory getSessionFactory() {
+    static {
         if (sessionFactory == null) {
             try {
                 // Create serviceRegistry builder
@@ -62,7 +62,9 @@ public class HibernateUtil {
                 }
             }
         }
+    }
 
+    public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 
