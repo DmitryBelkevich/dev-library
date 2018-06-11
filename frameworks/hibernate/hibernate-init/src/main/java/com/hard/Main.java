@@ -31,7 +31,7 @@ public class Main {
 class HibernateUtil {
     private static final SessionFactory sessionFactory;
 
-    static{
+    static {
         Properties properties = new Properties();
 
         properties.put(Environment.DRIVER, "org.postgresql.Driver");
@@ -44,15 +44,15 @@ class HibernateUtil {
         properties.put("hibernate.show_sql", "true");
         properties.put("hibernate.hbm2ddl.auto", "update");
 
-        try{
+        try {
             sessionFactory = new Configuration()
                     .configure()
 //                .addClass(Category.class)
 //                .setProperties(properties)
                     .buildSessionFactory();
-        }catch (Throwable ex) {
-            System.err.println("Session Factory could not be created." + ex);
-            throw new ExceptionInInitializerError(ex);
+        } catch (Throwable e) {
+            System.err.println("Session Factory could not be created." + e);
+            throw new ExceptionInInitializerError(e);
         }
     }
 
