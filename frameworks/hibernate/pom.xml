@@ -17,7 +17,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>hibernate-init</module>
+        <module>hibernate-4</module>
         <module>hibernate-5</module>
     </modules>
 

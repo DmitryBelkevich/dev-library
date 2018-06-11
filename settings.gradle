@@ -173,7 +173,8 @@ include(
         'repository',
         'frameworks',
         'hibernate',
-        'hibernate-init',
+        'hibernate-4',
+        'hibernate-5',
         'springframework',
         'springframework-init',
         'springframework-project',
@@ -201,5 +202,4 @@ include(
         'mvp',
         'lwjgl',
         'java-native-interface--jni',
-        'hibernate-5',
 )
