@@ -6,22 +6,14 @@
 
     <parent>
         <groupId>com.hard</groupId>
-        <artifactId>dev-library-java</artifactId>
+        <artifactId>algorithms</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>algorithms</artifactId>
+    <artifactId>xor-encoder-decoder</artifactId>
 
     <name>${project.artifactId}</name>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>arrays-sorting</module>
-        <module>matrix</module>
-        <module>hashing--hash-function</module>
-        <module>infix-prefix-postfix</module>
-        <module>xor-encoder-decoder</module>
-    </modules>
+    <packaging>jar</packaging>
 
 </project>
