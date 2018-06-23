@@ -185,6 +185,7 @@ include(
         'clone-of-instance',
         'protocols',
         'rtsp',
+        'http',
         'ioc-framework',
         'development',
         'game-development',
@@ -202,4 +203,5 @@ include(
         'mvp',
         'lwjgl',
         'java-native-interface--jni',
+        'xor-encoder-decoder',
 )
