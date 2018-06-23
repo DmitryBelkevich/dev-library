@@ -26,31 +26,33 @@ class Server {
     public void run() {
         init();
 
-        try {
-            socket = serverSocket.accept();
-        } catch (IOException e) {
-            e.printStackTrace();
+        while (true) {
+            try {
+                socket = serverSocket.accept();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            initStreams();
+
+            /**
+             * request
+             */
+            String requestHeaders = readRequestHeaders();
+
+            System.out.println(requestHeaders);
+
+            /**
+             * response
+             */
+            String responseBody = generateResponseBody();
+
+            String responseHeaders = generateResponseHeaders(responseBody);
+
+            String response = responseHeaders + responseBody;
+
+            writeResponse(response.getBytes());
         }
-
-        initStreams();
-
-        /**
-         * request
-         */
-        String requestHeaders = readRequestHeaders();
-
-        System.out.println(requestHeaders);
-
-        /**
-         * response
-         */
-        String responseBody = generateResponseBody();
-
-        String responseHeaders = generateResponseHeaders(responseBody);
-
-        String response = responseHeaders + responseBody;
-
-        writeResponse(response.getBytes());
     }
 
     public void init() {
