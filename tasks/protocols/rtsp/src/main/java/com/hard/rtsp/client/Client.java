@@ -47,7 +47,7 @@ public class Client {
     private static final int READY = 1;
     private static final int PLAYING = 2;
     private static int state; //RTSP state == INIT or READY or PLAYING
-    private Socket rtspSocket; //socket used to send/receive RTSP messages
+    private Socket socket; //socket used to send/receive RTSP messages
 
     //input and output stream filters
     private static BufferedReader bufferedReader;
@@ -125,17 +125,17 @@ public class Client {
         InetAddress serverIpAddress = InetAddress.getByName(serverHost);
 
         //get video filename to request:
-        videoFileName = "c:/0/dev-library-java/tasks/protocols/rtsp/src/main/resources/server/movie.mjpeg"; //argv[2];
+        videoFileName = "C:\\dev\\java\\dev-library-java\\tasks\\protocols\\rtsp\\src\\main\\resources\\server\\movie.mjpeg"; //argv[2];
 
         //Establish a TCP connection with the server to exchange RTSP messages
         //------------------
-        // theClient.rtspSocket = new Socket(serverIpAddress, RTSP_server_port);
+        // theClient.socket = new Socket(serverIpAddress, RTSP_server_port);
 
-        client.rtspSocket = new Socket("127.0.0.1", 8554);
+        client.socket = new Socket("127.0.0.1", 8554);
 
         //Set input and output stream filters:
-        bufferedReader = new BufferedReader(new InputStreamReader(client.rtspSocket.getInputStream()));
-        bufferedWriter = new BufferedWriter(new OutputStreamWriter(client.rtspSocket.getOutputStream()));
+        bufferedReader = new BufferedReader(new InputStreamReader(client.socket.getInputStream()));
+        bufferedWriter = new BufferedWriter(new OutputStreamWriter(client.socket.getOutputStream()));
 
         //init RTSP state:
         state = INIT;

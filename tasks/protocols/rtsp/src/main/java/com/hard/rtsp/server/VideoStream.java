@@ -4,12 +4,12 @@ import java.io.FileInputStream;
 
 public class VideoStream {
     private FileInputStream fileInputStream; //video file
-    private int frame_nb; //current frame nb
+    private int frameNumber; // current frame nb
 
     public VideoStream(String fileName) throws Exception {
-        //init variables
+        // init variables
         fileInputStream = new FileInputStream(fileName);
-        frame_nb = 0;
+        frameNumber = 0;
     }
 
     /**
@@ -20,16 +20,14 @@ public class VideoStream {
      * @throws Exception
      */
     public int getNextFrame(byte[] frame) throws Exception {
-        int length = 0;
-        String length_string;
-        byte[] frame_length = new byte[5];
+        byte[] frameLength = new byte[5];
 
-        //read current frame length
-        fileInputStream.read(frame_length, 0, 5);
+        // read current frame length
+        fileInputStream.read(frameLength, 0, frameLength.length);
 
-        //transform frame_length to integer
-        length_string = new String(frame_length);
-        length = Integer.parseInt(length_string);
+        // transform frame_length to integer
+        String lengthStr = new String(frameLength);
+        int length = Integer.parseInt(lengthStr);
 
         return fileInputStream.read(frame, 0, length);
     }
